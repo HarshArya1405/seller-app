@@ -6,7 +6,7 @@ import AuthenticationJwtToken from '../../../../lib/utils/AuthenticationJwtToken
 import User from '../../models/user.model';
 import Role from '../../models/role.model';
 import ServiceApi from '../../../../lib/utils/serviceApi';
-import Organization from '../../models/organization.model';
+import Organization from '../../../organization/models/organization.model';
 import {JsonWebToken, Token} from '../../../../lib/authentication';
 // import {Nes} from '../isc';
 import { mergedEnvironmentConfig } from '../../../../config/env.config.js';

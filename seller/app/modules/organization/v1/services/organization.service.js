@@ -1,8 +1,8 @@
 import { v1 as uuidv1 } from 'uuid';
 import MESSAGES from '../../../../lib/utils/messages';
 import Organization from '../../models/organization.model';
-import User from '../../models/user.model';
-import UserService from './user.service';
+import User from '../../../authentication/models/user.model';
+import UserService from './store.service';
 import {
     NoRecordFoundError,
     DuplicateRecordFoundError,

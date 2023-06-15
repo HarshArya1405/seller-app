@@ -10,7 +10,7 @@ import User from '../../models/user.model';
 import Role from '../../models/role.model';
 import LoginAttempts from '../../models/loginAttempts.model';
 import BannedUser from '../../models/bannedUser.model';
-import Organization from '../../models/organization.model';
+import Organization from '../../../organization/models/organization.model';
 import ServiceApi from '../../../../lib/utils/serviceApi';
 import s3 from '../../../../lib/utils/s3Utils';
 

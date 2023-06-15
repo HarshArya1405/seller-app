@@ -29,30 +29,6 @@ const organizationSchema = new mongoose.Schema({ //Users who has login ability s
         type:Number,
         default:Date.now()
     },
-    storeDetails:{
-        categories: {type:Object},
-        logo: {type:String},
-        location: new mongoose.Schema({lat:{type:Number},long:{type:Number}},{ _id: true }),
-        locationAvailabilityPANIndia:{type:Boolean},
-        city:{type:Object},
-        defaultCancellable:{type:Boolean},
-        defaultReturnable:{type:Boolean},
-        address: {
-            building: {type:String},
-            city: {type:String},
-            state: {type:String},
-            country: {type:String},
-            area_code: {type:String},
-            locality: {type:String}
-        },
-        supportDetails:{
-            email:{type:String},
-            mobile:{type:String}
-        },
-        storeTiming:{type:Object},
-        radius:{type:Object},
-        logisticsBppId:{type:String}
-    },
     createdBy:{type:String}
 },{  
     strict: true,
