@@ -6,8 +6,10 @@ const productAddOnsSchema = new mongoose.Schema({
         required: true,
         default: () => uuid(),
     },
+    organizationId: {type:String},
     label: { type: String },
     type: { type: String },
+    mandatory:{ type: Boolean },
     createdBy: { type: String },
     updatedBy: { type: String },
     createdAt: {

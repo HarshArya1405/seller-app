@@ -6,7 +6,8 @@ const productCategorySchema = new mongoose.Schema({
         required:true,
         default: () => uuid(),
     },
-    parentId: {type:String},
+    organizationId: {type:String},
+    parent: {type:String},
     name: {type:String,required:true},
     createdAt:{
         type:Number,
