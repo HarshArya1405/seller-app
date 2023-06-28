@@ -24,7 +24,7 @@ class ProductCustomizationController {
             query.offset = parseInt(query.offset ?? 0);
             query.limit = parseInt(query.limit ?? 100);
             query.organization = req.user.organization;
-            const productCustomization = await productCustomizationService.listAddOns(query);
+            const productCustomization = await productCustomizationService.listAddOns(query,req.params.productId);
             return res.send(productCustomization);
 
         } catch (error) {
@@ -36,7 +36,7 @@ class ProductCustomizationController {
     async get(req, res, next) {
         try {
             const params = req.params;
-            const productCustomization = await productCustomizationService.getCustomization(params.addOnsId);
+            const productCustomization = await productCustomizationService.getCustomization(params);
             return res.send(productCustomization);
 
         } catch (error) {

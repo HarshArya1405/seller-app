@@ -41,6 +41,17 @@ class AuthenticationController {
         res.json({});
     }
 
+    signUp(req, res, next) {
+        const data = req.body;
+        authenticationService
+            .signUp(req.user, data)
+            .then((data) => {
+                res.json(data);
+            })
+            .catch((err) => {
+                next(err);
+            });
+    }
     /**
    * Forgot Password
    * @param {*} req    HTTP request object

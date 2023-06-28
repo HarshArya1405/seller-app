@@ -25,6 +25,7 @@ const MESSAGES = {
     USER_NOT_ALLOWED: 'You do not have access to this section, please contact your administrator',
     SINGLE_ITEM_CANNOT_CANCEL:'You cannot cancel single item, cancel complete order',
     LOGIN_ERROR_USER_ACCOUNT_BANNED: 'This user has exceeded the number of failed log-in attempts and has been temporarily locked out of ONDC seller app. Please contact admin',
+    CATEGORY_ALREADY_EXISTS: 'A Category with the given name already exists',
 
 };
 

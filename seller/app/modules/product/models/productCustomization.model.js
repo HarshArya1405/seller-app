@@ -7,6 +7,7 @@ const productCutomizationSchema = new mongoose.Schema({
         default: () => uuid(),
     },
     organizationId: {type:String},
+    product: {type:String},
     addOns: { type: String },
     label: { type: String },
     variant: { type: String },

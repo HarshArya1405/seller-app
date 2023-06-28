@@ -1,4 +1,5 @@
-import { NoRecordFoundError,UnauthenticatedError, UnauthorisedError } from '../../../../lib/errors';
+/* eslint-disable no-useless-catch */
+import { DuplicateRecordFoundError, NoRecordFoundError,UnauthenticatedError, UnauthorisedError } from '../../../../lib/errors';
 import MESSAGES from '../../../../lib/utils/messages';
 import {encryptPIN,isValidPIN} from '../../../../lib/utils/utilityFunctions';
 import AuthenticationJwtToken from '../../../../lib/utils/AuthenticationJwtToken';
@@ -19,16 +20,20 @@ class AuthenticationService {
         try {
             const loginTimestamp = new Date().getTime();
             //find user with email
-            data.email = data.email.toLowerCase();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(data.userName.match(emailRegex)){
+                data.userName = data.userName.toLowerCase();
+            }
 
-            let currentUser = await User.findOne({email:data.email}).populate([{path:'role'},{path:'organization',select:['name','_id','storeDetails']}]).lean();
+            let currentUser = await User.findOne({$or:[{email:data.userName},{mobile:data.userName}]}).populate([{path:'role'},{path:'organization',select:['name','_id','storeDetails']}]).lean();
             if (!currentUser) {
                 throw new UnauthenticatedError(MESSAGES.INVALID_PIN);
             }
             if(!currentUser.enabled){
                 throw new UnauthenticatedError(MESSAGES.LOGIN_ERROR_USER_ACCOUNT_DEACTIVATED);
             }
-
+            console.log({currentUser})
+            console.log({data})
             let PIN = '';
             let currentPIN = '';
             PIN = data.password;
@@ -89,6 +94,59 @@ class AuthenticationService {
 
             console.log(myCache.get(`${currentUser._id}-${JWTToken}`));
             return { user: currentUser, token: JWTToken };
+        } catch (err) {
+            throw err;
+        }
+    }
+
+    async signUp(currentUser, data) {
+        try {
+            data.userName = data.userName.toLowerCase();
+            let userQuery = {
+                $or:[
+                    {email:data.userName.toLowerCase()},
+                    {mobile:data.userName}
+                ]
+            };
+            const userExist = await User.findOne(userQuery);
+
+            if (userExist) {
+                throw new DuplicateRecordFoundError(MESSAGES.USER_ALREADY_EXISTS);
+            }
+            let password = Math.floor(1000 + Math.random() * 9000);
+
+            const encryptPassword = await encryptPIN('' + password);
+
+         
+            let user = new User();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(data.userName.match(emailRegex)){
+                user.email = data.userName;
+                let mailData = { temporaryPassword: password, user: user };
+
+                console.log('maildata---->',mailData);
+                //
+                ServiceApi.sendEmail(
+                    {
+                        receivers: [data.userName],
+                        template: 'SIGN_UP',
+                        data: mailData,
+                    },
+                    user, null
+                );
+    
+            }else{
+                user.mobile = data.userName;
+                //send otp to mobile
+            }
+            let role = await Role.findOne({name: 'Super Admin'});
+            user.role = role._id;
+            user.password = encryptPassword;
+            user.isSystemGeneratedPassword = true;
+            await user.save();
+
+            console.log('OTP-----------OTP---------OTP-------->',{password});
+            return { msg: 'OTP sent to your mobile no./email' };
         } catch (err) {
             throw err;
         }

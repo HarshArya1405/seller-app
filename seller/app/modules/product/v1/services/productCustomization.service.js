@@ -8,6 +8,7 @@ class ProductCustomizationService {
             let productAddOns = new ProductAddOns();
             productAddOns.organizationId = data.organizationId;
             productAddOns.label = data.label;
+            productAddOns.product = data.product;
             productAddOns.type = data.type;
             productAddOns.mandatory = data.mandatory;
             productAddOns= await productAddOns.save();
@@ -31,24 +32,27 @@ class ProductCustomizationService {
         }
     }
 
-    async listAddOns(params) {
+    async listAddOns(params,productId) {
         try {
-            let query={};
-            if(params.organization){
-                query.organization =params.organization;
-            }
-            const data = await ProductAddOns.find(query).sort({createdAt:1});
+            const addOns = await ProductAddOns.findOne({product:productId}).lean();
+            const customizations = await ProductCustomization.findOne({addOns:addOns._id});
+            let data = {...addOns};
+            data.customizations = customizations;
             return data;
+
         } catch (err) {
-            console.log('[OrderService] [getAll] Error in getting all organization ',err);
+            console.log('[OrganizationService] [get] Error in getting organization by id -',err);
             throw err;
         }
     }
 
-    async getCustomization(addOnsId) {
+    async getCustomization(productId) {
         try {
-            let customizations = await ProductCustomization.findOne({addOns:addOnsId});
-            return customizations;
+            const addOns = await ProductAddOns.findOne({product:productId});
+            const customizations = await ProductCustomization.findOne({addOns:addOns._id});
+            let data = {...addOns};
+            data.customizations = customizations;
+            return data;
 
         } catch (err) {
             console.log('[OrganizationService] [get] Error in getting organization by id -',err);

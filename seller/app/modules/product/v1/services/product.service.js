@@ -1,4 +1,5 @@
 import Product from '../../models/product.model';
+import CategoryVariant from '../../../../lib/utils/categoryVariant';
 import Organization from '../../../organization/models/organization.model';
 import s3 from '../../../../lib/utils/s3Utils';
 
@@ -120,6 +121,23 @@ class ProductService {
             console.log('req.body---->',data);
             //TODO: add org level check and record not found validation
             let doc = await Product.findOneAndUpdate({_id:productId},data);//.lean();
+            return data;
+
+        } catch (err) {
+            console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`,err);
+            throw err;
+        }
+    }
+
+    async CategoryVariantList(params) {
+        try {
+            let data = CategoryVariant;
+            if(params.category){
+                data = data[params.category];
+                if(params.subcategory){
+                    data = data[params.subcategory];
+                }   
+            }
             return data;
 
         } catch (err) {

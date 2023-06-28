@@ -143,6 +143,18 @@ class ProductController {
         }
     }
 
+    async CategoryVariant(req, res, next) {
+        try {
+            const params = req.query;
+            const categoryVariant = await productService.CategoryVariantList(params);
+            return res.send(categoryVariant);
+
+        } catch (error) {
+            console.log('[OrderController] [get] Error -', error);
+            next(error);
+        }
+    }
+
     async uploadCatalog(req, res, next) {
         try {
 

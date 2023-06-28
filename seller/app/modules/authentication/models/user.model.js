@@ -9,15 +9,15 @@ const userSchema = new mongoose.Schema({ //Users who has login ability should go
     },
     name: {
         type: String,
-        required: true,
+        // required: true,
     },
     mobile: {
         type: String,
-        required: true,
+        // required: true,
     },
     email: {
         type: String,
-        required: true,
+        // required: true,
         lowercase: true,
     },
     password: {

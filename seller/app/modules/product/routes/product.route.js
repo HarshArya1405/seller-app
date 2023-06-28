@@ -13,7 +13,7 @@ const productController = new ProductController();
 
 router.post('/v1/products',
     authentication.middleware(),
-    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: productSchema.create() }),
     productController.create);
 
@@ -60,6 +60,11 @@ router.post('/v1/products/upload/bulk',
 router.get('/v1/products/upload/bulk/template',
     //authentication.middleware(),
     productController.uploadTemplate,
+);
+
+router.get('/v1/product/CategoryVariant',
+    //authentication.middleware(),
+    productController.CategoryVariant,
 );
 
 module.exports = router;

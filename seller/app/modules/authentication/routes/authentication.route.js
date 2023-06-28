@@ -23,6 +23,13 @@ router.post(
     authenticationController.logout
 );
 
+router.post(
+    '/v1/auth/signup',
+    // authentication.middleware(),
+    authenticationController.signUp
+);
+
+
 /**
  * API to generate 6 digit PIN
  */
