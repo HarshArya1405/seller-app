@@ -52,6 +52,16 @@ class AuthenticationController {
                 next(err);
             });
     }
+    
+    async resetPasswordUsingLink(req, res, next) {
+        const reqParams = req.params;
+        const currentUserAccessToken = res.get('currentUserAccessToken');
+        authenticationService.resetPasswordUsingLink({...req.body, ...reqParams},currentUserAccessToken).then((response) => {
+            res.json({data: response});
+        }).catch((err) => {
+            next(err);
+        });
+    }
     /**
    * Forgot Password
    * @param {*} req    HTTP request object
