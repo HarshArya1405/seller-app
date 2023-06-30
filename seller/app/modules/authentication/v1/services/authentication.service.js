@@ -154,7 +154,6 @@ class AuthenticationService {
 
     async forgotPassword(data) {
         try {
-            data.userName = data.userName.toLowerCase();
             let query = {
                 $or:[
                     {email:data.userName.toLowerCase()},
@@ -182,7 +181,7 @@ class AuthenticationService {
                 //
                 ServiceApi.sendEmail(
                     {
-                        receivers: [data.email],
+                        receivers: [data.userName],
                         template: 'FORGOT_PASSWORD',
                         data: mailData,
                     },
