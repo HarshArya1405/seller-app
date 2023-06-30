@@ -171,9 +171,9 @@ class AuthenticationService {
             // await user.save();
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if(data.userName.match(emailRegex)){
-
+                const baseUrl = 'http://127.0.0.1:3000/auth'; //TEMP TODO chang from env
                 const resetPasswordLinkToken = await this.createResetPasswordLinkToken(user.id, {});
-                const resetPasswordLink = 'resetPassword/' + user.id + '/' + resetPasswordLinkToken;
+                const resetPasswordLink = `${baseUrl}/reset-password/${user.id}/${resetPasswordLinkToken}`;
                 console.log('resetPasswordLink-------------------->',resetPasswordLink);
                 let mailData = { resetPasswordLink: resetPasswordLink, user: user};
 
