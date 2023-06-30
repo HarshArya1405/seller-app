@@ -512,7 +512,7 @@ const categories= {
             {'name':'Model Number','type':'text','example':'TTYU 6'},
             {'name':'Manufacturer Part Number','type':'text','example':'TTYU 6'},
             {'name':'Unit Count','type':'number','example':'4'}, 
-            {'name':'Volume','type':'text','example':'AB-12', 'unit':unitVolume},
+            {'name':'Volume','type':'text','example':'AB-12', 'unit':unitGraduation},
         ],
         'Hair Care':[
             {'name':'Scent Name','type':'text','example':'Spice'}, 

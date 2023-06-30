@@ -154,44 +154,53 @@ class AuthenticationService {
 
     async forgotPassword(data) {
         try {
-            data.email = data.email.toLowerCase();
-            let user = await User.findOne({email:data.email});
+            data.userName = data.userName.toLowerCase();
+            let query = {
+                $or:[
+                    {email:data.userName.toLowerCase()},
+                    {mobile:data.userName}
+                ]
+            };
+            let user = await User.findOne(query);
 
             // Throw error if user does not exist
             if (!user) {
                 throw new NoRecordFoundError(MESSAGES.USER_NOT_EXISTS);
             }
-
-            // generate six digit random number
-            if (!data.password)
-                data.password = Math.floor(100000 + Math.random() * 900000);
-
-            const password = data.password; //FIXME: reset to default random password once SES is activated
-
-            data.password = await encryptPIN('' + password);
-
-            user.password = data.password;
             user.isSystemGeneratedPassword = true;
 
-            await user.save();
+            // await user.save();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if(data.userName.match(emailRegex)){
 
-            //TODO: Send email with OTP
+                const resetPasswordLinkToken = await this.createResetPasswordLinkToken(user.id, {});
+                const resetPasswordLink = 'resetPassword/' + user.id + '/' + resetPasswordLinkToken;
+                console.log('resetPasswordLink-------------------->',resetPasswordLink);
+                let mailData = { resetPasswordLink: resetPasswordLink, user: user};
 
+                console.log('maildata---->',mailData);
+                //
+                ServiceApi.sendEmail(
+                    {
+                        receivers: [data.email],
+                        template: 'FORGOT_PASSWORD',
+                        data: mailData,
+                    },
+                    user, null
+                );
+                await user.save();
+                return { msg: 'Reset password link has been sent to your email' };
 
-            let mailData = { password: password, user: user };
+            }else{
+                let password = Math.floor(1000 + Math.random() * 9000);
+                console.log('OTP for user---------------------------->',password);
+                data.password = await encryptPIN('' + password);
+    
+                user.password = data.password;
+                await user.save();
+                return { msg: 'OTP sent to your mobile no./email' };
+            }
 
-            console.log('maildata---->',mailData);
-            //
-            ServiceApi.sendEmail(
-                {
-                    receivers: [data.email],
-                    template: 'FORGOT_PASSWORD',
-                    data: mailData,
-                },
-                user, null
-            );
-
-            return { msg: 'OTP sent to your mobile no./email' };
         } catch (err) {
             if (err.statusCode === 404)
                 throw new NoRecordFoundError(MESSAGES.ORGANIZATION_NOT_EXISTS);
@@ -400,7 +409,6 @@ class AuthenticationService {
             }
         });
     }
-
 
 }
 
