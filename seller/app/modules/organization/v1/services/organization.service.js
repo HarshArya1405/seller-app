@@ -40,7 +40,7 @@ class OrganizationService {
             await organization.save();
 
             //create a user
-            data.organization = organization._id;
+            data.user.organization = organization._id;
             currentUser.organization = organization._id;
             let user = await userService.update(currentUser.id,data.user,currentUser);
             return {user:user,providerDetail:organization};
