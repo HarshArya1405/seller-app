@@ -7,7 +7,11 @@ const userSchema = new mongoose.Schema({ //Users who has login ability should go
         required:true,
         default: () => uuid(),
     },
-    name: {
+    firstName: {
+        type: String,
+        // required: true,
+    },
+    lastName: {
         type: String,
         // required: true,
     },

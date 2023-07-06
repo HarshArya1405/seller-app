@@ -214,14 +214,15 @@ class UserService {
     async update(id, data, currentUser) {
         try {
             const query = {
-                selector: {_id: {$eq: id}},
+                _id:id
             };
-            let user = await User(currentUser.organizationId).findOne(query);
+            let user = await User.findOne(query).lean();
             if (!user) {
                 throw new NoRecordFoundError(MESSAGES.USER_NOT_EXISTS);
             }
             const updatedUser = {...user, ...data};
-            const result = await User(currentUser.organizationId).update(
+            const result = await User.updateOne(
+                query,
                 updatedUser
             );
             return result;

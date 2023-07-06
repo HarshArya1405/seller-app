@@ -1,7 +1,7 @@
 import mongoose from'mongoose';
 import { uuid } from 'uuidv4';
 import s3 from '../../../lib/utils/s3Utils';
-import Joi from 'joi';
+import Joi, { array } from 'joi';
 const organizationSchema = new mongoose.Schema({ //Users who has login ability should go under User schema
     _id:{
         type: String, 
@@ -13,19 +13,28 @@ const organizationSchema = new mongoose.Schema({ //Users who has login ability s
     contactEmail:{type:String},
     contactMobile:{type:String},
     addressProof:{type:String},
-    idProof:{type:String},
+    shortDescription:{type:String},
+    detailedDescription:{type:String},
+    logo:{type:String},
+    banner:{type:String},
+    documents:{ type : Array , default : [] },
     bankDetails:{
         accHolderName:{type:String},
         accNumber:{type:String},
         IFSC:{type:String},
         cancelledCheque:{type:String},
         bankName:{type:String},
+        accountType:{type:String},
         branchName:{type:String}
     },
-    PAN:{PAN:{type:String},proof:{type:String}},
-    GSTN:{GSTN:{type:String},proof:{type:String}},
+    PAN:{type:String},
+    GSTN:{type:String},
     FSSAI:{type:String},
     createdAt:{
+        type:Number,
+        default:Date.now()
+    },
+    updatedAt:{
         type:Number,
         default:Date.now()
     },

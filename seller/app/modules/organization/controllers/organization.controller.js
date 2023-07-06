@@ -13,7 +13,7 @@ class OrganizationController {
     async create(req, res, next) {
         try {
             const data = req.body;
-            const organization = await organizationService.create(data);
+            const organization = await organizationService.create(data,req.user);
             return res.send(organization);
 
         } catch (error) {

@@ -2,7 +2,7 @@ import { v1 as uuidv1 } from 'uuid';
 import MESSAGES from '../../../../lib/utils/messages';
 import Organization from '../../models/organization.model';
 import User from '../../../authentication/models/user.model';
-import UserService from './store.service';
+import UserService from '../../../authentication/v1/services/user.service';
 import {
     NoRecordFoundError,
     DuplicateRecordFoundError,
@@ -15,29 +15,34 @@ import s3 from '../../../../lib/utils/s3Utils';
 
 const userService = new UserService();
 class OrganizationService {
-    async create(data) {
+    async create(data,currentUser) {
         try {
-            let query = {};
-
             let orgDetails = data.providerDetails;
             const organizationExist = await Organization.findOne({name:orgDetails.name});
 
             if (organizationExist) {
                 throw new DuplicateRecordFoundError(MESSAGES.ORGANIZATION_ALREADY_EXISTS);
             }
-
-            let userExist = await User.findOne({email:data.user.email});
+            let userQuery = {
+                _id:{'$ne' : currentUser.id},
+                '$or':[
+                    {email:data.user.email},
+                    {mobile:data.user.mobile}
+                ]
+            };
+            let userExist = await User.findOne(userQuery);
 
             if (userExist) {
                 throw new DuplicateRecordFoundError(MESSAGES.USER_ALREADY_EXISTS);
             }
 
             let  organization = new Organization(orgDetails);
-            let savedOrg = await organization.save();
+            await organization.save();
 
             //create a user
-            let user = await userService.create({...data.user,organization:organization._id,role:'Organization Admin'});
-
+            data.organizationId = organization._id;
+            currentUser.organization = organization._id;
+            let user = await userService.update(currentUser.id,data.user,currentUser);
             return {user:user,providerDetail:organization};
 
         } catch (err) {
