@@ -15,6 +15,7 @@ const organizationSchema = new mongoose.Schema({ //Users who has login ability s
     addressProof:{type:String},
     shortDescription:{type:String},
     detailedDescription:{type:String},
+    domains:{ type : Array , default : [] },
     logo:{type:String},
     banner:{type:String},
     bankDetails:{

@@ -22,6 +22,8 @@ module.exports = {
                 documents: Joi.array(),
                 domains: Joi.array(),
                 logo: Joi.string(),
+                shortDescription:Joi.string(),
+                detailedDescription:Joi.string(),
                 banner: Joi.string(),
                 bankDetails: {
                     accHolderName: Joi.string(),

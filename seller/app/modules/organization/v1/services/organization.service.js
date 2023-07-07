@@ -136,6 +136,8 @@ class OrganizationService {
                 let documents = await documentService.list({},currentUser);
                 if(documents){
                     doc.documents =documents.data;
+                }else{
+                    doc.documents = [];
                 }
             }
 
