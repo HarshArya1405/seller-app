@@ -36,6 +36,12 @@ router.get('/v1/organizations/:organizationId/storeDetails',
     authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: organisationSchema.getStoreDetails() }),
     organizationController.getStoreDetails);
+    
+router.get('/v1/organization/:organizationId',
+    authentication.middleware(),
+    apiParamsValidator.middleware({ schema: organisationSchema.get() }),
+    organizationController.get,
+);
 
 router.get('/v1/organizations',
     authentication.middleware(),
@@ -44,11 +50,6 @@ router.get('/v1/organizations',
     organizationController.list,
 );
 
-router.get('/v1/organizations/:organizationId',
-    authentication.middleware(),
-    apiParamsValidator.middleware({ schema: organisationSchema.get() }),
-    organizationController.get,
-);
 
 router.get('/v1/organizations/:organizationId/ondcGet',
     apiParamsValidator.middleware({ schema: organisationSchema.get() }),

@@ -17,7 +17,6 @@ const organizationSchema = new mongoose.Schema({ //Users who has login ability s
     detailedDescription:{type:String},
     logo:{type:String},
     banner:{type:String},
-    documents:{ type : Array , default : [] },
     bankDetails:{
         accHolderName:{type:String},
         accNumber:{type:String},

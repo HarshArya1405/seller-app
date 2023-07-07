@@ -9,15 +9,16 @@ import {
     BadRequestParameterError,
 } from '../../../../lib/errors';
 import s3 from '../../../../lib/utils/s3Utils';
+import DocumentService from '../../../document/v1/services/document.service';
 
-//import axios from 'axios';
-//import ServiceApi from '../../../../lib/utils/serviceApi';
+const documentService = new DocumentService();
 
 const userService = new UserService();
 class OrganizationService {
     async create(data,currentUser) {
         try {
-            let orgDetails = data.providerDetails;
+            const orgDetails = data.providerDetails;
+            const documents = data.providerDetails?.documents;
             const organizationExist = await Organization.findOne({name:orgDetails.name});
 
             if (organizationExist) {
@@ -38,10 +39,21 @@ class OrganizationService {
 
             let  organization = new Organization(orgDetails);
             await organization.save();
-
-            //create a user
             data.user.organization = organization._id;
-            currentUser.organization = organization._id;
+            currentUser.organizationId = organization._id;
+            //saving documents
+            if(documents && documents.length >0){
+                for(const document of documents){
+                    let obj = {
+                        type:document.type,
+                        path:document.path,
+                        organization:currentUser.organizationId
+                    };
+                    await documentService.create(obj,currentUser);
+                }
+            }
+            //updating a user
+
             let user = await userService.update(currentUser.id,data.user,currentUser);
             return {user:user,providerDetail:organization};
 
@@ -100,39 +112,34 @@ class OrganizationService {
         }
     }
 
-    async get(organizationId) {
+    async get(organizationId,currentUser) {
         try {
             let doc = await Organization.findOne({_id:organizationId}).lean();
 
-            // console.log('organization----->',doc);
-            // let user = await User.findOne({organization:organizationId},{password:0});
-            // if (doc) {
-            //     {
-            //         let idProof = await s3.getSignedUrlForRead({path:doc.idProof});
-            //         doc.idProof =idProof;
+            console.log('user----->',currentUser);
+            let user = await User.findOne({organization:organizationId,_id:currentUser.id},{password:0});
+            if(doc) {
+                // let idProof = await s3.getSignedUrlForRead({path:doc.idProof});
+                // doc.idProof =idProof;
 
-            //         let addressProof = await s3.getSignedUrlForRead({path:doc.addressProof});
-            //         doc.addressProof =addressProof;
+                // let addressProof = await s3.getSignedUrlForRead({path:doc.addressProof});
+                // doc.addressProof =addressProof;
 
-            //         let cancelledCheque = await s3.getSignedUrlForRead({path:doc.bankDetails.cancelledCheque});
-            //         doc.bankDetails.cancelledCheque =cancelledCheque;
+                // let cancelledCheque = await s3.getSignedUrlForRead({path:doc.bankDetails.cancelledCheque});
+                // doc.bankDetails.cancelledCheque =cancelledCheque;
 
-            //         let PAN = await s3.getSignedUrlForRead({path:doc.PAN.proof});
-            //         doc.PAN.proof =PAN;
+                // let PAN = await s3.getSignedUrlForRead({path:doc.PAN.proof});
+                // doc.PAN.proof =PAN;
 
-            //         let GSTN = await s3.getSignedUrlForRead({path:doc.GSTN.proof});
-            //         doc.GSTN.proof =GSTN;
+                // let GSTN = await s3.getSignedUrlForRead({path:doc.GSTN.proof});
+                // doc.GSTN.proof =GSTN;
+                let documents = await documentService.list({},currentUser);
+                if(documents){
+                    doc.documents =documents.data;
+                }
+            }
 
-            //         if(doc.storeDetails){
-            //             let logo = await s3.getSignedUrlForRead({path:doc.storeDetails?.logo});
-            //             doc.storeDetails.logo =logo;
-            //         }
-            //     }
-
-            return {data:doc};
-            // } else {
-            //     throw new NoRecordFoundError(MESSAGES.ORGANIZATION_NOT_EXISTS);
-            // }
+            return {user,providerDetail:doc};
         } catch (err) {
             console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`,err);
             throw err;

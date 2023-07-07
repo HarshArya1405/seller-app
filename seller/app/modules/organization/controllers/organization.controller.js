@@ -65,7 +65,7 @@ class OrganizationController {
     async get(req, res, next) {
         try {
             const params = req.params;
-            const organizations = await organizationService.get(params.organizationId);
+            const organizations = await organizationService.get(params.organizationId,req.user);
             return res.send(organizations);
 
         } catch (error) {

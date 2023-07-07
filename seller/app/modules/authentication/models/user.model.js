@@ -36,6 +36,24 @@ const userSchema = new mongoose.Schema({ //Users who has login ability should go
     },
     role: { type: String, ref: 'Role' },
     organization: { type: String, ref: 'Organization' },
+    addressLine1:{
+        type: String
+    },
+    addressLine2:{
+        type: String
+    },
+    city:{
+        type: String
+    },
+    state:{
+        type: String
+    },
+    pincode:{
+        type: String
+    },
+    country:{
+        type: String
+    },
     isSystemGeneratedPassword: {
         type: Boolean,
         default:true
