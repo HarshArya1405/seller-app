@@ -10,8 +10,8 @@ class DocumentService {
         try {
             const document = new Document();
             document.organization = currentUser.organizationId;
-            document.type = data.path;
-            document.path = data.pathId;
+            document.type = data.type;
+            document.path = data.path;
             document.createdBy = currentUser.id;
             document.updatedBy = currentUser.id;
             await document.save();
