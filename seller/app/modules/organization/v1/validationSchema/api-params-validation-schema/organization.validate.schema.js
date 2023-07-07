@@ -29,12 +29,12 @@ module.exports = {
                     accHolderName: Joi.string(),
                     accNumber: Joi.string(),
                     IFSC: Joi.string(),
-                    cancelledCheque: Joi.string(),
+                    cancelledCheque: Joi.string().allow(''),
                     bankName: Joi.string(),
                     branchName: Joi.string(),
                     accountType:Joi.string()
                 },
-                PAN: Joi.string(),
+                PAN: Joi.string().allow(''),
                 GSTN: Joi.string(),
                 FSSAI: Joi.string()
             }
