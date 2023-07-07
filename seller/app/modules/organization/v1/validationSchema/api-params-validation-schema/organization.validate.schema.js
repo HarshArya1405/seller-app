@@ -9,7 +9,7 @@ module.exports = {
                 firstName: Joi.string(),
                 lastName: Joi.string(),
                 addressLine1: Joi.string(),
-                addressLine2: Joi.string(),
+                addressLine2: Joi.string().allow(''),
                 city: Joi.string(),
                 pincode: Joi.string(),
                 state: Joi.string(),
