@@ -7,29 +7,36 @@ const storeSchema = new mongoose.Schema({ //Users who has login ability should g
         required:true,
         default: () => uuid(),
     },
-    organizationId: {type:String},
-    categories: {type:Object},
-    logo: {type:String},
-    location: new mongoose.Schema({lat:{type:Number},long:{type:Number}},{ _id: true }),
-    locationAvailabilityPANIndia:{type:Boolean},
-    city:{type:Object},
-    defaultCancellable:{type:Boolean},
-    defaultReturnable:{type:Boolean},
-    address: {
-        building: {type:String},
-        city: {type:String},
-        state: {type:String},
-        country: {type:String},
-        area_code: {type:String},
-        locality: {type:String}
+    organization: {type:String},
+    name:{type:String},
+    email:{type:String},
+    mobile:{type:String},
+
+    addressLine1:{
+        type: String
     },
-    supportDetails:{
-        email:{type:String},
-        mobile:{type:String}
+    addressLine2:{
+        type: String
     },
-    storeTiming:{type:Object},
-    radius:{type:Object},
-    logisticsBppId:{type:String},
+    city:{
+        type: String
+    },
+    state:{
+        type: String
+    },
+    pincode:{
+        type: String
+    },
+    country:{
+        type: String
+    },
+
+    latitude: {type:String},
+    longitude: {type:String},
+
+    openDays:{type:Array,default:[]},
+    closeDays:{type:Array,default:[]},
+    opecategoryServiceabilitynDays:{type:Array,default:[]},
     createdAt:{
         type:Number,
         default:Date.now()

@@ -1,6 +1,7 @@
 import { v1 as uuidv1 } from 'uuid';
 import MESSAGES from '../../../../lib/utils/messages';
 import Organization from '../../models/organization.model';
+import Store from '../../models/store.model';
 import User from '../../../authentication/models/user.model';
 import UserService from '../../../authentication/v1/services/user.service';
 import {
@@ -148,16 +149,20 @@ class OrganizationService {
         }
     }
 
-    async setStoreDetails(organizationId,data) {
+    async setStoreDetails(organizationId,data,currentUser) {
         try {
-            let organization = await Organization.findOne({_id:organizationId});//.lean();
+            let organization = await Organization.findOne({_id:organizationId});
             if (organization) {
-                organization.storeDetails =data;
-                organization.save();
+                let storeObj = {...data};
+                storeObj.organization = currentUser.organization;
+                storeObj.createdBy = currentUser.id;
+                storeObj.updatedBy = currentUser.id;
+                const store = new Store(storeObj);
+                await store.save();
+                return store;
             } else {
                 throw new NoRecordFoundError(MESSAGES.ORGANIZATION_NOT_EXISTS);
             }
-            return data;
         } catch (err) {
             console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`,err);
             throw err;
@@ -190,19 +195,32 @@ class OrganizationService {
         }
     }
 
-    async getStoreDetails(organizationId,data) {
+    async getStoreList(params,organizationId,currentUser) {
         try {
-            let organization = await Organization.findOne({_id:organizationId},{storeDetails:1}).lean();
+            let organization = await Organization.findOne({_id:organizationId});
             if (organization) {
+                let stores = await Store.find({organization:currentUser.organization});
+                return stores;
+            } else {
+                throw new NoRecordFoundError(MESSAGES.ORGANIZATION_NOT_EXISTS);
+            }
 
-                if(organization?.storeDetails){
-                    let logo = await s3.getSignedUrlForRead({path:organization?.storeDetails?.logo});
-                    organization.storeDetails.logo =logo;
-                }else{
-                    organization.storeDetails = {};
+        } catch (err) {
+            console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`,err);
+            throw err;
+        }
+    }
+    async getStoreDetail(organizationId,storeId,currentUser) {
+        try {
+            let organization = await Organization.findOne({_id:organizationId});
+            if (organization) {
+                let store = await Store.findOne({_id:storeId,organization:currentUser.organization});
+                if(store){
+                    return store;
+                }else {
+                    throw new NoRecordFoundError(MESSAGES.STORE_NOT_EXISTS);
                 }
-
-                return organization;
+    
             } else {
                 throw new NoRecordFoundError(MESSAGES.ORGANIZATION_NOT_EXISTS);
             }

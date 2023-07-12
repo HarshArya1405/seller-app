@@ -27,6 +27,7 @@ const MESSAGES = {
     LOGIN_ERROR_USER_ACCOUNT_BANNED: 'This user has exceeded the number of failed log-in attempts and has been temporarily locked out of ONDC seller app. Please contact admin',
     CATEGORY_ALREADY_EXISTS: 'A Category with the given name already exists',
     DOCUMENT_NOT_EXISTS: 'We couldn\'t find any document with those details',
+    STORE_NOT_EXISTS: 'We weren\'t able to find any store with this details',
 
 
 };

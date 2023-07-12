@@ -69,54 +69,38 @@ module.exports = {
     },
     setStoreDetails:()=>{
         return Joi.object({
-            categories: Joi.array(),
-            logo: Joi.string(),
-            location: {lat:Joi.number(),long:Joi.number()},
-            locationAvailabilityPANIndia:Joi.boolean(),
-            city:Joi.array(),
-            defaultCancellable:Joi.boolean(),
-            defaultReturnable:Joi.boolean(),
-            address: {
-                building: Joi.string(),
-                city: Joi.string(),
-                state: Joi.string(),
-                country: Joi.string(),
-                area_code: Joi.string(),
-                locality: Joi.string()
-            },
-            supportDetails:{
-                email:Joi.string(),
-                mobile:Joi.string()
-            },
-            storeTiming:Joi.object(),
-            radius:Joi.object(),
-            logisticsBppId:Joi.string()
+            name: Joi.string(),
+            email: Joi.string(),
+            mobile: Joi.string(),
+            addressLine1: Joi.string(),
+            addressLine2: Joi.string().allow(''),
+            city: Joi.string(),
+            pincode: Joi.string(),
+            state: Joi.string(),
+            country: Joi.string(),
+            latitude:Joi.string(),
+            longitude:Joi.string(),
+            openDays:Joi.array(),
+            closeDays:Joi.array(),
+            categoryServiceability:Joi.array(),
         });
     },
     updateStoreDetails:()=>{
         return Joi.object({
-            categories: Joi.array(),
-            logo: Joi.string(),
-            location: {lat:Joi.number(),long:Joi.number()},
-            locationAvailabilityPANIndia:Joi.boolean(),
-            city:Joi.array(),
-            defaultCancellable:Joi.boolean(),
-            defaultReturnable:Joi.boolean(),
-            address: {
-                building: Joi.string(),
-                city: Joi.string(),
-                state: Joi.string(),
-                country: Joi.string(),
-                area_code: Joi.string(),
-                locality: Joi.string()
-            },
-            supportDetails:{
-                email:Joi.string(),
-                mobile:Joi.string()
-            },
-            storeTiming:Joi.object(),
-            radius:Joi.object(),
-            logisticsBppId:Joi.string()
+            name: Joi.string(),
+            email: Joi.string(),
+            mobile: Joi.string(),
+            addressLine1: Joi.string(),
+            addressLine2: Joi.string().allow(''),
+            city: Joi.string(),
+            pincode: Joi.string(),
+            state: Joi.string(),
+            country: Joi.string(),
+            latitude:Joi.string(),
+            longitude:Joi.string(),
+            openDays:Joi.array(),
+            closeDays:Joi.array(),
+            categoryServiceability:Joi.array(),
         });
     },
     get:()=>{
@@ -159,9 +143,20 @@ module.exports = {
     
     getStoreDetails:()=>{
         return Joi.object({
-            organizationId: Joi.string().guid({
+            orgId: Joi.string().guid({
                 version: ['uuidv4']
             }),
+            storeId: Joi.string().guid({
+                version: ['uuidv4']
+            }),
+        });
+    },
+
+    getStoreList:()=>{
+        return Joi.object({
+            orgId: Joi.string().guid({
+                version: ['uuidv4']
+            })
         });
     },
     

@@ -78,7 +78,7 @@ class OrganizationController {
         try {
             const params = req.params;
             const data = req.body;
-            const organizations = await organizationService.setStoreDetails(params.id,data);
+            const organizations = await organizationService.setStoreDetails(params.orgId,data,req.user);
             return res.send(organizations);
 
         } catch (error) {
@@ -99,11 +99,21 @@ class OrganizationController {
             next(error);
         }
     }
-    async getStoreDetails(req, res, next) {
+    async getStoreList(req, res, next) {
         try {
             const params = req.params;
-            const data = req.body;
-            const organizations = await organizationService.getStoreDetails(params.organizationId,data);
+            const organizations = await organizationService.getStoreList(req.params,params.orgId,req.user);
+            return res.send(organizations);
+
+        } catch (error) {
+            console.log('[OrderController] [get] Error -', error);
+            next(error);
+        }
+    }
+    async getStoreDetail(req, res, next) {
+        try {
+            const params = req.params;
+            const organizations = await organizationService.getStoreDetail(params.orgId,params.storeId,req.user);
             return res.send(organizations);
 
         } catch (error) {

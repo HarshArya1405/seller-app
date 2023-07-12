@@ -25,17 +25,23 @@ router.put('/v1/organizations/:id/',
     apiParamsValidator.middleware({ schema: organisationSchema.update() }),
     organizationController.update);
 
-router.post('/v1/organizations/:id/storeDetails',
+router.post('/v1/organizations/:orgId/storeDetails',
     authentication.middleware(),
-    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: organisationSchema.setStoreDetails() }),
     organizationController.setStoreDetails);
 
-router.get('/v1/organizations/:organizationId/storeDetails',
+router.get('/v1/organizations/:orgId/:storeId/storeDetails',
     authentication.middleware(),
-    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: organisationSchema.getStoreDetails() }),
-    organizationController.getStoreDetails);
+    organizationController.getStoreDetail);
+
+router.get('/v1/organizations/:orgId/storeList',
+    authentication.middleware(),
+    // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    apiParamsValidator.middleware({ schema: organisationSchema.getStoreList() }),
+    organizationController.getStoreList);
     
 router.get('/v1/organization/:organizationId',
     authentication.middleware(),
