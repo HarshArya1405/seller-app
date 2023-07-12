@@ -17,11 +17,23 @@ router.post('/v1/products',
     apiParamsValidator.middleware({ schema: productSchema.create() }),
     productController.create);
 
+router.post('/v1/products',
+    authentication.middleware(),
+    // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    apiParamsValidator.middleware({ schema: productSchema.create() }),
+    productController.createWithVariants);
+
 router.put('/v1/products/:productId',
     authentication.middleware(),
     authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: productSchema.update() }),
     productController.update);
+
+router.put('/v1/products/:productId',
+    authentication.middleware(),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    apiParamsValidator.middleware({ schema: productSchema.update() }),
+    productController.updateWithVariants);
 
 router.put('/v1/products/:productId/publish',
     authentication.middleware(),
@@ -46,6 +58,12 @@ router.get('/v1/products/:productId',
     productController.get,
 );
 
+router.get('/v1/products/:productId',
+    authentication.middleware(),
+    apiParamsValidator.middleware({ schema: productSchema.get() }),
+    productController.getWithVariants,
+);
+
 router.get('/v1/products/:productId/ondcGet',
     apiParamsValidator.middleware({ schema: productSchema.get() }),
     productController.get,
@@ -62,9 +80,17 @@ router.get('/v1/products/upload/bulk/template',
     productController.uploadTemplate,
 );
 
-router.get('/v1/product/CategoryVariant',
+router.get('/v1/product/categorySubcategoryAttributes',
     //authentication.middleware(),
-    productController.CategoryVariant,
+    productController.categorySubcategoryAttributeList,
+);
+router.get('/v1/product/categorySubcategories',
+    //authentication.middleware(),
+    productController.categorySubcategoryList,
+);
+router.get('/v1/product/categories',
+    //authentication.middleware(),
+    productController.categoryList,
 );
 
 module.exports = router;

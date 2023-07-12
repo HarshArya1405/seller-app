@@ -1,15 +1,15 @@
 import mongoose from 'mongoose';
 import { uuid } from 'uuidv4';
-const productAddOnsSchema = new mongoose.Schema({
+const variantTypeSchema = new mongoose.Schema({
     _id: {
         type: String,
         required: true,
         default: () => uuid(),
     },
     organizationId: {type:String},
-    label: { type: String },
-    type: { type: String },
-    mandatory:{ type: Boolean },
+    name: { type: String },
+    category: { type: String },
+    subCategory: { type: String },
     createdBy: { type: String },
     updatedBy: { type: String },
     createdAt: {
@@ -26,6 +26,6 @@ const productAddOnsSchema = new mongoose.Schema({
 });
 
 
-productAddOnsSchema.index({ name: 1 }, { unique: false });
-const ProductAddOns = mongoose.model('ProductAddOns', productAddOnsSchema);
-module.exports = ProductAddOns;
+variantTypeSchema.index({ name: 1 }, { unique: false });
+const VariantType = mongoose.model('VariantType', variantTypeSchema);
+module.exports = VariantType;
