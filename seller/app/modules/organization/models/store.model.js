@@ -36,7 +36,7 @@ const storeSchema = new mongoose.Schema({ //Users who has login ability should g
 
     openDays:{type:Array,default:[]},
     closeDays:{type:Array,default:[]},
-    opecategoryServiceabilitynDays:{type:Array,default:[]},
+    categoryServiceability:{type:Array,default:[]},
     createdAt:{
         type:Number,
         default:Date.now()

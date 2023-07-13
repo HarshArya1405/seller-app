@@ -23,6 +23,7 @@ exports.middleware =
                       req.user = user;
                       next();
                   } else if (err) {
+                    
                       next(err);
                   } else {
                       next(
