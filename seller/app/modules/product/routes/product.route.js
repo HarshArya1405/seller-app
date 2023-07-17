@@ -17,22 +17,22 @@ router.post('/v1/products',
     apiParamsValidator.middleware({ schema: productSchema.create() }),
     productController.create);
 
-router.post('/v1/products',
+router.post('/v1/productWithVariant',
     authentication.middleware(),
     // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
-    apiParamsValidator.middleware({ schema: productSchema.create() }),
+    apiParamsValidator.middleware({ schema: productSchema.createWithVariant() }),
     productController.createWithVariants);
 
 router.put('/v1/products/:productId',
     authentication.middleware(),
-    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: productSchema.update() }),
     productController.update);
 
-router.put('/v1/products/:productId',
+router.put('/v1/productWithVariant/:productId',
     authentication.middleware(),
-    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
-    apiParamsValidator.middleware({ schema: productSchema.update() }),
+    // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    apiParamsValidator.middleware({ schema: productSchema.updateWithVariant() }),
     productController.updateWithVariants);
 
 router.put('/v1/products/:productId/publish',
@@ -58,7 +58,7 @@ router.get('/v1/products/:productId',
     productController.get,
 );
 
-router.get('/v1/products/:productId',
+router.get('/v1/productWithVariant/:productId',
     authentication.middleware(),
     apiParamsValidator.middleware({ schema: productSchema.get() }),
     productController.getWithVariants,

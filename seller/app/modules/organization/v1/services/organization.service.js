@@ -153,6 +153,10 @@ class OrganizationService {
         try {
             let organization = await Organization.findOne({_id:organizationId});
             if (organization) {
+                const storeExist =  await Store.findOne({organization:currentUser.organization,name:data.name});
+                if(storeExist){
+                    throw new NoRecordFoundError(MESSAGES.STORE_ALREADY_EXISTS);
+                }
                 let storeObj = {...data};
                 storeObj.organization = currentUser.organization;
                 storeObj.createdBy = currentUser.id;

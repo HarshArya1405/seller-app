@@ -28,6 +28,7 @@ const MESSAGES = {
     CATEGORY_ALREADY_EXISTS: 'A Category with the given name already exists',
     DOCUMENT_NOT_EXISTS: 'We couldn\'t find any document with those details',
     STORE_NOT_EXISTS: 'We weren\'t able to find any store with this details',
+    STORE_ALREADY_EXISTS: 'A Store with the given name already exists',
 
 
 };
