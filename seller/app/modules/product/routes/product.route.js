@@ -29,7 +29,7 @@ router.put('/v1/products/:productId',
     apiParamsValidator.middleware({ schema: productSchema.update() }),
     productController.update);
 
-router.put('/v1/productWithVariant/:productId',
+router.put('/v1/productWithVariant',
     authentication.middleware(),
     // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: productSchema.updateWithVariant() }),
@@ -43,7 +43,7 @@ router.put('/v1/products/:productId/publish',
 
 router.get('/v1/products',
     authentication.middleware(),
-    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: productSchema.list() }),
     productController.list,
 );

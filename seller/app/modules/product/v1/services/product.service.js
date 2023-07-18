@@ -5,7 +5,7 @@ import { Categories, SubCategories, Attributes } from '../../../../lib/utils/cat
 import Organization from '../../../organization/models/organization.model';
 import s3 from '../../../../lib/utils/s3Utils';
 import MESSAGES from '../../../../lib/utils/messages';
-import { DuplicateRecordFoundError } from '../../../../lib/errors';
+import { DuplicateRecordFoundError, NoRecordFoundError } from '../../../../lib/errors';
 
 
 class ProductService {
@@ -18,6 +18,9 @@ class ProductService {
                 throw new DuplicateRecordFoundError(MESSAGES.PRODUCT_ALREADY_EXISTS);
             }
             let product = new Product(data.commonDetails);
+            product.createdBy = currentUser.id;
+            product.updatedBy = currentUser.id;
+            product.organization = currentUser.organization;
             await product.save();
             await this.createAttribute({product:product._id,attributes:data.attributesValues},currentUser);
             return product;
@@ -64,19 +67,31 @@ class ProductService {
         }
     }
 
-    async updateWithVariants(productId,data,currentUser) {
+    async updateWithVariants(data,currentUser) {
         try {
             const commonDetails = data.commonDetails;
             const commonAttributesValues = data.commonAttributesValues;
-            const product = await Product.findOne({_id:productId,organization:currentUser.organization});
-            const variantProducts = await Product.find({variantGroup:product.variantGroup,organization:currentUser.organization}).lean();
-            
-            for(const productVariant of variantProducts){
-                let productObj = {...productVariant,...commonDetails };
-                let product = await Product.updateOne({_id:productVariant._id,organization:currentUser.organization},productObj);
-                if(commonAttributesValues){
-                    await this.createAttribute({product:product._id,attributes:commonAttributesValues},currentUser);
-                } 
+            const variantSpecificDetails = data.variantSpecificDetails;            
+            for(const productVariant of variantSpecificDetails){
+                let variantProduct = await Product.findOne({_id:productVariant._id,organization:currentUser.organization}).lean();
+                if(variantProduct){
+                    let productObj = {...variantProduct,...commonDetails };           
+                    productObj.quantity = productVariant.quantity;
+                    productObj.organization = currentUser.organization;
+                    productObj.MRP = productVariant.MRP;
+                    productObj.retailPrice = productVariant.retailPrice;
+                    productObj.purchasePrice = productVariant.purchasePrice;
+                    productObj.HSNCode = productVariant.HSNCode;
+                    productObj.images = productVariant.images;
+                    await Product.updateOne({_id:productVariant._id,organization:currentUser.organization},productObj);
+                    let varientAttributes = productVariant.varientAttributes;
+                    let attributeObj = {
+                        ...commonAttributesValues,...varientAttributes
+                    };
+                    if(attributeObj){
+                        await this.createAttribute({product:variantProduct._id,attributes:attributeObj},currentUser);
+                    } 
+                }
             }
             return {success:true};
 
@@ -177,18 +192,22 @@ class ProductService {
 
     async get(productId,currentUser) {
         try {
-            let doc = await Product.findOne({_id:productId,organization:currentUser.organization}).populate('variantGroup').lean();
-
-            let images = [];
-            for(const image of doc.images){
-                let data = await s3.getSignedUrlForRead({path:image});
-                images.push(data);
+            let product = await Product.findOne({_id:productId,organization:currentUser.organization}).populate('variantGroup').lean();
+            if(!product){
+                throw new NoRecordFoundError(MESSAGES.PRODUCT_NOT_EXISTS);
             }
-            doc.images = images;
+            let images = [];
+            if(product.images && product.images.length > 0){
+                for(const image of product.images){
+                    let data = await s3.getSignedUrlForRead({path:image});
+                    images.push(data);
+                }
+                product.images = images;
+            }
             const attributes = await ProductAttribute.find({product:productId,organization:currentUser.organization}); 
-            doc.attributes = attributes;
+            product.attributes = attributes;
 
-            return doc;
+            return product;
 
         } catch (err) {
             console.log('[OrganizationService] [get] Error in getting organization by id -',err);

@@ -144,8 +144,8 @@ class ProductController {
 
     async updateWithVariants(req, res, next) {
         try {
-            const params = req.params;
-            const product = await productService.updateWithVariants(params.productId, req.body,req.user);
+            // const params = req.params;
+            const product = await productService.updateWithVariants(req.body,req.user);
             return res.send(product);
 
         } catch (error) {

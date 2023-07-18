@@ -184,18 +184,24 @@ module.exports = {
                 commonOrGenericNameOfCommodity:Joi.string(),
                 monthYearOfManufacturePackingImport:Joi.string(),
                 importerFSSAILicenseNo:Joi.string(),
-                brandOwnerFSSAILicenseNo:Joi.string(),
-                varientAttributes: Joi.object(),
-                quantity: Joi.number(),
-                MRP: Joi.number(),
-                retailPrice: Joi.number(),
-                purchasePrice: Joi.number(),
-                barcode: Joi.number(),
-                images: Joi.array(),
+                brandOwnerFSSAILicenseNo:Joi.string()
             }),
             commonAttributesValues: Joi.object(),
+            variantSpecificDetails: Joi.array().items(
+                Joi.object({
+                    varientAttributes: Joi.object(),
+                    _id:Joi.string(),
+                    quantity: Joi.number(),
+                    MRP: Joi.number(),
+                    retailPrice: Joi.number(),
+                    purchasePrice: Joi.number(),
+                    barcode: Joi.number(),
+                    images: Joi.array(),
+                }),
+            ),
         });
     },
+    
     publish: () => {
         return Joi.object({
             published: Joi.boolean().required(),
