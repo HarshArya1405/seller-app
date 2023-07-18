@@ -31,8 +31,8 @@ const storeSchema = new mongoose.Schema({ //Users who has login ability should g
         type: String
     },
 
-    latitude: {type:String},
-    longitude: {type:String},
+    latitude: {type:Number},
+    longitude: {type:Number},
 
     openDays:{type:Array,default:[]},
     closeDays:{type:Array,default:[]},
