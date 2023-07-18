@@ -4,6 +4,7 @@ import Organization from '../../models/organization.model';
 import Store from '../../models/store.model';
 import User from '../../../authentication/models/user.model';
 import UserService from '../../../authentication/v1/services/user.service';
+import AuthenticationJwtToken from '../../../../lib/utils/AuthenticationJwtToken';
 import {
     NoRecordFoundError,
     DuplicateRecordFoundError,
@@ -37,7 +38,9 @@ class OrganizationService {
             if (userExist) {
                 throw new DuplicateRecordFoundError(MESSAGES.USER_ALREADY_EXISTS);
             }
-
+            if(currentUser.organization){
+                throw new DuplicateRecordFoundError(MESSAGES.ORGANIZATION_EXISTS);
+            }
             let  organization = new Organization(orgDetails);
             await organization.save();
             data.user.organization = organization._id;
@@ -48,7 +51,7 @@ class OrganizationService {
                     let obj = {
                         type:document.type,
                         path:document.path,
-                        organization:currentUser.organizationId
+                        organization:currentUser.organization
                     };
                     await documentService.create(obj,currentUser);
                 }
@@ -56,7 +59,17 @@ class OrganizationService {
             //updating a user
 
             let user = await userService.update(currentUser.id,data.user,currentUser);
-            return {user:user,providerDetail:organization};
+            const tokenPayload = {
+                user: {
+                    id: currentUser.id,
+                    role:currentUser.role,
+                    organization:organization._id
+                },
+                lastLoginAt: new Date().getTime(),
+            };
+            // create JWT access token
+            const JWTToken = await AuthenticationJwtToken.getToken(tokenPayload);
+            return {user:user,providerDetail:organization,token:JWTToken};
 
         } catch (err) {
             console.log(`[OrganizationService] [create] Error in creating organization ${data.organizationId}`,err);
@@ -149,9 +162,60 @@ class OrganizationService {
         }
     }
 
-    async setStoreDetails(organizationId,data,currentUser) {
+   
+    async update(organizationId,data,currentUser) {
         try {
-            let organization = await Organization.findOne({_id:organizationId});
+            let organization = await Organization.findOne({_id:organizationId}).lean();
+            if (organization) {
+                const orgDetails = data.providerDetails;
+                const documents = data.providerDetails?.documents;
+                const organizationExist = await Organization.findOne({_id:{$ne:organizationId},name:orgDetails.name});
+    
+                if (organizationExist) {
+                    throw new DuplicateRecordFoundError(MESSAGES.ORGANIZATION_ALREADY_EXISTS);
+                }
+                let userQuery = {
+                    _id:{'$ne' : currentUser.id},
+                    '$or':[
+                        {email:data.user.email},
+                        {mobile:data.user.mobile}
+                    ]
+                };
+                let userExist = await User.findOne(userQuery);
+    
+                if (userExist) {
+                    throw new DuplicateRecordFoundError(MESSAGES.USER_ALREADY_EXISTS);
+                }
+                let  organizationObj = {...organization,...orgDetails};
+                await Organization.updateOne({_id:organizationId},organizationObj);
+                //saving documents
+                if(documents && documents.length >0){
+                    for(const document of documents){
+                        let obj = {
+                            type:document.type,
+                            path:document.path,
+                            organization:organizationId
+                        };
+                        await documentService.create(obj,currentUser);
+                    }
+                }
+                //updating a user
+    
+                let user = await userService.update(currentUser.id,data.user,currentUser);
+                return {user:user,providerDetail:organization};
+            }else{
+                throw new NoRecordFoundError(MESSAGES.ORGANIZATION_NOT_EXISTS);
+            }
+        } catch (err) {
+            console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`,err);
+            throw err;
+        }
+    }
+
+    // ORG STORE Func
+    async setStoreDetails(data,currentUser) {
+        try {
+            let organization = await Organization.findOne({_id:currentUser.organization});
             if (organization) {
                 const storeExist =  await Store.findOne({organization:currentUser.organization,name:data.name});
                 if(storeExist){
@@ -163,64 +227,63 @@ class OrganizationService {
                 storeObj.updatedBy = currentUser.id;
                 const store = new Store(storeObj);
                 await store.save();
-                return store;
+                return {data:store};
             } else {
                 throw new NoRecordFoundError(MESSAGES.ORGANIZATION_NOT_EXISTS);
             }
         } catch (err) {
-            console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`,err);
+            console.log(`[OrganizationService] [get] Error in getting organization by id - ${currentUser.organization}`,err);
             throw err;
         }
     }
 
-    async update(organizationId,data) {
+    async updateStoreDetails(storeId,data,currentUser) {
         try {
-            let organization = await Organization.findOne({_id:organizationId});//.lean();
+            let organization = await Organization.findOne({_id:currentUser.organization});
             if (organization) {
-
-                let userExist = await User.findOne({mobile:data.user.mobile,organization:organizationId});
-
-                if (userExist && userExist.organization !==organizationId ) {
-                    throw new DuplicateRecordFoundError(MESSAGES.USER_ALREADY_EXISTS);
+                const storeExist =  await Store.findOne({organization:currentUser.organization,name:data.name});
+                if(storeExist){
+                    throw new NoRecordFoundError(MESSAGES.STORE_ALREADY_EXISTS);
                 }
-                else{
-                    const updateUser  = await User.findOneAndUpdate({organization:organizationId},data.user);
+                const storeQuery = {organization:currentUser.organization,_id:storeId};
+                const store = await Store.findOne(storeQuery).lean();
+                if(!store){
+                    throw new NoRecordFoundError(MESSAGES.STORE_NOT_EXISTS);
                 }
-
-                let updateOrg = await Organization.findOneAndUpdate({_id:organizationId},data.providerDetails);
-
+                let storeObj = {...store,...data};
+                storeObj.updatedBy = currentUser.id;
+                await Store.updateOne(storeQuery,storeObj);
+                return {data:store};
             } else {
                 throw new NoRecordFoundError(MESSAGES.ORGANIZATION_NOT_EXISTS);
             }
-            return data;
         } catch (err) {
-            console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`,err);
+            console.log(`[OrganizationService] [updateStoreDetails] Error  - ${currentUser.organization}`,err);
             throw err;
         }
     }
-
-    async getStoreList(params,organizationId,currentUser) {
+    async getStoreList(params,currentUser) {
         try {
-            let organization = await Organization.findOne({_id:organizationId});
+            let organization = await Organization.findOne({_id:currentUser.organization});
             if (organization) {
                 let stores = await Store.find({organization:currentUser.organization});
-                return stores;
+                return {data:stores};
             } else {
                 throw new NoRecordFoundError(MESSAGES.ORGANIZATION_NOT_EXISTS);
             }
 
         } catch (err) {
-            console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`,err);
+            console.log(`[OrganizationService] [getStoreList] Error - ${currentUser.organization}`,err);
             throw err;
         }
     }
-    async getStoreDetail(organizationId,storeId,currentUser) {
+    async getStoreDetail(storeId,currentUser) {
         try {
-            let organization = await Organization.findOne({_id:organizationId});
+            let organization = await Organization.findOne({_id:currentUser.organization});
             if (organization) {
                 let store = await Store.findOne({_id:storeId,organization:currentUser.organization});
                 if(store){
-                    return store;
+                    return {data:store};
                 }else {
                     throw new NoRecordFoundError(MESSAGES.STORE_NOT_EXISTS);
                 }
@@ -230,7 +293,7 @@ class OrganizationService {
             }
 
         } catch (err) {
-            console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`,err);
+            console.log(`[OrganizationService] [getStoreDetail] Error - ${currentUser.organization}`,err);
             throw err;
         }
     }

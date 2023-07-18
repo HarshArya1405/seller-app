@@ -9,7 +9,7 @@ class DocumentService {
     async create(data,currentUser) {
         try {
             const document = new Document();
-            document.organization = currentUser.organizationId;
+            document.organization = currentUser.organization;
             document.type = data.type;
             document.path = data.path;
             document.createdBy = currentUser.id;
@@ -18,14 +18,14 @@ class DocumentService {
             return {data:document};
 
         } catch (err) {
-            console.log(`[DocumentService] [create] Error in creating organization ${data.organizationId}`,err);
+            console.log(`[DocumentService] [create] Error in creating organization ${currentUser.organization}`,err);
             throw err;
         }
     }
     async get(id,currentUser) {
         try {
 
-            const document = await Document.findOne({_id:id,organization:currentUser.organizationId});
+            const document = await Document.findOne({_id:id,organization:currentUser.organization});
 
             if (!document) {
                 throw new NoRecordFoundError(MESSAGES.DOCUMENT_NOT_EXISTS);
@@ -43,7 +43,7 @@ class DocumentService {
         try {
             //
         } catch (err) {
-            console.log(`[DocumentService] [remove] Error - ${currentUser.organizationId}`,err);
+            console.log(`[DocumentService] [remove] Error - ${currentUser.organization}`,err);
 
             throw err;
         }
@@ -59,14 +59,14 @@ class DocumentService {
 
             return {count,data};
         } catch (err) {
-            console.log(`[DocumentService] [list] Error - ${currentUser.organizationId}`,err);
+            console.log(`[DocumentService] [list] Error - ${currentUser.organization}`,err);
             throw err;
         }
     }
 
     async update(id,data,currentUser) {
         try {
-            const document = await Document.findOne({_id:id,organization:currentUser.organizationId});
+            const document = await Document.findOne({_id:id,organization:currentUser.organization});
             document.type = data.path;
             document.path = data.pathId;
             document.updatedBy = currentUser.id;

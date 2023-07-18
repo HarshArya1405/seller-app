@@ -14,6 +14,8 @@ const MESSAGES = {
     ORGANIZATION_NOT_EXISTS: 'We weren\'t able to find an organization with this details',
     ORGANIZATION_ALREADY_EXISTS:
     'An organization with this name already exists.',
+    ORGANIZATION_EXISTS:
+    'An Organization is already there for this user',
     PRODUCT_ALREADY_EXISTS:'A product with this name already exists.',
     PRODUCT_NOT_EXISTS: 'We couldn\'t find the product with given details',
 

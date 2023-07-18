@@ -74,24 +74,11 @@ class OrganizationController {
         }
     }
 
-    async setStoreDetails(req, res, next) {
-        try {
-            const params = req.params;
-            const data = req.body;
-            const organizations = await organizationService.setStoreDetails(params.orgId,data,req.user);
-            return res.send(organizations);
-
-        } catch (error) {
-            console.log('[OrderController] [get] Error -', error);
-            next(error);
-        }
-    }
-
     async update(req, res, next) {
         try {
             const params = req.params;
             const data = req.body;
-            const organizations = await organizationService.update(params.id,data);
+            const organizations = await organizationService.update(params.id,data,req.user);
             return res.send(organizations);
 
         } catch (error) {
@@ -99,11 +86,38 @@ class OrganizationController {
             next(error);
         }
     }
-    async getStoreList(req, res, next) {
+
+    // ORG Stores 
+
+    async setStoreDetails(req, res, next) {
+        try {
+            const data = req.body;
+            const store = await organizationService.setStoreDetails(data,req.user);
+            return res.send(store);
+
+        } catch (error) {
+            console.log('[OrderController] [get] Error -', error);
+            next(error);
+        }
+    }
+
+    async updateStoreDetails(req, res, next) {
         try {
             const params = req.params;
-            const organizations = await organizationService.getStoreList(req.params,params.orgId,req.user);
-            return res.send(organizations);
+            const data = req.body;
+            const store = await organizationService.updateStoreDetails(params.storeId,data,req.user);
+            return res.send(store);
+
+        } catch (error) {
+            console.log('[OrderController] [get] Error -', error);
+            next(error);
+        }
+    }
+
+    async getStoreList(req, res, next) {
+        try {
+            const stores = await organizationService.getStoreList(req.params,req.user);
+            return res.send(stores);
 
         } catch (error) {
             console.log('[OrderController] [get] Error -', error);
@@ -113,8 +127,8 @@ class OrganizationController {
     async getStoreDetail(req, res, next) {
         try {
             const params = req.params;
-            const organizations = await organizationService.getStoreDetail(params.orgId,params.storeId,req.user);
-            return res.send(organizations);
+            const store = await organizationService.getStoreDetail(params.storeId,req.user);
+            return res.send(store);
 
         } catch (error) {
             console.log('[OrderController] [get] Error -', error);

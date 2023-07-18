@@ -2,7 +2,7 @@
 import { DuplicateRecordFoundError, NoRecordFoundError,UnauthenticatedError, UnauthorisedError } from '../../../../lib/errors';
 import MESSAGES from '../../../../lib/utils/messages';
 import {encryptPIN,isValidPIN} from '../../../../lib/utils/utilityFunctions';
-import AuthenticationJwtToken from '../../../../lib/utils/AuthenticationJwtToken';
+import AuthenticationJwtToken from '../../../../lib/utils/AuthenticationJwtToken';  
 // const mailer = new Mailer();
 import User from '../../models/user.model';
 import Role from '../../models/role.model';

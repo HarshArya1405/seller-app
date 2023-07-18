@@ -221,11 +221,11 @@ class UserService {
                 throw new NoRecordFoundError(MESSAGES.USER_NOT_EXISTS);
             }
             const updatedUser = {...user, ...data};
-            const result = await User.updateOne(
+            await User.updateOne(
                 query,
                 updatedUser
             );
-            return result;
+            return updatedUser;
         } catch (err) {
             if (err.statusCode === 404)
                 throw new NoRecordFoundError(MESSAGES.ORGANIZATION_NOT_EXISTS);

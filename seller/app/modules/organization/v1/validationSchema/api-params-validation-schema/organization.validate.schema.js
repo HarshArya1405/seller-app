@@ -43,26 +43,38 @@ module.exports = {
     update: () => {
         return Joi.object({
             user: {
+                email: Joi.string(),
                 mobile: Joi.string(),
-                name: Joi.string()
+                firstName: Joi.string(),
+                lastName: Joi.string(),
+                addressLine1: Joi.string(),
+                addressLine2: Joi.string().allow(''),
+                city: Joi.string(),
+                pincode: Joi.string(),
+                state: Joi.string(),
+                country: Joi.string(),
             },
             providerDetails: {
                 name: Joi.string(),
-                address: Joi.string(),
                 contactEmail: Joi.string(),
                 contactMobile: Joi.string(),
-                addressProof: Joi.string(),
-                idProof: Joi.string(),
+                documents: Joi.array(),
+                domains: Joi.array(),
+                logo: Joi.string(),
+                shortDescription:Joi.string(),
+                detailedDescription:Joi.string(),
+                banner: Joi.string(),
                 bankDetails: {
                     accHolderName: Joi.string(),
                     accNumber: Joi.string(),
                     IFSC: Joi.string(),
-                    cancelledCheque: Joi.string(),
+                    cancelledCheque: Joi.string().allow(''),
                     bankName: Joi.string(),
-                    branchName: Joi.string()
+                    branchName: Joi.string(),
+                    accountType:Joi.string()
                 },
-                PAN: {PAN: Joi.string(), proof: Joi.string()},
-                GSTN: {GSTN: Joi.string(), proof: Joi.string()},
+                PAN: Joi.string().allow(''),
+                GSTN: Joi.string(),
                 FSSAI: Joi.string()
             }
         });
@@ -143,9 +155,6 @@ module.exports = {
     
     getStoreDetails:()=>{
         return Joi.object({
-            orgId: Joi.string().guid({
-                version: ['uuidv4']
-            }),
             storeId: Joi.string().guid({
                 version: ['uuidv4']
             }),
@@ -154,9 +163,6 @@ module.exports = {
 
     getStoreList:()=>{
         return Joi.object({
-            orgId: Joi.string().guid({
-                version: ['uuidv4']
-            })
         });
     },
     

@@ -49,7 +49,7 @@ const storeSchema = new mongoose.Schema({ //Users who has login ability should g
     strict: true,
     timestamps:true
 });
-storeSchema.index({name:1}, {unique: true});
+storeSchema.index({name:1,organization:1}, {unique: true});
 
 const Store = mongoose.model('Store',storeSchema);
 module.exports = Store;
