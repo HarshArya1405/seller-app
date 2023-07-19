@@ -6,16 +6,21 @@ import {
 // import s3 from '../../../../lib/utils/s3Utils';
 
 class DocumentService {
-    async create(data,currentUser) {
+    async createOrUpdate(data,currentUser) {
         try {
-            const document = new Document();
-            document.organization = currentUser.organization;
-            document.type = data.type;
-            document.path = data.path;
-            document.createdBy = currentUser.id;
-            document.updatedBy = currentUser.id;
-            await document.save();
-            return {data:document};
+            const documentExist = await Document.findOne({organization:currentUser.organization,type:data.type});
+            if(documentExist){
+                await Document.updateOne({organization:currentUser.organization,type:data.type},{path:data.path});
+            }else{
+                const document = new Document();
+                document.organization = currentUser.organization;
+                document.type = data.type;
+                document.path = data.path;
+                document.createdBy = currentUser.id;
+                document.updatedBy = currentUser.id;
+                await document.save();
+            }
+            return {data};
 
         } catch (err) {
             console.log(`[DocumentService] [create] Error in creating organization ${currentUser.organization}`,err);

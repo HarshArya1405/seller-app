@@ -53,7 +53,7 @@ class OrganizationService {
                         path:document.path,
                         organization:currentUser.organization
                     };
-                    await documentService.create(obj,currentUser);
+                    await documentService.createOrUpdate(obj,currentUser);
                 }
             }
             //updating a user
@@ -196,7 +196,7 @@ class OrganizationService {
                             path:document.path,
                             organization:organizationId
                         };
-                        await documentService.create(obj,currentUser);
+                        await documentService.createOrUpdate(obj,currentUser);
                     }
                 }
                 //updating a user
@@ -220,14 +220,15 @@ class OrganizationService {
                 const storeExist =  await Store.findOne({organization:currentUser.organization,name:data.name});
                 if(storeExist){
                     throw new NoRecordFoundError(MESSAGES.STORE_ALREADY_EXISTS);
+                }else{
+                    let storeObj = {...data};
+                    storeObj.organization = currentUser.organization;
+                    storeObj.createdBy = currentUser.id;
+                    storeObj.updatedBy = currentUser.id;
+                    const store = new Store(storeObj);
+                    await store.save();
+                    return {data:store};
                 }
-                let storeObj = {...data};
-                storeObj.organization = currentUser.organization;
-                storeObj.createdBy = currentUser.id;
-                storeObj.updatedBy = currentUser.id;
-                const store = new Store(storeObj);
-                await store.save();
-                return {data:store};
             } else {
                 throw new NoRecordFoundError(MESSAGES.ORGANIZATION_NOT_EXISTS);
             }
@@ -241,9 +242,9 @@ class OrganizationService {
         try {
             let organization = await Organization.findOne({_id:currentUser.organization});
             if (organization) {
-                const storeExist =  await Store.findOne({organization:currentUser.organization,name:data.name});
+                const storeExist =  await Store.findOne({organization:currentUser.organization,_id:{$ne:storeId},name:data.name});
                 if(storeExist){
-                    throw new NoRecordFoundError(MESSAGES.STORE_ALREADY_EXISTS);
+                    throw new DuplicateRecordFoundError(MESSAGES.STORE_ALREADY_EXISTS);
                 }
                 const storeQuery = {organization:currentUser.organization,_id:storeId};
                 const store = await Store.findOne(storeQuery).lean();

@@ -22,7 +22,7 @@ class ProductService {
             product.updatedBy = currentUser.id;
             product.organization = currentUser.organization;
             await product.save();
-            await this.createAttribute({product:product._id,attributes:data.attributesValues},currentUser);
+            await this.createAttribute({product:product._id,attributes:data.commonAttributesValues},currentUser);
             return product;
         } catch (err) {
             console.log(`[ProductService] [create] Error in creating product ${currentUser.organization}`,err);
@@ -205,9 +205,16 @@ class ProductService {
                 product.images = images;
             }
             const attributes = await ProductAttribute.find({product:productId,organization:currentUser.organization}); 
-            product.attributes = attributes;
+            let attributeObj = {};
+            for(const attribute of attributes){
+                attributeObj[attribute.code] = attribute.value;
+            }
+            let productData = {
+                commonDetails:product,
+                commonAttributesValues:attributeObj
+            };
 
-            return product;
+            return productData;
 
         } catch (err) {
             console.log('[OrganizationService] [get] Error in getting organization by id -',err);
