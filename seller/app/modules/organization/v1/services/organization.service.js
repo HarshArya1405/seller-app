@@ -44,7 +44,7 @@ class OrganizationService {
             let  organization = new Organization(orgDetails);
             await organization.save();
             data.user.organization = organization._id;
-            currentUser.organizationId = organization._id;
+            currentUser.organization = organization._id;
             //saving documents
             if(documents && documents.length >0){
                 for(const document of documents){
