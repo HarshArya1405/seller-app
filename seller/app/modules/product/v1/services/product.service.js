@@ -1,5 +1,6 @@
 import Product from '../../models/product.model';
 import ProductAttribute from '../../models/productAttribute.model';
+import ProductCustomizationService from './productCustomization.service';
 import VariantGroup from '../../models/variantGroup.model';
 import { Categories, SubCategories, Attributes } from '../../../../lib/utils/categoryVariant';
 import Organization from '../../../organization/models/organization.model';
@@ -7,7 +8,8 @@ import s3 from '../../../../lib/utils/s3Utils';
 import MESSAGES from '../../../../lib/utils/messages';
 import { DuplicateRecordFoundError, NoRecordFoundError } from '../../../../lib/errors';
 
-
+const productCustomizationService = new ProductCustomizationService();
+ 
 class ProductService {
     async create(data,currentUser) {
         try {
@@ -22,8 +24,13 @@ class ProductService {
             product.updatedBy = currentUser.id;
             product.organization = currentUser.organization;
             await product.save();
-            await this.createAttribute({product:product._id,attributes:data.commonAttributesValues},currentUser);
-            return product;
+            if(data.commonAttributesValues){
+                await this.createAttribute({product:product._id,attributes:data.commonAttributesValues},currentUser);
+            }
+            if(data.customizationDetails){
+                await productCustomizationService.create(product._id,data.customizationDetails,currentUser);
+            }
+            return {data:product};
         } catch (err) {
             console.log(`[ProductService] [create] Error in creating product ${currentUser.organization}`,err);
             throw err;
@@ -102,8 +109,8 @@ class ProductService {
     }
     async createAttribute(data,currentUser){
         try {
-            let attributes = data.attributes;
-            for (var attribute in attributes) { 
+            const attributes = data.attributes;
+            for (const attribute in attributes) { 
                 // eslint-disable-next-line no-prototype-builtins
                 if (attributes.hasOwnProperty(attribute)) {
                     let attributeExist = await ProductAttribute.findOne({product:data.product,code:attribute,organization:currentUser.organization},{value:attributes[attribute]});
@@ -252,12 +259,14 @@ class ProductService {
             const commonAttributesValues = data.commonAttributesValues;
             const product = await Product.findOne({_id:productId,organization:currentUser.organization}).lean();
             let productObj = {...product,...commonDetails };
-            console.log({productObj})
             await Product.updateOne({_id:productId,organization:currentUser.organization},productObj);
             if(commonAttributesValues){
-                await this.createAttribute({product:product._id,attributes:commonAttributesValues},currentUser);
+                await this.createAttribute({product:productId,attributes:commonAttributesValues},currentUser);
             } 
-            return {success:true};
+            if(data.customizationDetails){
+                await productCustomizationService.create(product._id,data.customizationDetails,currentUser);
+            }
+            return {data:productObj};
 
         } catch (err) {
             console.log(`[OrganizationService] [get] Error in getting organization by id - ${currentUser.organization}`,err);
@@ -312,6 +321,17 @@ class ProductService {
     async categoryList(params,currentUser) {
         try {
             let data = Categories;
+            return {data};
+
+        } catch (err) {
+            console.log(`[OrganizationService] [get] Error in getting organization by id - ${currentUser.organization}`,err);
+            throw err;
+        }   
+    }
+
+    async customizations(productId,currentUser) {
+        try {
+            let data = Categ
             return {data};
 
         } catch (err) {

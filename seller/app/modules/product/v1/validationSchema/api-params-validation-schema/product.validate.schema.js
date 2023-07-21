@@ -46,6 +46,10 @@ module.exports = {
                 images: Joi.array(),
             }),
             commonAttributesValues: Joi.object(),
+            customizationDetails: Joi.object({
+                customizationGroups: Joi.array(),
+                customizations: Joi.array(),
+            }),
         });
     },
     createWithVariant: () => {
@@ -147,6 +151,10 @@ module.exports = {
                 images: Joi.array(),
             }),
             commonAttributesValues: Joi.object(),
+            customizationDetails: Joi.object({
+                customizationGroups: Joi.array(),
+                customizations: Joi.array(),
+            }),
         });
     },
     updateWithVariant: () => {
