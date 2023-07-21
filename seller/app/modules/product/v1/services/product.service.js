@@ -113,9 +113,9 @@ class ProductService {
             for (const attribute in attributes) { 
                 // eslint-disable-next-line no-prototype-builtins
                 if (attributes.hasOwnProperty(attribute)) {
-                    let attributeExist = await ProductAttribute.findOne({product:data.product,code:attribute,organization:currentUser.organization},{value:attributes[attribute]});
+                    let attributeExist = await ProductAttribute.findOne({product:data.product,code:attribute,organization:currentUser.organization});
                     if(attributeExist){
-                        await ProductAttribute.updateOne({product:data.product,code:attribute,organization:currentUser.organization});
+                        await ProductAttribute.updateOne({product:data.product,code:attribute,organization:currentUser.organization},{value:attributes[attribute]});
                     }else{
 
                         let productAttribute = new ProductAttribute();

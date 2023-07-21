@@ -56,7 +56,7 @@ class ProductCustomizationService {
                 let customizationGroups = await ProductCustomizationGroup.find({product: productId,organization:currentUser.organization}).lean();
                 for(const customizationGroup of customizationGroups){
                     let customizationData = await ProductCustomization.find({parent: customizationGroup.id,organization:currentUser.organization});
-                    let customizationGroupObj ={...customizationGroup,customizationData};
+                    let customizationGroupObj ={...customizationGroup,customizations:customizationData};
                     customizations.push(customizationGroupObj);
                 }
                 return {data:customizations};
