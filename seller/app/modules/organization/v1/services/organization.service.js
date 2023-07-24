@@ -230,7 +230,7 @@ class OrganizationService {
                     return {data:store};
                 }
             } else {
-                throw new NoRecordFoundError(MESSAGES.ORGANIZATION_NOT_EXISTS);
+                throw new NoRecordFoundError(MESSAGES.PROVIDER_NOT_EXIST);
             }
         } catch (err) {
             console.log(`[OrganizationService] [get] Error in getting organization by id - ${currentUser.organization}`,err);
@@ -270,7 +270,7 @@ class OrganizationService {
                 let stores = await Store.find({organization:currentUser.organization});
                 return {data:stores};
             } else {
-                throw new NoRecordFoundError(MESSAGES.ORGANIZATION_NOT_EXISTS);
+                return {data:[]};
             }
 
         } catch (err) {

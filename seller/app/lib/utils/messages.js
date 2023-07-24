@@ -32,6 +32,8 @@ const MESSAGES = {
     DOCUMENT_NOT_EXISTS: 'We couldn\'t find any document with those details',
     STORE_NOT_EXISTS: 'We weren\'t able to find any store with this details',
     STORE_ALREADY_EXISTS: 'A Store with the given name already exists',
+    PROVIDER_NOT_EXIST: 'Provider details not found, Please add provider first !',
+
 
 
 };

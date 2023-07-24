@@ -329,17 +329,5 @@ class ProductService {
         }   
     }
 
-    async customizations(productId,currentUser) {
-        try {
-            let data = Categ
-            return {data};
-
-        } catch (err) {
-            console.log(`[OrganizationService] [get] Error in getting organization by id - ${currentUser.organization}`,err);
-            throw err;
-        }   
-    }
-
-
 }
 export default ProductService;
