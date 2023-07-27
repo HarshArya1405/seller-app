@@ -7,7 +7,7 @@ const unitOptical = ['diopters'];
 const unitLensPower = ['milliwatts', 'microwatts', 'horsepower', 'nanowatts', 'picowatts', 'watts'];
 const unitGraduation = ['Feet', 'centimeters', 'millimeters', 'Decimeters', 'Pints', 'Inches', 'gallons', 'Cubic Meters', 'nanometer', 'Hundredths-Inches', 'Ten Thousandths Inches', 'Cubic Centimeters', 'Quarts', 'picometer', 'milliliters', 'Kilometers', 'Fluid Ounces', 'Cubic Yards', 'Meters', 'micrometer', 'Cubic Inches', 'Imperial Gallons', 'Yards', 'Cubic Feet', 'Miles', 'Thousandths Inches', 'liters', 'Angstrom'];
 
-const Categories = ['Electronics', 'Grocery', 'Home Decor', 'Health and Wellness', 'Beauty & Personal Care', 'Food and Beverages'];
+const Categories = ['Electronics', 'Grocery', 'Home Decor', 'Health and Wellness', 'Beauty and Personal Care', 'Food and Beverages'];
 
 const SubCategories = [
     {
@@ -31,7 +31,7 @@ const SubCategories = [
             'Health, Home and Personal Care',
             'Heaters',
             'Kitchen Appliances',
-            'Lighting & Electric Fans',
+            'Lighting and Electric Fans',
             'Refrigerators and Freezers',
             'Vacuum Cleaners',
             'Washing Machines and Accessories',
@@ -42,18 +42,18 @@ const SubCategories = [
         'category': 'Grocery',
         'subCategories': [
             'Fruits and Vegetables',
-            'Masala & Seasoning',
-            'Oil & Ghee',
-            'Gourmet & World Foods',
+            'Masala and Seasoning',
+            'Oil and Ghee',
+            'Gourmet and World Foods',
             'Foodgrains',
-            'Eggs, Meat & Fish',
-            'Cleaning & Household',
+            'Eggs, Meat and Fish',
+            'Cleaning and Household',
             'Beverages',
-            'Beauty & Hygiene',
-            'Bakery, Cakes & Dairy',
+            'Beauty and Hygiene',
+            'Bakery, Cakes and Dairy',
             'Kitchen Accessories',
             'Baby Care',
-            'Snacks & Branded Foods',
+            'Snacks and Branded Foods',
             'Pet Care',
             'Stationery',
         ]
@@ -84,9 +84,9 @@ const SubCategories = [
         ]
     },
     {
-        'category': 'Beauty & Personal Care',
+        'category': 'Beauty and Personal Care',
         'subCategories': [
-            'Bath & Body',
+            'Bath and Body',
             'Feminine Care',
             'Fragrance',
             'Hair Care',
@@ -95,9 +95,9 @@ const SubCategories = [
             'Oral Care',
             'Skin Care',
             'Maternity Care',
-            'Nursing & Feeding',
-            'Sexual Wellness & Sensuality',
-            'Tools & Accessories'
+            'Nursing and Feeding',
+            'Sexual Wellness and Sensuality',
+            'Tools and Accessories'
         ]
     },
     {
@@ -325,7 +325,7 @@ const Attributes = [
         ]
     }, {
         'category': 'Electronics',
-        'subCategory': 'Lighting & Electric Fans',
+        'subCategory': 'Lighting and Electric Fans',
         'attributes': [
             { 'name': 'Size', 'type': 'text', 'example': 'Large', 'variationAllowed': true },
             { 'name': 'Style', 'type': 'text', 'example': 'Modern', 'variationAllowed': true },
@@ -410,21 +410,21 @@ const Attributes = [
     },
     {
         'category': 'Grocery',
-        'subCategory': 'Masala & Seasoning',
+        'subCategory': 'Masala and Seasoning',
         'attributes': [
 
         ]
     },
     {
         'category': 'Grocery',
-        'subCategory': 'Oil & Ghee',
+        'subCategory': 'Oil and Ghee',
         'attributes': [
 
         ]
     },
     {
         'category': 'Grocery',
-        'subCategory': 'Gourmet & World Foods',
+        'subCategory': 'Gourmet and World Foods',
         'attributes': [
 
         ]
@@ -438,14 +438,14 @@ const Attributes = [
     },
     {
         'category': 'Grocery',
-        'subCategory': 'Eggs, Meat & Fish',
+        'subCategory': 'Eggs, Meat and Fish',
         'attributes': [
 
         ]
     },
     {
         'category': 'Grocery',
-        'subCategory': 'Cleaning & Household',
+        'subCategory': 'Cleaning and Household',
         'attributes': [
             { 'name': 'Size', 'type': 'text', 'example': '', 'variationAllowed': true },
             { 'name': 'Color', 'type': 'text', 'example': '', 'variationAllowed': true },
@@ -467,7 +467,7 @@ const Attributes = [
     },
     {
         'category': 'Grocery',
-        'subCategory': 'Beauty & Hygiene',
+        'subCategory': 'Beauty and Hygiene',
         'attributes': [
             { 'name': 'Size', 'type': 'text', 'example': '', 'variationAllowed': true },
             { 'name': 'Color', 'type': 'text', 'example': '', 'variationAllowed': true },
@@ -481,7 +481,7 @@ const Attributes = [
     },
     {
         'category': 'Grocery',
-        'subCategory': 'Bakery, Cakes & Dairy',
+        'subCategory': 'Bakery, Cakes and Dairy',
         'attributes': [
             { 'name': 'Size', 'type': 'text', 'example': 'small', 'variationAllowed': true },
             { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
@@ -528,7 +528,7 @@ const Attributes = [
     },
     {
         'category': 'Grocery',
-        'subCategory': 'Snacks & Branded Foods',
+        'subCategory': 'Snacks and Branded Foods',
         'attributes': [
 
         ]
@@ -769,8 +769,8 @@ const Attributes = [
     },
 
     {
-        'category': 'Beauty & Personal Care',
-        'subCategory': 'Bath & Body',
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Bath and Body',
         'attributes': [
             { 'name': 'Size', 'type': 'text', 'example': 'small', 'variationAllowed': true },
             { 'name': 'Scent', 'type': 'text', 'example': 'Musk', 'variationAllowed': true },
@@ -783,7 +783,7 @@ const Attributes = [
         ]
     },
     {
-        'category': 'Beauty & Personal Care',
+        'category': 'Beauty and Personal Care',
         'subCategory': 'Feminine Care',
         'attributes': [
             { 'name': 'Size', 'type': 'text', 'example': 'small', 'variationAllowed': true },
@@ -806,7 +806,7 @@ const Attributes = [
         ]
     },
     {
-        'category': 'Beauty & Personal Care',
+        'category': 'Beauty and Personal Care',
         'subCategory': 'Fragrance',
         'attributes': [
             { 'name': 'Style Name', 'type': 'text', 'example': 'Mision', 'variationAllowed': true },
@@ -822,7 +822,7 @@ const Attributes = [
         ]
     },
     {
-        'category': 'Beauty & Personal Care',
+        'category': 'Beauty and Personal Care',
         'subCategory': 'Hair Care',
         'attributes': [
             { 'name': 'Scent Name', 'type': 'text', 'example': 'Spice', 'variationAllowed': true },
@@ -836,7 +836,7 @@ const Attributes = [
         ]
     },
     {
-        'category': 'Beauty & Personal Care',
+        'category': 'Beauty and Personal Care',
         'subCategory': 'Make Up',
         'attributes': [
             { 'name': 'Scent', 'type': 'text', 'example': 'Spice', 'variationAllowed': true },
@@ -850,7 +850,7 @@ const Attributes = [
         ]
     },
     {
-        'category': 'Beauty & Personal Care',
+        'category': 'Beauty and Personal Care',
         'subCategory': 'Men Grooming',
         'attributes': [
             { 'name': 'Scent', 'type': 'text', 'example': 'Spice', 'variationAllowed': true },
@@ -862,7 +862,7 @@ const Attributes = [
         ]
     },
     {
-        'category': 'Beauty & Personal Care',
+        'category': 'Beauty and Personal Care',
         'subCategory': 'Oral Care',
         'attributes': [
             { 'name': 'Flavour', 'type': 'text', 'example': 'Mint', 'variationAllowed': true },
@@ -878,7 +878,7 @@ const Attributes = [
         ]
     },
     {
-        'category': 'Beauty & Personal Care',
+        'category': 'Beauty and Personal Care',
         'subCategory': 'Skin Care',
         'attributes': [
             { 'name': 'Scent', 'type': 'text', 'example': 'Musk', 'variationAllowed': true },
@@ -891,7 +891,7 @@ const Attributes = [
         ]
     },
     {
-        'category': 'Beauty & Personal Care',
+        'category': 'Beauty and Personal Care',
         'subCategory': 'Maternity Care',
         'attributes': [
             { 'name': 'Size', 'type': 'text', 'example': 'small', 'variationAllowed': true },
@@ -902,8 +902,8 @@ const Attributes = [
         ]
     },
     {
-        'category': 'Beauty & Personal Care',
-        'subCategory': 'Nursing & Feeding',
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Nursing and Feeding',
         'attributes': [
             { 'name': 'Size', 'type': 'text', 'example': 'Small', 'variationAllowed': true },
             { 'name': 'Shape', 'type': 'text', 'example': 'Round', 'variationAllowed': true },
@@ -914,8 +914,8 @@ const Attributes = [
         ]
     },
     {
-        'category': 'Beauty & Personal Care',
-        'subCategory': 'Sexual Wellness & Sensuality',
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Sexual Wellness and Sensuality',
         'attributes': [
             { 'name': 'Scent', 'type': 'text', 'example': 'musk', 'variationAllowed': true },
             { 'name': 'Size', 'type': 'text', 'example': 'small', 'variationAllowed': true },
@@ -927,8 +927,8 @@ const Attributes = [
         ]
     },
     {
-        'category': 'Beauty & Personal Care',
-        'subCategory': 'Tools & Accessories',
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Tools and Accessories',
         'attributes': [
             { 'name': 'Size', 'type': 'text', 'example': 'small', 'variationAllowed': true },
             { 'name': 'Style', 'type': 'text', 'example': 'modern', 'variationAllowed': true },
