@@ -13,9 +13,10 @@ module.exports = {
                 productSubcategory2: Joi.string(),
                 productSubcategory3: Joi.string(),
                 maxAllowedQty: Joi.number(),
+                countryOfOrigin :Joi.string(),
                 packQty:Joi.any(),
                 UOM: Joi.string(),//units of measure
-                UOMValue: Joi.string().allow(''),//units of measure
+                UOMValue : Joi.string().allow(''),
                 length: Joi.any(),
                 breadth: Joi.any(),
                 height: Joi.any(),
@@ -64,10 +65,11 @@ module.exports = {
                 productSubcategory1: Joi.string(),
                 productSubcategory2: Joi.string(),
                 productSubcategory3: Joi.string(),
+                countryOfOrigin :Joi.string(),
                 maxAllowedQty: Joi.number(),
                 packQty:Joi.any(),
                 UOM: Joi.string(),//units of measure
-                UOMValue: Joi.string().allow(''),
+                UOMValue : Joi.string().allow(''),
                 length: Joi.any(),
                 breadth: Joi.any(),
                 height: Joi.any(),
@@ -95,8 +97,8 @@ module.exports = {
             variantSpecificDetails: Joi.array().items(
                 Joi.object({
                     varientAttributes: Joi.object(),
+                    UOMValue : Joi.string(),
                     quantity: Joi.number(),
-                    UOMValue: Joi.string().allow(''),
                     MRP: Joi.number(),
                     retailPrice: Joi.number(),
                     purchasePrice: Joi.number(),
@@ -104,6 +106,7 @@ module.exports = {
                     images: Joi.array(),
                 })
             ),
+            variationOn: Joi.string(),
             variantType: Joi.array().items(
                 Joi.string()
             )
@@ -117,12 +120,14 @@ module.exports = {
                 HSNCode: Joi.string(),
                 GST_Percentage: Joi.number(),
                 productCategory: Joi.string(),
+                countryOfOrigin :Joi.string(),
                 productSubcategory1: Joi.string(),
                 productSubcategory2: Joi.string(),
                 productSubcategory3: Joi.string(),
                 maxAllowedQty: Joi.number(),
                 packQty:Joi.any(),
                 UOM: Joi.string(),//units of measure
+                UOMValue : Joi.string().allow(''),
                 length: Joi.any(),
                 breadth: Joi.any(),
                 height: Joi.any(),
@@ -168,12 +173,14 @@ module.exports = {
                 HSNCode: Joi.string(),
                 GST_Percentage: Joi.number(),
                 productCategory: Joi.string(),
+                countryOfOrigin :Joi.string(),
                 productSubcategory1: Joi.string(),
                 productSubcategory2: Joi.string(),
                 productSubcategory3: Joi.string(),
                 maxAllowedQty: Joi.number(),
                 packQty:Joi.any(),
                 UOM: Joi.string(),//units of measure
+                UOMValue : Joi.string().allow(''),
                 length: Joi.any(),
                 breadth: Joi.any(),
                 height: Joi.any(),
@@ -210,6 +217,15 @@ module.exports = {
                     images: Joi.array(),
                 }),
             ),
+        });
+    },
+    
+    createCustomization :() =>{
+        return Joi.object({
+            customizationDetails: Joi.object({
+                customizationGroups: Joi.array(),
+                customizations: Joi.array(),
+            }),
         });
     },
     

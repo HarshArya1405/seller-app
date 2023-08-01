@@ -211,10 +211,21 @@ class ProductController {
         }
     }
 
-    async customizations(req, res, next) {
+    async getCustomizations(req, res, next) {
         try {
             const params = req.params;
             const categoryVariant = await productCustomizationService.get(params.productId,req.user);
+            return res.send(categoryVariant);
+
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async storeCustomizations(req, res, next) {
+        try {
+            const params = req.params;
+            const categoryVariant = await productCustomizationService.create(params.productId,req.body,req.user);
             return res.send(categoryVariant);
 
         } catch (error) {
