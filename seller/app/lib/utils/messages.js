@@ -16,6 +16,7 @@ const MESSAGES = {
     'An organization with this name already exists.',
     ORGANIZATION_EXISTS:
     'An Organization is already there for this user',
+    CUSTOMIZATION_GROUP_NOT_EXISTS: 'We couldn\'t find the customization group with given details',
     PRODUCT_ALREADY_EXISTS:'A product with this name already exists.',
     PRODUCT_NOT_EXISTS: 'We couldn\'t find the product with given details',
 
