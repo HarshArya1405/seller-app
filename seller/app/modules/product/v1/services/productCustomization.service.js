@@ -68,7 +68,10 @@ class ProductCustomizationService {
         try {
             const customizationGroup = await ProductCustomizationGroup.findOne({id: groupId,product:productId,organization:currentUser.organization});
             if(customizationGroup){
-                return  await ProductCustomization.find({parent: customizationGroup.id,product:productId,organization:currentUser.organization}) ?? [];
+                return {
+                    customizationGroups : customizationGroup,
+                    customizations :await ProductCustomization.find({parent: customizationGroup.id,product:productId,organization:currentUser.organization}) ?? [],
+                };
             }
             throw new NoRecordFoundError(MESSAGES.CUSTOMIZATION_GROUP_NOT_EXISTS);
         } catch (err) {
