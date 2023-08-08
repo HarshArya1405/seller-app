@@ -104,4 +104,13 @@ router.post('/v1/product/:productId/customizations',
     productController.storeCustomizations,
 );
 
+router.get('/v1/product/:productId/customizations/:groupId',
+    authentication.middleware(),
+    productController.getCustomizationForGroup,
+);
+
+router.delete('/v1/product/:productId/customizations/:groupId',
+    authentication.middleware(),
+    productController.deleteCustomizationForGroup,
+);
 module.exports = router;

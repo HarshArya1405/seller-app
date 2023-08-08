@@ -386,6 +386,27 @@ class ProductController {
 
 
     }
+    async getCustomizationForGroup(req, res, next) {
+        try {
+            const params = req.params;
+            const response = await productCustomizationService.getCustomizationForGroup(params.groupId,params.productId,req.user);
+            return res.send(response);
+
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async deleteCustomizationForGroup(req, res, next) {
+        try {
+            const params = req.params;
+            const response = await productCustomizationService.deleteCustomizationForGroup(params.groupId,params.productId,req.user);
+            return res.send(response);
+
+        } catch (error) {
+            next(error);
+        }
+    }
 
 
 }

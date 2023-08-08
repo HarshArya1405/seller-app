@@ -10,6 +10,7 @@ const organizationSchema = new mongoose.Schema({ //Users who has login ability s
     },
     name: {type:String,required:true},
     address: {type:String},
+    fulfilments : {type:Array},
     contactEmail:{type:String},
     contactMobile:{type:String},
     addressProof:{type:String},
