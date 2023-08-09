@@ -82,6 +82,7 @@ class ProductCustomizationService {
 
     async deleteCustomizationForGroup(groupId,productId,currentUser){
         try {
+            await ProductCustomization.updateMany({child: groupId,product:productId,organization:currentUser.organization},{child:''});
             const customizationGroup = await ProductCustomizationGroup.findOne({id: groupId,product:productId,organization:currentUser.organization});
             if(customizationGroup){
                 let customizations = await ProductCustomization.find({parent: customizationGroup.id,product:productId,organization:currentUser.organization});
