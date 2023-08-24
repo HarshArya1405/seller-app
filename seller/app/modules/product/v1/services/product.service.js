@@ -47,24 +47,29 @@ class ProductService {
             variantGroup.organization = currentUser.organization;
             variantGroup.name = data.variantType;
             await variantGroup.save();
-            for(const variant of variantSpecificDetails){
-                const varientAttributes = variant.varientAttributes;
-                let productObj = {};
-                productObj = {...commonDetails };
-                productObj.variantGroup = variantGroup._id;
-                let product = new Product(productObj);
-                product.quantity = variant.quantity;
-                product.organization = currentUser.organization;
-                product.MRP = variant.MRP;
-                product.retailPrice = variant.retailPrice;
-                product.purchasePrice = variant.purchasePrice;
-                product.HSNCode = variant.HSNCode;
-                product.images = variant.images;
-                await product.save();
-                let attributeObj = {
-                    ...commonAttributesValues,...varientAttributes
-                };
-                await this.createAttribute({product:product._id,attributes:attributeObj},currentUser);
+            let productObj = {};
+            productObj = {...commonDetails };
+            productObj.variantGroup = variantGroup._id;
+            if(variantSpecificDetails && variantSpecificDetails.length > 0){
+                for(const variant of variantSpecificDetails){
+                    const varientAttributes = variant.varientAttributes;
+                    productObj.variantGroup = variantGroup._id;
+                    let product = new Product(productObj);
+                    product.quantity = variant.quantity;
+                    product.organization = currentUser.organization;
+                    product.MRP = variant.MRP;
+                    product.retailPrice = variant.retailPrice;
+                    product.purchasePrice = variant.purchasePrice;
+                    product.HSNCode = variant.HSNCode;
+                    product.images = variant.images;
+                    await product.save();
+                    let attributeObj = {
+                        ...commonAttributesValues,...varientAttributes
+                    };
+                    await this.createAttribute({product:product._id,attributes:attributeObj},currentUser);
+                }
+            }else{
+                
             }
 
             return {success:true};

@@ -10,8 +10,52 @@ const productSchema = new mongoose.Schema({
     productName: {type:String,required:true},
     variantGroup : {type:String,ref:'VariantGroup'},
     MRP: {type:Number},
+    cancelWindow :{type:String},   
+    organizationName :{type:String},
+    packingDate :{type:String},
+    basePrice :{type:Number},
     retailPrice: {type:Number},
     purchasePrice: {type:Number},
+    manufacturerAddress :{type:{
+        addressLine1:{
+            type: String
+        },
+        addressLine2:{
+            type: String
+        },
+        city:{
+            type: String
+        },
+        state:{
+            type: String
+        },
+        pincode:{
+            type: String
+        },
+        country:{
+            type: String
+        }
+    }},
+    packerAddress :{type:{
+        addressLine1:{
+            type: String
+        },
+        addressLine2:{
+            type: String
+        },
+        city:{
+            type: String
+        },
+        state:{
+            type: String
+        },
+        pincode:{
+            type: String
+        },
+        country:{
+            type: String
+        }
+    }},
     HSNCode: {type:String},
     vegNonVeg :{type:String},
     timing : {type:String},

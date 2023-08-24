@@ -15,6 +15,10 @@ module.exports = {
                 productSubcategory1: Joi.string(),
                 productSubcategory2: Joi.string(),
                 productSubcategory3: Joi.string(),
+                packerAddress:Joi.object(),
+                manufacturerAddress:Joi.object(),
+                basePrice:Joi.string(),
+                cancelWindow:Joi.string(),
                 maxAllowedQty: Joi.number(),
                 countryOfOrigin :Joi.string(),
                 packQty:Joi.any(),
@@ -112,6 +116,7 @@ module.exports = {
                     images: Joi.array(),
                 })
             ),
+            customizationDetails : Joi.object(),
             variationOn: Joi.string(),
             variantType: Joi.array().items(
                 Joi.string()
