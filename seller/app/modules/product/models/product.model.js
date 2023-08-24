@@ -16,46 +16,8 @@ const productSchema = new mongoose.Schema({
     basePrice :{type:Number},
     retailPrice: {type:Number},
     purchasePrice: {type:Number},
-    manufacturerAddress :{type:{
-        addressLine1:{
-            type: String
-        },
-        addressLine2:{
-            type: String
-        },
-        city:{
-            type: String
-        },
-        state:{
-            type: String
-        },
-        pincode:{
-            type: String
-        },
-        country:{
-            type: String
-        }
-    }},
-    packerAddress :{type:{
-        addressLine1:{
-            type: String
-        },
-        addressLine2:{
-            type: String
-        },
-        city:{
-            type: String
-        },
-        state:{
-            type: String
-        },
-        pincode:{
-            type: String
-        },
-        country:{
-            type: String
-        }
-    }},
+    manufacturerAddress :{type:Object},
+    packerAddress :{type:Object},
     HSNCode: {type:String},
     vegNonVeg :{type:String},
     timing : {type:String},

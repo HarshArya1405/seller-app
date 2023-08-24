@@ -69,7 +69,12 @@ class ProductService {
                     await this.createAttribute({product:product._id,attributes:attributeObj},currentUser);
                 }
             }else{
-                
+                let product = new Product(productObj);
+                await product.save();
+                let attributeObj = {
+                    ...commonAttributesValues
+                };
+                await this.createAttribute({product:product._id,attributes:attributeObj},currentUser);
             }
 
             return {success:true};
@@ -81,28 +86,42 @@ class ProductService {
 
     async updateWithVariants(data,currentUser) {
         try {
-            const commonDetails = data.commonDetails;
-            const commonAttributesValues = data.commonAttributesValues;
-            const variantSpecificDetails = data.variantSpecificDetails;            
-            for(const productVariant of variantSpecificDetails){
-                let variantProduct = await Product.findOne({_id:productVariant._id,organization:currentUser.organization}).lean();
-                if(variantProduct){
-                    let productObj = {...variantProduct,...commonDetails };           
-                    productObj.quantity = productVariant.quantity;
-                    productObj.organization = currentUser.organization;
-                    productObj.MRP = productVariant.MRP;
-                    productObj.retailPrice = productVariant.retailPrice;
-                    productObj.purchasePrice = productVariant.purchasePrice;
-                    productObj.HSNCode = productVariant.HSNCode;
-                    productObj.images = productVariant.images;
-                    await Product.updateOne({_id:productVariant._id,organization:currentUser.organization},productObj);
-                    let varientAttributes = productVariant.varientAttributes;
+            if(data.productId){
+                let productData = await Product.findOne({_id:data.productId,organization:currentUser.organization});
+                const commonDetails = data.commonDetails;
+                const commonAttributesValues = data.commonAttributesValues;
+                const variantSpecificDetails = data.variantSpecificDetails;          
+                let index = 1;  
+                for(const variant of variantSpecificDetails){
+                    const varientAttributes = variant.varientAttributes;
+                    let product ={};
+                    let productObj = {};
+                    productObj = {...commonDetails };
+                    productObj.variantGroup = productData.variantGroup;
+                    if(index === 1){
+                        productObj.quantity = variant.quantity;
+                        productObj.organization = currentUser.organization;
+                        productObj.MRP = variant.MRP;
+                        productObj.retailPrice = variant.retailPrice;
+                        productObj.purchasePrice = variant.purchasePrice;
+                        productObj.HSNCode = variant.HSNCode;
+                        productObj.images = variant.images;
+                        await Product.updateOne({_id:data.productId,organization:currentUser.organization},{productObj});
+                    }else{
+                        product = new Product(productObj);
+                        product.quantity = variant.quantity;
+                        product.organization = currentUser.organization;
+                        product.MRP = variant.MRP;
+                        product.retailPrice = variant.retailPrice;
+                        product.purchasePrice = variant.purchasePrice;
+                        product.HSNCode = variant.HSNCode;
+                        product.images = variant.images;
+                        await product.save();
+                    }
                     let attributeObj = {
                         ...commonAttributesValues,...varientAttributes
                     };
-                    if(attributeObj){
-                        await this.createAttribute({product:variantProduct._id,attributes:attributeObj},currentUser);
-                    } 
+                    await this.createAttribute({product:product._id,attributes:attributeObj},currentUser);
                 }
             }
             return {success:true};
