@@ -11,7 +11,7 @@ const productSchema = new mongoose.Schema({
     variantGroup : {type:String,ref:'VariantGroup'},
     MRP: {type:Number},
     cancelWindow :{type:String},   
-    organizationName :{type:String},
+    manufacturerOrganizationName :{type:String},
     packingDate :{type:String},
     basePrice :{type:Number},
     retailPrice: {type:Number},
