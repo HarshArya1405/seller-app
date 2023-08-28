@@ -55,7 +55,7 @@ class ProductService {
                 for(const variant of variantSpecificDetails){
                     const varientAttributes = variant.varientAttributes;
                     productObj.variantGroup = variantGroup._id;
-                    let product = new Product(productObj);
+                    product = new Product(productObj);
                     product.quantity = variant.quantity;
                     product.organization = currentUser.organization;
                     product.MRP = variant.MRP;
@@ -77,7 +77,6 @@ class ProductService {
                 };
                 await this.createAttribute({product:product._id,attributes:attributeObj},currentUser);
             }
-
             return product;
             // return {success:true};
         } catch (err) {
