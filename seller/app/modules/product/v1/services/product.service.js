@@ -46,6 +46,7 @@ class ProductService {
             let variantGroup = new VariantGroup();
             variantGroup.organization = currentUser.organization;
             variantGroup.name = data.variantType;
+            variantGroup.variationOn = data.variationOn;
             await variantGroup.save();
             let productObj = {};
             let product;
