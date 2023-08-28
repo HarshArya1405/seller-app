@@ -48,7 +48,7 @@ class ProductService {
             variantGroup.name = data.variantType;
             await variantGroup.save();
             let productObj = {};
-            let product = {};
+            let product;
             productObj = {...commonDetails };
             productObj.variantGroup = variantGroup._id;
             if(variantSpecificDetails && variantSpecificDetails.length > 0){
