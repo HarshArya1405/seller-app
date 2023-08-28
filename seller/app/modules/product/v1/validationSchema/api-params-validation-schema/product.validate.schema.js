@@ -79,6 +79,7 @@ module.exports = {
                 productSubcategory3: Joi.string(),
                 countryOfOrigin :Joi.string(),
                 basePrice:Joi.string(),
+                cancelWindow:Joi.string(),
                 maxAllowedQty: Joi.number(),
                 packQty:Joi.any(),
                 UOM: Joi.string(),//units of measure
@@ -143,6 +144,7 @@ module.exports = {
                 productSubcategory1: Joi.string(),
                 productSubcategory2: Joi.string(),
                 basePrice:Joi.string(),
+                cancelWindow:Joi.string(),
                 productSubcategory3: Joi.string(),
                 maxAllowedQty: Joi.number(),
                 packQty:Joi.any(),
@@ -208,6 +210,7 @@ module.exports = {
                 UOMValue : Joi.string().allow(''),
                 length: Joi.any(),
                 basePrice:Joi.string(),
+                cancelWindow:Joi.string(),
                 breadth: Joi.any(),
                 height: Joi.any(),
                 weight: Joi.any(),
