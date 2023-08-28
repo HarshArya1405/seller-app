@@ -48,6 +48,7 @@ class ProductService {
             variantGroup.name = data.variantType;
             await variantGroup.save();
             let productObj = {};
+            let product = {};
             productObj = {...commonDetails };
             productObj.variantGroup = variantGroup._id;
             if(variantSpecificDetails && variantSpecificDetails.length > 0){
@@ -69,7 +70,7 @@ class ProductService {
                     await this.createAttribute({product:product._id,attributes:attributeObj},currentUser);
                 }
             }else{
-                let product = new Product(productObj);
+                product = new Product(productObj);
                 await product.save();
                 let attributeObj = {
                     ...commonAttributesValues
@@ -77,7 +78,8 @@ class ProductService {
                 await this.createAttribute({product:product._id,attributes:attributeObj},currentUser);
             }
 
-            return {success:true};
+            return product;
+            // return {success:true};
         } catch (err) {
             console.log(`[ProductService] [create] Error in creating product ${data.currentUser.organization}`,err);
             throw err;
