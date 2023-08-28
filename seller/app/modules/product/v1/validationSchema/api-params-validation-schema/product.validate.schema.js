@@ -230,6 +230,10 @@ module.exports = {
                 brandOwnerFSSAILicenseNo:Joi.string()
             }),
             commonAttributesValues: Joi.object(),
+            variationOn: Joi.string(),
+            variantType: Joi.array().items(
+                Joi.string()
+            ),
             variantSpecificDetails: Joi.array().items(
                 Joi.object({
                     varientAttributes: Joi.object(),
