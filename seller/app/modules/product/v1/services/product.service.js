@@ -72,6 +72,7 @@ class ProductService {
                 }
             }else{
                 product = new Product(productObj);
+                product.organization = currentUser.organization;
                 await product.save();
                 let attributeObj = {
                     ...commonAttributesValues
