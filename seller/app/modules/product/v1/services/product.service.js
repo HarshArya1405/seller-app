@@ -105,9 +105,7 @@ class ProductService {
                     productObj.quantity = variant.quantity;
                     productObj.organization = currentUser.organization;
                     productObj.MRP = variant.MRP;
-                    productObj.basePrice = variant.basePrice;
                     productObj.purchasePrice = variant.purchasePrice;
-                    productObj.HSNCode = variant.HSNCode;
                     productObj.images = variant.images;
                     if(index === 1){
                         await Product.updateOne({_id:data.commonDetails._id,organization:currentUser.organization},{productObj});
