@@ -213,7 +213,7 @@ module.exports = {
                 UOM: Joi.string(),//units of measure
                 UOMValue : Joi.string().allow(''),
                 length: Joi.any(),
-                basePrice:Joi.string(),
+                basePrice:Joi.number(),
                 packerAddress:Joi.object(),
                 manufacturerAddress:Joi.object(),
                 cancelWindow:Joi.string(),
