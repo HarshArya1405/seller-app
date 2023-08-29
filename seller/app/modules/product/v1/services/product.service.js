@@ -100,6 +100,7 @@ class ProductService {
                     let product ={};
                     let productObj = {};
                     productObj = {...commonDetails };
+                    delete productObj._id;
                     productObj.variantGroup = productData.variantGroup;
                     if(index === 1){
                         productObj.quantity = variant.quantity;
