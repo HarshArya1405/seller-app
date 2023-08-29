@@ -108,7 +108,7 @@ class ProductService {
                     productObj.purchasePrice = variant.purchasePrice;
                     productObj.images = variant.images;
                     if(index === 1){
-                        await Product.updateOne({_id:data.commonDetails._id,organization:currentUser.organization},{productObj});
+                        await Product.updateOne({_id:data.commonDetails._id,organization:currentUser.organization},productObj);
                     }else{
                         product = new Product(productObj);
                         await product.save();
