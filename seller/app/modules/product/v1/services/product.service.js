@@ -125,6 +125,7 @@ class ProductService {
                         ...commonAttributesValues,...varientAttributes
                     };
                     await this.createAttribute({product:product._id,attributes:attributeObj},currentUser);
+                    index +=1;
                 }
             }
             return {success:true};
