@@ -109,7 +109,7 @@ class ProductService {
                         productObj.purchasePrice = variant.purchasePrice;
                         productObj.HSNCode = variant.HSNCode;
                         productObj.images = variant.images;
-                        await Product.updateOne({_id:data.data.commonDetails._id,organization:currentUser.organization},{productObj});
+                        await Product.updateOne({_id:data.commonDetails._id,organization:currentUser.organization},{productObj});
                     }else{
                         product = new Product(productObj);
                         product.quantity = variant.quantity;
