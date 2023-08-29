@@ -102,24 +102,17 @@ class ProductService {
                     productObj = {...commonDetails };
                     delete productObj._id;
                     productObj.variantGroup = productData.variantGroup;
+                    productObj.quantity = variant.quantity;
+                    productObj.organization = currentUser.organization;
+                    productObj.MRP = variant.MRP;
+                    productObj.basePrice = variant.basePrice;
+                    productObj.purchasePrice = variant.purchasePrice;
+                    productObj.HSNCode = variant.HSNCode;
+                    productObj.images = variant.images;
                     if(index === 1){
-                        productObj.quantity = variant.quantity;
-                        productObj.organization = currentUser.organization;
-                        productObj.MRP = variant.MRP;
-                        productObj.retailPrice = variant.retailPrice;
-                        productObj.purchasePrice = variant.purchasePrice;
-                        productObj.HSNCode = variant.HSNCode;
-                        productObj.images = variant.images;
                         await Product.updateOne({_id:data.commonDetails._id,organization:currentUser.organization},{productObj});
                     }else{
                         product = new Product(productObj);
-                        product.quantity = variant.quantity;
-                        product.organization = currentUser.organization;
-                        product.MRP = variant.MRP;
-                        product.retailPrice = variant.retailPrice;
-                        product.purchasePrice = variant.purchasePrice;
-                        product.HSNCode = variant.HSNCode;
-                        product.images = variant.images;
                         await product.save();
                     }
                     let attributeObj = {
