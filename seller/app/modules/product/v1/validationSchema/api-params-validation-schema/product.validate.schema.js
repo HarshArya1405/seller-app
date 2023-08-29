@@ -254,6 +254,7 @@ module.exports = {
                     MRP: Joi.number(),
                     retailPrice: Joi.number(),
                     purchasePrice: Joi.number(),
+                    basePrice:Joi.string(),
                     barcode: Joi.number(),
                     images: Joi.array(),
                 }),
