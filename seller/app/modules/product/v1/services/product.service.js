@@ -89,8 +89,8 @@ class ProductService {
 
     async updateWithVariants(data,currentUser) {
         try {
-            if(data.productId){
-                let productData = await Product.findOne({_id:data.productId,organization:currentUser.organization});
+            if(data.commonDetails._id){
+                let productData = await Product.findOne({_id:data.commonDetails._id,organization:currentUser.organization});
                 const commonDetails = data.commonDetails;
                 const commonAttributesValues = data.commonAttributesValues;
                 const variantSpecificDetails = data.variantSpecificDetails;          
@@ -109,7 +109,7 @@ class ProductService {
                         productObj.purchasePrice = variant.purchasePrice;
                         productObj.HSNCode = variant.HSNCode;
                         productObj.images = variant.images;
-                        await Product.updateOne({_id:data.productId,organization:currentUser.organization},{productObj});
+                        await Product.updateOne({_id:data.data.commonDetails._id,organization:currentUser.organization},{productObj});
                     }else{
                         product = new Product(productObj);
                         product.quantity = variant.quantity;
