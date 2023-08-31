@@ -82,7 +82,7 @@ class ProductService {
             return product;
             // return {success:true};
         } catch (err) {
-            console.log(`[ProductService] [create] Error in creating product ${data.currentUser.organization}`,err);
+            console.log(`[ProductService] [create] Error in creating product ${currentUser.organization}`,err);
             throw err;
         }
     }
