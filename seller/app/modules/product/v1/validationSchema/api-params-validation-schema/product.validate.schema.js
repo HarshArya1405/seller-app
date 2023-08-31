@@ -134,6 +134,7 @@ module.exports = {
     update: () => {
         return Joi.object({
             commonDetails: Joi.object({
+                _id: Joi.string(),
                 productCode: Joi.string(),
                 productName: Joi.string(),
                 HSNCode: Joi.string(),
