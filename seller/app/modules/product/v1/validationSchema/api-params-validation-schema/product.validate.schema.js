@@ -145,7 +145,7 @@ module.exports = {
                 countryOfOrigin :Joi.string(),
                 productSubcategory1: Joi.string(),
                 productSubcategory2: Joi.string(),
-                basePrice:Joi.string(),
+                basePrice:Joi.number(),
                 packerAddress:Joi.object(),
                 manufacturerAddress:Joi.object(),
                 cancelWindow:Joi.string(),
