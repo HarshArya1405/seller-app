@@ -1,4 +1,4 @@
-import { NoRecordFoundError } from '../../../../lib/errors';
+import { BadRequestParameterError, NoRecordFoundError } from '../../../../lib/errors';
 import MESSAGES from '../../../../lib/utils/messages';
 import Product from '../../models/product.model';
 import ProductCustomization from '../../models/productCustomization.model';
@@ -7,6 +7,21 @@ import ProductCustomizationGroup from '../../models/productCustomizationGroup.mo
 class ProductCustomizationService {
     async create(productId,customizationDetails,currentUser) {
         try {
+            // let query = {};
+            // let customizationGroups =  customizationDetails.customizationGroups;
+            // if(customizationGroups && customizationGroups.length  > 0){
+            //     for(const customizationGroup of customizationGroups){
+            //         if(customizationGroup.isMandatory){
+            //             if(customizationGroup.minQuantity !== 1){
+            //                 throw new BadRequestParameterError(MESSAGES.MIN_IS_MANDATORY);
+            //             }
+            //         }else{
+            //             if(customizationGroup.minQuantity !== 0){
+            //                 throw new BadRequestParameterError(MESSAGES.MIN_ISNOT_MANDATORY);
+            //             }
+            //         }
+            //     }
+            // }
             const customizationExist = await ProductCustomizationGroup.find({product:productId,organization:currentUser.organization});
             if (customizationExist) {
                 await ProductCustomizationGroup.deleteMany({product:productId,organization:currentUser.organization});
@@ -66,43 +81,23 @@ class ProductCustomizationService {
             throw err;
         }
     }
-    async getCustomizationForGroup(groupId,productId,currentUser){
+
+    async getforApi(productId){
         try {
-            const customizationGroup = await ProductCustomizationGroup.findOne({id: groupId,product:productId,organization:currentUser.organization});
-            if(customizationGroup){
+            const product = await Product.findOne({_id: productId});
+            if(product){
                 return {
-                    customizationGroups : customizationGroup,
-                    customizations :await ProductCustomization.find({parent: customizationGroup.id,product:productId,organization:currentUser.organization}) ?? [],
+                    customizationGroups : await ProductCustomizationGroup.find({product: productId}),
+                    customizations : await ProductCustomization.find({product: productId}),
                 };
+           
             }
-            throw new NoRecordFoundError(MESSAGES.CUSTOMIZATION_GROUP_NOT_EXISTS);
+            throw new NoRecordFoundError(MESSAGES.PRODUCT_NOT_EXISTS);
         } catch (err) {
-            console.log(`[ProductCustomizationService] [getCustomizationForGroup] Error - ${currentUser.organization}`,err);
+            console.log('[ProductCustomizationService] [get] Error ',err);
             throw err;
         }
     }
-
-    async deleteCustomizationForGroup(groupId,productId,currentUser){
-        try {
-            await ProductCustomization.updateMany({child: groupId,product:productId,organization:currentUser.organization},{child:''});
-            const customizationGroup = await ProductCustomizationGroup.findOne({id: groupId,product:productId,organization:currentUser.organization});
-            if(customizationGroup){
-                let customizations = await ProductCustomization.find({parent: customizationGroup.id,product:productId,organization:currentUser.organization});
-                for(const customization of customizations){
-                    if(customization.child){
-                        this.deleteCustomizationForGroup(customization.child,productId,currentUser);
-                    }
-                    await ProductCustomization.deleteOne({_id: customization._id,product:productId,organization:currentUser.organization});
-                }
-                await ProductCustomizationGroup.deleteOne({_id: customizationGroup._id,product:productId,organization:currentUser.organization});
-            }
-            return {success:true};
-        } catch (err) {
-            console.log(`[ProductCustomizationService] [deleteCustomizationForGroup] Error - ${currentUser.organization}`,err);
-            throw err;
-        }
-    }
-
 
 }
 export default ProductCustomizationService;
