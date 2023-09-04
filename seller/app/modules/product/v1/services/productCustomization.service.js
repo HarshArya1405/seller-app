@@ -98,6 +98,42 @@ class ProductCustomizationService {
             throw err;
         }
     }
+    async getCustomizationForGroup(groupId,productId,currentUser){
+        try {
+            const customizationGroup = await ProductCustomizationGroup.findOne({id: groupId,product:productId,organization:currentUser.organization});
+            if(customizationGroup){
+                return {
+                    customizationGroups : customizationGroup,
+                    customizations :await ProductCustomization.find({parent: customizationGroup.id,product:productId,organization:currentUser.organization}) ?? [],
+                };
+            }
+            throw new NoRecordFoundError(MESSAGES.CUSTOMIZATION_GROUP_NOT_EXISTS);
+        } catch (err) {
+            console.log(`[ProductCustomizationService] [getCustomizationForGroup] Error - ${currentUser.organization}`,err);
+            throw err;
+        }
+    }
+
+    async deleteCustomizationForGroup(groupId,productId,currentUser){
+        try {
+            await ProductCustomization.updateMany({child: groupId,product:productId,organization:currentUser.organization},{child:''});
+            const customizationGroup = await ProductCustomizationGroup.findOne({id: groupId,product:productId,organization:currentUser.organization});
+            if(customizationGroup){
+                let customizations = await ProductCustomization.find({parent: customizationGroup.id,product:productId,organization:currentUser.organization});
+                for(const customization of customizations){
+                    if(customization.child){
+                        this.deleteCustomizationForGroup(customization.child,productId,currentUser);
+                    }
+                    await ProductCustomization.deleteOne({_id: customization._id,product:productId,organization:currentUser.organization});
+                }
+                await ProductCustomizationGroup.deleteOne({_id: customizationGroup._id,product:productId,organization:currentUser.organization});
+            }
+            return {success:true};
+        } catch (err) {
+            console.log(`[ProductCustomizationService] [deleteCustomizationForGroup] Error - ${currentUser.organization}`,err);
+            throw err;
+        }
+    }
 
 }
 export default ProductCustomizationService;
