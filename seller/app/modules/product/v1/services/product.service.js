@@ -54,7 +54,7 @@ class ProductService {
             productObj.variantGroup = variantGroup._id;
             if(variantSpecificDetails && variantSpecificDetails.length > 0){
                 for(const variant of variantSpecificDetails){
-                    const varientAttributes = variant.varientAttributes;
+                    const variantAttributes = variant.variantAttributes;
                     productObj.variantGroup = variantGroup._id;
                     product = new Product(productObj);
                     product.quantity = variant.quantity;
@@ -66,7 +66,7 @@ class ProductService {
                     product.images = variant.images;
                     await product.save();
                     let attributeObj = {
-                        ...commonAttributesValues,...varientAttributes
+                        ...commonAttributesValues,...variantAttributes
                     };
                     await this.createAttribute({product:product._id,attributes:attributeObj},currentUser);
                 }
@@ -96,7 +96,7 @@ class ProductService {
                 const variantSpecificDetails = data.variantSpecificDetails;          
                 let index = 1;  
                 for(const variant of variantSpecificDetails){
-                    const varientAttributes = variant.varientAttributes;
+                    const variantAttributes = variant.variantAttributes;
                     let product ={};
                     let productObj = {};
                     productObj = {...commonDetails };
@@ -114,7 +114,7 @@ class ProductService {
                         await product.save();
                     }
                     let attributeObj = {
-                        ...commonAttributesValues,...varientAttributes
+                        ...commonAttributesValues,...variantAttributes
                     };
                     await this.createAttribute({product:data.commonDetails._id,attributes:attributeObj},currentUser);
                     index +=1;
