@@ -116,7 +116,7 @@ class ProductService {
                     let attributeObj = {
                         ...commonAttributesValues,...varientAttributes
                     };
-                    await this.createAttribute({product:product._id,attributes:attributeObj},currentUser);
+                    await this.createAttribute({product:data.commonDetails._id,attributes:attributeObj},currentUser);
                     index +=1;
                 }
             }
