@@ -48,7 +48,7 @@ module.exports = {
                 monthYearOfManufacturePackingImport:Joi.string(),
                 importerFSSAILicenseNo:Joi.string(),
                 brandOwnerFSSAILicenseNo:Joi.string(),
-                varientAttributes: Joi.object(),
+                variantAttributes: Joi.object(),
                 quantity: Joi.number(),
                 MRP: Joi.number(),
                 retailPrice: Joi.number(),
@@ -114,7 +114,7 @@ module.exports = {
             commonAttributesValues: Joi.object(),
             variantSpecificDetails: Joi.array().items(
                 Joi.object({
-                    varientAttributes: Joi.object(),
+                    variantAttributes: Joi.object(),
                     UOMValue : Joi.string(),
                     quantity: Joi.number(),
                     MRP: Joi.number(),
@@ -179,7 +179,7 @@ module.exports = {
                 monthYearOfManufacturePackingImport:Joi.string(),
                 importerFSSAILicenseNo:Joi.string(),
                 brandOwnerFSSAILicenseNo:Joi.string(),
-                varientAttributes: Joi.object(),
+                variantAttributes: Joi.object(),
                 quantity: Joi.number(),
                 MRP: Joi.number(),
                 retailPrice: Joi.number(),
@@ -229,7 +229,7 @@ module.exports = {
                 packingDate : Joi.string(),
                 manufacturerOrganizationName : Joi.string(),
                 manufacturedDate: Joi.string(),
-                nutritionalInfo: Joi.array(),
+                nutritionalInfo: Joi.array(),   
                 additiveInfo: Joi.array(),
                 instructions: Joi.string(),
                 isCancellable: Joi.boolean(),
@@ -250,7 +250,7 @@ module.exports = {
             ),
             variantSpecificDetails: Joi.array().items(
                 Joi.object({
-                    varientAttributes: Joi.object(),
+                    variantAttributes: Joi.object(),
                     _id:Joi.string(),
                     quantity: Joi.number(),
                     MRP: Joi.number(),
