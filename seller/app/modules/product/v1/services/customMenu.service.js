@@ -45,13 +45,15 @@ class CustomMenuService {
                     await menu.save();
                     const products = data.products;
                     await CustomMenuProduct.deleteMany({organization:currentUser.organization,customMenu:menuId});
-                    for(const product of products){
-                        let menuProduct = new CustomMenuProduct();
-                        menuProduct.organization = currentUser.organization;
-                        menuProduct.customMenu = menuId;
-                        menuProduct.product = product.id;
-                        menuProduct.seq = product.seq;
-                        await menuProduct.save();
+                    if(products && products.length >0){
+                        for(const product of products){
+                            let menuProduct = new CustomMenuProduct();
+                            menuProduct.organization = currentUser.organization;
+                            menuProduct.customMenu = menuId;
+                            menuProduct.product = product.id;
+                            menuProduct.seq = product.seq;
+                            await menuProduct.save();
+                        }
                     }
                     let customMenuTiming = await CustomMenuTiming.findOne({customMenu:menuId,organization:currentUser.organization});
                     if(customMenuTiming){
