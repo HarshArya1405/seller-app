@@ -159,7 +159,7 @@ class ProductService {
         try {
             let query={};
             if(params.name){
-                query.name = { $regex: params.name, $options: 'i' };
+                query.productName = { $regex: params.name, $options: 'i' };
             }
             if(params.organization){
                 query.organization =params.organization;
