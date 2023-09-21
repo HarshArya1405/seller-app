@@ -46,6 +46,9 @@ router.get('/v1/organizations/:organizationId/ondcGet',
 
 // ORG - STORE APIs
 
+router.get('/v1/organization/store/categories',
+    authentication.middleware(),
+    organizationController.getCategories);
 
 router.post('/v1/organization/stores',
     authentication.middleware(),

@@ -101,6 +101,18 @@ class OrganizationController {
         }
     }
 
+    async getCategories(req, res, next) {
+        try {
+            const params = req.params;
+            const store = await organizationService.getCategories(params,req.user);
+            return res.send(store);
+
+        } catch (error) {
+            console.log('[OrderController] [get] Error -', error);
+            next(error);
+        }
+    }
+
     async updateStoreDetails(req, res, next) {
         try {
             const params = req.params;
