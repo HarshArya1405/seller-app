@@ -97,6 +97,7 @@ class ProductService {
                 let index = 1;  
                 for(const variant of variantSpecificDetails){
                     const variantAttributes = variant.variantAttributes;
+                    let productId;
                     let product ={};
                     let productObj = {};
                     productObj = {...commonDetails };
@@ -108,15 +109,17 @@ class ProductService {
                     productObj.purchasePrice = variant.purchasePrice;
                     productObj.images = variant.images;
                     if(index === 1){
-                        await Product.updateOne({_id:data.commonDetails._id,organization:currentUser.organization},productObj);
+                        productId = commonDetails._id;
+                        await Product.updateOne({_id:data.productId,organization:currentUser.organization},productObj);
                     }else{
                         product = new Product(productObj);
+                        productId = product._id;
                         await product.save();
                     }
                     let attributeObj = {
                         ...commonAttributesValues,...variantAttributes
                     };
-                    await this.createAttribute({product:data.commonDetails._id,attributes:attributeObj},currentUser);
+                    await this.createAttribute({product:productId,attributes:attributeObj},currentUser);
                     index +=1;
                 }
             }
