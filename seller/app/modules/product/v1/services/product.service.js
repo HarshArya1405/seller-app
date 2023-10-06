@@ -110,7 +110,7 @@ class ProductService {
                     productObj.images = variant.images;
                     if(index === 1){
                         productId = commonDetails._id;
-                        await Product.updateOne({_id:data.productId,organization:currentUser.organization},productObj);
+                        await Product.updateOne({_id:productId,organization:currentUser.organization},productObj);
                     }else{
                         product = new Product(productObj);
                         productId = product._id;
