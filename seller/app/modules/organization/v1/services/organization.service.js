@@ -260,7 +260,7 @@ class OrganizationService {
                     categories.push({name:domain.subdomainName});
                 }
                 
-                return [];
+                return categories;
             } else {
                 throw new NoRecordFoundError(MESSAGES.PROVIDER_NOT_EXIST);
             }
