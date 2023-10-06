@@ -242,18 +242,24 @@ class OrganizationService {
         try {
             let organization = await Organization.findOne({_id:currentUser.organization});
             if (organization) {
-                const stores =  await Store.find({organization:currentUser.organization});
-                if(stores && stores.length >0 ){
-                    let categories = [];
-                    for(const store of stores){
-                        if(store.categoryServiceability && store.categoryServiceability.length >0){
-                            for(const categoryServiceability of store.categoryServiceability){
-                                categories.push({name:categoryServiceability.domainName});
-                            }
-                        }
-                    }
-                    return categories;
+                // const stores =  await Store.find({organization:currentUser.organization});
+                // if(stores && stores.length >0 ){
+                //     let categories = [];
+                //     for(const store of stores){
+                //         if(store.categoryServiceability && store.categoryServiceability.length >0){
+                //             for(const categoryServiceability of store.categoryServiceability){
+                //                 categories.push({name:categoryServiceability.domainName});
+                //             }
+                //         }
+                //     }
+                //     return categories;
+                // }
+                let categories = [];
+                const domains = organization.domains[0].subDomains;
+                for(const domain of domains){
+                    categories.push({name:domain.subdomainName});
                 }
+                
                 return [];
             } else {
                 throw new NoRecordFoundError(MESSAGES.PROVIDER_NOT_EXIST);
