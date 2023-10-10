@@ -1,4 +1,6 @@
 import DocumentService from '../v1/services/document.service';
+import {getSignedUrlForUpload, uploadFileToS3} from '../.././../lib/utils/s3Utils';
+
 
 const documentService = new DocumentService();
 
@@ -61,6 +63,28 @@ class DocumentController {
 
         } catch (error) {
             console.log('[DocumentController] [remove] Error -', error);
+            next(error);
+        }
+    }
+
+    async getUploadUrl(req, res, next){
+        try {
+            const uploadSignedUrl = await getSignedUrlForUpload(req.params.entity,req.body);
+            return res.send(uploadSignedUrl);
+
+        } catch (error) {
+            console.log('[DocumentController] [getUploadUrl] Error -', error);
+            next(error);
+        }
+    }
+    async uploadFileToS3(req, res, next){
+        try {
+            const data = req.body;
+            const uploadSignedUrl = await uploadFileToS3(data.url,data.file);
+            return res.send(uploadSignedUrl);
+
+        } catch (error) {
+            console.log('[DocumentController] [getUploadUrl] Error -', error);
             next(error);
         }
     }

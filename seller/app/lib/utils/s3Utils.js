@@ -1,4 +1,5 @@
 import AWS from 'aws-sdk';
+import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { mergedEnvironmentConfig } from '../../config/env.config.js';
 const version = mergedEnvironmentConfig.s3.version;
@@ -127,6 +128,22 @@ exports.getFileAsStream = async(data) => {
         return buffer;
     } catch (err) {
         return err;
+    }
+};
+
+exports.uploadFileToS3 = async(url,file) => {
+    try {
+        let result = await axios({
+            url: url,
+            method: 'PUT',
+            timeout: 180000, // If the request takes longer than `timeout`, the request will be aborted.
+            data: file
+        });
+
+        return result;
+
+    } catch (err) {
+        console.log(err);
     }
 };
 

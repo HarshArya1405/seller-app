@@ -30,7 +30,7 @@ router.post(
 );
 router.post('/v1/auth/resetpassword/:userId/:token', authenticationController.resetPasswordUsingLink);
 
-
+    
 
 /**
  * API to generate 6 digit PIN
