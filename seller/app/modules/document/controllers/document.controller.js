@@ -79,6 +79,7 @@ class DocumentController {
     }
     async uploadFileToS3(req, res, next){
         try {
+            //
             const data = req.body;
             const uploadSignedUrl = await uploadFileToS3(data.url,data.file);
             return res.send(uploadSignedUrl);
