@@ -1,6 +1,7 @@
 import AuthenticationJwtToken from './AuthenticationJwtToken';
 import {HEADERS} from './constants';
 import HttpRequest from './HttpRequest';
+import axios from 'axios';
 import {mergedEnvironmentConfig} from '../../config/env.config.js';
 
 /**
@@ -48,6 +49,24 @@ class ServiceApi {
                 let user = result.data.data;
 
                 resolve(user);
+
+            } catch (err) {
+                console.log(err);
+            }
+        });
+    }
+
+    static uploadFileToS3(url,file) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                let result = await axios({
+                    url: url,
+                    method: 'PUT',
+                    timeout: 180000, // If the request takes longer than `timeout`, the request will be aborted.
+                    data: file
+                });
+
+                resolve(result);
 
             } catch (err) {
                 console.log(err);

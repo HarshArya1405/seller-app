@@ -33,12 +33,12 @@ router.delete('/v1/document/:id',
     authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     documentController.remove);
 
-router.post('/v1/pm/document/getSignedUploadUrl/:entity', 
+router.post('/v1/getSignedUploadUrl', 
     authentication.middleware(), 
     apiParamsValidator.middleware({ schema:documentValidation.getSignedUploadUrl()}), 
     documentController.getUploadUrl);
 
-router.post('/v1/pm/document/uploadToS3/', 
+router.post('/v1/uploadToS3', 
     authentication.middleware(), 
     apiParamsValidator.middleware({ schema:documentValidation.uploadFileToS3()}), 
     documentController.uploadFileToS3);

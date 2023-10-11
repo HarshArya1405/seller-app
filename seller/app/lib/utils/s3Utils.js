@@ -5,11 +5,16 @@ import { mergedEnvironmentConfig } from '../../config/env.config.js';
 const version = mergedEnvironmentConfig.s3.version;
 const region = mergedEnvironmentConfig.s3.region;
 const bucket = mergedEnvironmentConfig.s3.bucket;
+const accessKeyId = mergedEnvironmentConfig.s3.accessKeyId;
+const secretAccessKey = mergedEnvironmentConfig.s3.secretAccessKey;
 
 
 //TODO:move to ext config
 const s3 = new AWS.S3({
+    accessKeyId: accessKeyId,
+    secretAccessKey: secretAccessKey,
     useAccelerateEndpoint: true,
+    signatureVersion: version,
     region: region
 });
 
@@ -18,13 +23,12 @@ const signedUrlExpireSeconds = 60 * 60*60;
 let myBucket = bucket;
 
 const getSignedUrlForUpload = (s3,myBucket) => async(data) => {
-
     //TODO: Use Axios to send http request
     try {
-
+        console.log({data})
         let orgId = '';
-        if(data.organizationId){
-            orgId = data.organizationId;
+        if(data.organization){
+            orgId = data.organization;
         }else{
             orgId = data.currentUser.organization;
         }
@@ -35,7 +39,6 @@ const getSignedUrlForUpload = (s3,myBucket) => async(data) => {
             Key: myKey,
             Expires: signedUrlExpireSeconds
         };
-
 
         return await new Promise(
             (resolve, reject) =>
@@ -131,19 +134,4 @@ exports.getFileAsStream = async(data) => {
     }
 };
 
-exports.uploadFileToS3 = async(url,file) => {
-    try {
-        let result = await axios({
-            url: url,
-            method: 'PUT',
-            timeout: 180000, // If the request takes longer than `timeout`, the request will be aborted.
-            data: file
-        });
-
-        return result;
-
-    } catch (err) {
-        console.log(err);
-    }
-};
 

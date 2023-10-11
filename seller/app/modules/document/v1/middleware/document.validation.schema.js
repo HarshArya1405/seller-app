@@ -6,13 +6,14 @@ module.exports = {
         return Joi.object({
             fileName:Joi.string(),
             fileType:Joi.string(),
-            fileSize:Joi.number()
+            fileSize:Joi.number(),
+            path:Joi.string(),
         });
     },
     uploadFileToS3:() => {
         return Joi.object({
-            // url:Joi.string(),
-            // file:Joi.string(),
+            url:Joi.string(),
+            file:Joi.string(),
         });
     },
 };

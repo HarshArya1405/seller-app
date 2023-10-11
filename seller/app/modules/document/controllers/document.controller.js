@@ -1,7 +1,8 @@
 import DocumentService from '../v1/services/document.service';
-import {getSignedUrlForUpload, uploadFileToS3} from '../.././../lib/utils/s3Utils';
+import CommonHelperUtil from '../../../lib/utils/commonHelper.util';
+import ServiceApi from '../../../lib/utils/serviceApi';
 
-
+const commonHelperUtil = new CommonHelperUtil();
 const documentService = new DocumentService();
 
 class DocumentController {
@@ -69,7 +70,11 @@ class DocumentController {
 
     async getUploadUrl(req, res, next){
         try {
-            const uploadSignedUrl = await getSignedUrlForUpload(req.params.entity,req.body);
+            let data = {
+                organization:req.user.organization,
+                ...req.body
+            };
+            const uploadSignedUrl = await commonHelperUtil.getReadSignUrlForUpload(req.params.entity,data);
             return res.send(uploadSignedUrl);
 
         } catch (error) {
@@ -81,7 +86,8 @@ class DocumentController {
         try {
             //
             const data = req.body;
-            const uploadSignedUrl = await uploadFileToS3(data.url,data.file);
+            console.log({data});
+            const uploadSignedUrl = await ServiceApi.uploadFileToS3(data.url,data.file);
             return res.send(uploadSignedUrl);
 
         } catch (error) {
