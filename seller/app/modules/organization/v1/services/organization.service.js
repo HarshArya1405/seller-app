@@ -147,6 +147,10 @@ class OrganizationService {
 
                 // let GSTN = await s3.getSignedUrlForRead({path:doc.GSTN.proof});
                 // doc.GSTN.proof =GSTN;
+                let logo = await s3.getSignedUrlForRead({path:doc.logo});
+                doc.logo =logo;
+                let banner = await s3.getSignedUrlForRead({path:doc.banner});
+                doc.banner =banner;
                 let documents = await documentService.list({},currentUser);
                 if(documents){
                     doc.documents =documents.data;
