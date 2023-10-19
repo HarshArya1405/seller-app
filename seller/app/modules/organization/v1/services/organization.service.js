@@ -153,7 +153,16 @@ class OrganizationService {
                 doc.banner =banner;
                 let documents = await documentService.list({},currentUser);
                 if(documents){
-                    doc.documents =documents.data;
+                    if(documents.data && documents.data.length > 0){
+                        let documentData =[];
+                        for(const document of documents.data){
+                            let documentObj = {...document};
+                            let pathData = await s3.getSignedUrlForRead({path:documentObj.path});
+                            documentObj.path = pathData;
+                            documentData.push(documentObj);
+                            doc.documents = documentData;
+                        }
+                    }
                 }else{
                     doc.documents = [];
                 }
