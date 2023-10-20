@@ -156,7 +156,7 @@ class OrganizationService {
                     if(documents.data && documents.data.length > 0){
                         let documentData =[];
                         for(const document of documents.data){
-                            let documentObj = {...document};
+                            let documentObj = {...document._doc};
                             let pathData = await s3.getSignedUrlForRead({path:documentObj.path});
                             documentObj.path = pathData;
                             documentData.push(documentObj);
