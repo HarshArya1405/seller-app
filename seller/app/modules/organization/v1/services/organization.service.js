@@ -202,6 +202,7 @@ class OrganizationService {
                 let  organizationObj = {...organization,...orgDetails};
                 await Organization.updateOne({_id:organizationId},organizationObj);
                 //saving documents
+                await documentService.removeAll(currentUser);
                 if(documents && documents.length >0){
                     for(const document of documents){
                         let obj = {

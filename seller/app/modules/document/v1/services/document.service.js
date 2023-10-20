@@ -44,9 +44,10 @@ class DocumentService {
         }
     }
 
-    async remove(id,currentUser) {
+    async removeAll(currentUser) {
         try {
-            //
+            await Document.deleteMany({organization:currentUser.organization});
+            return {success:true};
         } catch (err) {
             console.log(`[DocumentService] [remove] Error - ${currentUser.organization}`,err);
 

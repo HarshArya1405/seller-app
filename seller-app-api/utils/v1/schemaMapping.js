@@ -1,5 +1,5 @@
-const config = require("../lib/config");
-const logger = require("../lib/logger");
+const config = require("../../lib/config");
+const logger = require("../../lib/logger");
 
 const BPP_ID = config.get("sellerConfig").BPP_ID
 const BPP_URI = config.get("sellerConfig").BPP_URI
@@ -36,7 +36,7 @@ exports.getProducts = async (data) => {
                         "count": `${items.quantity}`
                     },
                     "maximum": {
-                        "count": `${items.maxAllowedQty}`
+                        "count": (items.quantity<=items.maxAllowedQty)?`${items.quantity}`:`${items.maxAllowedQty}`
                     }
                 },
                 "category_id": items.productSubcategory1??"NA",
@@ -135,18 +135,39 @@ exports.getProducts = async (data) => {
             "locations": [
                 {
                     "id": org.storeDetails?.location._id??"0", //org.storeDetails.location._id
-                    "gps": `${org.storeDetails?.location?.lat??"0"},${org.storeDetails?.location?.long??"0"}`, //TODO: hard coded for now,
-                    "address":org.storeDetails.address,
-                    "time": { //TODO: hard coded for now
-                        "range": {
-                            "start": "0000",
-                            "end": "2359"
-                        },
-                        "days": "1,2,3,4,5,6,7",
-                        "schedule": {
-                            "holidays": []
+                    "gps": `${org.storeDetails?.location?.lat??"0"},${org.storeDetails?.location?.long??"0"}`,
+                    "address":{
+                        "city": org.storeDetails?.address?.city??"NA",
+                        "state": org.storeDetails?.address?.state??"NA",
+                        "area_code": org.storeDetails?.address?.area_code??"NA",
+                        "street": org.storeDetails?.address?.street??"NA",
+                        "locality":org.storeDetails?.address?.locality??"NA"
+                    },
+                    "time":
+                        {
+                            "days":org.storeDetails?.storeTiming?.days?.join(",")??
+                                "1,2,3,4,5,6,7",
+                            "schedule": {
+                                "holidays": org.storeDetails?.storeTiming?.schedule?.holidays?? [],
+                                "frequency": org.storeDetails?.storeTiming?.schedule?.frequency??"",
+                                "times": org.storeDetails?.storeTiming?.schedule?.times?.map((str)=>{
+                                    return str.replace(':','')
+                                })??[]
+                            },
+                            "range": {
+                                "start": org.storeDetails?.storeTiming?.range?.start?.replace(':','')??"0000",
+                                "end": org.storeDetails?.storeTiming?.range?.end?.replace(':','')??"2300"
+                            }
+                    },
+                    "circle":
+                        {
+                            "gps":`${org.storeDetails?.location?.lat??"0"},${org.storeDetails?.location?.long??"0"}`,
+                            "radius":org.storeDetails?.radius??
+                                {
+                                    "unit":"km",
+                                    "value":"3"
+                                }
                         }
-                    }
                 }
             ],
             "ttl": "PT24H",
