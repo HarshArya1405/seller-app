@@ -38,12 +38,6 @@ router.get('/v1/organizations',
     organizationController.list,
 );
 
-
-router.get('/v1/organizations/:organizationId/ondcGet',
-    apiParamsValidator.middleware({ schema: organisationSchema.get() }),
-    organizationController.get,
-);
-
 // ORG - STORE APIs
 
 router.get('/v1/organization/store/categories',
@@ -73,5 +67,10 @@ router.get('/v1/organization/store/list',
     // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: organisationSchema.getStoreList() }),
     organizationController.getStoreList);
+
+router.get('/v1/organizations/:organizationId/ondcGet',
+    apiParamsValidator.middleware({ schema: organisationSchema.get() }),
+    organizationController.ondcGet,
+);
 
 module.exports = router;

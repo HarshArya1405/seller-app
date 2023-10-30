@@ -9,9 +9,9 @@
         "bap_uri": "https://webhook.site/b8c0ef18-f162-417b-95bf-3d62352f271b",
         "transaction_id": "{{transaction_id}}",
         "message_id": "49e1d86d-1505-4d14-b801-aee9bb5895d11",
-        "timestamp": "2023-08-09T07:56:32.890Z",
+        "timestamp": "2023-10-27T10:27:32.890Z",
         "bpp_id": "sellerapp-staging.datasyndicate.in",
-        "bpp_uri": "https://2fe9-2401-4900-1c5d-7233-9df4-a8d4-91b6-a729.ngrok-free.app"
+        "bpp_uri": "https://c26c-2401-4900-1c5c-2546-2cf1-fa70-e2d1-a532.ngrok-free.app"
     },
     "message": {
         "catalog": {
@@ -52,7 +52,7 @@
                     },
                     "time": {
                         "label": "enable",
-                        "timestamp": "2023-08-09T07:56:32.890Z"
+                        "timestamp": "2023-10-27T10:27:32.890Z"
                     },
                     "categories": [
                         {
@@ -218,7 +218,7 @@
                             "id": "cbed6cef-705f-4255-9212-5270b67a9fa3",
                             "time": {
                                 "label": "enable",
-                                "timestamp": "2023-07-31T05:20:11.133Z"
+                                "timestamp": "2023-https://c26c-2401-4900-1c5c-2546-2cf1-fa70-e2d1-a532.ngrok-free.appT05:20:11.133Z"
                             },
                             "parent_item_id": "pj9BKP",
                             "descriptor": {
@@ -227,8 +227,6 @@
                                 "short_desc": "description",
                                 "long_desc": "long",
                                 "images": [
-                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets//name/image.jpg",
-                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets//name/image1.jpg"
                                 ]
                             },
                             "quantity": {
@@ -307,7 +305,7 @@
                             "id": "22883eb4-f503-4f56-ac15-4eb8c62b3622",
                             "time": {
                                 "label": "enable",
-                                "timestamp": "2023-07-31T05:20:11.161Z"
+                                "timestamp": "2023-https://c26c-2401-4900-1c5c-2546-2cf1-fa70-e2d1-a532.ngrok-free.appT05:20:11.161Z"
                             },
                             "parent_item_id": "pj9BKP",
                             "descriptor": {
@@ -316,8 +314,6 @@
                                 "short_desc": "description",
                                 "long_desc": "long",
                                 "images": [
-                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets//name/image.jpg",
-                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets//name/image1.jpg"
                                 ]
                             },
                             "quantity": {
@@ -396,7 +392,7 @@
                             "id": "254ec5c4-eadb-4ec8-b7a2-51aec0177918",
                             "time": {
                                 "label": "enable",
-                                "timestamp": "2023-07-31T05:53:10.353Z"
+                                "timestamp": "2023-https://c26c-2401-4900-1c5c-2546-2cf1-fa70-e2d1-a532.ngrok-free.appT05:53:10.353Z"
                             },
                             "parent_item_id": "jv2WKJ",
                             "descriptor": {
@@ -405,8 +401,6 @@
                                 "short_desc": "description",
                                 "long_desc": "long",
                                 "images": [
-                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets//name/image.jpg",
-                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets//name/image1.jpg"
                                 ]
                             },
                             "quantity": {
@@ -485,7 +479,7 @@
                             "id": "b4d3eaad-d990-4c4a-b01e-dda8d30461e7",
                             "time": {
                                 "label": "enable",
-                                "timestamp": "2023-07-31T05:53:10.377Z"
+                                "timestamp": "2023-https://c26c-2401-4900-1c5c-2546-2cf1-fa70-e2d1-a532.ngrok-free.appT05:53:10.377Z"
                             },
                             "parent_item_id": "jv2WKJ",
                             "descriptor": {
@@ -494,8 +488,6 @@
                                 "short_desc": "description",
                                 "long_desc": "long",
                                 "images": [
-                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets//name/image.jpg",
-                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets//name/image1.jpg"
                                 ]
                             },
                             "quantity": {

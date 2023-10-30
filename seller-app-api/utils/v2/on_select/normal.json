@@ -1,37 +1,36 @@
 {
     "context": {
-        "domain": "ONDC:RET11",
+        "domain": "ONDC:RET12",
+        "country": "IND",
+        "city": "std:020",
         "action": "on_select",
         "core_version": "1.2.0",
-        "bap_id": "buyerNP.com",
-        "bap_uri": "https://buyerNP.com/ondc",
+        "bap_id": "buyer-app.ondc.org",
+        "bap_uri": "https://9a90-2402-e280-3e33-24e-9093-e722-e901-d25.ngrok-free.app/protocol/v1",
+        "bpp_uri": "https://c26c-2401-4900-1c5c-2546-2cf1-fa70-e2d1-a532.ngrok-free.app",
+        "transaction_id": "49e1d86d-1505-4d14-b801-aee9bb5895d11",
+        "message_id": "dc31abb9-7ff5-435b-9466-c12d77ebf7a8",
+        "timestamp": "2023-10-27T11:52:38.451Z",
         "bpp_id": "sellerapp-staging.datasyndicate.in",
-        "bpp_uri": "https://9aa9-2401-4900-1c5c-13eb-75b8-ff9-8555-cc4d.ngrok-free.app",
-        "transaction_id": "c5cbd9a1-9725-4415-9ce1-53ab92ca1dfe",
-        "message_id": "f8aec991-f721-4e59-8916-cf0ae802e9ef",
-        "city": "std:080",
-        "country": "IND",
-        "timestamp": "2023-08-24T05:47:53.841Z",
         "ttl": "PT30S"
     },
     "message": {
         "order": {
             "provider": {
-                "id": "36e0b908-ed96-4f0a-a0f5-7812465fe1ea",
+                "id": "acc88a8d-3fb9-40c8-83a9-994958929db7",
                 "locations": [
                     {
-                        "id": "L1"
+                        "id": "64ff56d76a308ae4e9ee2f60"
                     }
                 ]
             },
             "fulfillments": [
                 {
                     "id": "Fulfillment1",
-                    "@ondc/org/provider_name": "WEM",
+                    "@ondc/org/provider_name": "WemotiveOrg134",
                     "tracking": false,
-                    "@ondc/org/category": "Standard",
-                    "@ondc/org/TAT": "PT45M",
-                    "provider_id": "wd6t46r",
+                    "@ondc/org/category": "Standard Delivery",
+                    "@ondc/org/TAT": "PT48H",
                     "state": {
                         "descriptor": {
                             "code": "Serviceable"
@@ -41,23 +40,22 @@
             ],
             "quote": {
                 "price": {
-                    "value": "210100",
+                    "value": "12345",
                     "currency": "INR"
                 },
                 "breakup": [
                     {
-                        "@ondc/org/item_id": "e43afe00-9b2a-402c-86f7-20fc477aeb26",
+                        "@ondc/org/item_id": "41de1a58-b5a3-42a6-b757-1e0b31974364",
                         "@ondc/org/item_quantity": {
                             "count": 1
                         },
-                        "title": "Air Purifier",
+                        "title": "Android TV",
                         "@ondc/org/title_type": "item",
                         "price": {
                             "currency": "INR",
-                            "value": "100"
+                            "value": "12345"
                         },
                         "item": {
-                            "parent_item_id": "DI1",
                             "quantity": {
                                 "available": {
                                     "count": "100"
@@ -68,7 +66,7 @@
                             },
                             "price": {
                                 "currency": "INR",
-                                "value": "100"
+                                "value": "12345"
                             },
                             "tags": [
                                 {
@@ -84,87 +82,12 @@
                         }
                     },
                     {
-                        "@ondc/org/item_id": "e5fbbfe0-abad-4ba2-9b4f-ca4caa34b0b7",
-                        "@ondc/org/item_quantity": {
-                            "count": 1
-                        },
-                        "title": "Mouse",
-                        "@ondc/org/title_type": "item",
-                        "price": {
-                            "currency": "INR",
-                            "value": "10"
-                        },
-                        "item": {
-                            "parent_item_id": "DI122",
-                            "quantity": {
-                                "available": {
-                                    "count": "10"
-                                },
-                                "maximum": {
-                                    "count": "1"
-                                }
-                            },
-                            "price": {
-                                "currency": "INR",
-                                "value": "10"
-                            },
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "item"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "@ondc/org/item_id": "ffe79e10-1da7-47fa-99e2-e562e7493979",
-                        "@ondc/org/item_quantity": {
-                            "count": 1
-                        },
-                        "title": "Mouse",
-                        "@ondc/org/title_type": "item",
-                        "price": {
-                            "currency": "INR",
-                            "value": "100"
-                        },
-                        "item": {
-                            "parent_item_id": "DI122",
-                            "quantity": {
-                                "available": {
-                                    "count": "100"
-                                },
-                                "maximum": {
-                                    "count": "1"
-                                }
-                            },
-                            "price": {
-                                "currency": "INR",
-                                "value": "100"
-                            },
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "item"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    },
-                    {
+                        "@ondc/org/item_id": "Fulfillment1",
                         "title": "Delivery charges",
                         "@ondc/org/title_type": "delivery",
                         "price": {
-                            "currency": "undefined",
-                            "value": "undefined"
+                            "currency": "INR",
+                            "value": "0"
                         }
                     }
                 ],
@@ -172,8 +95,7 @@
             },
             "items": [
                 {
-                    "id": "e43afe00-9b2a-402c-86f7-20fc477aeb26",
-                    "parent_item_id": "DI1",
+                    "id": "41de1a58-b5a3-42a6-b757-1e0b31974364",
                     "tags": [
                         {
                             "code": "type",
@@ -185,39 +107,7 @@
                             ]
                         }
                     ],
-                    "fulfillment_id": "F1123"
-                },
-                {
-                    "id": "e5fbbfe0-abad-4ba2-9b4f-ca4caa34b0b7",
-                    "parent_item_id": "DI122",
-                    "tags": [
-                        {
-                            "code": "type",
-                            "list": [
-                                {
-                                    "code": "type",
-                                    "value": "item"
-                                }
-                            ]
-                        }
-                    ],
-                    "fulfillment_id": "F1123"
-                },
-                {
-                    "id": "ffe79e10-1da7-47fa-99e2-e562e7493979",
-                    "parent_item_id": "DI122",
-                    "tags": [
-                        {
-                            "code": "type",
-                            "list": [
-                                {
-                                    "code": "type",
-                                    "value": "item"
-                                }
-                            ]
-                        }
-                    ],
-                    "fulfillment_id": "F1123"
+                    "fulfillment_id": "Fulfillment1"
                 }
             ]
         }

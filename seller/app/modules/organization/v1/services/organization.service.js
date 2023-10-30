@@ -309,6 +309,51 @@ class OrganizationService {
             throw err;
         }
     }
+    async ondcGet(organizationId) {
+        try {
+            let doc = await Organization.findOne({_id:organizationId}).lean();
+
+            let user = await User.findOne({organization:organizationId},{password:0});
+            if (doc) {
+                {
+                    if(doc.idProof){
+                        let idProof = await s3.getSignedUrlForRead({path:doc.idProof});
+                        doc.idProof =idProof.url;
+                    }
+                    if(doc.idProof){
+                        let addressProof = await s3.getSignedUrlForRead({path:doc.addressProof});
+                        doc.addressProof =addressProof.url;
+                    }
+                    if(doc.idProof){
+                        let cancelledCheque = await s3.getSignedUrlForRead({path:doc.bankDetails.cancelledCheque});
+                        doc.bankDetails.cancelledCheque =cancelledCheque.url;
+                    }
+                    if(doc.idProof){
+                        let PAN = await s3.getSignedUrlForRead({path:doc.PAN.proof});
+                        doc.PAN.proof =PAN.url;
+                    }
+                    if(doc.idProof){
+                        let GSTN = await s3.getSignedUrlForRead({path:doc.GSTN.proof});
+                        doc.GSTN.proof =GSTN.url;
+                    }
+
+                    let storeDetails = await Store.findOne({organization:organizationId});
+                    doc.storeDetails = storeDetails;
+                    if(storeDetails?.logo){
+                        let storeImage = await s3.getSignedUrlForRead({path:storeDetails.logo});
+                        doc.storeDetails.logo = storeImage.url;
+                    }
+                }
+
+                return {user:user,providerDetail:doc};
+            } else {
+                return '';
+            }
+        } catch (err) {
+            console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`,err);
+            throw err;
+        }
+    }
     async getStoreList(params,currentUser) {
         try {
             let organization = await Organization.findOne({_id:currentUser.organization});

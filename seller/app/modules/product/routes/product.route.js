@@ -52,6 +52,10 @@ router.get('/v1/products/search',
     productController.search,
 );
 
+router.get('/v1/products/search/increamentalPull/:category',
+    productController.searchIncrementalPull,
+);
+
 router.get('/v1/products/:productId',
     authentication.middleware(),
     apiParamsValidator.middleware({ schema: productSchema.get() }),
@@ -66,7 +70,12 @@ router.get('/v1/productWithVariant/:productId',
 
 router.get('/v1/products/:productId/ondcGet',
     apiParamsValidator.middleware({ schema: productSchema.get() }),
-    productController.get,
+    productController.ondcGet,
+);
+
+router.get('/v1/products/:productId/ondcGetForUpdate',
+    apiParamsValidator.middleware({ schema: productSchema.get() }),
+    productController.ondcGetForUpdate,
 );
 
 router.post('/v1/products/upload/bulk',

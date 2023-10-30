@@ -78,11 +78,12 @@ class ProductService {
 
             if(!category){
                 category = {
-                    "name":"Grocery",
-                    "domain":"ONDC:RET10"
+                    "name":"Appliances",
+                    "domain":"ONDC:RET15"
                 };
-                requestQuery.context.domain = 'ONDC:RET10'; 
+                requestQuery.context.domain = 'ONDC:RET15'; 
             }
+            console.log({category})
             let httpRequest = new HttpRequest(
                 serverUrl,
                 `/api/v1/products/search/increamentalPull/${category.name}`, //TODO: allow $like query

@@ -6,12 +6,12 @@
         "action": "init",
         "core_version": "1.1.0",
         "bap_id": "sellerapp-staging.datasyndicate.in",
-        "bap_uri": "https://9aa9-2401-4900-1c5c-13eb-75b8-ff9-8555-cc4d.ngrok-free.app",
+        "bap_uri": "https://8ui8-2401-4900-2c7c-18eb-78b8-uj9-8555-cc4d.ngrok-free.app",
         "bpp_id": "DF1233",
         "bpp_uri": "TH5643",
         "transaction_id": "TH5664",
         "message_id": "1cd7bed0-f17c-4e46-8dec-b5e31684cff9",
-        "timestamp": "2023-08-24T17:27:39.258Z",
+        "timestamp": "2023-10-30T17:27:39.258Z",
         "ttl": "PT30S"
     },
     "message": {
@@ -77,7 +77,7 @@
                     },
                     {
                         "id": "C3",
-                        "parent_item_id": "DI1",
+                        "parent_item_id": "DI12",
                         "location_id": "L1",
                         "quantity": {
                             "count": 1
@@ -104,8 +104,8 @@
                         ]
                     },
                     {
-                        "id": "10828697-e8d6-4314-8b6b-af5897ccef62",
-                        "parent_item_id": "DI122",
+                        "id": "908286765-e8d6-4314-8b6b-af5897cceo76",
+                        "parent_item_id": "DI123",
                         "location_id": "L1",
                         "quantity": {
                             "count": 1
@@ -124,7 +124,7 @@
                     },
                     {
                         "id": "C1",
-                        "parent_item_id": "DI122",
+                        "parent_item_id": "DI123",
                         "location_id": "L1",
                         "quantity": {
                             "count": 1
@@ -152,7 +152,7 @@
                     },
                     {
                         "id": "C3",
-                        "parent_item_id": "DI122",
+                        "parent_item_id": "DI123",
                         "location_id": "L1",
                         "quantity": {
                             "count": 1
@@ -180,7 +180,7 @@
                     },
                     {
                         "id": "41d69a28-4e5b-43a0-845a-f4f5f6ea5dfc",
-                        "parent_item_id": "DI122",
+                        "parent_item_id": "DI123",
                         "location_id": "L1",
                         "quantity": {
                             "count": 1
@@ -199,7 +199,7 @@
                     },
                     {
                         "id": "C1",
-                        "parent_item_id": "DI122",
+                        "parent_item_id": "DI123",
                         "location_id": "L1",
                         "quantity": {
                             "count": 4
@@ -227,7 +227,7 @@
                     },
                     {
                         "id": "C3",
-                        "parent_item_id": "DI122",
+                        "parent_item_id": "DI123",
                         "location_id": "L1",
                         "quantity": {
                             "count": 1
@@ -292,8 +292,8 @@
                 "tax_number": "XXXXXXXXXXXXXXX",
                 "phone": "090909090909",
                 "email": "support@wemotiveforge.com",
-                "created_at": "2023-08-24T17:27:39.258Z",
-                "updated_at": "2023-08-24T17:27:39.258Z"
+                "created_at": "2023-10-30T17:27:39.258Z",
+                "updated_at": "2023-10-30T17:27:39.258Z"
             },
             "payment": {
                 "@ondc/org/settlement_details": []

@@ -82,10 +82,10 @@ export async function mapFnBData(data) {
         let bppProviders = []
         let tags = []
         let productAvailable = []
-        org.storeDetails.address.street = org.storeDetails.address.locality 
-        delete org.storeDetails.address.locality
-        delete org.storeDetails.address.building
-        delete org.storeDetails.address.country
+        // org.storeDetails.address.street = org.storeDetails.address.locality 
+        // delete org.storeDetails.address.locality
+        // delete org.storeDetails.address.building
+        // delete org.storeDetails.address.country
         let categories = [];
         let categoryLists = [];
         let tagCatList = [];
@@ -272,7 +272,7 @@ export async function mapFnBData(data) {
             "@ondc/org/fssai_license_no":org.FSSAI,
             "locations": [
                 {
-                    "id": org.storeDetails?.location._id ?? "0", //org.storeDetails.location._id
+                    "id": org.storeDetails?.location?._id ?? "0", //org.storeDetails.location?._id
                     "gps": `${org.storeDetails?.location?.lat ?? "0"},${org.storeDetails?.location?.long ?? "0"}`,
                     "address": {
                         "city": org.storeDetails?.address?.city??"NA",
@@ -313,8 +313,8 @@ export async function mapFnBData(data) {
                     {
                         "contact":
                             {
-                                "phone": org.storeDetails.supportDetails.mobile,
-                                "email": org.storeDetails.supportDetails.email
+                                "phone": org.storeDetails.supportDetails?.mobile,
+                                "email": org.storeDetails.supportDetails?.email
                             }
                     }
                 ],
@@ -328,7 +328,7 @@ export async function mapFnBData(data) {
                     "list": [
                         {
                             "code": "location",
-                            "value": org.storeDetails?.location._id ?? "0"
+                            "value": org.storeDetails?.location?._id ?? "0"
                         },
                         {
                             "code": "category",
@@ -516,7 +516,7 @@ function itemSchema(items,customGroup,customMenuData) {
         },
         "category_ids":categoryIds ?? [],
         "category_id": items.productSubcategory1 ?? "NA",
-        "location_id": org.storeDetails?.location._id ?? "0",
+        "location_id": org.storeDetails?.location?._id ?? "0",
         "fulfillment_id": items.fulfilmentId ?? "1",
         "@ondc/org/returnable": items.isReturnable ?? false,
         "@ondc/org/cancellable": items.isCancellable ?? false,
@@ -524,7 +524,7 @@ function itemSchema(items,customGroup,customMenuData) {
         "@ondc/org/time_to_ship": "PT1H", //TODO: hard coded, Implementation pending
         "@ondc/org/seller_pickup_return": true, //TODO: hard coded, Implementation pending
         "@ondc/org/return_window": items.returnWindow,
-        "@ondc/org/contact_details_consumer_care": `${org.name},${org.storeDetails.supportDetails.email},${org.storeDetails.supportDetails.mobile}`,
+        "@ondc/org/contact_details_consumer_care": `${org.name},${org.storeDetails.supportDetails?.email},${org.storeDetails.supportDetails?.mobile}`,
         "tags": tagData
     }
     return item;

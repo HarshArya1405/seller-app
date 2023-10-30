@@ -6,12 +6,12 @@
         "bap_id": "buyerNP.com",
         "bap_uri": "https://buyerNP.com/ondc",
         "bpp_id": "sellerapp-staging.datasyndicate.in",
-        "bpp_uri": "https://9aa9-2401-4900-1c5c-13eb-75b8-ff9-8555-cc4d.ngrok-free.app",
+        "bpp_uri": "https://8aj9-0401-4900-1c5h-13eb-75b8-ff9-8555-cc4d.ngrok-free.app",
         "transaction_id": "T2",
         "message_id": "M2",
         "city": "std:080",
         "country": "IND",
-        "timestamp": "2023-08-22T12:13:31.287Z",
+        "timestamp": "2023-10-30T12:13:31.287Z",
         "ttl": "PT30S"
     },
     "message": {
@@ -57,7 +57,7 @@
                             "value": "100"
                         },
                         "item": {
-                            "parent_item_id": "DI1",
+                            "parent_item_id": "DD1",
                             "quantity": {
                                 "available": {
                                     "count": "100"
@@ -95,7 +95,7 @@
                             "value": "0"
                         },
                         "item": {
-                            "parent_item_id": "DI1",
+                            "parent_item_id": "DD1",
                             "quantity": {
                                 "available": {
                                     "count": "100"
@@ -132,7 +132,7 @@
                             "value": "100"
                         },
                         "item": {
-                            "parent_item_id": "DI1",
+                            "parent_item_id": "DD1",
                             "quantity": {
                                 "available": {
                                     "count": "100"
@@ -169,7 +169,7 @@
                             "value": "100"
                         },
                         "item": {
-                            "parent_item_id": "DI1",
+                            "parent_item_id": "DD1",
                             "quantity": {
                                 "available": {
                                     "count": "100"
@@ -206,7 +206,7 @@
                             "value": "100"
                         },
                         "item": {
-                            "parent_item_id": "DI1",
+                            "parent_item_id": "DD1",
                             "quantity": {
                                 "available": {
                                     "count": "100"
@@ -245,8 +245,8 @@
             },
             "items": [
                 {
-                    "id": "660658e2-8b7b-4327-b3ed-44698087012b",
-                    "parent_item_id": "DI1",
+                    "id": "875058e2-8b7b-4327-b3ed-44698087012b",
+                    "parent_item_id": "DD1",
                     "tags": [
                         {
                             "code": "type",
@@ -266,7 +266,7 @@
                 },
                 {
                     "id": "C1",
-                    "parent_item_id": "DI1",
+                    "parent_item_id": "DD1",
                     "tags": [
                         {
                             "code": "type",
@@ -291,7 +291,7 @@
                 },
                 {
                     "id": "C7",
-                    "parent_item_id": "DI1",
+                    "parent_item_id": "DD1",
                     "tags": [
                         {
                             "code": "type",
@@ -316,7 +316,7 @@
                 },
                 {
                     "id": "C14",
-                    "parent_item_id": "DI1",
+                    "parent_item_id": "DD1",
                     "tags": [
                         {
                             "code": "type",
@@ -341,7 +341,7 @@
                 },
                 {
                     "id": "C16",
-                    "parent_item_id": "DI1",
+                    "parent_item_id": "DD1",
                     "tags": [
                         {
                             "code": "type",

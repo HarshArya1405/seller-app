@@ -9,9 +9,9 @@
         "bap_uri": "https://webhook.site/b8c0ef18-f162-417b-95bf-3d62352f271b",
         "transaction_id": "{{transaction_id}}",
         "message_id": "49e1d86d-1505-4d14-b801-aee9bb5895d11",
-        "timestamp": "2023-09-01T07:30:40.953Z",
+        "timestamp": "2023-10-26T09:39:31.617Z",
         "bpp_id": "sellerapp-staging.datasyndicate.in",
-        "bpp_uri": "https://0cdc-122-161-69-2.ngrok-free.app"
+        "bpp_uri": "https://c26c-2401-4900-1c5c-2546-2cf1-fa70-e2d1-a532.ngrok-free.app"
     },
     "message": {
         "catalog": {
@@ -30,65 +30,41 @@
                 }
             ],
             "bpp/descriptor": {
-                "name": "Wemotive1org",
-                "symbol": "/bucket/img.pdf",
-                "short_desc": "",
-                "long_desc": "",
+                "name": "Axai Store",
+                "symbol": "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/b3fa428d-cc87-4035-b069-19f3dc282e2f/logo/imgonline-com-ua-shape-doGhSIiaJopa.png",
+                "short_desc": "Axai Store",
+                "long_desc": "Axai Store",
                 "images": [
-                    "/bucket/img.pdf"
+                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/b3fa428d-cc87-4035-b069-19f3dc282e2f/logo/imgonline-com-ua-shape-doGhSIiaJopa.png"
                 ]
             },
             "bpp/providers": [
                 {
-                    "id": "36e0b908-ed96-4f0a-a0f5-7812465fe1ea",
+                    "id": "545016d9-ed19-4c02-833d-f4270436ffc0",
                     "descriptor": {
-                        "name": "Wemotive1org",
-                        "symbol": "/bucket/img.pdf",
-                        "short_desc": "",
-                        "long_desc": "",
+                        "name": "Axai Store",
+                        "symbol": "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/b3fa428d-cc87-4035-b069-19f3dc282e2f/logo/imgonline-com-ua-shape-doGhSIiaJopa.png",
+                        "short_desc": "Axai Store",
+                        "long_desc": "Axai Store",
                         "images": [
-                            "/bucket/img.pdf"
+                            "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/b3fa428d-cc87-4035-b069-19f3dc282e2f/logo/imgonline-com-ua-shape-doGhSIiaJopa.png"
                         ]
                     },
                     "time": {
                         "label": "enable",
-                        "timestamp": "2023-09-01T07:30:40.953Z"
+                        "timestamp": "2023-10-26T09:39:31.617Z"
                     },
                     "categories": [
                         {
-                            "id": "aIDFFQ",
+                            "id": "5JvBU5",
                             "parent_category_id": "",
                             "descriptor": {
-                                "name": "Snacks",
-                                "images": []
-                            },
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "custom_menu"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "display",
-                                    "list": [
-                                        {
-                                            "code": "rank",
-                                            "value": "3"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "w56IKK",
-                            "parent_category_id": "",
-                            "descriptor": {
-                                "name": "Royal Dinner",
-                                "images": []
+                                "name": "Coffee Menu",
+                                "images": [
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/6908f8e6-0d2c-46c0-8702-69905d9fbbac/menu_image/coffee.jpeg",
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/4268c1d3-5dc3-496d-8e82-45eb78e8e260/menu_image/coffee_1.jpeg",
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/ada8288d-ec36-4b3b-8c8b-3f3181db2e2f/menu_image/coffee_2.jpeg"
+                                ]
                             },
                             "tags": [
                                 {
@@ -105,19 +81,19 @@
                                     "list": [
                                         {
                                             "code": "day_from",
-                                            "value": "Mon"
+                                            "value": "1"
                                         },
                                         {
                                             "code": "day_to",
-                                            "value": "Wed"
+                                            "value": "7"
                                         },
                                         {
                                             "code": "time_from",
-                                            "value": "10:00"
+                                            "value": "1000"
                                         },
                                         {
                                             "code": "time_to",
-                                            "value": "11:00"
+                                            "value": "1200"
                                         }
                                     ]
                                 },
@@ -133,11 +109,9 @@
                             ]
                         },
                         {
-                            "id": "ce6XUF",
-                            "parent_category_id": "",
+                            "id": "3FZUJZ",
                             "descriptor": {
-                                "name": "Royal Dinners",
-                                "images": []
+                                "name": "Variant Group 7"
                             },
                             "tags": [
                                 {
@@ -145,417 +119,55 @@
                                     "list": [
                                         {
                                             "code": "type",
-                                            "value": "custom_menu"
+                                            "value": "variant_group"
                                         }
                                     ]
                                 },
                                 {
-                                    "code": "timing",
+                                    "code": "attr",
                                     "list": [
                                         {
-                                            "code": "day_from",
-                                            "value": "Mon"
-                                        },
-                                        {
-                                            "code": "day_to",
-                                            "value": "Wed"
-                                        },
-                                        {
-                                            "code": "time_from",
-                                            "value": "10:00"
-                                        },
-                                        {
-                                            "code": "time_to",
-                                            "value": "11:00"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "display",
-                                    "list": [
-                                        {
-                                            "code": "rank",
-                                            "value": "1"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "vGqKhJ",
-                            "descriptor": {
-                                "name": "Crust(Select any 1)"
-                            },
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "custom_group"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "config",
-                                    "list": [
-                                        {
-                                            "code": "min",
-                                            "value": "1"
-                                        },
-                                        {
-                                            "code": "max",
-                                            "value": "1"
-                                        },
-                                        {
-                                            "code": "input",
-                                            "value": "select"
+                                            "code": "name",
+                                            "value": "item.quantity.unitized.measure"
                                         },
                                         {
                                             "code": "seq",
                                             "value": "1"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "qh8ukX",
-                            "descriptor": {
-                                "name": "Size(Select any 1)"
-                            },
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "custom_group"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "config",
-                                    "list": [
-                                        {
-                                            "code": "min",
-                                            "value": "1"
-                                        },
-                                        {
-                                            "code": "max",
-                                            "value": "1"
-                                        },
-                                        {
-                                            "code": "input",
-                                            "value": "select"
-                                        },
-                                        {
-                                            "code": "seq",
-                                            "value": "2"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "AjUTn6",
-                            "descriptor": {
-                                "name": "Size(Select any 1)"
-                            },
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "custom_group"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "config",
-                                    "list": [
-                                        {
-                                            "code": "min",
-                                            "value": "1"
-                                        },
-                                        {
-                                            "code": "max",
-                                            "value": "1"
-                                        },
-                                        {
-                                            "code": "input",
-                                            "value": "select"
-                                        },
-                                        {
-                                            "code": "seq",
-                                            "value": "2"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "zhG52s",
-                            "descriptor": {
-                                "name": "Bread"
-                            },
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "custom_group"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "config",
-                                    "list": [
-                                        {
-                                            "code": "min",
-                                            "value": "undefined"
-                                        },
-                                        {
-                                            "code": "max",
-                                            "value": "undefined"
-                                        },
-                                        {
-                                            "code": "input",
-                                            "value": "select"
-                                        },
-                                        {
-                                            "code": "seq",
-                                            "value": "1"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "NuvjaJ",
-                            "descriptor": {
-                                "name": "Size(Select any 1)"
-                            },
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "custom_group"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "config",
-                                    "list": [
-                                        {
-                                            "code": "min",
-                                            "value": "undefined"
-                                        },
-                                        {
-                                            "code": "max",
-                                            "value": "undefined"
-                                        },
-                                        {
-                                            "code": "input",
-                                            "value": "select"
-                                        },
-                                        {
-                                            "code": "seq",
-                                            "value": "2"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "1gXteb",
-                            "descriptor": {
-                                "name": "Toping"
-                            },
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "custom_group"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "config",
-                                    "list": [
-                                        {
-                                            "code": "min",
-                                            "value": "undefined"
-                                        },
-                                        {
-                                            "code": "max",
-                                            "value": "undefined"
-                                        },
-                                        {
-                                            "code": "input",
-                                            "value": "select"
-                                        },
-                                        {
-                                            "code": "seq",
-                                            "value": "2"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "x476UA",
-                            "descriptor": {
-                                "name": "Bread"
-                            },
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "custom_group"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "config",
-                                    "list": [
-                                        {
-                                            "code": "min",
-                                            "value": "undefined"
-                                        },
-                                        {
-                                            "code": "max",
-                                            "value": "undefined"
-                                        },
-                                        {
-                                            "code": "input",
-                                            "value": "select"
-                                        },
-                                        {
-                                            "code": "seq",
-                                            "value": "1"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "rlLysk",
-                            "descriptor": {
-                                "name": "Size(Select any 1)"
-                            },
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "custom_group"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "config",
-                                    "list": [
-                                        {
-                                            "code": "min",
-                                            "value": "undefined"
-                                        },
-                                        {
-                                            "code": "max",
-                                            "value": "undefined"
-                                        },
-                                        {
-                                            "code": "input",
-                                            "value": "select"
-                                        },
-                                        {
-                                            "code": "seq",
-                                            "value": "2"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "859ScR",
-                            "descriptor": {
-                                "name": "AddOns"
-                            },
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "custom_group"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "config",
-                                    "list": [
-                                        {
-                                            "code": "min",
-                                            "value": "undefined"
-                                        },
-                                        {
-                                            "code": "max",
-                                            "value": "undefined"
-                                        },
-                                        {
-                                            "code": "input",
-                                            "value": "select"
-                                        },
-                                        {
-                                            "code": "seq",
-                                            "value": "2"
                                         }
                                     ]
                                 }
                             ]
                         }
                     ],
+                    "@ondc/org/fssai_license_no": "11223334000315",
                     "locations": [
                         {
-                            "id": "6463928731fadaf31cd63a2e",
-                            "gps": "12.909639,77.634306",
+                            "id": "65265d518a0182c6cfcc0039",
+                            "gps": "12.90936352753578,77.64333431484344",
                             "address": {
-                                "city": "Pune",
-                                "state": "Maharashtra",
-                                "area_code": "560095",
-                                "street": "ok"
+                                "city": "Bengaluru",
+                                "state": "Karnataka",
+                                "area_code": "560102",
+                                "street": "HSR Layout",
+                                "locality": "NA"
                             },
                             "time": {
-                                "days": "1",
+                                "label": "enable",
+                                "timestamp": "2023-10-26T09:39:31.617Z",
+                                "days": "1,2,3,4,5,6,7",
                                 "schedule": {
-                                    "holidays": [
-                                        "2023-05-18",
-                                        "2023-05-19"
-                                    ],
-                                    "frequency": "",
-                                    "times": [
-                                        "0800"
-                                    ]
+                                    "holidays": []
                                 },
                                 "range": {
-                                    "start": "0800",
-                                    "end": "2000"
+                                    "start": "0000",
+                                    "end": "2300"
                                 }
                             },
                             "circle": {
-                                "gps": "12.909639,77.634306",
+                                "gps": "12.90936352753578,77.64333431484344",
                                 "radius": {
                                     "unit": "km",
-                                    "value": "123"
+                                    "value": "10"
                                 }
                             }
                         }
@@ -563,517 +175,53 @@
                     "ttl": "PT24H",
                     "items": [
                         {
-                            "id": "660658e2-8b7b-4327-b3ed-44698087012b",
+                            "id": "92a3379f-8ffc-4808-9f5b-68d8f14c28b8",
                             "time": {
                                 "label": "enable",
-                                "timestamp": "2023-08-07T13:58:43.887Z"
+                                "timestamp": "2023-10-25T20:53:57.273Z"
                             },
                             "parent_item_id": "",
                             "descriptor": {
-                                "name": "Farm House Pizza",
-                                "symbol": "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets//name/image.jpg",
-                                "short_desc": "description",
-                                "long_desc": "long",
+                                "name": "Axai Special Chaat",
+                                "symbol": "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/ef8a8240-b5e3-4109-ab32-0b6b91fc7537/product_image/chaat_1.jpeg",
+                                "short_desc": "Chaat filled with the flavour of India",
+                                "long_desc": "Chaat filled with the flavour of India",
                                 "images": [
-                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets//name/image.jpg",
-                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets//name/image1.jpg"
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/ef8a8240-b5e3-4109-ab32-0b6b91fc7537/product_image/chaat_1.jpeg",
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/a4819638-8b27-43a1-8744-412e3b2f5282/product_image/chaat_2.jpeg",
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/82d60146-37a0-47a8-8d95-e64c45766c3c/product_image/chaat_3.jpeg"
                                 ]
                             },
                             "quantity": {
                                 "unitized": {
                                     "measure": {
-                                        "unit": "kilogram",
-                                        "value": "1"
+                                        "unit": "gram",
+                                        "value": "200"
                                     }
                                 },
                                 "available": {
-                                    "count": "100"
+                                    "count": "29"
                                 },
                                 "maximum": {
-                                    "count": "1"
+                                    "count": "5"
                                 }
                             },
                             "price": {
                                 "currency": "INR",
-                                "value": "12345",
-                                "maximum_value": "12345"
-                            },
-                            "category_ids": [
-                                "w56IKK:1"
-                            ],
-                            "category_id": "Pizza",
-                            "location_id": "6463928731fadaf31cd63a2e",
-                            "fulfillment_id": "",
-                            "@ondc/org/returnable": true,
-                            "@ondc/org/cancellable": true,
-                            "@ondc/org/available_on_cod": true,
-                            "@ondc/org/time_to_ship": "PT1H",
-                            "@ondc/org/seller_pickup_return": true,
-                            "@ondc/org/return_window": "PT30M",
-                            "@ondc/org/contact_details_consumer_care": "Wemotive1org,support@wemotiveforge.com,090909090909",
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "item"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "custom_group",
-                                    "list": [
-                                        {
-                                            "code": "id",
-                                            "value": "vGqKhJ"
-                                        },
-                                        {
-                                            "code": "id",
-                                            "value": "qh8ukX"
-                                        },
-                                        {
-                                            "code": "id",
-                                            "value": "AjUTn6"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "veg_nonveg",
-                                    "list": [
-                                        {
-                                            "code": "veg",
-                                            "value": "yes"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "wCR0m8",
-                            "descriptor": {
-                                "name": "Hand tossed"
-                            },
-                            "quantity": {
-                                "unitized": {
-                                    "measure": {
-                                        "unit": "inch",
-                                        "value": "5"
-                                    }
-                                },
-                                "available": {
-                                    "count": "100"
-                                },
-                                "maximum": {
-                                    "count": "2"
-                                }
-                            },
-                            "price": {
-                                "currency": "INR",
-                                "value": "0",
-                                "maximum_value": "0"
-                            },
-                            "category_id": "Pizza",
-                            "related": true,
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "customization"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "parent",
-                                    "list": [
-                                        {
-                                            "code": "id",
-                                            "value": "vGqKhJ"
-                                        },
-                                        {
-                                            "code": "default",
-                                            "value": "YES"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "child",
-                                    "list": [
-                                        {
-                                            "code": "id",
-                                            "value": "qh8ukX"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "veg_nonveg",
-                                    "list": [
-                                        {
-                                            "code": "egg",
-                                            "value": "yes"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "Lhljcg",
-                            "descriptor": {
-                                "name": "Thin crust"
-                            },
-                            "quantity": {
-                                "unitized": {
-                                    "measure": {
-                                        "unit": "inch",
-                                        "value": "5"
-                                    }
-                                },
-                                "available": {
-                                    "count": "100"
-                                },
-                                "maximum": {
-                                    "count": "2"
-                                }
-                            },
-                            "price": {
-                                "currency": "INR",
-                                "value": "100",
-                                "maximum_value": "100"
-                            },
-                            "category_id": "Pizza",
-                            "related": true,
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "customization"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "parent",
-                                    "list": [
-                                        {
-                                            "code": "id",
-                                            "value": "vGqKhJ"
-                                        },
-                                        {
-                                            "code": "default",
-                                            "value": "YES"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "child",
-                                    "list": [
-                                        {
-                                            "code": "id",
-                                            "value": "AjUTn6"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "veg_nonveg",
-                                    "list": [
-                                        {
-                                            "code": "egg",
-                                            "value": "yes"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "Ktv1MY",
-                            "descriptor": {
-                                "name": "Regular"
-                            },
-                            "quantity": {
-                                "unitized": {
-                                    "measure": {
-                                        "unit": "inch",
-                                        "value": "5"
-                                    }
-                                },
-                                "available": {
-                                    "count": "100"
-                                },
-                                "maximum": {
-                                    "count": "2"
-                                }
-                            },
-                            "price": {
-                                "currency": "INR",
-                                "value": "50",
-                                "maximum_value": "50"
-                            },
-                            "category_id": "Pizza",
-                            "related": true,
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "customization"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "parent",
-                                    "list": [
-                                        {
-                                            "code": "id",
-                                            "value": "qh8ukX"
-                                        },
-                                        {
-                                            "code": "default",
-                                            "value": "YES"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "veg_nonveg",
-                                    "list": [
-                                        {
-                                            "code": "egg",
-                                            "value": "yes"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "xQyVj1",
-                            "descriptor": {
-                                "name": "Large"
-                            },
-                            "quantity": {
-                                "unitized": {
-                                    "measure": {
-                                        "unit": "inch",
-                                        "value": "5"
-                                    }
-                                },
-                                "available": {
-                                    "count": "100"
-                                },
-                                "maximum": {
-                                    "count": "2"
-                                }
-                            },
-                            "price": {
-                                "currency": "INR",
-                                "value": "100",
-                                "maximum_value": "100"
-                            },
-                            "category_id": "Pizza",
-                            "related": true,
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "customization"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "parent",
-                                    "list": [
-                                        {
-                                            "code": "id",
-                                            "value": "qh8ukX"
-                                        },
-                                        {
-                                            "code": "default",
-                                            "value": "YES"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "veg_nonveg",
-                                    "list": [
-                                        {
-                                            "code": "egg",
-                                            "value": "yes"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "UglD31",
-                            "descriptor": {
-                                "name": "Small"
-                            },
-                            "quantity": {
-                                "unitized": {
-                                    "measure": {
-                                        "unit": "inch",
-                                        "value": "5"
-                                    }
-                                },
-                                "available": {
-                                    "count": "100"
-                                },
-                                "maximum": {
-                                    "count": "2"
-                                }
-                            },
-                            "price": {
-                                "currency": "INR",
-                                "value": "30",
-                                "maximum_value": "30"
-                            },
-                            "category_id": "Pizza",
-                            "related": true,
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "customization"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "parent",
-                                    "list": [
-                                        {
-                                            "code": "id",
-                                            "value": "AjUTn6"
-                                        },
-                                        {
-                                            "code": "default",
-                                            "value": "YES"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "veg_nonveg",
-                                    "list": [
-                                        {
-                                            "code": "egg",
-                                            "value": "yes"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "X2r2VI",
-                            "descriptor": {
-                                "name": "Large"
-                            },
-                            "quantity": {
-                                "unitized": {
-                                    "measure": {
-                                        "unit": "inch",
-                                        "value": "5"
-                                    }
-                                },
-                                "available": {
-                                    "count": "100"
-                                },
-                                "maximum": {
-                                    "count": "2"
-                                }
-                            },
-                            "price": {
-                                "currency": "INR",
-                                "value": "120",
-                                "maximum_value": "120"
-                            },
-                            "category_id": "Pizza",
-                            "related": true,
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "customization"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "parent",
-                                    "list": [
-                                        {
-                                            "code": "id",
-                                            "value": "AjUTn6"
-                                        },
-                                        {
-                                            "code": "default",
-                                            "value": "YES"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "veg_nonveg",
-                                    "list": [
-                                        {
-                                            "code": "egg",
-                                            "value": "yes"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "10828697-e8d6-4314-8b6b-af5897ccef62",
-                            "time": {
-                                "label": "enable",
-                                "timestamp": "2023-08-22T12:47:46.557Z"
-                            },
-                            "parent_item_id": "",
-                            "descriptor": {
-                                "name": "Maxican Sandwich",
-                                "symbol": "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets//name/image.jpg",
-                                "short_desc": "description",
-                                "long_desc": "long",
-                                "images": [
-                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets//name/image.jpg",
-                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets//name/image1.jpg"
-                                ]
-                            },
-                            "quantity": {
-                                "unitized": {
-                                    "measure": {
-                                        "unit": "kilogram",
-                                        "value": "1"
-                                    }
-                                },
-                                "available": {
-                                    "count": "100"
-                                },
-                                "maximum": {
-                                    "count": "1"
-                                }
-                            },
-                            "price": {
-                                "currency": "INR",
-                                "value": "12345",
-                                "maximum_value": "12345"
+                                "value": "200",
+                                "maximum_value": "200"
                             },
                             "category_ids": [],
-                            "category_id": "Pizza",
-                            "location_id": "6463928731fadaf31cd63a2e",
-                            "fulfillment_id": "",
-                            "@ondc/org/returnable": true,
+                            "category_id": "Chaat",
+                            "location_id": "65265d518a0182c6cfcc0039",
+                            "fulfillment_id": "1",
+                            "@ondc/org/returnable": false,
                             "@ondc/org/cancellable": true,
-                            "@ondc/org/available_on_cod": true,
+                            "@ondc/org/available_on_cod": false,
                             "@ondc/org/time_to_ship": "PT1H",
                             "@ondc/org/seller_pickup_return": true,
-                            "@ondc/org/return_window": "PT30M",
-                            "@ondc/org/contact_details_consumer_care": "Wemotive1org,support@wemotiveforge.com,090909090909",
+                            "@ondc/org/return_window": "P0D",
+                            "@ondc/org/contact_details_consumer_care": "Axai Store,yash.bhardwaj5040@gmail.com,9546563568",
                             "tags": [
                                 {
                                     "code": "type",
@@ -1081,23 +229,6 @@
                                         {
                                             "code": "type",
                                             "value": "item"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "custom_group",
-                                    "list": [
-                                        {
-                                            "code": "id",
-                                            "value": "zhG52s"
-                                        },
-                                        {
-                                            "code": "id",
-                                            "value": "NuvjaJ"
-                                        },
-                                        {
-                                            "code": "id",
-                                            "value": "1gXteb"
                                         }
                                     ]
                                 },
@@ -1113,336 +244,55 @@
                             ]
                         },
                         {
-                            "id": "7pUm77",
-                            "descriptor": {
-                                "name": "Hand tossed"
-                            },
-                            "quantity": {
-                                "unitized": {
-                                    "measure": {
-                                        "unit": "inch",
-                                        "value": "tt"
-                                    }
-                                },
-                                "available": {
-                                    "count": ""
-                                },
-                                "maximum": {
-                                    "count": "3"
-                                }
-                            },
-                            "price": {
-                                "currency": "INR",
-                                "value": "0",
-                                "maximum_value": "0"
-                            },
-                            "category_id": "Pizza",
-                            "related": true,
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "customization"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "veg_nonveg",
-                                    "list": [
-                                        {
-                                            "code": "egg",
-                                            "value": "yes"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "gFmyJg",
-                            "descriptor": {
-                                "name": "Thin crust"
-                            },
-                            "quantity": {
-                                "unitized": {
-                                    "measure": {
-                                        "unit": "inch",
-                                        "value": "tt"
-                                    }
-                                },
-                                "available": {
-                                    "count": ""
-                                },
-                                "maximum": {
-                                    "count": "3"
-                                }
-                            },
-                            "price": {
-                                "currency": "INR",
-                                "value": "100",
-                                "maximum_value": "100"
-                            },
-                            "category_id": "Pizza",
-                            "related": true,
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "customization"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "veg_nonveg",
-                                    "list": [
-                                        {
-                                            "code": "egg",
-                                            "value": "yes"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "ZiZmiQ",
-                            "descriptor": {
-                                "name": "Regular"
-                            },
-                            "quantity": {
-                                "unitized": {
-                                    "measure": {
-                                        "unit": "inch",
-                                        "value": "tt"
-                                    }
-                                },
-                                "available": {
-                                    "count": ""
-                                },
-                                "maximum": {
-                                    "count": "3"
-                                }
-                            },
-                            "price": {
-                                "currency": "INR",
-                                "value": "50",
-                                "maximum_value": "50"
-                            },
-                            "category_id": "Pizza",
-                            "related": true,
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "customization"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "veg_nonveg",
-                                    "list": [
-                                        {
-                                            "code": "egg",
-                                            "value": "yes"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "kMvCxs",
-                            "descriptor": {
-                                "name": "Large"
-                            },
-                            "quantity": {
-                                "unitized": {
-                                    "measure": {
-                                        "unit": "NA",
-                                        "value": "undefined"
-                                    }
-                                },
-                                "available": {
-                                    "count": "undefined"
-                                },
-                                "maximum": {
-                                    "count": "3"
-                                }
-                            },
-                            "price": {
-                                "currency": "INR",
-                                "value": "100",
-                                "maximum_value": "100"
-                            },
-                            "category_id": "Pizza",
-                            "related": true,
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "customization"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "veg_nonveg",
-                                    "list": [
-                                        {
-                                            "code": "egg",
-                                            "value": "yes"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "sAH30o",
-                            "descriptor": {
-                                "name": "cheeze"
-                            },
-                            "quantity": {
-                                "unitized": {
-                                    "measure": {
-                                        "unit": "inch",
-                                        "value": "tt"
-                                    }
-                                },
-                                "available": {
-                                    "count": ""
-                                },
-                                "maximum": {
-                                    "count": "3"
-                                }
-                            },
-                            "price": {
-                                "currency": "INR",
-                                "value": "30",
-                                "maximum_value": "30"
-                            },
-                            "category_id": "Pizza",
-                            "related": true,
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "customization"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "veg_nonveg",
-                                    "list": [
-                                        {
-                                            "code": "egg",
-                                            "value": "yes"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "FQtDyy",
-                            "descriptor": {
-                                "name": "Olive"
-                            },
-                            "quantity": {
-                                "unitized": {
-                                    "measure": {
-                                        "unit": "inch",
-                                        "value": "tt"
-                                    }
-                                },
-                                "available": {
-                                    "count": ""
-                                },
-                                "maximum": {
-                                    "count": "3"
-                                }
-                            },
-                            "price": {
-                                "currency": "INR",
-                                "value": "120",
-                                "maximum_value": "120"
-                            },
-                            "category_id": "Pizza",
-                            "related": true,
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "customization"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "veg_nonveg",
-                                    "list": [
-                                        {
-                                            "code": "egg",
-                                            "value": "yes"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "41d69a28-4e5b-43a0-845a-f4f5f6ea5dfc",
+                            "id": "e6de220a-9912-42e1-8d7e-48415e8569b6",
                             "time": {
                                 "label": "enable",
-                                "timestamp": "2023-08-22T12:50:58.710Z"
+                                "timestamp": "2023-10-26T09:07:15.209Z"
                             },
                             "parent_item_id": "",
                             "descriptor": {
-                                "name": "Veg Burger",
-                                "symbol": "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets//name/image.jpg",
-                                "short_desc": "description",
-                                "long_desc": "long",
+                                "name": "Axai cold coffee",
+                                "symbol": "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/25849c31-1573-4a91-8294-352383cab9f2/product_image/download.jpg.jpeg",
+                                "short_desc": "special cold coffee by axai",
+                                "long_desc": "Cold coffee is a refreshing and chilled beverage that's perfect for hot weather or as a pick-me-up when you need a caffeine boost.",
                                 "images": [
-                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets//name/image.jpg",
-                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets//name/image1.jpg"
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/25849c31-1573-4a91-8294-352383cab9f2/product_image/download.jpg.jpeg",
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/377ee828-8632-4f9f-b25a-0fe410861fde/product_image/Cold-Coffee-Thumbnail-500x500.jpg.jpeg",
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/d1fee5a8-cafc-4dc2-878b-01e50a7ed90a/product_image/IMG_3613-scaled.jpg.jpeg"
                                 ]
                             },
                             "quantity": {
                                 "unitized": {
                                     "measure": {
-                                        "unit": "kilogram",
-                                        "value": "1"
+                                        "unit": "litre",
+                                        "value": "0.2"
                                     }
                                 },
                                 "available": {
-                                    "count": "100"
+                                    "count": "5"
                                 },
                                 "maximum": {
-                                    "count": "1"
+                                    "count": "4"
                                 }
                             },
                             "price": {
                                 "currency": "INR",
-                                "value": "12345",
-                                "maximum_value": "12345"
+                                "value": "170",
+                                "maximum_value": "170"
                             },
                             "category_ids": [
-                                "ce6XUF:1"
+                                "5JvBU5:1"
                             ],
-                            "category_id": "Pizza",
-                            "location_id": "6463928731fadaf31cd63a2e",
-                            "fulfillment_id": "",
-                            "@ondc/org/returnable": true,
-                            "@ondc/org/cancellable": true,
+                            "category_id": "Coffee",
+                            "location_id": "65265d518a0182c6cfcc0039",
+                            "fulfillment_id": "1",
+                            "@ondc/org/returnable": false,
+                            "@ondc/org/cancellable": false,
                             "@ondc/org/available_on_cod": true,
                             "@ondc/org/time_to_ship": "PT1H",
                             "@ondc/org/seller_pickup_return": true,
-                            "@ondc/org/return_window": "PT30M",
-                            "@ondc/org/contact_details_consumer_care": "Wemotive1org,support@wemotiveforge.com,090909090909",
+                            "@ondc/org/return_window": "P0D",
+                            "@ondc/org/contact_details_consumer_care": "Axai Store,yash.bhardwaj5040@gmail.com,9546563568",
                             "tags": [
                                 {
                                     "code": "type",
@@ -1450,23 +300,6 @@
                                         {
                                             "code": "type",
                                             "value": "item"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "custom_group",
-                                    "list": [
-                                        {
-                                            "code": "id",
-                                            "value": "x476UA"
-                                        },
-                                        {
-                                            "code": "id",
-                                            "value": "rlLysk"
-                                        },
-                                        {
-                                            "code": "id",
-                                            "value": "859ScR"
                                         }
                                     ]
                                 },
@@ -1482,38 +315,60 @@
                             ]
                         },
                         {
-                            "id": "PJ4mlz",
+                            "id": "7i8eaa98-10cb-4b9b-904c-92e0d4176cd8",
+                            "time": {
+                                "label": "enable",
+                                "timestamp": "2023-10-11T09:13:24.010Z"
+                            },
+                            "parent_item_id": "",
                             "descriptor": {
-                                "name": "Hand tossed"
+                                "name": "brown bread",
+                                "symbol": "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/08846e7d-ab72-4084-84a1-ee61c9f82cc9/product_image/download (2).jpg.jpeg",
+                                "short_desc": "finest artisanal bread, each loaf a masterpiece of taste and texture.",
+                                "long_desc": "Take your taste buds on a journey to the heart of France with our Rustic Baguettes. Crafted with precision and a respect for tradition, these slender loaves boast a thin, crisp crust that shatters with every bite, revealing a light and airy interior. ",
+                                "images": [
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/08846e7d-ab72-4084-84a1-ee61c9f82cc9/product_image/download (2).jpg.jpeg",
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/4539322f-cd25-4bee-89a3-69acdc7b972b/product_image/download (1).jpg.jpeg",
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/04af6182-b7b5-4681-9ca8-31e9bd38146d/product_image/Basic-Homemade-Bread_EXPS_TOHcom20_32480_C01_26_2b.jpg.jpeg"
+                                ]
                             },
                             "quantity": {
                                 "unitized": {
                                     "measure": {
-                                        "unit": "inch",
-                                        "value": "tt"
+                                        "unit": "gram",
+                                        "value": "180"
                                     }
                                 },
                                 "available": {
-                                    "count": ""
+                                    "count": "17"
                                 },
                                 "maximum": {
-                                    "count": "3"
+                                    "count": "12"
                                 }
                             },
                             "price": {
                                 "currency": "INR",
-                                "value": "0",
-                                "maximum_value": "0"
+                                "value": "45",
+                                "maximum_value": "45"
                             },
-                            "category_id": "Pizza",
-                            "related": true,
+                            "category_ids": [],
+                            "category_id": "Bread",
+                            "location_id": "65265d518a0182c6cfcc0039",
+                            "fulfillment_id": "1",
+                            "@ondc/org/returnable": false,
+                            "@ondc/org/cancellable": false,
+                            "@ondc/org/available_on_cod": false,
+                            "@ondc/org/time_to_ship": "PT1H",
+                            "@ondc/org/seller_pickup_return": true,
+                            "@ondc/org/return_window": "PT2H",
+                            "@ondc/org/contact_details_consumer_care": "Axai Store,yash.bhardwaj5040@gmail.com,9546563568",
                             "tags": [
                                 {
                                     "code": "type",
                                     "list": [
                                         {
                                             "code": "type",
-                                            "value": "customization"
+                                            "value": "item"
                                         }
                                     ]
                                 },
@@ -1521,7 +376,7 @@
                                     "code": "veg_nonveg",
                                     "list": [
                                         {
-                                            "code": "egg",
+                                            "code": "veg",
                                             "value": "yes"
                                         }
                                     ]
@@ -1529,38 +384,60 @@
                             ]
                         },
                         {
-                            "id": "jewP0e",
+                            "id": "da3264be-48af-4223-bc1a-afdf78da0267",
+                            "time": {
+                                "label": "enable",
+                                "timestamp": "2023-10-21T19:40:06.148Z"
+                            },
+                            "parent_item_id": "",
                             "descriptor": {
-                                "name": "Thin crust"
+                                "name": "Potato Chips",
+                                "symbol": "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/652b0cf1-4d96-4de5-945c-7c44e141b05f/product_image/download (4).jpg.jpeg",
+                                "short_desc": "These chips are made from raw bananas or plantains, which are thinly sliced and deep-fried until they become crisp and golden brown.",
+                                "long_desc": "They are a savory and crunchy snack, typically enjoyed with tea or as an accompaniment to a meal.",
+                                "images": [
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/652b0cf1-4d96-4de5-945c-7c44e141b05f/product_image/download (4).jpg.jpeg",
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/87230bce-eb9a-49a4-afff-7d915bceb668/product_image/download (3).jpg.jpeg",
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/79b137f6-a42d-45a8-af5f-9d00adaadc47/product_image/IMG_2058_.jpg.jpeg"
+                                ]
                             },
                             "quantity": {
                                 "unitized": {
                                     "measure": {
-                                        "unit": "inch",
-                                        "value": "tt"
+                                        "unit": "gram",
+                                        "value": "80"
                                     }
                                 },
                                 "available": {
-                                    "count": ""
+                                    "count": "17"
                                 },
                                 "maximum": {
-                                    "count": "3"
+                                    "count": "6"
                                 }
                             },
                             "price": {
                                 "currency": "INR",
-                                "value": "100",
-                                "maximum_value": "100"
+                                "value": "70",
+                                "maximum_value": "70"
                             },
-                            "category_id": "Pizza",
-                            "related": true,
+                            "category_ids": [],
+                            "category_id": "Chips",
+                            "location_id": "65265d518a0182c6cfcc0039",
+                            "fulfillment_id": "1",
+                            "@ondc/org/returnable": false,
+                            "@ondc/org/cancellable": false,
+                            "@ondc/org/available_on_cod": false,
+                            "@ondc/org/time_to_ship": "PT1H",
+                            "@ondc/org/seller_pickup_return": true,
+                            "@ondc/org/return_window": "PT3H",
+                            "@ondc/org/contact_details_consumer_care": "Axai Store,yash.bhardwaj5040@gmail.com,9546563568",
                             "tags": [
                                 {
                                     "code": "type",
                                     "list": [
                                         {
                                             "code": "type",
-                                            "value": "customization"
+                                            "value": "item"
                                         }
                                     ]
                                 },
@@ -1568,7 +445,7 @@
                                     "code": "veg_nonveg",
                                     "list": [
                                         {
-                                            "code": "egg",
+                                            "code": "veg",
                                             "value": "yes"
                                         }
                                     ]
@@ -1576,38 +453,60 @@
                             ]
                         },
                         {
-                            "id": "6tNx2g",
+                            "id": "edcce684-db30-4f92-a2be-a935485a103b",
+                            "time": {
+                                "label": "enable",
+                                "timestamp": "2023-10-11T09:26:11.982Z"
+                            },
+                            "parent_item_id": "",
                             "descriptor": {
-                                "name": "Regular"
+                                "name": "new Lime Juice",
+                                "symbol": "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/6709a829-3a88-4204-b95b-99767ec8c48b/product_image/new lime-juice-pp.jpeg",
+                                "short_desc": "A tangy and citrusy liquid that is extracted from new limes, a type of small, green citrus fruit.",
+                                "long_desc": "sharp and tart flavor with a distinct citrusy and slightly sweet undertone. It is less sweet than lemon juice and has a brighter, more intense taste.",
+                                "images": [
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/6709a829-3a88-4204-b95b-99767ec8c48b/product_image/new lime-juice-pp.jpeg",
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/cc146f79-72dc-4363-b9ed-1e4782b8b16b/product_image/lemon-juice.jpg.jpeg",
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/be42f140-4c9e-44e3-991d-278fcc1da320/product_image/new lime-juice-pic.jpeg"
+                                ]
                             },
                             "quantity": {
                                 "unitized": {
                                     "measure": {
-                                        "unit": "inch",
-                                        "value": "tt"
+                                        "unit": "litre",
+                                        "value": "0.2"
                                     }
                                 },
                                 "available": {
-                                    "count": ""
+                                    "count": "59"
                                 },
                                 "maximum": {
-                                    "count": "3"
+                                    "count": "5"
                                 }
                             },
                             "price": {
                                 "currency": "INR",
-                                "value": "50",
-                                "maximum_value": "50"
+                                "value": "45",
+                                "maximum_value": "45"
                             },
-                            "category_id": "Pizza",
-                            "related": true,
+                            "category_ids": [],
+                            "category_id": "Fresh Juice",
+                            "location_id": "65265d518a0182c6cfcc0039",
+                            "fulfillment_id": "1",
+                            "@ondc/org/returnable": false,
+                            "@ondc/org/cancellable": false,
+                            "@ondc/org/available_on_cod": false,
+                            "@ondc/org/time_to_ship": "PT1H",
+                            "@ondc/org/seller_pickup_return": true,
+                            "@ondc/org/return_window": "P0D",
+                            "@ondc/org/contact_details_consumer_care": "Axai Store,yash.bhardwaj5040@gmail.com,9546563568",
                             "tags": [
                                 {
                                     "code": "type",
                                     "list": [
                                         {
                                             "code": "type",
-                                            "value": "customization"
+                                            "value": "item"
                                         }
                                     ]
                                 },
@@ -1615,7 +514,7 @@
                                     "code": "veg_nonveg",
                                     "list": [
                                         {
-                                            "code": "egg",
+                                            "code": "veg",
                                             "value": "yes"
                                         }
                                     ]
@@ -1623,38 +522,60 @@
                             ]
                         },
                         {
-                            "id": "Ho6TXq",
+                            "id": "b40354db-3801-44e5-9365-034811df52c6",
+                            "time": {
+                                "label": "enable",
+                                "timestamp": "2023-10-21T19:42:30.156Z"
+                            },
+                            "parent_item_id": "",
                             "descriptor": {
-                                "name": "Large"
+                                "name": "Samosa",
+                                "symbol": "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/074ba4f7-a197-49e3-9511-0e64849bb2ab/product_image/0m65kep_samosa_625x300_10_March_23.webp",
+                                "short_desc": "A triangular or cone-shaped pastry filled with a mixture of savory ingredients and then deep-fried to a golden brown, creating a crispy and flaky outer shell.",
+                                "long_desc": " the samosas are deep-fried until they turn crisp and golden. They are typically served hot and are often accompanied by various condiments like tamarind chutney.",
+                                "images": [
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/074ba4f7-a197-49e3-9511-0e64849bb2ab/product_image/0m65kep_samosa_625x300_10_March_23.webp",
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/ce01b6aa-32e4-476b-b990-eeebc4b9f3f7/product_image/samosa-recipe-500x500.jpg.jpeg",
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/38c1a5ea-f5bd-40b1-8ec3-8d020cc41384/product_image/0m65kep_samosa_625x300_10_March_23 - Copy.webp"
+                                ]
                             },
                             "quantity": {
                                 "unitized": {
                                     "measure": {
-                                        "unit": "NA",
-                                        "value": "undefined"
+                                        "unit": "gram",
+                                        "value": "24"
                                     }
                                 },
                                 "available": {
-                                    "count": "undefined"
+                                    "count": "45"
                                 },
                                 "maximum": {
-                                    "count": "3"
+                                    "count": "13"
                                 }
                             },
                             "price": {
                                 "currency": "INR",
-                                "value": "100",
-                                "maximum_value": "100"
+                                "value": "25",
+                                "maximum_value": "25"
                             },
-                            "category_id": "Pizza",
-                            "related": true,
+                            "category_ids": [],
+                            "category_id": "Samosa",
+                            "location_id": "65265d518a0182c6cfcc0039",
+                            "fulfillment_id": "1",
+                            "@ondc/org/returnable": false,
+                            "@ondc/org/cancellable": false,
+                            "@ondc/org/available_on_cod": false,
+                            "@ondc/org/time_to_ship": "PT1H",
+                            "@ondc/org/seller_pickup_return": true,
+                            "@ondc/org/return_window": "PT1H",
+                            "@ondc/org/contact_details_consumer_care": "Axai Store,yash.bhardwaj5040@gmail.com,9546563568",
                             "tags": [
                                 {
                                     "code": "type",
                                     "list": [
                                         {
                                             "code": "type",
-                                            "value": "customization"
+                                            "value": "item"
                                         }
                                     ]
                                 },
@@ -1662,7 +583,7 @@
                                     "code": "veg_nonveg",
                                     "list": [
                                         {
-                                            "code": "egg",
+                                            "code": "veg",
                                             "value": "yes"
                                         }
                                     ]
@@ -1670,69 +591,35 @@
                             ]
                         },
                         {
-                            "id": "Fb3dx8",
+                            "id": "b6070582-0e9d-45b3-acf4-51e1581512b1",
+                            "time": {
+                                "label": "enable",
+                                "timestamp": "2023-10-25T18:35:42.801Z"
+                            },
+                            "parent_item_id": "3FZUJZ",
                             "descriptor": {
-                                "name": "Extra Cheeze"
+                                "name": "Axai Burger",
+                                "symbol": "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/c2f33996-bbba-42a9-9232-37a9ae9b2994/product_image/download (6).jpg.jpeg",
+                                "short_desc": "\nA burger, short for hamburger, is a popular and classic American sandwich ",
+                                "long_desc": "Burgers come in countless styles and variations, from simple and classic cheeseburgers to gourmet creations with unique and exotic ingredients. ",
+                                "images": [
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/c2f33996-bbba-42a9-9232-37a9ae9b2994/product_image/download (6).jpg.jpeg",
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/e6d86505-7a40-4d88-af17-cfbc272553ab/product_image/download (5).jpg.jpeg",
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/d8e636c9-c780-434e-a622-a0334b7eabe3/product_image/veg-burger-recipe-1.jpg.jpeg"
+                                ]
                             },
                             "quantity": {
                                 "unitized": {
                                     "measure": {
-                                        "unit": "inch",
-                                        "value": "tt"
+                                        "unit": "unit",
+                                        "value": "EA"
                                     }
                                 },
                                 "available": {
-                                    "count": ""
+                                    "count": "13"
                                 },
                                 "maximum": {
-                                    "count": "3"
-                                }
-                            },
-                            "price": {
-                                "currency": "INR",
-                                "value": "30",
-                                "maximum_value": "30"
-                            },
-                            "category_id": "Pizza",
-                            "related": true,
-                            "tags": [
-                                {
-                                    "code": "type",
-                                    "list": [
-                                        {
-                                            "code": "type",
-                                            "value": "customization"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "code": "veg_nonveg",
-                                    "list": [
-                                        {
-                                            "code": "egg",
-                                            "value": "yes"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "id": "sYN9en",
-                            "descriptor": {
-                                "name": "veggies"
-                            },
-                            "quantity": {
-                                "unitized": {
-                                    "measure": {
-                                        "unit": "inch",
-                                        "value": "tt"
-                                    }
-                                },
-                                "available": {
-                                    "count": ""
-                                },
-                                "maximum": {
-                                    "count": "3"
+                                    "count": "12"
                                 }
                             },
                             "price": {
@@ -1740,15 +627,24 @@
                                 "value": "120",
                                 "maximum_value": "120"
                             },
-                            "category_id": "Pizza",
-                            "related": true,
+                            "category_ids": [],
+                            "category_id": "Burger",
+                            "location_id": "65265d518a0182c6cfcc0039",
+                            "fulfillment_id": "1",
+                            "@ondc/org/returnable": false,
+                            "@ondc/org/cancellable": false,
+                            "@ondc/org/available_on_cod": false,
+                            "@ondc/org/time_to_ship": "PT1H",
+                            "@ondc/org/seller_pickup_return": true,
+                            "@ondc/org/return_window": "P0D",
+                            "@ondc/org/contact_details_consumer_care": "Axai Store,yash.bhardwaj5040@gmail.com,9546563568",
                             "tags": [
                                 {
                                     "code": "type",
                                     "list": [
                                         {
                                             "code": "type",
-                                            "value": "customization"
+                                            "value": "item"
                                         }
                                     ]
                                 },
@@ -1756,7 +652,76 @@
                                     "code": "veg_nonveg",
                                     "list": [
                                         {
-                                            "code": "egg",
+                                            "code": "veg",
+                                            "value": "yes"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": "0188b763-fa6f-4e37-8e85-ba1bb6e164aa",
+                            "time": {
+                                "label": "enable",
+                                "timestamp": "2023-10-25T18:35:42.812Z"
+                            },
+                            "parent_item_id": "3FZUJZ",
+                            "descriptor": {
+                                "name": "Axai Burger",
+                                "symbol": "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/24f4104b-b6bc-4563-9285-123c8b250467/product_image/download (6).jpg.jpeg",
+                                "short_desc": "\nA burger, short for hamburger, is a popular and classic American sandwich ",
+                                "long_desc": "Burgers come in countless styles and variations, from simple and classic cheeseburgers to gourmet creations with unique and exotic ingredients. ",
+                                "images": [
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/24f4104b-b6bc-4563-9285-123c8b250467/product_image/download (6).jpg.jpeg",
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/e87c3dc0-890b-4d6c-af5f-72937789ac9d/product_image/download (5).jpg.jpeg",
+                                    "https://reference-buyer-app-assets.s3-ap-south-1.amazonaws.com/public-assets/30bac74a-b125-4d90-8337-fd73094e5411/product_image/veg-burger-recipe-1.jpg.jpeg"
+                                ]
+                            },
+                            "quantity": {
+                                "unitized": {
+                                    "measure": {
+                                        "unit": "unit",
+                                        "value": "CS"
+                                    }
+                                },
+                                "available": {
+                                    "count": "10"
+                                },
+                                "maximum": {
+                                    "count": "10"
+                                }
+                            },
+                            "price": {
+                                "currency": "INR",
+                                "value": "1200",
+                                "maximum_value": "1200"
+                            },
+                            "category_ids": [],
+                            "category_id": "Burger",
+                            "location_id": "65265d518a0182c6cfcc0039",
+                            "fulfillment_id": "1",
+                            "@ondc/org/returnable": false,
+                            "@ondc/org/cancellable": false,
+                            "@ondc/org/available_on_cod": false,
+                            "@ondc/org/time_to_ship": "PT1H",
+                            "@ondc/org/seller_pickup_return": true,
+                            "@ondc/org/return_window": "P0D",
+                            "@ondc/org/contact_details_consumer_care": "Axai Store,yash.bhardwaj5040@gmail.com,9546563568",
+                            "tags": [
+                                {
+                                    "code": "type",
+                                    "list": [
+                                        {
+                                            "code": "type",
+                                            "value": "item"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "code": "veg_nonveg",
+                                    "list": [
+                                        {
+                                            "code": "veg",
                                             "value": "yes"
                                         }
                                     ]
@@ -1767,8 +732,8 @@
                     "fulfillments": [
                         {
                             "contact": {
-                                "phone": "090909090909",
-                                "email": "support@wemotiveforge.com"
+                                "phone": "9546563568",
+                                "email": "yash.bhardwaj5040@gmail.com"
                             }
                         }
                     ],
@@ -1778,11 +743,11 @@
                             "list": [
                                 {
                                     "code": "location",
-                                    "value": "6463928731fadaf31cd63a2e"
+                                    "value": "65265d518a0182c6cfcc0039"
                                 },
                                 {
                                     "code": "category",
-                                    "value": "F&B"
+                                    "value": "Chaat"
                                 },
                                 {
                                     "code": "type",
@@ -1790,7 +755,161 @@
                                 },
                                 {
                                     "code": "unit",
-                                    "value": "km"
+                                    "value": "country"
+                                },
+                                {
+                                    "code": "value",
+                                    "value": "IND"
+                                }
+                            ]
+                        },
+                        {
+                            "code": "serviceability",
+                            "list": [
+                                {
+                                    "code": "location",
+                                    "value": "65265d518a0182c6cfcc0039"
+                                },
+                                {
+                                    "code": "category",
+                                    "value": "Coffee"
+                                },
+                                {
+                                    "code": "type",
+                                    "value": "12"
+                                },
+                                {
+                                    "code": "unit",
+                                    "value": "country"
+                                },
+                                {
+                                    "code": "value",
+                                    "value": "IND"
+                                }
+                            ]
+                        },
+                        {
+                            "code": "serviceability",
+                            "list": [
+                                {
+                                    "code": "location",
+                                    "value": "65265d518a0182c6cfcc0039"
+                                },
+                                {
+                                    "code": "category",
+                                    "value": "Bread"
+                                },
+                                {
+                                    "code": "type",
+                                    "value": "12"
+                                },
+                                {
+                                    "code": "unit",
+                                    "value": "country"
+                                },
+                                {
+                                    "code": "value",
+                                    "value": "IND"
+                                }
+                            ]
+                        },
+                        {
+                            "code": "serviceability",
+                            "list": [
+                                {
+                                    "code": "location",
+                                    "value": "65265d518a0182c6cfcc0039"
+                                },
+                                {
+                                    "code": "category",
+                                    "value": "Chips"
+                                },
+                                {
+                                    "code": "type",
+                                    "value": "12"
+                                },
+                                {
+                                    "code": "unit",
+                                    "value": "country"
+                                },
+                                {
+                                    "code": "value",
+                                    "value": "IND"
+                                }
+                            ]
+                        },
+                        {
+                            "code": "serviceability",
+                            "list": [
+                                {
+                                    "code": "location",
+                                    "value": "65265d518a0182c6cfcc0039"
+                                },
+                                {
+                                    "code": "category",
+                                    "value": "Fresh Juice"
+                                },
+                                {
+                                    "code": "type",
+                                    "value": "12"
+                                },
+                                {
+                                    "code": "unit",
+                                    "value": "country"
+                                },
+                                {
+                                    "code": "value",
+                                    "value": "IND"
+                                }
+                            ]
+                        },
+                        {
+                            "code": "serviceability",
+                            "list": [
+                                {
+                                    "code": "location",
+                                    "value": "65265d518a0182c6cfcc0039"
+                                },
+                                {
+                                    "code": "category",
+                                    "value": "Samosa"
+                                },
+                                {
+                                    "code": "type",
+                                    "value": "12"
+                                },
+                                {
+                                    "code": "unit",
+                                    "value": "country"
+                                },
+                                {
+                                    "code": "value",
+                                    "value": "IND"
+                                }
+                            ]
+                        },
+                        {
+                            "code": "serviceability",
+                            "list": [
+                                {
+                                    "code": "location",
+                                    "value": "65265d518a0182c6cfcc0039"
+                                },
+                                {
+                                    "code": "category",
+                                    "value": "Burger"
+                                },
+                                {
+                                    "code": "type",
+                                    "value": "12"
+                                },
+                                {
+                                    "code": "unit",
+                                    "value": "country"
+                                },
+                                {
+                                    "code": "value",
+                                    "value": "IND"
                                 }
                             ]
                         }

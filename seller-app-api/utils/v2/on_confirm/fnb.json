@@ -6,12 +6,12 @@
         "bap_id": "buyerNP.com",
         "bap_uri": "https://buyerNP.com/ondc",
         "bpp_id": "sellerapp-staging.datasyndicate.in",
-        "bpp_uri": "https://0cdc-122-161-69-2.ngrok-free.app",
+        "bpp_uri": "https://8ui8-2401-4900-2c7c-18eb-78b8-uj9-8555-cc4d.ngrok-free.app",
         "transaction_id": "T2",
         "message_id": "M4",
         "city": "std:080",
         "country": "IND",
-        "timestamp": "2023-09-02T09:38:37.534Z",
+        "timestamp": "2023-10-31T09:38:37.534Z",
         "ttl": "PT30S"
     },
     "message": {
@@ -260,8 +260,8 @@
                         },
                         "time": {
                             "range": {
-                                "start": "2023-06-03T11:00:00.000Z",
-                                "end": "2023-06-03T11:30:00.000Z"
+                                "start": "2023-10-31T11:00:00.000Z",
+                                "end": "2023-10-31T11:30:00.000Z"
                             }
                         },
                         "instructions": {
@@ -279,7 +279,7 @@
                 },
                 "breakup": [
                     {
-                        "@ondc/org/item_id": "660658e2-8b7b-4327-b3ed-44698087012b",
+                        "@ondc/org/item_id": "960658e2-8b7b-4327-b3ed-44698087012b",
                         "@ondc/org/item_quantity": {
                             "count": 1
                         },
@@ -387,7 +387,7 @@
                         }
                     },
                     {
-                        "@ondc/org/item_id": "10828697-e8d6-4314-8b6b-af5897ccef62",
+                        "@ondc/org/item_id": "90728697-e8d6-4314-8b6b-af5897ccef62",
                         "@ondc/org/item_quantity": {
                             "count": 1
                         },
@@ -495,7 +495,7 @@
                         }
                     },
                     {
-                        "@ondc/org/item_id": "660658e2-8b7b-4327-b3ed-44698087012b",
+                        "@ondc/org/item_id": "780658e2-8b7b-4327-b3ed-44698087012b",
                         "title": "Tax",
                         "@ondc/org/title_type": "tax",
                         "price": {
@@ -721,8 +721,8 @@
                     ]
                 }
             ],
-            "created_at": "2023-06-03T09:30:00.000Z",
-            "updated_at": "2023-06-03T09:30:00.000Z"
+            "created_at": "2023-10-31T09:30:00.000Z",
+            "updated_at": "2023-10-31T09:30:00.000Z"
         }
     }
 }

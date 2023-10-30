@@ -84,9 +84,9 @@
   },
   "sellerConfig": {
     "BPP_ID": "sellerapp-staging.datasyndicate.in",
-    "BPP_URI": "https://0cdc-122-161-69-2.ngrok-free.app",
+    "BPP_URI": "https://c26c-2401-4900-1c5c-2546-2cf1-fa70-e2d1-a532.ngrok-free.app",
     "BAP_ID": "sellerapp-staging.datasyndicate.in",
-    "BAP_URI": "https://0cdc-122-161-69-2.ngrok-free.app",
+    "BAP_URI": "https://c26c-2401-4900-1c5c-2546-2cf1-fa70-e2d1-a532.ngrok-free.app",
     "LOGISTICS_BAP_ID": "dev-ondc.shiprocket.in",
     "LOGISTICS_DELIVERY_TYPE": "Same Day Delivery",
     "storeOpenSchedule": {

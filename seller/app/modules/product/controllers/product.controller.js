@@ -108,10 +108,48 @@ class ProductController {
         }
     }
 
+    async searchIncrementalPull(req, res, next) {
+        try {
+            let query = req.query;
+            query.offset = 0;
+            query.limit = 50;//default only 50 products will be sent
+            const products = await productService.searchIncrementalPull(query,req.params.category);
+            return res.send(products);
+
+        } catch (error) {
+            console.log('[OrderController] [list] Error -', error);
+            next(error);
+        }
+    }
+
     async get(req, res, next) {
         try {
             const params = req.params;
             const product = await productService.get(params.productId,req.user);
+            return res.send(product);
+
+        } catch (error) {
+            console.log('[OrderController] [get] Error -', error);
+            next(error);
+        }
+    }
+
+    async ondcGet(req, res, next) {
+        try {
+            const params = req.params;
+            const product = await productService.ondcGet(params.productId);
+            return res.send(product);
+
+        } catch (error) {
+            console.log('[OrderController] [get] Error -', error);
+            next(error);
+        }
+    }
+
+    async ondcGetForUpdate(req, res, next) {
+        try {
+            const params = req.params;
+            const product = await productService.ondcGetForUpdate(params.productId);
             return res.send(product);
 
         } catch (error) {
