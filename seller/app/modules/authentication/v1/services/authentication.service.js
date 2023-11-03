@@ -16,6 +16,12 @@ import UserService from './user.service';
 
 const userService = new UserService();
 class AuthenticationService {
+    /**
+     * allow user  to login to system
+     * @param {*} currentUser 
+     * @param {*} data username and password data 
+     * @returns logged in user data and accedd token
+     */
     async login(currentUser, data) {
         try {
             const loginTimestamp = new Date().getTime();
@@ -98,7 +104,12 @@ class AuthenticationService {
             throw err;
         }
     }
-
+/**
+ * register user to system
+ * @param {*} currentUser 
+ * @param {*} data 
+ * @returns otp notify message in response
+ */
     async signUp(currentUser, data) {
         try {
             data.userName = data.userName.toLowerCase();
@@ -151,7 +162,11 @@ class AuthenticationService {
             throw err;
         }
     }
-
+/**
+ * otp for forget pasword
+ * @param {*} data username to find account
+ * @returns otp notify message in response
+ */
     async forgotPassword(data) {
         try {
             let query = {
@@ -206,7 +221,12 @@ class AuthenticationService {
             throw err;
         }
     }
-
+/**
+ * create link to reset password via email
+ * @param {*} userId 
+ * @param {*} tokenPayload 
+ * @returns token
+ */
     createResetPasswordLinkToken(userId, tokenPayload) {
         return new Promise((resolve, reject) => {
 
@@ -225,11 +245,11 @@ class AuthenticationService {
         });
     }
 
-    /** Reset Password
+    /** Reset Password by admin
    *
    * @param currentUser
    * @param data
-   * @returns {Promise<unknown>}
+   * @returns success message response
    */
     async resetPassword(currentUser, data) {
         try {
@@ -250,7 +270,12 @@ class AuthenticationService {
             throw err;
         }
     }
-
+   /** Reset Password link for user
+   *
+   * @param currentUser
+   * @param data
+   * @returns success message response
+   */
     async resetPasswordUsingLink(data, token) {
         try {
             let user = await User.findOne({_id:data.userId});
@@ -282,7 +307,7 @@ class AuthenticationService {
    *
    * @param currentUser
    * @param data
-   * @returns {Promise<unknown>}
+   * @returns success message response
    */
     async updatePassword(data) {
         try {
@@ -311,7 +336,12 @@ class AuthenticationService {
             throw err;
         }
     }
-
+   /** update user's email
+   *
+   * @param currentUser
+   * @param data
+   * @returns success email response
+   */
     async updateUserEmail(data) {
         try {
             // Find user by id
@@ -329,7 +359,12 @@ class AuthenticationService {
             throw err;
         }
     }
-
+   /** set admin's Password
+   *
+   * @param currentUser
+   * @param data
+   * @returns success message response
+   */
     async setPassword({ id, password,template }, currentUser) {
         let user = await User(currentUser.organizationId).findOne({ selector: { id } });
         // Throw error if user does not exist

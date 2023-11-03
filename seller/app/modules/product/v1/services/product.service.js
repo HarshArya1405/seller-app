@@ -11,6 +11,12 @@ import { DuplicateRecordFoundError, NoRecordFoundError } from '../../../../lib/e
 const productCustomizationService = new ProductCustomizationService();
  
 class ProductService {
+    /**
+     * create a  single product to the system
+     * @param {*} data that combine porduct with customization & attributes
+     * @param {*} currentUser 
+     * @returns saved product
+     */
     async create(data,currentUser) {
         try {
             // let query = {};
@@ -37,7 +43,12 @@ class ProductService {
         }
     }
 
-    //
+     /**
+     * create a  single product with its variant to the system
+     * @param {*} data that combine porduct with variation , customization & attributes
+     * @param {*} currentUser logged in user details
+     * @returns saved product
+     */
     async createWithVariants(data,currentUser) {
         try {
             const commonDetails = data.commonDetails;
@@ -86,7 +97,12 @@ class ProductService {
             throw err;
         }
     }
-
+    /**
+     * update product with its variant to the system
+     * @param {*} data that combine porduct with variation , customization & attributes
+     * @param {*} currentUser logged in user details
+     * @returns saved product
+     */
     async updateWithVariants(data,currentUser) {
         try {
             if(data.commonDetails._id){
@@ -130,6 +146,12 @@ class ProductService {
             throw err;
         }
     }
+    /**
+     * internally used func for attribute store
+     * @param {*} data attribute data 
+     * @param {*} currentUser logged in user data
+     * @returns true
+     */
     async createAttribute(data,currentUser){
         try {
             const attributes = data.attributes;
@@ -156,7 +178,11 @@ class ProductService {
             throw err;
         }
     }
-
+/**
+ * 
+ * @param {*} params keys that are user in filtering data 
+ * @returns obj of products and count 
+ */
 
     async list(params) {
         try {
@@ -179,7 +205,11 @@ class ProductService {
             throw err;
         }
     }
-
+/**
+ * 
+ * @param {*} params keys that are user in filtering data 
+ * @returns obj of products and count after certain search 
+ */
     async search(params) {
         try {
             let query={};
@@ -219,7 +249,12 @@ class ProductService {
             throw err;
         }
     }
-
+/**
+ * get one product by its id
+ * @param {*} productId  id of requested product
+ * @param {*} currentUser logged in user
+ * @returns product data along with attributes and s3 files
+ */
     async get(productId,currentUser) {
         try {
             let product = await Product.findOne({_id:productId,organization:currentUser.organization}).populate('variantGroup').lean();
@@ -251,7 +286,12 @@ class ProductService {
             throw err;
         }
     }
-
+/**
+ * get one product by its id along with its all variants
+ * @param {*} productId  id of requested product
+ * @param {*} currentUser logged in user
+ * @returns product data along with attributes and s3 files along with its all variants
+ */
     async getWithVariants(productId,currentUser) {
         try {
             let product = await Product.findOne({_id:productId,organization:currentUser.organization}).lean();
@@ -275,7 +315,12 @@ class ProductService {
             throw err;
         }
     }
-
+ /**
+     * update a  single product to the system
+     * @param {*} data that combine porduct with customization & attributes
+     * @param {*} currentUser  logged in user
+     * @returns updated product
+     */
     async update(productId,data,currentUser) {
         try {
             const commonDetails = data.commonDetails;
@@ -296,7 +341,13 @@ class ProductService {
             throw err;
         }
     }
-
+/**
+ * 
+ * @param {*} productId 
+ * @param {*} data 
+ * @param {*} currentUser 
+ * @returns 
+ */
 
     async publish(productId,data,currentUser) {
         try {
@@ -310,6 +361,12 @@ class ProductService {
             throw err;
         }
     }
+    /**
+     * list of category along with subcategory and attribute
+     * @param {*} params filters for category and subcategory
+     * @param {*} currentUser logged in user
+     * @returns list of requested category along with subcategory and attributes
+     */
 
     async categorySubcategoryAttributeList(params,currentUser) {
         try {
@@ -327,6 +384,12 @@ class ProductService {
             throw err;
         }
     }
+     /**
+     * list of category along with subcategory 
+     * @param {*} params filters for category and subcategory
+     * @param {*} currentUser logged in user
+     * @returns list of requested category along with subcategory
+     */
     async categorySubcategoryList(params,currentUser) {
         try {
             let data = SubCategories;
@@ -340,7 +403,12 @@ class ProductService {
             throw err;
         }
     }
-
+ /**
+     * list of category 
+     * @param {*} params filters for category
+     * @param {*} currentUser logged in user
+     * @returns list of requested category
+     */
     async categoryList(params,currentUser) {
         try {
             let data = Categories;

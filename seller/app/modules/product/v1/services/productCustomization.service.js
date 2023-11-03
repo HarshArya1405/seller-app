@@ -5,6 +5,13 @@ import ProductCustomization from '../../models/productCustomization.model';
 import ProductCustomizationGroup from '../../models/productCustomizationGroup.model';
 
 class ProductCustomizationService {
+    /**
+     * internal func to store product cutomizations
+     * @param {*} productId 
+     * @param {*} customizationDetails 
+     * @param {*} currentUser 
+     * @returns true
+     */
     async create(productId,customizationDetails,currentUser) {
         try {
             // let query = {};
@@ -64,7 +71,12 @@ class ProductCustomizationService {
             throw err;
         }
     }
-
+/**
+ * get customization details for one product
+ * @param {*} productId 
+ * @param {*} currentUser 
+ * @returns obj of customization details
+ */
     async get(productId,currentUser){
         try {
             const product = await Product.findOne({_id: productId,organization:currentUser.organization});
@@ -81,7 +93,11 @@ class ProductCustomizationService {
             throw err;
         }
     }
-
+/**
+ * 
+ * @param {*} productId 
+ * @returns 
+ */
     async getforApi(productId){
         try {
             const product = await Product.findOne({_id: productId});
@@ -98,6 +114,13 @@ class ProductCustomizationService {
             throw err;
         }
     }
+    /**
+     * get all customizations for a group
+     * @param {*} groupId 
+     * @param {*} productId 
+     * @param {*} currentUser logged in user
+     * @returns obj of customization details
+     */
     async getCustomizationForGroup(groupId,productId,currentUser){
         try {
             const customizationGroup = await ProductCustomizationGroup.findOne({id: groupId,product:productId,organization:currentUser.organization});
@@ -113,7 +136,13 @@ class ProductCustomizationService {
             throw err;
         }
     }
-
+/**
+ * delete customizations for a group
+ * @param {*} groupId 
+ * @param {*} productId 
+ * @param {*} currentUser  logged in user
+ * @returns true
+ */
     async deleteCustomizationForGroup(groupId,productId,currentUser){
         try {
             await ProductCustomization.updateMany({child: groupId,product:productId,organization:currentUser.organization},{child:''});

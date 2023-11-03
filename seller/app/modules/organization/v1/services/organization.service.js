@@ -17,6 +17,12 @@ const documentService = new DocumentService();
 
 const userService = new UserService();
 class OrganizationService {
+    /**
+     * create org for system 
+     * @param {*} data 
+     * @param {*} currentUser logged in user
+     * @returns obj of user and provider
+     */
     async create(data,currentUser) {
         try {
             const orgDetails = data.providerDetails;
@@ -125,7 +131,12 @@ class OrganizationService {
             throw err;
         }
     }
-
+    /**
+     * fetch details of organization
+     * @param {*} organizationId 
+     * @param {*} currentUser 
+     * @returns obj of user and org 
+     */
     async get(organizationId,currentUser) {
         try {
             let doc = await Organization.findOne({_id:organizationId}).lean();
@@ -175,7 +186,12 @@ class OrganizationService {
         }
     }
 
-   
+     /**
+     * update org for system 
+     * @param {*} data to update org
+     * @param {*} currentUser logged in user
+     * @returns obj of user and provider
+     */
     async update(organizationId,data,currentUser) {
         try {
             let organization = await Organization.findOne({_id:organizationId}).lean();
@@ -226,7 +242,12 @@ class OrganizationService {
         }
     }
 
-    // ORG STORE Func
+    /**
+     * save store details for org
+     * @param {*} data for store
+     * @param {*} currentUser 
+     * @returns saved store details
+     */
     async setStoreDetails(data,currentUser) {
         try {
             let organization = await Organization.findOne({_id:currentUser.organization});
@@ -251,7 +272,12 @@ class OrganizationService {
             throw err;
         }
     }
-
+/**
+ * get organization categories list
+ * @param {*} params key to filter data
+ * @param {*} currentUser 
+ * @returns categories list array
+ */
     async getCategories(params,currentUser){
         try {
             let organization = await Organization.findOne({_id:currentUser.organization});
@@ -283,7 +309,13 @@ class OrganizationService {
             throw err;
         }
     }
-
+  /**
+     * update store details for org
+     * @param {*} data for store
+     * @param {*} storeId id for store
+     * @param {*} currentUser loggedin user
+     * @returns updated store details
+     */
     async updateStoreDetails(storeId,data,currentUser) {
         try {
             let organization = await Organization.findOne({_id:currentUser.organization});
@@ -309,6 +341,12 @@ class OrganizationService {
             throw err;
         }
     }
+    /**
+     * fetch stores of org
+     * @param {*} params keys to flter list
+     * @param {*} currentUser 
+     * @returns arrays of org store
+     */
     async getStoreList(params,currentUser) {
         try {
             let organization = await Organization.findOne({_id:currentUser.organization});
@@ -324,6 +362,12 @@ class OrganizationService {
             throw err;
         }
     }
+    /**
+     * fetch the detail of store
+     * @param {*} storeId id of req store
+     * @param {*} currentUser logged in user
+     * @returns object of store
+     */
     async getStoreDetail(storeId,currentUser) {
         try {
             let organization = await Organization.findOne({_id:currentUser.organization});
