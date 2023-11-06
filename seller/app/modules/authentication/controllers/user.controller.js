@@ -23,7 +23,13 @@ class UserController {
             next(error);
         }
     }
-
+/**
+     * 
+     * @param {*} req 
+     * @param {*} res 
+     * @param {*} next 
+     * @returns temporary password to new user
+     */
     async invite(req, res, next) {
         try {
 
