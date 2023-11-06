@@ -78,12 +78,11 @@ class ProductService {
 
             if(!category){
                 category = {
-                    "name":"Appliances",
-                    "domain":"ONDC:RET15"
+                    "name":"Grocery",
+                    "domain":"ONDC:RET10"
                 };
-                requestQuery.context.domain = 'ONDC:RET15'; 
+                requestQuery.context.domain = 'ONDC:RET10'; 
             }
-            console.log({category})
             let httpRequest = new HttpRequest(
                 serverUrl,
                 `/api/v1/products/search/increamentalPull/${category.name}`, //TODO: allow $like query
@@ -1202,7 +1201,7 @@ class ProductService {
         let orderItems = []
         confirmData["order_items"] =orderItems
         confirmData.order_id = confirmData.id
-        delete confirmData.id
+        //delete confirmData.id
         let org= await this.getOrgForOndc(requestQuery.message.order.provider.id);
         let today = new Date();
         let tomorrow = new Date();
@@ -1549,33 +1548,33 @@ class ProductService {
 
     async productStatusWithoutLogistics(payload) {
 
-        let statusRequest = payload;
+         let statusRequest = payload;
 
 
-       console.log("statusRequest---->",statusRequest.context)
+        console.log("statusRequest---->",statusRequest.context)
 
-       let confirm = {}
-       let httpRequest = new HttpRequest(
-           serverUrl,
-           `/api/v1/orders/${statusRequest.message.order_id}/ondcGet`,
-           'GET',
-           {},
-           {}
-       );
+        let confirm = {}
+        let httpRequest = new HttpRequest(
+            serverUrl,
+            `/api/v1/orders/${statusRequest.message.order_id}/ondcGet`,
+            'GET',
+            {},
+            {}
+        );
 
-       let result = await httpRequest.send();
+        let result = await httpRequest.send();
 
-       let updateOrder = result.data
+        let updateOrder = result.data
 
-       updateOrder.state ='Created'
+        updateOrder.state ='Created'
 
-       const productData = await getStatus({
-           context: statusRequest.context,
-           updateOrder:updateOrder
-       });
+        const productData = await getStatus({
+            context: statusRequest.context,
+            updateOrder:updateOrder
+        });
 
-       return productData
-   }
+        return productData
+    }
 
     async productUpdate(requestQuery) {
 
@@ -1922,6 +1921,7 @@ class ProductService {
 
         let confirmData = confirmRequest.message.order
         const orderId = confirmData.id;
+
         let itemList = []
         let qouteItems = confirmRequest.message.order.items.map((item)=>{
             // item.tags={status:logisticData.message.order.fulfillments[0].state?.descriptor?.code};
@@ -2001,19 +2001,14 @@ class ProductService {
 
         let detailedQoute = confirmRequest.message.order.quote
         //confirmData["order_items"] = orderItems
+        console.log("confirmData----->",confirmData)
         confirmData.items = qouteItems;
         confirmData.order_id = orderId
         confirmData.orderId = orderId
-        // confirmData.state = confirmData.id
         confirmData.transaction_id = confirmRequest.context.transaction_id
 
-        if(logisticData.message.order.fulfillments[0].state?.descriptor?.code ==='Pending'){
-            confirmData.state ='Created'
-        }else{
-            confirmData.state =logisticData.message.order.state
-        }
-
-        delete confirmData.id
+        // if(logisticData?.message?.order?.fulfillments[0].state?.descriptor?.code ==='Pending'){
+        confirmData.state ='Created'
 
         let confirm = {}
         let httpRequest = new HttpRequest(
@@ -2040,17 +2035,17 @@ class ProductService {
         });
 
         // let savedLogistics = new ConfirmRequest()
-
+        //
         // savedLogistics.transactionId = confirmRequest.context.transaction_id
         // savedLogistics.packaging = "0"//TODO: select packaging option
         // savedLogistics.providerId = confirmRequest.message.order.provider.id//TODO: select from items provider id
-        // savedLogistics.retailOrderId = confirmData.order_id
-        // savedLogistics.orderId = logisticData.message.order.id
+        // savedLogistics.retailOrderId = orderId
+        // savedLogistics.orderId = logisticData?.message?.order?.id
         // savedLogistics.selectedLogistics = logisticData
         // savedLogistics.confirmRequest = requestQuery.retail_confirm[0]
         // savedLogistics.onConfirmRequest = productData
-        // savedLogistics.logisticsTransactionId = logisticData.context.transaction_id
-
+        // savedLogistics.logisticsTransactionId = logisticData?.context?.transaction_id
+        //
         // await savedLogistics.save();
 
         return productData

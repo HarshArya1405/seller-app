@@ -795,7 +795,7 @@ class OndcService {
 
             //2. wait async to fetch logistics responses
 
-            //async post request
+            // //async post request
             // setTimeout(() => {
             //     logger.log('info', `[Ondc Service] search logistics payload - timeout : param :`, searchRequest);
             //     this.buildConfirmRequest(logisticsMessageId, selectMessageId)
@@ -856,11 +856,11 @@ class OndcService {
             await this.postConfirmResponse(selectResponse);
 
 
-            //4. trigger on_status call to BAP
+            // //4. trigger on_status call to BAP
             // const confirmRequest = logisticsResponse.retail_confirm[0]//select first select request
             // const context = { ...selectResponse.context, action: 'on_status', timestamp: new Date(), message_id: uuidv4() }
             // const orderId = confirmRequest.message.order.order_id
-
+            //
             // console.log("context--->", context)
             // await this.triggerOnStatus(context, orderId);
 
@@ -1092,6 +1092,7 @@ class OndcService {
             throw err;
         }
     }
+
     async orderStatusWithoutLogistics(payload = {}, req = {}, unsoliciated = false) {
         try {
             //const {criteria = {}, payment = {}} = req || {};
