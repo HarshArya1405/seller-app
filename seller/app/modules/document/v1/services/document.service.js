@@ -6,6 +6,12 @@ import {
 // import s3 from '../../../../lib/utils/s3Utils';
 
 class DocumentService {
+    /**
+     * create document data
+     * @param {*} data basic doc data to be stored
+     * @param {*} currentUser 
+     * @returns saved document data
+     */
     async createOrUpdate(data,currentUser) {
         try {
             const documentExist = await Document.findOne({organization:currentUser.organization,type:data.type});
@@ -27,6 +33,12 @@ class DocumentService {
             throw err;
         }
     }
+    /**
+     * fetch obe document by id
+     * @param {*} id requested document Id
+     * @param {*} currentUser logged in user
+     * @returns document data object
+     */
     async get(id,currentUser) {
         try {
 
@@ -43,7 +55,11 @@ class DocumentService {
             throw err;
         }
     }
-
+/**
+ * remove bulk documents
+ * @param {*} currentUser 
+ * @returns true
+ */
     async removeAll(currentUser) {
         try {
             await Document.deleteMany({organization:currentUser.organization});
@@ -54,7 +70,12 @@ class DocumentService {
             throw err;
         }
     }
-
+/**
+ * fetch document list for an organization
+ * @param {*} params keys to filter data
+ * @param {*} currentUser logged in user
+ * @returns object of documents and count data
+ */
     async list(params,currentUser) {
         try {
             let query = {
@@ -69,7 +90,12 @@ class DocumentService {
             throw err;
         }
     }
-
+  /**
+     * update document data
+     * @param {*} data basic doc data to be stored
+     * @param {*} currentUser 
+     * @returns updated document data
+     */
     async update(id,data,currentUser) {
         try {
             const document = await Document.findOne({_id:id,organization:currentUser.organization});

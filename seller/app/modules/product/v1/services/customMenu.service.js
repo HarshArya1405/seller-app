@@ -8,6 +8,13 @@ import s3 from '../../../../lib/utils/s3Utils';
 
 
 class CustomMenuService {
+    /**
+     * store menu for a certain category 
+     * @param {*} category for menu 
+     * @param {*} data basic informations for menu
+     * @param {*} currentUser  logged in user
+     * @returns stored menu
+     */
     async createMenu(category,data,currentUser) {
         try {
             let menuExist = await CustomMenu.findOne({organization:currentUser.organization,name:data.name});
@@ -30,7 +37,13 @@ class CustomMenuService {
             throw err;
         }
     }
-
+ /**
+     * update menu for a certain category 
+     * @param {*} category for menu 
+     * @param {*} data basic informations for menu
+     * @param {*} currentUser  logged in user
+     * @returns updated menu
+     */
     async updateMenu(menuId,data,currentUser) {
         try {
             let menu = await CustomMenu.findOne({organization:currentUser.organization,_id:menuId});
@@ -78,7 +91,12 @@ class CustomMenuService {
             throw err;
         }
     }
-
+ /**
+     * delete menu by id 
+     * @param {*} menuId id of menu that need to remove
+     * @param {*} currentUser  logged in user
+     * @returns true
+     */
     async deleteMenu(menuId,currentUser) {
         try {
             let menu = await CustomMenu.findOne({organization:currentUser.organization,_id:menuId});
@@ -96,7 +114,12 @@ class CustomMenuService {
             throw err;
         }
     }
-
+ /**
+     * list for menu data 
+     * @param {*} params keys to filter menu data 
+     * @param {*} currentUser  logged in user
+     * @returns filtered list for menu
+     */
     async listMenu(params,currentUser){
         try {
             let query = {
@@ -119,7 +142,12 @@ class CustomMenuService {
             throw err;
         }
     }
-
+ /**
+     * get one menu data by id
+     * @param {*} menuId id for menu data 
+     * @param {*} currentUser  logged in user
+     * @returns menu data
+     */
     async getMenu(menuId,currentUser){
         try {
             let query = {
@@ -163,7 +191,13 @@ class CustomMenuService {
             throw err;
         }
     }
-
+/**
+ * list of menu products
+ * @param {*} menuId id of menu
+ * @param {*} params keys to filter data
+ * @param {*} currentUser logged in user
+ * @returns array of products that are stored under menu
+ */
     async getMenuProducts(menuId,params,currentUser){
         try {
             let query = {
@@ -186,7 +220,12 @@ class CustomMenuService {
             throw err;
         }
     }
-
+/**
+ * reordering menu list on UI
+ * @param {*} data menu data with their ordering index
+ * @param {*} currentUser loggedin user
+ * @returns true
+ */
     async menuOrdering(data,currentUser){
         try {
             if(data && data.length >0){

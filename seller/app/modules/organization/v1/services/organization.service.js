@@ -17,20 +17,26 @@ const documentService = new DocumentService();
 
 const userService = new UserService();
 class OrganizationService {
-    async create(data,currentUser) {
+    /**
+     * create org for system 
+     * @param {*} data 
+     * @param {*} currentUser logged in user
+     * @returns obj of user and provider
+     */
+    async create(data, currentUser) {
         try {
             const orgDetails = data.providerDetails;
             const documents = data.providerDetails?.documents;
-            const organizationExist = await Organization.findOne({name:orgDetails.name});
+            const organizationExist = await Organization.findOne({ name: orgDetails.name });
 
             if (organizationExist) {
                 throw new DuplicateRecordFoundError(MESSAGES.ORGANIZATION_ALREADY_EXISTS);
             }
             let userQuery = {
-                _id:{'$ne' : currentUser.id},
-                '$or':[
-                    {email:data.user.email},
-                    {mobile:data.user.mobile}
+                _id: { '$ne': currentUser.id },
+                '$or': [
+                    { email: data.user.email },
+                    { mobile: data.user.mobile }
                 ]
             };
             let userExist = await User.findOne(userQuery);
@@ -38,41 +44,41 @@ class OrganizationService {
             if (userExist) {
                 throw new DuplicateRecordFoundError(MESSAGES.USER_ALREADY_EXISTS);
             }
-            if(currentUser.organization){
+            if (currentUser.organization) {
                 throw new DuplicateRecordFoundError(MESSAGES.ORGANIZATION_EXISTS);
             }
-            let  organization = new Organization(orgDetails);
+            let organization = new Organization(orgDetails);
             await organization.save();
             data.user.organization = organization._id;
             currentUser.organization = organization._id;
             //saving documents
-            if(documents && documents.length >0){
-                for(const document of documents){
+            if (documents && documents.length > 0) {
+                for (const document of documents) {
                     let obj = {
-                        type:document.type,
-                        path:document.path,
-                        organization:currentUser.organization
+                        type: document.type,
+                        path: document.path,
+                        organization: currentUser.organization
                     };
-                    await documentService.createOrUpdate(obj,currentUser);
+                    await documentService.createOrUpdate(obj, currentUser);
                 }
             }
             //updating a user
 
-            let user = await userService.update(currentUser.id,data.user,currentUser);
+            let user = await userService.update(currentUser.id, data.user, currentUser);
             const tokenPayload = {
                 user: {
                     id: currentUser.id,
-                    role:currentUser.role,
-                    organization:organization._id
+                    role: currentUser.role,
+                    organization: organization._id
                 },
                 lastLoginAt: new Date().getTime(),
             };
             // create JWT access token
             const JWTToken = await AuthenticationJwtToken.getToken(tokenPayload);
-            return {user:user,providerDetail:organization,token:JWTToken};
+            return { user: user, providerDetail: organization, token: JWTToken };
 
         } catch (err) {
-            console.log(`[OrganizationService] [create] Error in creating organization ${data.organizationId}`,err);
+            console.log(`[OrganizationService] [create] Error in creating organization ${data.organizationId}`, err);
             throw err;
         }
     }
@@ -81,58 +87,63 @@ class OrganizationService {
             let query = {};
 
             let orgDetails = data.providerDetails;
-            const organizationExist = await Organization.findOne({name:orgDetails.name});
+            const organizationExist = await Organization.findOne({ name: orgDetails.name });
 
             if (organizationExist) {
                 throw new DuplicateRecordFoundError(MESSAGES.ORGANIZATION_ALREADY_EXISTS);
             }
 
-            let userExist = await User.findOne({email:data.user.email});
+            let userExist = await User.findOne({ email: data.user.email });
 
             if (userExist) {
                 throw new DuplicateRecordFoundError(MESSAGES.USER_ALREADY_EXISTS);
             }
 
-            let  organization = new Organization(orgDetails);
+            let organization = new Organization(orgDetails);
             let savedOrg = await organization.save();
 
             //create a user
-            let user = await userService.signup({...data.user,organization:organization._id,role:'Organization Admin'});
+            let user = await userService.signup({ ...data.user, organization: organization._id, role: 'Organization Admin' });
 
-            return {user:user,providerDetail:organization};
+            return { user: user, providerDetail: organization };
 
         } catch (err) {
-            console.log(`[OrganizationService] [create] Error in creating organization ${data.organizationId}`,err);
+            console.log(`[OrganizationService] [create] Error in creating organization ${data.organizationId}`, err);
             throw err;
         }
     }
 
     async list(params) {
         try {
-            let query={};
-            if(params.name){
+            let query = {};
+            if (params.name) {
                 query.name = { $regex: params.name, $options: 'i' };
             }
-            const organizations = await Organization.find(query).sort({createdAt:1}).skip(params.offset).limit(params.limit);
+            const organizations = await Organization.find(query).sort({ createdAt: 1 }).skip(params.offset).limit(params.limit);
             const count = await Organization.count(query);
-            let organizationData={
+            let organizationData = {
                 count,
                 organizations
             };
             return organizationData;
         } catch (err) {
-            console.log('[OrderService] [getAll] Error in getting all organization ',err);
+            console.log('[OrderService] [getAll] Error in getting all organization ', err);
             throw err;
         }
     }
-
-    async get(organizationId,currentUser) {
+    /**
+     * fetch details of organization
+     * @param {*} organizationId 
+     * @param {*} currentUser 
+     * @returns obj of user and org 
+     */
+    async get(organizationId, currentUser) {
         try {
-            let doc = await Organization.findOne({_id:organizationId}).lean();
+            let doc = await Organization.findOne({ _id: organizationId }).lean();
 
-            console.log('user----->',currentUser);
-            let user = await User.findOne({organization:organizationId,_id:currentUser.id},{password:0});
-            if(doc) {
+            console.log('user----->', currentUser);
+            let user = await User.findOne({ organization: organizationId, _id: currentUser.id }, { password: 0 });
+            if (doc) {
                 // let idProof = await s3.getSignedUrlForRead({path:doc.idProof});
                 // doc.idProof =idProof;
 
@@ -147,114 +158,129 @@ class OrganizationService {
 
                 // let GSTN = await s3.getSignedUrlForRead({path:doc.GSTN.proof});
                 // doc.GSTN.proof =GSTN;
-                let logo = await s3.getSignedUrlForRead({path:doc.logo});
-                doc.logo =logo;
-                let banner = await s3.getSignedUrlForRead({path:doc.banner});
-                doc.banner =banner;
-                let documents = await documentService.list({},currentUser);
-                if(documents){
-                    if(documents.data && documents.data.length > 0){
-                        let documentData =[];
-                        for(const document of documents.data){
-                            let documentObj = {...document._doc};
-                            let pathData = await s3.getSignedUrlForRead({path:documentObj.path});
+                let logo = await s3.getSignedUrlForRead({ path: doc.logo });
+                doc.logo = logo;
+                let banner = await s3.getSignedUrlForRead({ path: doc.banner });
+                doc.banner = banner;
+                let documents = await documentService.list({}, currentUser);
+                if (documents) {
+                    if (documents.data && documents.data.length > 0) {
+                        let documentData = [];
+                        for (const document of documents.data) {
+                            let documentObj = { ...document._doc };
+                            let pathData = await s3.getSignedUrlForRead({ path: documentObj.path });
                             documentObj.path = pathData;
                             documentData.push(documentObj);
                             doc.documents = documentData;
                         }
                     }
-                }else{
+                } else {
                     doc.documents = [];
                 }
             }
 
-            return {user,providerDetail:doc};
+            return { user, providerDetail: doc };
         } catch (err) {
-            console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`,err);
+            console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`, err);
             throw err;
         }
     }
 
-   
-    async update(organizationId,data,currentUser) {
+    /**
+    * update org for system 
+    * @param {*} data to update org
+    * @param {*} currentUser logged in user
+    * @returns obj of user and provider
+    */
+    async update(organizationId, data, currentUser) {
         try {
-            let organization = await Organization.findOne({_id:organizationId}).lean();
+            let organization = await Organization.findOne({ _id: organizationId }).lean();
             if (organization) {
                 const orgDetails = data.providerDetails;
                 const documents = data.providerDetails?.documents;
-                const organizationExist = await Organization.findOne({_id:{$ne:organizationId},name:orgDetails.name});
-    
+                const organizationExist = await Organization.findOne({ _id: { $ne: organizationId }, name: orgDetails.name });
+
                 if (organizationExist) {
                     throw new DuplicateRecordFoundError(MESSAGES.ORGANIZATION_ALREADY_EXISTS);
                 }
                 let userQuery = {
-                    _id:{'$ne' : currentUser.id},
-                    '$or':[
-                        {email:data.user.email},
-                        {mobile:data.user.mobile}
+                    _id: { '$ne': currentUser.id },
+                    '$or': [
+                        { email: data.user.email },
+                        { mobile: data.user.mobile }
                     ]
                 };
                 let userExist = await User.findOne(userQuery);
-    
+
                 if (userExist) {
                     throw new DuplicateRecordFoundError(MESSAGES.USER_ALREADY_EXISTS);
                 }
-                let  organizationObj = {...organization,...orgDetails};
-                await Organization.updateOne({_id:organizationId},organizationObj);
+                let organizationObj = { ...organization, ...orgDetails };
+                await Organization.updateOne({ _id: organizationId }, organizationObj);
                 //saving documents
                 await documentService.removeAll(currentUser);
-                if(documents && documents.length >0){
-                    for(const document of documents){
+                if (documents && documents.length > 0) {
+                    for (const document of documents) {
                         let obj = {
-                            type:document.type,
-                            path:document.path,
-                            organization:organizationId
+                            type: document.type,
+                            path: document.path,
+                            organization: organizationId
                         };
-                        await documentService.createOrUpdate(obj,currentUser);
+                        await documentService.createOrUpdate(obj, currentUser);
                     }
                 }
                 //updating a user
-    
-                let user = await userService.update(currentUser.id,data.user,currentUser);
-                return {user:user,providerDetail:organization};
-            }else{
+
+                let user = await userService.update(currentUser.id, data.user, currentUser);
+                return { user: user, providerDetail: organization };
+            } else {
                 throw new NoRecordFoundError(MESSAGES.ORGANIZATION_NOT_EXISTS);
             }
         } catch (err) {
-            console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`,err);
+            console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`, err);
             throw err;
         }
     }
 
-    // ORG STORE Func
-    async setStoreDetails(data,currentUser) {
+    /**
+     * save store details for org
+     * @param {*} data for store
+     * @param {*} currentUser 
+     * @returns saved store details
+     */
+    async setStoreDetails(data, currentUser) {
         try {
-            let organization = await Organization.findOne({_id:currentUser.organization});
+            let organization = await Organization.findOne({ _id: currentUser.organization });
             if (organization) {
-                const storeExist =  await Store.findOne({organization:currentUser.organization,name:data.name});
-                if(storeExist){
+                const storeExist = await Store.findOne({ organization: currentUser.organization, name: data.name });
+                if (storeExist) {
                     throw new NoRecordFoundError(MESSAGES.STORE_ALREADY_EXISTS);
-                }else{
-                    let storeObj = {...data};
+                } else {
+                    let storeObj = { ...data };
                     storeObj.organization = currentUser.organization;
                     storeObj.createdBy = currentUser.id;
                     storeObj.updatedBy = currentUser.id;
                     const store = new Store(storeObj);
                     await store.save();
-                    return {data:store};
+                    return { data: store };
                 }
             } else {
                 throw new NoRecordFoundError(MESSAGES.PROVIDER_NOT_EXIST);
             }
         } catch (err) {
-            console.log(`[OrganizationService] [get] Error in getting organization by id - ${currentUser.organization}`,err);
+            console.log(`[OrganizationService] [get] Error in getting organization by id - ${currentUser.organization}`, err);
             throw err;
         }
     }
-
-    async getCategories(params,currentUser){
+    /**
+     * get organization categories list
+     * @param {*} params key to filter data
+     * @param {*} currentUser 
+     * @returns categories list array
+     */
+    async getCategories(params, currentUser) {
         try {
-            let organization = await Organization.findOne({_id:currentUser.organization});
+            let organization = await Organization.findOne({ _id: currentUser.organization });
             if (organization) {
                 // const stores =  await Store.find({organization:currentUser.organization});
                 // if(stores && stores.length >0 ){
@@ -270,124 +296,143 @@ class OrganizationService {
                 // }
                 let categories = [];
                 const domains = organization.domains[0].subDomains;
-                for(const domain of domains){
-                    categories.push({name:domain.subdomainName});
+                for (const domain of domains) {
+                    categories.push({ name: domain.subdomainName });
                 }
-                
+
                 return categories;
             } else {
                 throw new NoRecordFoundError(MESSAGES.PROVIDER_NOT_EXIST);
             }
         } catch (err) {
-            console.log(`[OrganizationService] [get] Error in getting organization by id - ${currentUser.organization}`,err);
+            console.log(`[OrganizationService] [get] Error in getting organization by id - ${currentUser.organization}`, err);
             throw err;
         }
     }
-
-    async updateStoreDetails(storeId,data,currentUser) {
+    /**
+       * update store details for org
+       * @param {*} data for store
+       * @param {*} storeId id for store
+       * @param {*} currentUser loggedin user
+       * @returns updated store details
+       */
+    async updateStoreDetails(storeId, data, currentUser) {
         try {
-            let organization = await Organization.findOne({_id:currentUser.organization});
+            let organization = await Organization.findOne({ _id: currentUser.organization });
             if (organization) {
-                const storeExist =  await Store.findOne({organization:currentUser.organization,_id:{$ne:storeId},name:data.name});
-                if(storeExist){
+                const storeExist = await Store.findOne({ organization: currentUser.organization, _id: { $ne: storeId }, name: data.name });
+                if (storeExist) {
                     throw new DuplicateRecordFoundError(MESSAGES.STORE_ALREADY_EXISTS);
                 }
-                const storeQuery = {organization:currentUser.organization,_id:storeId};
+                const storeQuery = { organization: currentUser.organization, _id: storeId };
                 const store = await Store.findOne(storeQuery).lean();
-                if(!store){
+                if (!store) {
                     throw new NoRecordFoundError(MESSAGES.STORE_NOT_EXISTS);
                 }
-                let storeObj = {...store,...data};
+                let storeObj = { ...store, ...data };
                 storeObj.updatedBy = currentUser.id;
-                await Store.updateOne(storeQuery,storeObj);
-                return {data:store};
+                await Store.updateOne(storeQuery, storeObj);
+                return { data: store };
             } else {
                 throw new NoRecordFoundError(MESSAGES.ORGANIZATION_NOT_EXISTS);
             }
         } catch (err) {
-            console.log(`[OrganizationService] [updateStoreDetails] Error  - ${currentUser.organization}`,err);
+            console.log(`[OrganizationService] [updateStoreDetails] Error  - ${currentUser.organization}`, err);
             throw err;
         }
     }
-    async ondcGet(organizationId) {
-        try {
-            let doc = await Organization.findOne({_id:organizationId}).lean();
-
-            let user = await User.findOne({organization:organizationId},{password:0});
-            if (doc) {
-                {
-                    if(doc.idProof){
-                        let idProof = await s3.getSignedUrlForRead({path:doc.idProof});
-                        doc.idProof =idProof.url;
-                    }
-                    if(doc.idProof){
-                        let addressProof = await s3.getSignedUrlForRead({path:doc.addressProof});
-                        doc.addressProof =addressProof.url;
-                    }
-                    if(doc.idProof){
-                        let cancelledCheque = await s3.getSignedUrlForRead({path:doc.bankDetails.cancelledCheque});
-                        doc.bankDetails.cancelledCheque =cancelledCheque.url;
-                    }
-                    if(doc.idProof){
-                        let PAN = await s3.getSignedUrlForRead({path:doc.PAN.proof});
-                        doc.PAN.proof =PAN.url;
-                    }
-                    if(doc.idProof){
-                        let GSTN = await s3.getSignedUrlForRead({path:doc.GSTN.proof});
-                        doc.GSTN.proof =GSTN.url;
-                    }
-
-                    let storeDetails = await Store.findOne({organization:organizationId});
-                    doc.storeDetails = storeDetails;
-                    if(storeDetails?.logo){
-                        let storeImage = await s3.getSignedUrlForRead({path:storeDetails.logo});
-                        doc.storeDetails.logo = storeImage.url;
-                    }
-                }
-
-                return {user:user,providerDetail:doc};
-            } else {
-                return '';
-            }
-        } catch (err) {
-            console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`,err);
-            throw err;
-        }
-    }
-    async getStoreList(params,currentUser) {
-        try {
-            let organization = await Organization.findOne({_id:currentUser.organization});
-            if (organization) {
-                let stores = await Store.find({organization:currentUser.organization});
-                return {data:stores};
-            } else {
-                return {data:[]};
-            }
-
-        } catch (err) {
-            console.log(`[OrganizationService] [getStoreList] Error - ${currentUser.organization}`,err);
-            throw err;
-        }
-    }
-    async getStoreDetail(storeId,currentUser) {
-        try {
-            let organization = await Organization.findOne({_id:currentUser.organization});
-            if (organization) {
-                let store = await Store.findOne({_id:storeId,organization:currentUser.organization});
-                if(store){
-                    return {data:store};
-                }else {
-                    throw new NoRecordFoundError(MESSAGES.STORE_NOT_EXISTS);
-                }
+    /*
+        * fetch stores of org
+        * @param {*} params keys to flter list
+        * @param {*} currentUser 
+        * @returns arrays of org store
+    */
     
-            } else {
-                throw new NoRecordFoundError(MESSAGES.ORGANIZATION_NOT_EXISTS);
+    async ondcGet(organizationId) {
+    try {
+        let doc = await Organization.findOne({ _id: organizationId }).lean();
+
+        let user = await User.findOne({ organization: organizationId }, { password: 0 });
+        if (doc) {
+            {
+                if (doc.idProof) {
+                    let idProof = await s3.getSignedUrlForRead({ path: doc.idProof });
+                    doc.idProof = idProof.url;
+                }
+                if (doc.idProof) {
+                    let addressProof = await s3.getSignedUrlForRead({ path: doc.addressProof });
+                    doc.addressProof = addressProof.url;
+                }
+                if (doc.idProof) {
+                    let cancelledCheque = await s3.getSignedUrlForRead({ path: doc.bankDetails.cancelledCheque });
+                    doc.bankDetails.cancelledCheque = cancelledCheque.url;
+                }
+                if (doc.idProof) {
+                    let PAN = await s3.getSignedUrlForRead({ path: doc.PAN.proof });
+                    doc.PAN.proof = PAN.url;
+                }
+                if (doc.idProof) {
+                    let GSTN = await s3.getSignedUrlForRead({ path: doc.GSTN.proof });
+                    doc.GSTN.proof = GSTN.url;
+                }
+
+                let storeDetails = await Store.findOne({ organization: organizationId });
+                doc.storeDetails = storeDetails;
+                if (storeDetails?.logo) {
+                    let storeImage = await s3.getSignedUrlForRead({ path: storeDetails.logo });
+                    doc.storeDetails.logo = storeImage.url;
+                }
             }
 
-        } catch (err) {
-            console.log(`[OrganizationService] [getStoreDetail] Error - ${currentUser.organization}`,err);
-            throw err;
+            return { user: user, providerDetail: doc };
+        } else {
+            return '';
         }
+    } catch (err) {
+        console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`, err);
+        throw err;
     }
+}
+    async getStoreList(params, currentUser) {
+    try {
+        let organization = await Organization.findOne({ _id: currentUser.organization });
+        if (organization) {
+            let stores = await Store.find({ organization: currentUser.organization });
+            return { data: stores };
+        } else {
+            return { data: [] };
+        }
+
+    } catch (err) {
+        console.log(`[OrganizationService] [getStoreList] Error - ${currentUser.organization}`, err);
+        throw err;
+    }
+}
+    /**
+     * fetch the detail of store
+     * @param {*} storeId id of req store
+     * @param {*} currentUser logged in user
+     * @returns object of store
+     */
+    async getStoreDetail(storeId, currentUser) {
+    try {
+        let organization = await Organization.findOne({ _id: currentUser.organization });
+        if (organization) {
+            let store = await Store.findOne({ _id: storeId, organization: currentUser.organization });
+            if (store) {
+                return { data: store };
+            } else {
+                throw new NoRecordFoundError(MESSAGES.STORE_NOT_EXISTS);
+            }
+
+        } else {
+            throw new NoRecordFoundError(MESSAGES.ORGANIZATION_NOT_EXISTS);
+        }
+
+    } catch (err) {
+        console.log(`[OrganizationService] [getStoreDetail] Error - ${currentUser.organization}`, err);
+        throw err;
+    }
+}
 }
 export default OrganizationService;
