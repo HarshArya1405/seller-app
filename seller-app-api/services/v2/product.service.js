@@ -78,11 +78,13 @@ class ProductService {
 
             if(!category){
                 category = {
-                    "name":"Grocery",
-                    "domain":"ONDC:RET10"
+                    "name":"Electronics",
+                    "domain":"ONDC:RET14"
                 };
-                requestQuery.context.domain = 'ONDC:RET10'; 
+                requestQuery.context.domain = 'ONDC:RET14'; 
             }
+
+
             let httpRequest = new HttpRequest(
                 serverUrl,
                 `/api/v1/products/search/increamentalPull/${category.name}`, //TODO: allow $like query
@@ -515,11 +517,10 @@ class ProductService {
 
         //added delivery charges in total price
         totalPrice += logisticProvider?.message?.catalog["bpp/providers"][0]?.items[0]?.price?.value ?? 0 //todo hardcoded
-
         let fulfillments = [
             {
                 "id": "Fulfillment1", //TODO: check what needs to go here, ideally it should be item id
-                "@ondc/org/provider_name": logisticProvider?.message?.catalog["bpp/descriptor"] ?? org.providerDetail.name,
+                "@ondc/org/provider_name": logisticProvider?.message?.catalog["bpp/descriptor"] ?? org?.providerDetail?.name,
                 "tracking": false,
                 "@ondc/org/category": logisticProvider?.message?.catalog["bpp/providers"][0]?.category_id ?? 'Standard Delivery',
                 "@ondc/org/TAT": "PT48H",
@@ -638,6 +639,8 @@ class ProductService {
         let totalPrice = 0
         let resultData ={}
         let itemData ={}
+        let isQtyAvailable = true
+
         let org = await this.getOrgForOndc(requestQuery.message.order.provider.id);
         for (let item of items) { 
             let tags = item.tags;
@@ -1225,12 +1228,12 @@ class ProductService {
             {
               "location":
               {
-                "id":org.providerDetail.storeDetails.location._id,
+                "id":org?.providerDetail?.storeDetails?._id??'NA',
                 "descriptor":
                 {
                   "name":org.providerDetail.name
                 },
-                "gps":`${org.providerDetail.storeDetails.location.lat},${org.providerDetail.storeDetails.location.long}`,
+                "gps":`${org?.providerDetail?.storeDetails?.latitude??'NA'},${org?.providerDetail?.storeDetails?.longitude??'NA'}`,
                 "address":org.providerDetail.storeDetails.address
               },
               "time":
@@ -1965,8 +1968,8 @@ class ProductService {
 
             },
             "contact": {
-                phone: org.providerDetail.storeDetails.supportDetails.mobile,
-                    email: org.providerDetail.storeDetails.supportDetails.email
+                phone: org.providerDetail.storeDetails.mobile,
+                    email: org.providerDetail.storeDetails.email
             }
         }}
 

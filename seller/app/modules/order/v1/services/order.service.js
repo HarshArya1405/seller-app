@@ -32,7 +32,7 @@ class OrderService {
                     await product.save();
                 }
             }
-            data.data.organization=data.data.provider.id;
+            // data.data.organization=data.data.provider.id;
             let order = new Order(data.data);
             let savedOrder= await order.save();
 

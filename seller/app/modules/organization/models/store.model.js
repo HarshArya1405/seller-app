@@ -1,56 +1,64 @@
-import mongoose from'mongoose';
+import mongoose from 'mongoose';
 import { uuid } from 'uuidv4';
 
 const storeSchema = new mongoose.Schema({ //Users who has login ability should go under User schema
-    _id:{
+    _id: {
         type: String,
-        required:true,
+        required: true,
         default: () => uuid(),
     },
-    organization: {type:String},
-    name:{type:String},
-    email:{type:String},
-    mobile:{type:String},
+    organization: { type: String },
+    name: { type: String },
+    email: { type: String },
+    mobile: { type: String },
 
-    addressLine1:{
+    addressLine1: {
         type: String
     },
-    addressLine2:{
+    addressLine2: {
         type: String
     },
-    city:{
+    city: {
         type: String
     },
-    state:{
+    state: {
         type: String
     },
-    pincode:{
+    pincode: {
         type: String
     },
-    country:{
+    country: {
         type: String
     },
+    street: {
+        type: String
+    },
+    locality: {
+        type: String
+    },
+    building: {
+        type: String
+    },
+    latitude: { type: Number },
+    longitude: { type: Number },
 
-    latitude: {type:Number},
-    longitude: {type:Number},
-
-    openDays:{type:Array,default:[]},
-    closeDays:{type:Array,default:[]},
-    categoryServiceability:{type:Array,default:[]},
-    createdAt:{
-        type:Number,
-        default:Date.now()
+    openDays: { type: Array, default: [] },
+    closeDays: { type: Array, default: [] },
+    categoryServiceability: { type: Array, default: [] },
+    createdAt: {
+        type: Number,
+        default: Date.now()
     },
-    updatedAt:{
-        type:Number,
-        default:Date.now()
+    updatedAt: {
+        type: Number,
+        default: Date.now()
     },
-},{
+}, {
     strict: true,
-    timestamps:true
+    timestamps: true
 });
-storeSchema.index({name:1,organization:1}, {unique: true});
+storeSchema.index({ name: 1, organization: 1 }, { unique: true });
 
-const Store = mongoose.model('Store',storeSchema);
+const Store = mongoose.model('Store', storeSchema);
 module.exports = Store;
 

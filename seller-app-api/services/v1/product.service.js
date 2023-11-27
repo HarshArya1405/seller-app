@@ -937,8 +937,8 @@ class ProductService {
 
             },
             "contact": {
-                phone: org.providerDetail.storeDetails.supportDetails.mobile,
-                    email: org.providerDetail.storeDetails.supportDetails.email
+                phone: org.providerDetail.storeDetails.mobile,
+                email: org.providerDetail.storeDetails.email
             }
         }}
 

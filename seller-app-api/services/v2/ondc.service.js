@@ -385,17 +385,17 @@ class OndcService {
                         address: {
                             area_code: org.providerDetail.storeDetails.address.area_code,
                             name: org.providerDetail.name,
-                            building: org.providerDetail.storeDetails.address.building,
-                            locality: org.providerDetail.storeDetails.address.locality,
-                            city: org.providerDetail.storeDetails.address.city,
-                            state: org.providerDetail.storeDetails.address.state,
-                            country: org.providerDetail.storeDetails.address.country
+                            building: org.providerDetail.storeDetails?.building,
+                            locality: org.providerDetail.storeDetails?.locality,
+                            city: org.providerDetail.storeDetails.city,
+                            state: org.providerDetail.storeDetails?.state,
+                            country: org.providerDetail.storeDetails.country
                         }
                     },
                     contact:
                     {
-                        phone: org.providerDetail.storeDetails.supportDetails.mobile,
-                        email: org.providerDetail.storeDetails.supportDetails.email
+                        phone: org.providerDetail.storeDetails.mobile,
+                        email: org.providerDetail.storeDetails.email
                     }
                 }
             }
@@ -454,8 +454,8 @@ class OndcService {
                                 "area_code": order.billing.address.area_code
                             },
                             "tax_number": order?.billing?.tax_number ?? "27ACTPC1936E2ZN", //FIXME: take GSTN no
-                            "phone": org.providerDetail.storeDetails.supportDetails.mobile, //FIXME: take provider details
-                            "email": org.providerDetail.storeDetails.supportDetails.email, //FIXME: take provider details
+                            "phone": org.providerDetail.storeDetails.mobile, //FIXME: take provider details
+                            "email": org.providerDetail.storeDetails.email, //FIXME: take provider details
                             "created_at": contextTimeStamp,
                             "updated_at": contextTimeStamp
                         },
@@ -618,17 +618,17 @@ class OndcService {
                         address: {
                             area_code: org.providerDetail.storeDetails.address.area_code,
                             name: org.providerDetail.name,
-                            building: org.providerDetail.storeDetails.address.building,
-                            locality: org.providerDetail.storeDetails.address.locality,
-                            city: org.providerDetail.storeDetails.address.city,
-                            state: org.providerDetail.storeDetails.address.state,
-                            country: org.providerDetail.storeDetails.address.country
+                            building: org.providerDetail.storeDetails?.building,
+                            locality: org.providerDetail.storeDetails?.locality,
+                            city: org.providerDetail.storeDetails.city,
+                            state: org.providerDetail.storeDetails?.state,
+                            country: org.providerDetail.storeDetails.country
                         }
                     },
                     contact:
                     {
-                        phone: org.providerDetail.storeDetails.supportDetails.mobile,
-                        email: org.providerDetail.storeDetails.supportDetails.email
+                        phone: org.providerDetail.storeDetails.mobile,
+                        email: org.providerDetail.storeDetails.email
                     },
                     person: {
                         name: org.providerDetail.name //TODO: missing from curent impl
@@ -699,11 +699,11 @@ class OndcService {
                                 "address": {
                                     area_code: org.providerDetail.storeDetails.address.area_code,
                                     name: org.providerDetail.name,
-                                    building: org.providerDetail.storeDetails.address.building,
-                                    locality: org.providerDetail.storeDetails.address.locality,
-                                    city: org.providerDetail.storeDetails.address.city,
-                                    state: org.providerDetail.storeDetails.address.state,
-                                    country: org.providerDetail.storeDetails.address.country
+                                    building: org.providerDetail.storeDetails?.building,
+                                    locality: org.providerDetail.storeDetails?.locality,
+                                    city: org.providerDetail.storeDetails.city,
+                                    state: org.providerDetail.storeDetails?.state,
+                                    country: org.providerDetail.storeDetails.country
                                 }
                             },
                             "order": {
@@ -735,8 +735,8 @@ class OndcService {
                         "billing": {
                             ...payload.message.order.billing,
                             "tax_number": org.providerDetail.GSTN.GSTN ?? "27ACTPC1936E2ZN", //FIXME: take GSTN no
-                            "phone": org.providerDetail.storeDetails.supportDetails.mobile, //FIXME: take provider details
-                            "email": org.providerDetail.storeDetails.supportDetails.email, //FIXME: take provider details
+                            "phone": org.providerDetail.storeDetails.mobile, //FIXME: take provider details
+                            "email": org.providerDetail.storeDetails.email, //FIXME: take provider details
                             "created_at": contextTimestamp,
                             "updated_at": contextTimestamp
                         }, //TODO: pass valid GST number from seller

@@ -12,10 +12,10 @@ exports.getProducts = async (data) => {
     for(const org of data?.data){
         let tags =[]
         let productAvailable = []
-        org.storeDetails.address.street = org.storeDetails.address.locality
-        delete org.storeDetails.address.locality
-        delete org.storeDetails.address.building
-        delete org.storeDetails.address.country
+        // org.storeDetails?.street = org.storeDetails?.street
+        delete org.storeDetails?.locality
+        delete org.storeDetails?.building
+        delete org.storeDetails.country
         for(let items of org.items){
             let item =  {
                 "id": items._id,
@@ -49,7 +49,7 @@ exports.getProducts = async (data) => {
                 "@ondc/org/time_to_ship": "PT1H", //TODO: hard coded
                 "@ondc/org/seller_pickup_return": true,
                 "@ondc/org/return_window": items.returnWindow,
-                "@ondc/org/contact_details_consumer_care": `${org.name},${org.storeDetails.supportDetails.email},${org.storeDetails.supportDetails.mobile}`,
+                "@ondc/org/contact_details_consumer_care": `${org.name},${org.storeDetails.email},${org.storeDetails.mobile}`,
                 "@ondc/org/mandatory_reqs_veggies_fruits": {
                     "net_quantity": items.packQty
                 },
@@ -135,13 +135,13 @@ exports.getProducts = async (data) => {
             "locations": [
                 {
                     "id": org.storeDetails?.location._id??"0", //org.storeDetails.location._id
-                    "gps": `${org.storeDetails?.location?.lat??"0"},${org.storeDetails?.location?.long??"0"}`,
+                    "gps": `${org.storeDetails?.latitude??"0"},${org.storeDetails?.longitude??"0"}`,
                     "address":{
-                        "city": org.storeDetails?.address?.city??"NA",
-                        "state": org.storeDetails?.address?.state??"NA",
+                        "city": org.storeDetails?.city??"NA",
+                        "state": org.storeDetails?.state??"NA",
                         "area_code": org.storeDetails?.address?.area_code??"NA",
-                        "street": org.storeDetails?.address?.street??"NA",
-                        "locality":org.storeDetails?.address?.locality??"NA"
+                        "street": org.storeDetails?.street??"NA",
+                        "locality":org.storeDetails?.locality??"NA"
                     },
                     "time":
                         {
@@ -161,7 +161,7 @@ exports.getProducts = async (data) => {
                     },
                     "circle":
                         {
-                            "gps":`${org.storeDetails?.location?.lat??"0"},${org.storeDetails?.location?.long??"0"}`,
+                            "gps":`${org.storeDetails?.latitude??"0"},${org.storeDetails?.longitude??"0"}`,
                             "radius":org.storeDetails?.radius??
                                 {
                                     "unit":"km",
@@ -177,8 +177,8 @@ exports.getProducts = async (data) => {
                     {
                         "contact":
                             {
-                                "phone":org.storeDetails.supportDetails.mobile,
-                                "email":org.storeDetails.supportDetails.email
+                                "phone":org.storeDetails.mobile,
+                                "email":org.storeDetails.email
                             }
                     }
                 ],
