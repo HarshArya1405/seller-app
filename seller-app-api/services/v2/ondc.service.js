@@ -31,34 +31,12 @@ class OndcService {
 
     async orderSelect(payload = {}, req = {}) {
         try {
-            // const {criteria = {}, payment = {}} = req || {};
-
-            logger.log('info', `[Ondc Service] search logistics payload : param :`, payload);
-
-            // const order = payload.message.order;
+            const items = payload.message.order.items
             const selectMessageId = payload.context.message_id;
             const logisticsMessageId = uuidv4();
-
-            let storeLocationEnd = {}
-            let totalProductValue = 0
-            for (let items of payload.message.order.items) {
-                const product = await productService.getForOndc(items.id)
-                totalProductValue += product.MRP
-            }
-
-            let org = await productService.getOrgForOndc(payload.message.order.provider.id);
-
-            if (org.providerDetail.storeDetails) {
-                storeLocationEnd = {
-                    gps: `${org.providerDetail.storeDetails.location.lat},${org.providerDetail.storeDetails.location.long}`,
-                    address: {
-                        area_code: org.providerDetail.storeDetails.address.area_code
-                    }
-                }
-            }
-
             const searchRequest = {
-                "context": {
+                "context":
+                {
                     "domain": "nic2004:60232",
                     "country": "IND",
                     "city": "std:080",
@@ -66,49 +44,19 @@ class OndcService {
                     "core_version": "1.1.0",
                     "bap_id": config.get("sellerConfig").BPP_ID,
                     "bap_uri": config.get("sellerConfig").BPP_URI,
-                    "transaction_id": uuidv4(),
+                    "transaction_id": payload.context.transaction_id,
                     "message_id": logisticsMessageId,
                     "timestamp": new Date(),
                     "ttl": "PT30S"
                 },
-                "message": {
-                    "intent": {
-                        "category": {
-                            "id": "Standard Delivery" //TODO: based on provider it should change
-                        },
-                        "provider": {
-                            "time": { //TODO: HARD Coded
-                                "days": "1,2,3,4,5,6,7",
-                                "range": {
-                                    "end": "2359",
-                                    "start": "0000"
-                                }
-                            }
-                        },
-                        "fulfillment": {
-                            "type": "Prepaid", //TODO: ONLY prepaid orders should be there
-                            "start": {
-                                "location": storeLocationEnd
-                            },
-                            "end": payload.message.order.fulfillments[0].end
-                        },
-                        "@ondc/org/payload_details": { //TODO: HARD coded
-                            "weight": {
-                                "unit": "Kilogram",
-                                "value": 10
-                            },
-                            "category": "Grocery", //TODO: @abhinandan Take it from Product schema
-                            "value": {
-                                "currency": "INR",
-                                "value": `${totalProductValue}`
-                            }
-                        }
-                    }
-                }
+                "message": { "intent": { "category": { "id": "Standard Delivery" }, "provider": { "time": { "days": "1,2,3,4,5,6,7", "range": { "end": "2359", "start": "0000" } } }, "fulfillment": { "type": "Prepaid", "start": { "location": { "gps": "18.9346525,72.8363315", "address": { "area_code": "400001" } } }, "end": { "location": { "gps": "18.93267,72.8314770000001", "address": { "area_code": "400001" } } } }, "@ondc/org/payload_details": { "weight": { "unit": "Kilogram", "value": 10 }, "category": "Grocery", "value": { "currency": "INR", "value": "450.11" } } } }
             }
 
-            //process select request and send it to protocol layer
-            this.postSelectRequest(searchRequest, logisticsMessageId, selectMessageId)
+            logger.log('info', `[Ondc Service] search logistics payload : param :`, payload);
+
+            setTimeout(() => {
+                this.postSelectRequest(searchRequest, logisticsMessageId, selectMessageId)
+            }, 10000);
 
             return searchRequest
         } catch (err) {
@@ -120,7 +68,6 @@ class OndcService {
     async orderSelectWithoutlogistic(payload = {}, req = {}) {
         try {
             const items = payload.message.order.items
-            console.log({ items })
             logger.log('info', `[Ondc Service] search logistics payload : param :`, payload);
             const selectMessageId = payload.context.message_id;
             const logisticsMessageId = uuidv4();
@@ -183,6 +130,9 @@ class OndcService {
             //1. post http to protocol/logistics/v1/search
 
             try {
+
+                console.log("------->>>", searchRequest, selectMessageId, logisticsMessageId)
+                console.log("------result ->>>", config.get("sellerConfig").BPP_URI)
                 let headers = {};
                 let httpRequest = new HttpRequest(
                     config.get("sellerConfig").BPP_URI,
@@ -193,10 +143,11 @@ class OndcService {
                 );
 
 
-                await httpRequest.send();
+                let result = await httpRequest.send();
+                console.log("------result ->>>", result)
 
             } catch (e) {
-                logger.error('error', `[Ondc Service] post http select response : `, e);
+                logger.error('error', `[Logistics Service] post http select response : `, e);
                 return e
             }
 
@@ -204,11 +155,11 @@ class OndcService {
 
             //async post request
             setTimeout(() => {
-                logger.log('info', `[Ondc Service] search logistics payload - timeout : param :`, searchRequest);
+                logger.log('info', `[Logistics Service] search logistics payload - timeout : param :`, searchRequest);
                 this.buildSelectRequest(logisticsMessageId, selectMessageId)
-            }, 10000); //TODO move to config
+            }, 20000); //TODO move to config
         } catch (e) {
-            logger.error('error', `[Ondc Service] post http select response : `, e);
+            logger.error('error', `[Logistics Service] post http select response : `, e);
             return e
         }
     }
@@ -241,7 +192,7 @@ class OndcService {
 
     async buildSearchRequest(searchRequest, searchMessageId) {
 
-        try {            
+        try {
             // let org = await productService.getOrgForOndc(payload.message.order.provider.id);
             let searchResponse = await productService.search(searchRequest, searchMessageId)
             if (searchResponse.length > 0) {
@@ -388,7 +339,7 @@ class OndcService {
                             building: org.providerDetail.storeDetails?.building,
                             locality: org.providerDetail.storeDetails?.locality,
                             city: org.providerDetail.storeDetails.city,
-                            state: org.providerDetail.storeDetails?.state,
+                            state: org.providerDetail.storeDetails.address.state,
                             country: org.providerDetail.storeDetails.country
                         }
                     },
@@ -621,7 +572,7 @@ class OndcService {
                             building: org.providerDetail.storeDetails?.building,
                             locality: org.providerDetail.storeDetails?.locality,
                             city: org.providerDetail.storeDetails.city,
-                            state: org.providerDetail.storeDetails?.state,
+                            state: org.providerDetail.storeDetails.address.state,
                             country: org.providerDetail.storeDetails.country
                         }
                     },
@@ -702,7 +653,7 @@ class OndcService {
                                     building: org.providerDetail.storeDetails?.building,
                                     locality: org.providerDetail.storeDetails?.locality,
                                     city: org.providerDetail.storeDetails.city,
-                                    state: org.providerDetail.storeDetails?.state,
+                                    state: org.providerDetail.storeDetails.address.state,
                                     country: org.providerDetail.storeDetails.country
                                 }
                             },
@@ -1823,28 +1774,28 @@ class OndcService {
             let category = domainNameSpace.find((cat) => {
                 return cat.name === statusRequest.productCategory
             })
-            let context = { 
+            let context = {
                 "domain": category.domain,
-                "country": "IND", 
-                "city": "std:080", 
+                "country": "IND",
+                "city": "std:080",
                 "action": "on_search",
-                "core_version": "1.2.0", 
-                "bap_id": "ref-app-buyer-dev-internal.ondc.org", 
-                "bap_uri": "https://ref-app-buyer-dev-internal.ondc.org/protocol/v1", 
-                "bpp_uri": "https://ref-app-seller-dev-internal.ondc.org", 
-                "transaction_id": "323e2894-82b9-4577-bf7a-19bd85a5dcdf", 
-                "message_id": "bf1104c9-0ad3-4bcf-b45d-d74c38ea4764", 
-                "timestamp": new Date(), 
-                "bpp_id": "ref-app-seller-dev-internal.ondc.org", 
-                "ttl": "PT30S" 
+                "core_version": "1.2.0",
+                "bap_id": "ref-app-buyer-dev-internal.ondc.org",
+                "bap_uri": "https://ref-app-buyer-dev-internal.ondc.org/protocol/v1",
+                "bpp_uri": "https://ref-app-seller-dev-internal.ondc.org",
+                "transaction_id": "323e2894-82b9-4577-bf7a-19bd85a5dcdf",
+                "message_id": "bf1104c9-0ad3-4bcf-b45d-d74c38ea4764",
+                "timestamp": new Date(),
+                "bpp_id": "ref-app-seller-dev-internal.ondc.org",
+                "ttl": "PT30S"
             }
             let data = {
-                products: [{...org.providerDetail,items:[statusRequest]}],
+                products: [{ ...org.providerDetail, items: [statusRequest] }],
                 customMenu: [],
             }
             let productSchema = await getProductUpdate({ data, context });
             await this.postItemUpdateRequest(productSchema);
-        
+
         } catch (e) {
             console.log(e)
             return e
@@ -1961,7 +1912,7 @@ class OndcService {
     async postItemUpdateRequest(statusResponse) {
         try {
             console.log('itemdata------------------------------------------>')
-            console.log({itemdata:statusResponse})
+            console.log({ itemdata: statusResponse })
             let headers = {};
             let httpRequest = new HttpRequest(
                 config.get("sellerConfig").BPP_URI,
@@ -2167,109 +2118,109 @@ class OndcService {
     }
 
 
-    async notifyStoreUpdate(data){
-        if(data?.storeTiming?.status === 'closed' || data?.storeTiming?.status === 'disabled'){
+    async notifyStoreUpdate(data) {
+        if (data?.storeTiming?.status === 'closed' || data?.storeTiming?.status === 'disabled') {
             let category = domainNameSpace.find((cat) => {
                 return cat.name === data.category
             })
-            let time ={}
-            if(data.updateType === 'closed'){
+            let time = {}
+            if (data.updateType === 'closed') {
                 time = {
-                    "label":"close",
-                    "timestamp":new Date(),
+                    "label": "close",
+                    "timestamp": new Date(),
                     "range":
                     {
                         "start": data?.storeTiming?.colsed?.from,
                         "end": data?.storeTiming?.colsed?.to
                     }
                 }
-            }else if(data.updateType === 'disabled'){
+            } else if (data.updateType === 'disabled') {
                 time = {
-                    "label":"disable",
-                    "timestamp":new Date()
+                    "label": "disable",
+                    "timestamp": new Date()
                 }
             }
-            let payload ={
+            let payload = {
                 "context":
                 {
-                    "domain":category.domain,
-                    "action":"on_search",
-                    "country": "IND", 
-                    "city": "std:080", 
+                    "domain": category.domain,
+                    "action": "on_search",
+                    "country": "IND",
+                    "city": "std:080",
                     "core_version": "1.2.0",
-                    "bap_id": "ref-app-buyer-dev-internal.ondc.org", 
-                    "bap_uri": "https://ref-app-buyer-dev-internal.ondc.org/protocol/v1", 
-                    "bpp_uri": "https://ref-app-seller-dev-internal.ondc.org", 
-                    "transaction_id": "323e2894-82b9-4577-bf7a-19bd85a5dcdf", 
-                    "message_id": "bf1104c9-0ad3-4bcf-b45d-d74c38ea4764",     
-                    "timestamp":new Date(),
-                    "ttl":"PT30S"
+                    "bap_id": "ref-app-buyer-dev-internal.ondc.org",
+                    "bap_uri": "https://ref-app-buyer-dev-internal.ondc.org/protocol/v1",
+                    "bpp_uri": "https://ref-app-seller-dev-internal.ondc.org",
+                    "transaction_id": "323e2894-82b9-4577-bf7a-19bd85a5dcdf",
+                    "message_id": "bf1104c9-0ad3-4bcf-b45d-d74c38ea4764",
+                    "timestamp": new Date(),
+                    "ttl": "PT30S"
                 },
                 "message":
                 {
                     "catalog":
                     {
                         "bpp/providers":
-                        [
-                            {
-                                "id":data.organization,
-                                "locations":
-                                [
-                                    {
-                                        "id":data.locationId,
-                                        "time":time
-                                    }
-                                ]
-                            }
-                        ]
+                            [
+                                {
+                                    "id": data.organization,
+                                    "locations":
+                                        [
+                                            {
+                                                "id": data.locationId,
+                                                "time": time
+                                            }
+                                        ]
+                                }
+                            ]
                     }
                 }
             }
             this.postItemUpdateRequest(payload);
         }
-        return{success :true};    
-        }
-    
-    async notifyOrgUpdate(data){
+        return { success: true };
+    }
+
+    async notifyOrgUpdate(data) {
         let category = domainNameSpace.find((cat) => {
             return cat.name === data.category
         })
-        let payload ={
+        let payload = {
             "context":
             {
-              "domain":category.domain,
-              "action":"on_search",
-              "country": "IND", 
-              "city": "std:080", 
-              "core_version": "1.2.0",
-              "bap_id": "ref-app-buyer-dev-internal.ondc.org", 
-              "bap_uri": "https://ref-app-buyer-dev-internal.ondc.org/protocol/v1", 
-              "bpp_uri": "https://ref-app-seller-dev-internal.ondc.org", 
-              "transaction_id": "323e2894-82b9-4577-bf7a-19bd85a5dcdf", 
-              "message_id": "bf1104c9-0ad3-4bcf-b45d-d74c38ea4764", 
-              "timestamp":new Date(),
-              "ttl":"PT30S"
+                "domain": category.domain,
+                "action": "on_search",
+                "country": "IND",
+                "city": "std:080",
+                "core_version": "1.2.0",
+                "bap_id": "ref-app-buyer-dev-internal.ondc.org",
+                "bap_uri": "https://ref-app-buyer-dev-internal.ondc.org/protocol/v1",
+                "bpp_uri": "https://ref-app-seller-dev-internal.ondc.org",
+                "transaction_id": "323e2894-82b9-4577-bf7a-19bd85a5dcdf",
+                "message_id": "bf1104c9-0ad3-4bcf-b45d-d74c38ea4764",
+                "timestamp": new Date(),
+                "ttl": "PT30S"
             },
             "message":
             {
-              "catalog":
-              {
-                "bpp/providers":
-                [
-                  {
-                    "id":data.organization,
-                    "time":
-                    {
-                      "label":"disable",
-                      "timestamp":new Date()
-                    }
-                  }
-                ]
-              }
+                "catalog":
+                {
+                    "bpp/providers":
+                        [
+                            {
+                                "id": data.organization,
+                                "time":
+                                {
+                                    "label": "disable",
+                                    "timestamp": new Date()
+                                }
+                            }
+                        ]
+                }
             }
         }
         this.postItemUpdateRequest(payload);
-        return{success :true};
+        return { success: true };
     }
 
 }

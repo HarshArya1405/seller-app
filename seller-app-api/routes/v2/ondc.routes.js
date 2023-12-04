@@ -1,4 +1,4 @@
-import {Router} from 'express';
+import { Router } from 'express';
 import OndcController from '../../controllers/v2/ondc.controller';
 import { authentication } from '../../middlewares';
 
@@ -9,11 +9,12 @@ router.post('/client/search',
     ondcController.productSearch);
 
 //new changes
-// router.post('/client/select',
-//     ondcController.orderSelect);
 
 router.post('/client/select',
-    ondcController.orderSelectWithoutlogistic);
+    ondcController.orderSelect);
+
+// router.post('/client/select',
+//     ondcController.orderSelectWithoutlogistic);
 
 // router.post('/client/Init',
 //     ondcController.orderInit);

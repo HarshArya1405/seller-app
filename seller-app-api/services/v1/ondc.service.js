@@ -320,7 +320,7 @@ class OndcService {
                             building: org.providerDetail.storeDetails?.building,
                             locality: org.providerDetail.storeDetails?.locality,
                             city: org.providerDetail.storeDetails.city,
-                            state: org.providerDetail.storeDetails?.state,
+                            state: org.providerDetail.storeDetails.address.state,
                             country: org.providerDetail.storeDetails.country
                         }
                     },
@@ -533,7 +533,7 @@ class OndcService {
                             building: org.providerDetail.storeDetails?.building,
                             locality: org.providerDetail.storeDetails?.locality,
                             city: org.providerDetail.storeDetails.city,
-                            state: org.providerDetail.storeDetails?.state,
+                            state: org.providerDetail.storeDetails.address.state,
                             country: org.providerDetail.storeDetails.country
                         }
                     },
@@ -614,7 +614,7 @@ class OndcService {
                                     building: org.providerDetail.storeDetails?.building,
                                     locality: org.providerDetail.storeDetails?.locality,
                                     city: org.providerDetail.storeDetails.city,
-                                    state: org.providerDetail.storeDetails?.state,
+                                    state: org.providerDetail.storeDetails.address.state,
                                     country: org.providerDetail.storeDetails.country
                                 }
                             },
