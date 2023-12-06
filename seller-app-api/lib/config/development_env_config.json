@@ -55,9 +55,6 @@
     "supportEmail": "dev@wemotiveforge.com",
     "webClientUri": "http://192.168.0.11:3000"
   },
-  "cors":  {
-    "whitelistUrls":  ["http://localhost:3000", "http://127.0.0.1:3000"]
-  },
   "cors": {
     "whitelistUrls": [
       "http://localhost:3000",
@@ -84,11 +81,11 @@
   },
   "sellerConfig": {
     "BPP_ID": "sellerapp-staging.datasyndicate.in",
-    "BPP_URI": "https://c26c-2401-4900-1c5c-2546-2cf1-fa70-e2d1-a532.ngrok-free.app",
+    "BPP_URI": "https://e2ad-2401-4900-1c5a-6852-6f15-1224-4b30-2253.ngrok-free.app",
     "BAP_ID": "sellerapp-staging.datasyndicate.in",
-    "BAP_URI": "https://c26c-2401-4900-1c5c-2546-2cf1-fa70-e2d1-a532.ngrok-free.app",
+    "BAP_URI": "https://e2ad-2401-4900-1c5a-6852-6f15-1224-4b30-2253.ngrok-free.app",
     "LOGISTICS_BAP_ID": "dev-ondc.shiprocket.in",
-    "LOGISTICS_DELIVERY_TYPE": "Same Day Delivery",
+    "LOGISTICS_DELIVERY_TYPE": "Standard Delivery",
     "storeOpenSchedule": {
       "time": {
         "days": "1,2,3,4,5,6,7",

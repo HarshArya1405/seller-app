@@ -1,4 +1,4 @@
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import HttpRequest from '../../utils/HttpRequest';
 import { getProducts, getUpdate, getProductUpdate, getSelect, getInit, getConfirm, getTrack, getSupport, getStatus, getCancel } from "../../utils/v2/schemaMapping";
 import { domainNameSpace } from "../../utils/constants";
@@ -111,7 +111,7 @@ class ProductService {
     }
 
 
-    
+
     async select(requestQuery) {
 
         logger.log('info', `[Product Service] product select :`, requestQuery);
@@ -142,7 +142,7 @@ class ProductService {
 
                 let price = result?.data?.data?.attributes?.price * item.quantity.count
                 totalPrice += price
-                item.price = {value: price, currency: "INR"}
+                item.price = { value: price, currency: "INR" }
             }
 
             //TODO: check if quantity is available
@@ -171,12 +171,14 @@ class ProductService {
             }
         }
 
-        if (Object.keys(logisticProvider).length === 0  ) {
-            return {context: {...selectData.context,action:'on_select'},message:{
-                "type": "CORE-ERROR",
-                "code": "60001",
-                "message": "Pickup not servicable"
-            }}
+        if (Object.keys(logisticProvider).length === 0) {
+            return {
+                context: { ...selectData.context, action: 'on_select' }, message: {
+                    "type": "CORE-ERROR",
+                    "code": "60001",
+                    "message": "Pickup not servicable"
+                }
+            }
         }
 
         logger.log('info', `[Product Service] logistics provider available  :`, logisticProvider);
@@ -203,18 +205,18 @@ class ProductService {
                 "@ondc/org/TAT": "PT48H",
                 "provider_id": logisticProvider.context.bpp_id,
                 "state":
+                {
+                    "descriptor":
                     {
-                        "descriptor":
-                            {
-                                "name": logisticProvider.message.catalog["bpp/providers"][0].descriptor.name
-                            }
-                    }, end: selectData.message.order.fulfillments[0].end
+                        "name": logisticProvider.message.catalog["bpp/providers"][0].descriptor.name
+                    }
+                }, end: selectData.message.order.fulfillments[0].end
             }]
 
         //update fulfillment
         selectData.message.order.fulfillments = fulfillments
 
-        let totalPriceObj = {value: totalPrice, currency: "INR"}
+        let totalPriceObj = { value: totalPrice, currency: "INR" }
 
         detailedQoute.push(deliveryCharges);
 
@@ -1211,7 +1213,6 @@ class ProductService {
         let today = new Date();
         let tomorrow = new Date();
         tomorrow.setDate(today.getDate() + 1);
-
         const fulfillments =
             [
                 {
@@ -1964,11 +1965,11 @@ class ProductService {
         if (org.providerDetail.storeDetails) {
             storeLocationEnd = {
                 "location": {
-                    "id": org.providerDetail.storeDetails.location._id,
+                    "id": org.providerDetail.storeDetails.id,
                     "descriptor": {
                         "name": org.providerDetail.name
                     },
-                    "gps": `${org.providerDetail.storeDetails.location.lat},${org.providerDetail.storeDetails.location.long}`,
+                    "gps": `${org.providerDetail.storeDetails.latitude},${org.providerDetail.storeDetails.longitude}`,
 
                 },
                 "contact": {
@@ -2042,40 +2043,42 @@ class ProductService {
             logisticData: logisticData
         });
 
-        // let savedLogistics = new ConfirmRequest()
-        //
-        // savedLogistics.transactionId = confirmRequest.context.transaction_id
-        // savedLogistics.packaging = "0"//TODO: select packaging option
-        // savedLogistics.providerId = confirmRequest.message.order.provider.id//TODO: select from items provider id
-        // savedLogistics.retailOrderId = orderId
-        // savedLogistics.orderId = logisticData?.message?.order?.id
-        // savedLogistics.selectedLogistics = logisticData
-        // savedLogistics.confirmRequest = requestQuery.retail_confirm[0]
-        // savedLogistics.onConfirmRequest = productData
-        // savedLogistics.logisticsTransactionId = logisticData?.context?.transaction_id
-        //
-        // await savedLogistics.save();
+        let savedLogistics = new ConfirmRequest()
+        
+        savedLogistics.transactionId = confirmRequest.context.transaction_id
+        savedLogistics.packaging = "0"//TODO: select packaging option
+        savedLogistics.providerId = confirmRequest.message.order.provider.id//TODO: select from items provider id
+        savedLogistics.retailOrderId = orderId
+        savedLogistics.orderId = logisticData?.message?.order?.id
+        savedLogistics.selectedLogistics = logisticData
+        savedLogistics.confirmRequest = requestQuery.retail_confirm[0]
+        savedLogistics.onConfirmRequest = productData
+        savedLogistics.logisticsTransactionId = logisticData?.context?.transaction_id
+        
+        await savedLogistics.save();
 
         return productData
     }
 
 
     async productInit(requestQuery) {
-
         //get search criteria
         // const items = requestQuery.message.order.items
-
         const initData = JSON.parse(JSON.stringify(requestQuery.retail_init[0]))//select first select request
         const items = initData.message.order.items
         const logisticData = requestQuery.logistics_on_init[0]
 
         let qouteItems = []
+        let itemType = ''
         let detailedQoute = []
         let totalPrice = 0
+        let resultData = {}
+        let qouteItemsDetails = {}
+        let itemData = {}
+        let isQtyAvailable = true
 
 
         let org = await this.getOrgForOndc(initData.message.order.provider.id);
-
         let paymentDetails = {
             "@ondc/org/buyer_app_finder_fee_type": "percent", //TODO: for transaction id keep record to track this details
             "@ondc/org/buyer_app_finder_fee_amount": "3.0",
@@ -2104,42 +2107,173 @@ class ProductService {
                 "value": '' + logisticData.message.order.quote.price.value
             }
         }//TODO: need to map all items in the catalog to find out delivery charges
-
-
         for (let item of items) {
-            let headers = {};
+            let tags = item.tags;
+            if (tags && tags.length > 0) {
+                let tagData = tags.find((tag) => { return tag.code === 'type' })
+                let tagTypeData = tagData.list.find((tagType) => { return tagType.code === 'type' })
+                itemType = tagTypeData.value;
+                if (itemType === 'customization') {
+                    resultData = itemData?.customizationDetails?.customizations.find((row) => {
+                        return row._id === item.id
+                    })
+                    if (resultData) {
+                        if (resultData.maximum < item.quantity.count) {
+                            isQtyAvailable = false
+                        }
+                        qouteItemsDetails = {
+                            "@ondc/org/item_id": item.id,
+                            "@ondc/org/item_quantity": {
+                                "count": item.quantity.count
+                            },
+                            "title": resultData?.name,
+                            "@ondc/org/title_type": "item",
+                            "price":
+                            {
+                                "currency": "INR",
+                                "value": `${resultData?.price}`
+                            },
+                            "item":
+                            {
+                                "quantity":
+                                {
+                                    "available":
+                                    {
+                                        "count": `${resultData?.available}`
+                                    },
+                                    "maximum":
+                                    {
+                                        "count": `${resultData?.available}`
+                                    }
+                                },
+                                "price":
+                                {
+                                    "currency": "INR",
+                                    "value": `${resultData?.price}`
+                                },
+                                "tags": item.tags
+                            }
+                        }
+                        if (item?.parent_item_id) {
+                            qouteItemsDetails.item.parent_item_id = `${item?.parent_item_id}`;
+                        }
+                        detailedQoute.push(qouteItemsDetails)
+                    } else {
+                        isValidItem = false;
+                    }
+                } else {
+                    resultData = await this.getForOndc(item.id)
+                    if (Object.keys(resultData).length > 0) {
+                    
+                        if (resultData?.commonDetails.maxAllowedQty < item.quantity.count) {
+                            isQtyAvailable = false
+                    }
+                        itemData = resultData;
+                        if (resultData?.commonDetails) {
+                            let price = resultData?.commonDetails?.MRP * item.quantity.count
+                            totalPrice += price
+                        }
 
-            let qouteItemsDetails = {}
-            let httpRequest = new HttpRequest(
-                serverUrl,
-                `/api/v1/products/${item.id}/ondcGet`,
-                'get',
-                {},
-                headers
-            );
+                        //TODO: check if quantity is available
 
-            let result = await httpRequest.send();
+                        qouteItemsDetails = {
+                            "@ondc/org/item_id": item.id,
+                            "@ondc/org/item_quantity": {
+                                "count": item.quantity.count
+                            },
+                            "title": resultData?.commonDetails?.productName,
+                            "@ondc/org/title_type": "item",
+                            "price":
+                            {
+                                "currency": "INR",
+                                "value": `${resultData?.commonDetails?.MRP}`
+                            },
+                            "item":
+                            {
+                                "quantity":
+                                {
+                                    "available":
+                                    {
+                                        "count": `${resultData?.commonDetails?.quantity}`
+                                    },
+                                    "maximum":
+                                    {
+                                        "count": `${resultData?.commonDetails?.maxAllowedQty}`
+                                    }
+                                },
+                                "price":
+                                {
+                                    "currency": "INR",
+                                    "value": `${resultData?.commonDetails?.MRP}`
+                                },
+                                "tags": item.tags
+                            }
+                        }
 
-            if (result?.data) {
+                        if (item?.parent_item_id) {
+                            qouteItemsDetails.item.parent_item_id = `${item?.parent_item_id}`;
+                        }
 
-                let price = result?.data?.MRP * item.quantity.count
-                totalPrice += parseInt(price)
-                item.price = { value: "" + price, currency: "INR" }
-            }
-
-            qouteItemsDetails = {
-                "@ondc/org/item_id": item.id,
-                "@ondc/org/item_quantity": {
-                    "count": item.quantity.count
-                },
-                "title": result?.data?.productName,
-                "@ondc/org/title_type": "item",
-                "price": item.price,
-                "item": {
-                    "price": { value: "" + result?.data?.MRP, currency: "INR" }
+                        detailedQoute.push(qouteItemsDetails)
+                    } else {
+                        isValidItem = false;
+                    }
                 }
             }
+            else {
+                resultData = await this.getForOndc(item.id)
+                if (Object.keys(resultData).length > 0) {
+                    if (resultData?.commonDetails.maxAllowedQty < item.quantity.count) {
+                        isQtyAvailable = false
+                    }
+                    itemData = resultData;
+                    if (resultData?.commonDetails) {
+                        let price = resultData?.commonDetails?.MRP * item.quantity.count
+                        totalPrice += price
+                    }
 
+                    //TODO: check if quantity is available
+
+                    let qouteItemsDetails = {
+                        "@ondc/org/item_id": item.id,
+                        "@ondc/org/item_quantity": {
+                            "count": item.quantity.count
+                        },
+                        "title": resultData?.commonDetails?.productName,
+                        "@ondc/org/title_type": "item",
+                        "price":
+                        {
+                            "currency": "INR",
+                            "value": `${resultData?.commonDetails?.MRP}`
+                        },
+                        "item":
+                        {
+                            "quantity":
+                            {
+                                "available":
+                                {
+                                    "count": `${resultData?.commonDetails?.quantity}`
+                                },
+                                "maximum":
+                                {
+                                    "count": `${resultData?.commonDetails?.maxAllowedQty}`
+                                }
+                            },
+                            "price":
+                            {
+                                "currency": "INR",
+                                "value": `${resultData?.commonDetails?.MRP}`
+                            }
+                        }
+                    }
+                    if (item?.parent_item_id) {
+                        qouteItemsDetails.item.parent_item_id = `${item?.parent_item_id}`;
+                    }
+                    detailedQoute.push(qouteItemsDetails)
+                } else {
+                    isValidItem = false;
+                }
+            }
             item.fulfillment_id = item.fulfillment_id
             delete item.price
             qouteItems.push(item)
@@ -2150,8 +2284,6 @@ class ProductService {
         let totalPriceObj = { value: "" + totalPrice, currency: "INR" }
 
         detailedQoute.push(deliveryCharges);
-
-
 
         initData.message.order.payment = paymentDetails;
         const productData = await getInit({
@@ -2172,7 +2304,6 @@ class ProductService {
         savedLogistics.logisticsTransactionId = logisticData.context.transaction_id
         savedLogistics.initRequest = requestQuery.retail_init[0]
         savedLogistics.onInitResponse = productData
-
         await savedLogistics.save();
 
         return productData
@@ -2181,139 +2312,400 @@ class ProductService {
 
     async productSelect(requestQuery) {
 
-        const selectData = requestQuery.retail_select[0]//select first select request
-        const items = selectData.message.order.items
-        const logisticData = requestQuery.logistics_on_search
+        try {
 
-        let qouteItems = []
-        let detailedQoute = []
-        let totalPrice = 0
+            let savedLogistics = new SelectRequest();
+
+            const selectData = JSON.parse(JSON.stringify(requestQuery.retail_select[0]));//select first select request
+
+            const items = selectData.message.order.items;
+            let logisticData = requestQuery.logistics_on_search;
+            let isValidOrg = true;
+            let isValidItem = true;
+            let itemType = ''
+            let resultData;
+            let itemData = {};
+            let qouteItems = []
+            let detailedQoute = []
+            let totalPrice = 0
+
+            let isQtyAvailable = true
+            let isServiceable = true
+
+            let logisticProvider = {}
 
 
-        let logisticProvider = {}
+            const org = await this.getOrgForOndc(selectData.message.order.provider.id);
+            let logisticsToSelect = config.get("sellerConfig").LOGISTICS_BAP_ID
 
-        for (let logisticData1 of logisticData) {
-            if (logisticData1.message) {
-                if (logisticData1.context.bpp_id === "ondc.yaarilabs.com") {//TODO: move to env
-                    logisticProvider = logisticData1
-                }
-            }
-        }
-
-        if (Object.keys(logisticProvider).length === 0) {
-            for (let logisticData1 of logisticData) { //check if any logistics available who is serviceable
-                if (logisticData1.message) {
-                    logisticProvider = logisticData1
-                }
-            }
-        }
-
-        if (Object.keys(logisticProvider).length === 0) {
-            return {
-                context: { ...selectData.context, action: 'on_select' }, error: {
-                    "type": "CORE-ERROR",
-                    "code": "60001",
-                    "message": "Pickup not servicable"
-                }
-            }
-        }
-
-        for (let item of items) {
-            let headers = {};
-
-            let qouteItemsDetails = {}
-            let httpRequest = new HttpRequest(
-                serverUrl,
-                `/api/v1/products/${item.id}/ondcGet`,
-                'get',
-                {},
-                headers
-            );
-
-            let result = await httpRequest.send();
-
-            console.log("product data------------>", result?.data);
-
-            if (result?.data) {
-                let price = result?.data?.MRP * item.quantity.count
-                totalPrice += price
-                item.price = { value: price, currency: "INR" }
+            if (org.providerDetail.storeDetails.logisticsBppId) {
+                logisticsToSelect = org.providerDetail.storeDetails.logisticsBppId
             }
 
-            //TODO: check if quantity is available
-
-            qouteItemsDetails = {
-                "@ondc/org/item_id": item.id,
-                "@ondc/org/item_quantity": {
-                    "count": item.quantity.count
-                },
-                "title": result?.data?.productName,
-                "@ondc/org/title_type": "item",
-                "price": item.price
-            }
-
-            item.fulfillment_id = logisticProvider.message.catalog["bpp/providers"][0].items[0].fulfillment_id //TODO: revisit for item level status
-            qouteItems.push(item)
-            detailedQoute.push(qouteItemsDetails)
-        }
-
-        let savedLogistics = new SelectRequest()
-
-        savedLogistics.transactionId = selectData.context.transaction_id
-        savedLogistics.packaging = "0"//TODO: select packaging option
-        savedLogistics.providerId = "0"//TODO: select from items provider id
-        savedLogistics.selectedLogistics = logisticProvider
-
-        await savedLogistics.save();
-
-        //select logistic based on criteria-> for now first one will be picked up
-        let deliveryCharges = {
-            "title": "Delivery charges",
-            "@ondc/org/title_type": "delivery",
-            "price": {
-                "currency": '' + logisticProvider.message.catalog["bpp/providers"][0].items[0].price.currency,
-                "value": '' + logisticProvider.message.catalog["bpp/providers"][0].items[0].price.value
-            }
-        }//TODO: need to map all items in the catalog to find out delivery charges
-
-        //added delivery charges in total price
-        totalPrice += parseInt(logisticProvider.message.catalog["bpp/providers"][0].items[0].price.value)
-
-        let fulfillments = [
-            {
-                "id": logisticProvider.message.catalog["bpp/providers"][0].items[0].fulfillment_id, //TODO: check what needs to go here, ideally it should be item id
-                "@ondc/org/provider_name": logisticProvider.message.catalog["bpp/descriptor"],
-                "tracking": false,
-                "@ondc/org/category": logisticProvider.message.catalog["bpp/providers"][0].category_id,
-                "@ondc/org/TAT": "PT48H",
-                "provider_id": logisticProvider.message.catalog["bpp/providers"][0].id,
-                "state":
-                {
-                    "descriptor":
-                    {
-                        "name": logisticProvider.message.catalog["bpp/providers"][0].descriptor.name
+            // for (let logisticData1 of logisticData) {
+            //     if (logisticData1.message) {
+            //         if (logisticData1.context.bpp_id == logisticsToSelect ) {//TODO: move to env
+            //             if (logisticData1.message && !logisticData1.error) {
+            //                 logisticProvider = logisticData1
+            //             }
+            //         }
+            //     }
+            // }
+            //TODO: uncomment to allow lookup for other providers
+            if (Object.keys(logisticProvider).length === 0) {
+                for (let logisticData1 of logisticData) { //check if any logistics available who is serviceable
+                    if (logisticData1.message && !logisticData1.error) {
+                        logisticProvider = logisticData1
                     }
-                }, end: selectData.message.order.fulfillments[0].end
-            }]
+                }
+            }
 
-        //update fulfillment
-        selectData.message.order.fulfillments = fulfillments
+            // if (Object.keys(logisticProvider).length === 0) {
+            //     isServiceable = false
+            // }
+            let deliveryType = ''
+            for (let item of items) {
+                let tags = item.tags;
+                if (tags && tags.length > 0) {
+                    let tagData = tags.find((tag) => { return tag.code === 'type' })
+                    if (tagData?.list && tagData?.list.length > 0) {
+                        let tagTypeData = tagData.list.find((tagType) => { return tagType.code === 'type' })
+                        itemType = tagTypeData.value;
+                        if (itemType === 'customization') {
+                            resultData = itemData?.customizationDetails?.customizations.find((row) => {
+                                return row._id === item.id
+                            })
+                            if (resultData) {
+                                if (resultData.maximum < item.quantity.count) {
+                                    isQtyAvailable = false
+                                }
+                                let qouteItemsDetails = {
+                                    "@ondc/org/item_id": item.id,
+                                    "@ondc/org/item_quantity": {
+                                        "count": item.quantity.count
+                                    },
+                                    "title": resultData?.name,
+                                    "@ondc/org/title_type": "item",
+                                    "price":
+                                    {
+                                        "currency": "INR",
+                                        "value": `${resultData?.price}`
+                                    },
+                                    "item":
+                                    {
+                                        "quantity":
+                                        {
+                                            "available":
+                                            {
+                                                "count": `${resultData?.available}`
+                                            },
+                                            "maximum":
+                                            {
+                                                "count": `${resultData?.available}`
+                                            }
+                                        },
+                                        "price":
+                                        {
+                                            "currency": "INR",
+                                            "value": `${resultData?.price}`
+                                        },
+                                        "tags": item.tags
+                                    }
+                                }
+                                if (item?.parent_item_id) {
+                                    qouteItemsDetails.item.parent_item_id = `${item?.parent_item_id}`;
+                                }
+                                detailedQoute.push(qouteItemsDetails)
+                            } else {
+                                isValidItem = false;
+                            }
+                        } else {
+                            resultData = await this.getForOndc(item.id)
+                            if (Object.keys(resultData).length > 0) {
+                                if (resultData?.commonDetails.maxAllowedQty < item.quantity.count) {
+                                    isQtyAvailable = false
+                                }
+                                itemData = resultData;
+                                if (resultData?.commonDetails) {
+                                    let price = resultData?.commonDetails?.MRP * item.quantity.count
+                                    totalPrice += price
+                                }
 
-        let totalPriceObj = { value: "" + totalPrice, currency: "INR" }
+                                //TODO: check if quantity is available
 
-        detailedQoute.push(deliveryCharges);
+                                let qouteItemsDetails = {
+                                    "@ondc/org/item_id": item.id,
+                                    "@ondc/org/item_quantity": {
+                                        "count": item.quantity.count
+                                    },
+                                    "title": resultData?.commonDetails?.productName,
+                                    "@ondc/org/title_type": "item",
+                                    "price":
+                                    {
+                                        "currency": "INR",
+                                        "value": `${resultData?.commonDetails?.MRP}`
+                                    },
+                                    "item":
+                                    {
+                                        "quantity":
+                                        {
+                                            "available":
+                                            {
+                                                "count": `${resultData?.commonDetails?.quantity}`
+                                            },
+                                            "maximum":
+                                            {
+                                                "count": `${resultData?.commonDetails?.maxAllowedQty}`
+                                            }
+                                        },
+                                        "price":
+                                        {
+                                            "currency": "INR",
+                                            "value": `${resultData?.commonDetails?.MRP}`
+                                        },
+                                        "tags": item.tags
+                                    }
+                                }
+                                if (item?.parent_item_id) {
+                                    qouteItemsDetails.item.parent_item_id = `${item?.parent_item_id}`;
+                                }
+                                detailedQoute.push(qouteItemsDetails)
+                            } else {
+                                isValidItem = false;
+                            }
+                        }
+                    }
+                    else {
+                        resultData = await this.getForOndc(item.id)
+                        if (Object.keys(resultData).length > 0) {
+                            if (resultData?.commonDetails.maxAllowedQty < item.quantity.count) {
+                                isQtyAvailable = false
+                            }
+                            itemData = resultData;
+                            if (resultData?.commonDetails) {
+                                let price = resultData?.commonDetails?.MRP * item.quantity.count
+                                totalPrice += price
+                            }
 
-        const productData = await getSelect({
-            qouteItems: qouteItems,
-            order: selectData.message.order,
-            totalPrice: totalPriceObj,
-            detailedQoute: detailedQoute,
-            context: selectData.context
-        });
+                            //TODO: check if quantity is available
 
-        return productData
+                            let qouteItemsDetails = {
+                                "@ondc/org/item_id": item.id,
+                                "@ondc/org/item_quantity": {
+                                    "count": item.quantity.count
+                                },
+                                "title": resultData?.commonDetails?.productName,
+                                "@ondc/org/title_type": "item",
+                                "price":
+                                {
+                                    "currency": "INR",
+                                    "value": `${resultData?.commonDetails?.MRP}`
+                                },
+                                "item":
+                                {
+                                    "quantity":
+                                    {
+                                        "available":
+                                        {
+                                            "count": `${resultData?.commonDetails?.quantity}`
+                                        },
+                                        "maximum":
+                                        {
+                                            "count": `${resultData?.commonDetails?.maxAllowedQty}`
+                                        }
+                                    },
+                                    "price":
+                                    {
+                                        "currency": "INR",
+                                        "value": `${resultData?.commonDetails?.MRP}`
+                                    }
+                                }
+                            }
+                            if (item?.parent_item_id) {
+                                qouteItemsDetails.item.parent_item_id = `${item?.parent_item_id}`;
+                            }
+                            detailedQoute.push(qouteItemsDetails)
+                        } else {
+                            isValidItem = false;
+                        }
+                    }
+                } else {
+                    resultData = await this.getForOndc(item.id)
+                    if (Object.keys(resultData).length > 0) {
+                        if (resultData?.commonDetails.maxAllowedQty < item.quantity.count) {
+                            isQtyAvailable = false
+                        }
+                        itemData = resultData;
+                        if (resultData?.commonDetails) {
+                            let price = resultData?.commonDetails?.MRP * item.quantity.count
+                            totalPrice += price
+                        }
+
+                        //TODO: check if quantity is available
+
+                        let qouteItemsDetails = {
+                            "@ondc/org/item_id": item.id,
+                            "@ondc/org/item_quantity": {
+                                "count": item.quantity.count
+                            },
+                            "title": resultData?.commonDetails?.productName,
+                            "@ondc/org/title_type": "item",
+                            "price":
+                            {
+                                "currency": "INR",
+                                "value": `${resultData?.commonDetails?.MRP}`
+                            },
+                            "item":
+                            {
+                                "quantity":
+                                {
+                                    "available":
+                                    {
+                                        "count": `${resultData?.commonDetails?.quantity}`
+                                    },
+                                    "maximum":
+                                    {
+                                        "count": `${resultData?.commonDetails?.maxAllowedQty}`
+                                    }
+                                },
+                                "price":
+                                {
+                                    "currency": "INR",
+                                    "value": `${resultData?.commonDetails?.MRP}`
+                                }
+                            }
+                        }
+                        if (item?.parent_item_id) {
+                            qouteItemsDetails.item.parent_item_id = `${item?.parent_item_id}`;
+                        }
+                        detailedQoute.push(qouteItemsDetails)
+                    } else {
+                        isValidItem = false;
+                    }
+                }
+                if (isServiceable) {
+                    item.fulfillment_id = logisticProvider.message.catalog["bpp/providers"][0].items[0].fulfillment_id //TODO: revisit for item level status
+                    deliveryType = logisticProvider.message.catalog["bpp/providers"][0].items.find((element) => { return element.category_id === config.get("sellerConfig").LOGISTICS_DELIVERY_TYPE });
+                } else {
+                    item.fulfillment_id = '1'
+                }
+                delete item.price;
+                delete item.location_id
+                delete item.quantity
+                qouteItems.push(item)
+            }
+
+            let deliveryCharges = {}
+            let fulfillments = []
+
+            if (isServiceable && deliveryType) {
+                //select logistic based on criteria-> for now first one will be picked up
+                deliveryCharges = {
+                    "title": "Delivery charges",
+                    "@ondc/org/title_type": "delivery",
+                    "@ondc/org/item_id": deliveryType.fulfillment_id,
+                    "price": {
+                        "currency": '' + deliveryType.price.currency,
+                        "value": '' + deliveryType.price.value
+                    }
+                }//TODO: need to map all items in the catalog to find out delivery charges
+
+                //added delivery charges in total price
+                totalPrice += parseInt(logisticProvider.message.catalog["bpp/providers"][0].items[0].price.value)
+
+                let categories = logisticProvider.message.catalog["bpp/providers"][0].categories
+                let duration = ''
+                if (deliveryType?.time?.duration) {
+                    duration = deliveryType.time.duration
+                } else {
+                    let category = categories.find((cat) => {
+                        return deliveryType.category_id === cat.id
+                    });
+                    duration = category.time.duration
+                }
+
+                fulfillments = [
+
+                    {
+                        "id": deliveryType.fulfillment_id, //TODO: check what needs to go here, ideally it should be item id
+                        "@ondc/org/provider_name": logisticProvider.message.catalog["bpp/descriptor"].name,
+                        "tracking": true, //Hard coded
+                        "@ondc/org/category": deliveryType.category_id,
+                        "@ondc/org/TAT": duration,
+                        "state":
+                        {
+                            "descriptor":
+                            {
+                                "code": "Serviceable"//Hard coded
+                            }
+                        }
+                    }]
+            } else {
+
+                //get org name from provider id
+
+                deliveryCharges = {
+                    "title": "Delivery charges",
+                    "@ondc/org/title_type": "delivery",
+                    "@ondc/org/item_id": '1',
+                    "price": {
+                        "currency": 'INR',
+                        "value": '0'
+                    }
+                }
+                fulfillments = [
+                    {
+                        "id": '1',
+                        "@ondc/org/provider_name": org.providerDetail.name,//TODO: merchant name
+                        "tracking": false, //Hard coded
+                        "@ondc/org/category": config.get("sellerConfig").LOGISTICS_DELIVERY_TYPE,
+                        "@ondc/org/TAT": "P1D",
+                        "provider_id": selectData.message.order.provider.id,
+                        "type": "Delivery",
+                        "state":
+                        {
+                            "descriptor":
+                            {
+                                "code": "Non-serviceable"//Hard coded
+                            }
+                        }, end: selectData.message.order.fulfillments[0].end
+                    }]
+            }
+
+            //update fulfillment
+            selectData.message.order.fulfillments = fulfillments
+
+            let totalPriceObj = { value: "" + totalPrice, currency: "INR" }
+
+            detailedQoute.push(deliveryCharges);
+
+            const productData = await getSelect({
+                qouteItems: qouteItems,
+                order: selectData.message.order,
+                totalPrice: totalPriceObj,
+                detailedQoute: detailedQoute,
+                context: selectData.context,
+                isQtyAvailable,
+                isServiceable: true,
+                isValidItem,
+                isValidOrg
+            });
+
+            savedLogistics.transactionId = selectData.context.transaction_id;
+            savedLogistics.logisticsTransactionId = logisticProvider?.context?.transaction_id;
+            savedLogistics.packaging = "default"//TODO: select packaging option;
+            savedLogistics.providerId = selectData.message.order.provider.id;
+            savedLogistics.selectedLogistics = logisticProvider;
+            savedLogistics.selectRequest = requestQuery.retail_select[0];
+            savedLogistics.onSelectResponse = productData;
+            await savedLogistics.save();
+
+            return productData;
+
+        } catch (e) {
+            console.log(e)
+        }
     }
-
 }
 
 module.exports = ProductService;

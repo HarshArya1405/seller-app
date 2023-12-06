@@ -34,6 +34,68 @@ class OndcService {
             const items = payload.message.order.items
             const selectMessageId = payload.context.message_id;
             const logisticsMessageId = uuidv4();
+            let storeLocationEnd = {}
+            let itemData = {}
+            let resultData = {}
+            let itemType = ''
+            let totalProductValue = 0
+
+            for (let item of payload.message.order.items) {
+                let tags = item.tags;
+                if (tags && tags.length > 0) {
+                    let tagData = tags.find((tag) => { return tag.code === 'type' })
+                    if (tagData?.list && tagData?.list.length > 0) {
+                        let tagTypeData = tagData.list.find((tagType) => { return tagType.code === 'type' })
+                        itemType = tagTypeData.value;
+                        if (itemType === 'customization') {
+                            resultData = itemData?.customizationDetails?.customizations.find((row) => {
+                                return row._id === item.id
+                            })
+                            if (resultData) {
+                                totalProductValue += resultData.price * item.quantity.count
+                            }
+                        } else {
+                            resultData = await productService.getForOndc(item.id)
+                            if (Object.keys(resultData).length > 0) {
+                                itemData = resultData;
+                                if (resultData?.commonDetails) {
+                                    let price = resultData?.commonDetails?.MRP * item.quantity.count
+                                    totalProductValue += price
+                                }
+                            }
+                        }
+                    } else {
+                        resultData = await productService.getForOndc(item.id)
+                        if (Object.keys(resultData).length > 0) {
+                            itemData = resultData;
+                            if (resultData?.commonDetails) {
+                                let price = resultData?.commonDetails?.MRP * item.quantity.count
+                                totalProductValue += price
+                            }
+                        }
+                    }
+                } else {
+                    resultData = await productService.getForOndc(item.id)
+                    if (Object.keys(resultData).length > 0) {
+                        itemData = resultData;
+                        if (resultData?.commonDetails) {
+                            let price = resultData?.commonDetails?.MRP * item.quantity.count
+                            totalProductValue += price
+                        }
+                    }
+                }
+            }
+
+            let org = await productService.getOrgForOndc(payload.message.order.provider.id);
+
+            if (org.providerDetail.storeDetails) {
+                storeLocationEnd = {
+                    gps: `${org.providerDetail.storeDetails.latitude},${org.providerDetail.storeDetails.longitude}`,
+                    address: {
+                        area_code: org.providerDetail.storeDetails.pincode
+                    }
+                }
+            }
             const searchRequest = {
                 "context":
                 {
@@ -49,7 +111,7 @@ class OndcService {
                     "timestamp": new Date(),
                     "ttl": "PT30S"
                 },
-                "message": { "intent": { "category": { "id": "Standard Delivery" }, "provider": { "time": { "days": "1,2,3,4,5,6,7", "range": { "end": "2359", "start": "0000" } } }, "fulfillment": { "type": "Prepaid", "start": { "location": { "gps": "18.9346525,72.8363315", "address": { "area_code": "400001" } } }, "end": { "location": { "gps": "18.93267,72.8314770000001", "address": { "area_code": "400001" } } } }, "@ondc/org/payload_details": { "weight": { "unit": "Kilogram", "value": 10 }, "category": "Grocery", "value": { "currency": "INR", "value": "450.11" } } } }
+                "message": { "intent": { "category": { "id": "Standard Delivery" }, "provider": { "time": { "days": "1,2,3,4,5,6,7", "range": { "end": "2359", "start": "0000" } } }, "fulfillment": { "type": "Prepaid", "start": { "location": storeLocationEnd }, "end": payload.message.order.fulfillments[0].end }, "@ondc/org/payload_details": { "weight": { "unit": "Kilogram", "value": 10 }, "category": "Grocery", "value": { "currency": "INR", "value": `${totalProductValue}` } } } }
             }
 
             logger.log('info', `[Ondc Service] search logistics payload : param :`, payload);
@@ -311,7 +373,6 @@ class OndcService {
         try {
             // const {criteria = {}, payment = {}} = req || {};
             logger.log('info', `[Ondc Service] init logistics payload : param :`, payload.message.order);
-
             const selectRequest = await SelectRequest.findOne({
                 where: {
                     transactionId: payload.context.transaction_id,
@@ -322,24 +383,23 @@ class OndcService {
                 ]
             })
 
-            //          logger.log('info', `[Ondc Service] old select request :`,selectRequest);
+            //  logger.log('info', `[Ondc Service] old select request :`,selectRequest);
 
             let org = await productService.getOrgForOndc(payload.message.order.provider.id);
-
-            const logistics = selectRequest?.selectedLogistics ?? ''; //TODO empty for now
+            const logistics = selectRequest.selectedLogistics;
 
             let storeLocationEnd = {}
             if (org.providerDetail.storeDetails) {
                 storeLocationEnd = {
                     location: {
-                        gps: `${org.providerDetail.storeDetails.location.lat},${org.providerDetail.storeDetails.location.long}`,
+                        gps: `${org.providerDetail.storeDetails.latitude},${org.providerDetail.storeDetails.longitude}`,
                         address: {
-                            area_code: org.providerDetail.storeDetails.address.area_code,
+                            area_code: org.providerDetail.storeDetails.pincode,
                             name: org.providerDetail.name,
                             building: org.providerDetail.storeDetails?.building,
                             locality: org.providerDetail.storeDetails?.locality,
                             city: org.providerDetail.storeDetails.city,
-                            state: org.providerDetail.storeDetails.address.state,
+                            state: org.providerDetail.storeDetails.state,
                             country: org.providerDetail.storeDetails.country
                         }
                     },
@@ -359,9 +419,8 @@ class OndcService {
             const contextTimeStamp = new Date()
 
 
-            // let deliveryType = logistics.message.catalog["bpp/providers"][0].items.find((element)=>{return element.category_id === config.get("sellerConfig").LOGISTICS_DELIVERY_TYPE}); TODO commented for now for logistic
-            let deliveryType = payload.message.order.items
-
+            let deliveryType = logistics.message.catalog["bpp/providers"][0].items.find((element) => { return element.category_id === config.get("sellerConfig").LOGISTICS_DELIVERY_TYPE });
+            // let deliveryType = payload.message.order.items
             const initRequest = {
                 "context": {
                     "domain": "nic2004:60232",
@@ -369,30 +428,27 @@ class OndcService {
                     "city": "std:080", //TODO: take city from retail context
                     "action": "init",
                     "core_version": "1.1.0",
-                    "bap_id": BPP_ID,
-                    "bap_uri": BPP_URI,
-                    "bpp_id": logistics?.context?.bpp_id ?? 'DF1233', //STORED OBJECT TODO static for now
-                    "bpp_uri": logistics?.context?.bpp_uri ?? 'TH5643', //STORED OBJECT TODO static for now
-                    "transaction_id": logistics?.context?.transaction_id ?? 'TH5664', //TODO static for now
+                    "bap_id": config.get("sellerConfig").BPP_ID,
+                    "bap_uri": config.get("sellerConfig").BPP_URI,
+                    "bpp_id": logistics.context.bpp_id, //STORED OBJECT
+                    "bpp_uri": logistics.context.bpp_uri, //STORED OBJECT
+                    "transaction_id": logistics.context.transaction_id,
                     "message_id": logisticsMessageId,
                     "timestamp": contextTimeStamp,
                     "ttl": "PT30S"
                 },
                 "message": {
                     "order": {
-                        "id": "O1",
-                        "state": "Created",
                         "provider": {
-                            "id": logistics?.message?.catalog["bpp/providers"][0]?.id ?? "123", //TODO static for now
-                            "locations":
-                                [
-                                    {
-                                        "id": "L1"
-                                    }
-                                ]
+                            "id": logistics.message.catalog["bpp/providers"][0].id
                         },
                         "items": [deliveryType],
-                        "fulfillments": payload.message.order.fulfillments,
+                        "fulfillments": [{
+                            "id": logistics.message.catalog["bpp/fulfillments"][0].id,
+                            "type": logistics.message.catalog["bpp/fulfillments"][0].type,
+                            "start": storeLocationEnd,
+                            "end": order.fulfillments[0].end
+                        }],
                         "billing": { //TODO: discuss whos details should go here buyer or seller
                             "name": order.billing.name,
                             "address": {
@@ -404,7 +460,7 @@ class OndcService {
                                 "country": order.billing.address.country,
                                 "area_code": order.billing.address.area_code
                             },
-                            "tax_number": order?.billing?.tax_number ?? "27ACTPC1936E2ZN", //FIXME: take GSTN no
+                            "tax_number": org.providerDetail.GSTN, //FIXME: take GSTN no
                             "phone": org.providerDetail.storeDetails.mobile, //FIXME: take provider details
                             "email": org.providerDetail.storeDetails.email, //FIXME: take provider details
                             "created_at": contextTimeStamp,
@@ -447,20 +503,17 @@ class OndcService {
 
 
     async postInitRequest(searchRequest, logisticsMessageId, selectMessageId) {
-
         try {
             //1. post http to protocol/logistics/v1/search
-
             try {
                 let headers = {};
                 let httpRequest = new HttpRequest(
                     config.get("sellerConfig").BPP_URI,
-                    `/protocol/v1/on_init`,
+                    `/protocol/logistics/v1/init`,
                     'POST',
                     searchRequest,
                     headers
                 );
-
 
                 await httpRequest.send();
             } catch (e) {
@@ -492,7 +545,6 @@ class OndcService {
             //2. if data present then build select response
             logger.log('info', `[Ondc Service] build init request - get logistics response :`, logisticsResponse);
             let selectResponse = await productService.productInit(logisticsResponse)
-
             //3. post to protocol layer
             await this.postInitResponse(selectResponse);
 
@@ -560,19 +612,18 @@ class OndcService {
 
             let org = await productService.getOrgForOndc(payload.message.order.provider.id);
 
-            console.log("org details ---", org)
             let storeLocationEnd = {}
             if (org.providerDetail.storeDetails) {
                 storeLocationEnd = {
                     location: {
-                        gps: `${org.providerDetail.storeDetails.location.lat},${org.providerDetail.storeDetails.location.long}`,
+                        gps: `${org.providerDetail.storeDetails.latitude},${org.providerDetail.storeDetails.longitude}`,
                         address: {
-                            area_code: org.providerDetail.storeDetails.address.area_code,
+                            area_code: org.providerDetail.storeDetails.pincode,
                             name: org.providerDetail.name,
                             building: org.providerDetail.storeDetails?.building,
                             locality: org.providerDetail.storeDetails?.locality,
                             city: org.providerDetail.storeDetails.city,
-                            state: org.providerDetail.storeDetails.address.state,
+                            state: org.providerDetail.storeDetails.state,
                             country: org.providerDetail.storeDetails.country
                         }
                     },
@@ -599,16 +650,15 @@ class OndcService {
             let itemDetails = []
             for (const items of payload.message.order.items) {
                 let item = await productService.getForOndc(items.id)
-
                 let details = {
                     "descriptor": {
-                        "name": item.productName
+                        "name": item.commonDetails.productName
                     },
                     "price": {
                         "currency": "INR",
-                        "value": "" + item.MRP
+                        "value": "" + item.commonDetails.MRP
                     },
-                    "category_id": item.productCategory,
+                    "category_id": item.commonDetails.productCategory,
                     "quantity": {
                         "count": items.quantity.count,
                         "measure": { //TODO: hard coded
@@ -621,8 +671,8 @@ class OndcService {
             }
 
 
-            // let deliveryType = selectRequest.selectedLogistics.message.catalog['bpp/providers'][0].items.find((element)=>{return element.category_id === config.get("sellerConfig").LOGISTICS_DELIVERY_TYPE});// let deliveryType = logistics.message.catalog["bpp/providers"][0].items.find((element)=>{return element.category_id === config.get("sellerConfig").LOGISTICS_DELIVERY_TYPE}); TODO commented for now for logistic
-            let deliveryType = payload.message.order.items //TODO commented above for now
+            let deliveryType = selectRequest.selectedLogistics.message.catalog['bpp/providers'][0].items.find((element) => { return element.category_id === config.get("sellerConfig").LOGISTICS_DELIVERY_TYPE });// let deliveryType = logistics.message.catalog["bpp/providers"][0].items.find((element)=>{return element.category_id === config.get("sellerConfig").LOGISTICS_DELIVERY_TYPE}); TODO commented for now for logistic
+            // let deliveryType = payload.message.order.items //TODO commented above for now
             const contextTimestamp = new Date()
             const confirmRequest = {
                 "context": {
@@ -648,12 +698,12 @@ class OndcService {
                                     name: org.providerDetail.name
                                 },
                                 "address": {
-                                    area_code: org.providerDetail.storeDetails.address.area_code,
+                                    area_code: org.providerDetail.storeDetails.pincode,
                                     name: org.providerDetail.name,
                                     building: org.providerDetail.storeDetails?.building,
                                     locality: org.providerDetail.storeDetails?.locality,
                                     city: org.providerDetail.storeDetails.city,
-                                    state: org.providerDetail.storeDetails.address.state,
+                                    state: org.providerDetail.storeDetails.state,
                                     country: org.providerDetail.storeDetails.country
                                 }
                             },
@@ -685,7 +735,7 @@ class OndcService {
                         },
                         "billing": {
                             ...payload.message.order.billing,
-                            "tax_number": org.providerDetail.GSTN.GSTN ?? "27ACTPC1936E2ZN", //FIXME: take GSTN no
+                            "tax_number": org.providerDetail.GSTN, //FIXME: take GSTN no
                             "phone": org.providerDetail.storeDetails.mobile, //FIXME: take provider details
                             "email": org.providerDetail.storeDetails.email, //FIXME: take provider details
                             "created_at": contextTimestamp,
@@ -698,7 +748,6 @@ class OndcService {
                 }
 
             }
-            logger.info('info', `[Ondc Service] post init request :confirmRequestconfirmRequestconfirmRequestconfirmRequestconfirmRequestconfirmRequest`, confirmRequest);
             this.postConfirmRequest(confirmRequest, logisticsMessageId, selectMessageId)
             //}, 10000); //TODO move to config
 
@@ -1003,9 +1052,8 @@ class OndcService {
                     retailOrderId: payload.message.order_id
                 }
             })
-
             const logistics = confirmRequest.selectedLogistics;
-
+            const orderId = confirmRequest.orderId;
             //const order = payload.message.order;
             const selectMessageId = payload.context.message_id;
             const logisticsMessageId = uuidv4(); //TODO: in future this is going to be array as packaging for single select request can be more than one
@@ -1027,14 +1075,14 @@ class OndcService {
                 },
                 "message":
                 {
-                    "order_id": confirmRequest.orderId,
+                    "order_id": orderId,
                 }
 
             }
 
 
             // setTimeout(this.getLogistics(logisticsMessageId,selectMessageId),3000)
-            //setTimeout(() => {
+            // setTimeout(() => {
             this.postStatusRequest(statusRequest, logisticsMessageId, selectMessageId, unsoliciated, payload)
             //}, 5000); //TODO move to config
 
@@ -1294,8 +1342,6 @@ class OndcService {
                     retailOrderId: payload.data.orderId
                 }
             })
-
-            console.log("")
 
             const logistics = confirmRequest.selectedLogistics;
 

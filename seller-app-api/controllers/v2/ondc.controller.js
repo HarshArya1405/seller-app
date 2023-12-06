@@ -48,16 +48,16 @@ class OndcController {
     }
     orderConfirm(req, res, next) {
         // const currentUserAccessToken = res.get('currentUserAccessToken');
-        // ondcService.orderConfirm(req.body,req).then(data => {
-        //     res.json(data);
-        // }).catch((err) => {
-        //     next(err);
-        // });
-        ondcService.orderConfirmWithOutLogistic(req.body,req).then(data => {
+        ondcService.orderConfirm(req.body,req).then(data => {
             res.json(data);
         }).catch((err) => {
             next(err);
         });
+        // ondcService.orderConfirmWithOutLogistic(req.body,req).then(data => {
+        //     res.json(data);
+        // }).catch((err) => {
+        //     next(err);
+        // });
     }
     orderTrack(req, res, next) {
         // const currentUserAccessToken = res.get('currentUserAccessToken');
@@ -77,17 +77,17 @@ class OndcController {
     }
     orderStatus(req, res, next) {
         // const currentUserAccessToken = res.get('currentUserAccessToken');
-        // ondcService.orderStatus(req.body,req).then(data => {
-        //     res.json(data);
-        // }).catch((err) => {
-        //     next(err);
-        // });
-
-        ondcService.orderStatusWithoutLogistics(req.body,req).then(data => {
+        ondcService.orderStatus(req.body,req).then(data => {
             res.json(data);
         }).catch((err) => {
             next(err);
         });
+
+        // ondcService.orderStatusWithoutLogistics(req.body,req).then(data => {
+        //     res.json(data);
+        // }).catch((err) => {
+        //     next(err);
+        // });
     }
 
     orderStatusUpdate(req, res, next) {

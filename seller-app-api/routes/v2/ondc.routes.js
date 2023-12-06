@@ -16,11 +16,11 @@ router.post('/client/select',
 // router.post('/client/select',
 //     ondcController.orderSelectWithoutlogistic);
 
-// router.post('/client/Init',
-//     ondcController.orderInit);
-
 router.post('/client/Init',
-    ondcController.orderInitWithoutlogistic);
+    ondcController.orderInit);
+
+// router.post('/client/Init',
+//     ondcController.orderInitWithoutlogistic);
 
 router.post('/client/confirm',
     ondcController.orderConfirm);
