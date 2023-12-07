@@ -1,4 +1,4 @@
-import {OndcService} from '../../services/v2';
+import OndcService from '../../services/v2/ondc.service';
 
 const ondcService = new OndcService();
 

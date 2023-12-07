@@ -2030,9 +2030,6 @@ class ProductService {
 
         let result = await httpRequest.send();
 
-
-
-
         //update fulfillments
 
         const productData = await getConfirm({
@@ -2044,7 +2041,7 @@ class ProductService {
         });
 
         let savedLogistics = new ConfirmRequest()
-        
+
         savedLogistics.transactionId = confirmRequest.context.transaction_id
         savedLogistics.packaging = "0"//TODO: select packaging option
         savedLogistics.providerId = confirmRequest.message.order.provider.id//TODO: select from items provider id
@@ -2054,7 +2051,8 @@ class ProductService {
         savedLogistics.confirmRequest = requestQuery.retail_confirm[0]
         savedLogistics.onConfirmRequest = productData
         savedLogistics.logisticsTransactionId = logisticData?.context?.transaction_id
-        
+        console.log({confirmlogidataa : savedLogistics })
+
         await savedLogistics.save();
 
         return productData
@@ -2164,10 +2162,10 @@ class ProductService {
                 } else {
                     resultData = await this.getForOndc(item.id)
                     if (Object.keys(resultData).length > 0) {
-                    
+
                         if (resultData?.commonDetails.maxAllowedQty < item.quantity.count) {
                             isQtyAvailable = false
-                    }
+                        }
                         itemData = resultData;
                         if (resultData?.commonDetails) {
                             let price = resultData?.commonDetails?.MRP * item.quantity.count
@@ -2354,15 +2352,15 @@ class ProductService {
             //TODO: uncomment to allow lookup for other providers
             if (Object.keys(logisticProvider).length === 0) {
                 for (let logisticData1 of logisticData) { //check if any logistics available who is serviceable
-                    if (logisticData1.message && !logisticData1.error) {
+                    if (logisticData1.message && !logisticData1.error && logisticData1.message.catalog["bpp/providers"].length > 0) {
                         logisticProvider = logisticData1
                     }
                 }
             }
 
-            // if (Object.keys(logisticProvider).length === 0) {
-            //     isServiceable = false
-            // }
+            if (Object.keys(logisticProvider).length === 0) {
+                isServiceable = false
+            }
             let deliveryType = ''
             for (let item of items) {
                 let tags = item.tags;

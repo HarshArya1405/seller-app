@@ -5,7 +5,9 @@ import { InitRequest, ConfirmRequest, SelectRequest } from '../../models'
 import { getProductUpdate } from "../../utils/v2/schemaMapping";
 import { domainNameSpace } from "../../utils/constants";
 import ProductService from './product.service'
+import LogisticsService from './logistics.service'
 const productService = new ProductService();
+const logisticsService = new LogisticsService();
 import logger from '../../lib/logger'
 const BPP_ID = config.get("sellerConfig").BPP_ID
 const BPP_URI = config.get("sellerConfig").BPP_URI
@@ -189,30 +191,9 @@ class OndcService {
     async postSelectRequest(searchRequest, logisticsMessageId, selectMessageId) {
 
         try {
-            //1. post http to protocol/logistics/v1/search
-
-            try {
-
-                console.log("------->>>", searchRequest, selectMessageId, logisticsMessageId)
-                console.log("------result ->>>", config.get("sellerConfig").BPP_URI)
-                let headers = {};
-                let httpRequest = new HttpRequest(
-                    config.get("sellerConfig").BPP_URI,
-                    `/protocol/logistics/v1/search`,
-                    'POST',
-                    searchRequest,
-                    headers
-                );
-
-
-                let result = await httpRequest.send();
-                console.log("------result ->>>", result)
-
-            } catch (e) {
-                logger.error('error', `[Logistics Service] post http select response : `, e);
-                return e
-            }
-
+   
+            await logisticsService.postSelectRequest(searchRequest, selectMessageId, logisticsMessageId)
+         
             //2. wait async to fetch logistics responses
 
             //async post request
@@ -231,7 +212,7 @@ class OndcService {
         try {
             logger.log('info', `[Ondc Service] search logistics payload - build select request : param :`, { logisticsMessageId, selectMessageId });
             //1. look up for logistics
-            let logisticsResponse = await this.getLogistics(logisticsMessageId, selectMessageId, 'select')
+            let logisticsResponse = await logisticsService.getLogistics(logisticsMessageId, selectMessageId, 'select')
             //2. if data present then build select response
             let selectResponse = await productService.productSelect(logisticsResponse)
             //3. post to protocol layer
@@ -270,53 +251,7 @@ class OndcService {
     }
 
     //get all logistics response from protocol layer
-    async getLogistics(logisticsMessageId, retailMessageId, type) {
-        try {
-
-            logger.log('info', `[Ondc Service] get logistics : param :`, { logisticsMessageId, retailMessageId, type });
-
-            let headers = {};
-            let query = ''
-            if (type === 'select') {
-                query = `logisticsOnSearch=${logisticsMessageId}&select=${retailMessageId}`
-            } else if (type === 'init') {
-                query = `logisticsOnInit=${logisticsMessageId}&init=${retailMessageId}`
-            } else if (type === 'confirm') {
-                query = `logisticsOnConfirm=${logisticsMessageId}&confirm=${retailMessageId}`
-            } else if (type === 'track') {
-                query = `logisticsOnTrack=${logisticsMessageId}&track=${retailMessageId}`
-            } else if (type === 'status') {
-                query = `logisticsOnStatus=${logisticsMessageId}&status=${retailMessageId}`
-            } else if (type === 'update') {
-                query = `logisticsOnUpdate=${logisticsMessageId}&update=${retailMessageId}`
-            } else if (type === 'cancel') {
-                query = `logisticsOnCancel=${logisticsMessageId}&cancel=${retailMessageId}`
-            } else if (type === 'support') {
-                query = `logisticsOnSupport=${logisticsMessageId}&support=${retailMessageId}`
-            }
-            let httpRequest = new HttpRequest(
-                config.get("sellerConfig").BPP_URI,
-                `/protocol/v1/response/network-request-payloads?${query}`,
-                'get',
-                {},
-                headers
-            );
-
-            console.log(httpRequest)
-
-            let result = await httpRequest.send();
-
-            logger.log('info', `[Ondc Service] get logistics : response :`, result.data);
-
-            return result.data
-
-        } catch (e) {
-            logger.error('error', `[Ondc Service] get logistics : response :`, e);
-            return e
-        }
-
-    }
-
+    
     //return select response to protocol layer
     async postSelectResponse(selectResponse) {
         try {
@@ -505,21 +440,7 @@ class OndcService {
     async postInitRequest(searchRequest, logisticsMessageId, selectMessageId) {
         try {
             //1. post http to protocol/logistics/v1/search
-            try {
-                let headers = {};
-                let httpRequest = new HttpRequest(
-                    config.get("sellerConfig").BPP_URI,
-                    `/protocol/logistics/v1/init`,
-                    'POST',
-                    searchRequest,
-                    headers
-                );
-
-                await httpRequest.send();
-            } catch (e) {
-                logger.error('error', `[Ondc Service] post http select response : `, e);
-                return e
-            }
+            await logisticsService.postInitRequest(searchRequest, logisticsMessageId, selectMessageId)
 
             //2. wait async to fetch logistics responses
 
@@ -540,7 +461,7 @@ class OndcService {
             logger.log('info', `[Ondc Service] build init request :`, { logisticsMessageId, initMessageId });
 
             //1. look up for logistics
-            let logisticsResponse = await this.getLogistics(logisticsMessageId, initMessageId, 'init')
+            let logisticsResponse = await logisticsService.getLogistics(logisticsMessageId, initMessageId, 'init')
 
             //2. if data present then build select response
             logger.log('info', `[Ondc Service] build init request - get logistics response :`, logisticsResponse);
@@ -811,24 +732,7 @@ class OndcService {
         try {
             //1. post http to protocol/logistics/v1/search
 
-            try {
-
-                let headers = {};
-                let httpRequest = new HttpRequest(
-                    config.get("sellerConfig").BPP_URI,
-                    `/protocol/logistics/v1/confirm`,
-                    'POST',
-                    searchRequest,
-                    headers
-                );
-
-                await httpRequest.send();
-
-            } catch (e) {
-                logger.error('error', `[Ondc Service] post http select response : `, e);
-                return e
-            }
-
+            await logisticsService.postConfirmRequest(searchRequest, logisticsMessageId, selectMessageId)
             //2. wait async to fetch logistics responses
 
             //async post request
@@ -847,7 +751,7 @@ class OndcService {
 
         try {
             //1. look up for logistics
-            let logisticsResponse = await this.getLogistics(logisticsMessageId, initMessageId, 'confirm')
+            let logisticsResponse = await logisticsService.getLogistics(logisticsMessageId, initMessageId, 'confirm')
             //2. if data present then build select response
 
             let selectResponse = await productService.productConfirm(logisticsResponse)
@@ -949,7 +853,7 @@ class OndcService {
             }
 
 
-            // setTimeout(this.getLogistics(logisticsMessageId,selectMessageId),3000)
+            // setTimeout(logisticsService.getLogistics(logisticsMessageId,selectMessageId),3000)
             //setTimeout(() => {
             this.postTrackRequest(trackRequest, logisticsMessageId, selectMessageId)
             // }, 5000); //TODO move to config
@@ -1002,7 +906,7 @@ class OndcService {
 
         try {
             //1. look up for logistics
-            let logisticsResponse = await this.getLogistics(logisticsMessageId, initMessageId, 'track')
+            let logisticsResponse = await logisticsService.getLogistics(logisticsMessageId, initMessageId, 'track')
             //2. if data present then build select response
 
             let selectResponse = await productService.productTrack(logisticsResponse)
@@ -1081,7 +985,7 @@ class OndcService {
             }
 
 
-            // setTimeout(this.getLogistics(logisticsMessageId,selectMessageId),3000)
+            // setTimeout(logisticsService.getLogistics(logisticsMessageId,selectMessageId),3000)
             // setTimeout(() => {
             this.postStatusRequest(statusRequest, logisticsMessageId, selectMessageId, unsoliciated, payload)
             //}, 5000); //TODO move to config
@@ -1100,7 +1004,7 @@ class OndcService {
             //const order = payload.message.order;
             const selectMessageId = payload.context.message_id;
 
-            // setTimeout(this.getLogistics(logisticsMessageId,selectMessageId),3000)
+            // setTimeout(logisticsService.getLogistics(logisticsMessageId,selectMessageId),3000)
             //setTimeout(() => {
             let statusResponse = await productService.productStatusWithoutLogistics(payload)
 
@@ -1185,7 +1089,7 @@ class OndcService {
 
 
             payload = { message: { order: order }, context: confirmRequest.confirmRequest.context }
-            // setTimeout(this.getLogistics(logisticsMessageId,selectMessageId),3000)
+            // setTimeout(logisticsService.getLogistics(logisticsMessageId,selectMessageId),3000)
             //setTimeout(() => {
             this.postUpdateOrderStatusRequest(payload, trackRequest, logisticsMessageId, selectMessageId)
             //}, 5000); //TODO move to config
@@ -1238,7 +1142,7 @@ class OndcService {
             payload = { message: { order: order }, context: confirmRequest.confirmRequest.context }
 
             console.log("payload-------------->", payload);
-            // setTimeout(this.getLogistics(logisticsMessageId,selectMessageId),3000)
+            // setTimeout(logisticsService.getLogistics(logisticsMessageId,selectMessageId),3000)
             //setTimeout(() => {
             this.postSellerCancelRequest(payload, trackRequest, logisticsMessageId, selectMessageId)
             //}, 5000); //TODO move to config
@@ -1322,7 +1226,7 @@ class OndcService {
 
 
             payload = { message: { order: order }, context: confirmRequest.confirmRequest.context }
-            // setTimeout(this.getLogistics(logisticsMessageId,selectMessageId),3000)
+            // setTimeout(logisticsService.getLogistics(logisticsMessageId,selectMessageId),3000)
             //setTimeout(() => {
             this.postUpdateRequest(payload, trackRequest, logisticsMessageId, selectMessageId)
             //}, 5000); //TODO move to config
@@ -1405,7 +1309,7 @@ class OndcService {
 
 
             payload = { message: { order: order }, context: { ...confirmRequest.confirmRequest.context, message_id: uuidv4() } };
-            // setTimeout(this.getLogistics(logisticsMessageId,selectMessageId),3000)
+            // setTimeout(logisticsService.getLogistics(logisticsMessageId,selectMessageId),3000)
             //setTimeout(() => {
             this.postUpdateItemRequest(payload, trackRequest, logisticsMessageId, selectMessageId);
             //}, 5000); //TODO move to config
@@ -1434,26 +1338,7 @@ class OndcService {
 
         try {
             //1. post http to protocol/logistics/v1/search
-
-            try {
-
-                let headers = {};
-                let httpRequest = new HttpRequest(
-                    config.get("sellerConfig").BPP_URI,
-                    `/protocol/logistics/v1/status`,
-                    'POST',
-                    statusRequest,
-                    headers
-                );
-
-
-                await httpRequest.send();
-
-            } catch (e) {
-                logger.error('error', `[Ondc Service] post http select response : `, e);
-                return e
-            }
-
+            logisticsService.postStatusRequest(statusRequest, logisticsMessageId, selectMessageId, unsoliciated, payload);
             //2. wait async to fetch logistics responses
 
             //async post request
@@ -1675,7 +1560,7 @@ class OndcService {
             }
 
 
-            // setTimeout(this.getLogistics(logisticsMessageId,selectMessageId),3000)
+            // setTimeout(logisticsService.getLogistics(logisticsMessageId,selectMessageId),3000)
             //setTimeout(() => {
             this.postCancelRequest(trackRequest, logisticsMessageId, selectMessageId)
             //}, 5000); //TODO move to config
@@ -1762,7 +1647,8 @@ class OndcService {
 
         try {
             //1. look up for logistics
-            let logisticsResponse = await this.getLogistics(logisticsMessageId, initMessageId, 'status')
+            let logisticsResponse = await logisticsService.getLogistics(logisticsMessageId, initMessageId, 'status')
+
             //2. if data present then build select response
 
             console.log("statusRequest-----build>", statusRequest);
@@ -1780,7 +1666,8 @@ class OndcService {
 
         try {
             //1. look up for logistics
-            let logisticsResponse = await this.getLogistics(logisticsMessageId, initMessageId, 'update')
+            let logisticsResponse = await logisticsService.getLogistics(logisticsMessageId, initMessageId, 'update')
+
             //2. if data present then build select response
 
             let statusResponse = await productService.productUpdate(logisticsResponse)
@@ -1798,7 +1685,8 @@ class OndcService {
 
         try {
             //1. look up for logistics
-            let logisticsResponse = await this.getLogistics(logisticsMessageId, initMessageId, 'update')
+            let logisticsResponse = await logisticsService.getLogistics(logisticsMessageId, initMessageId, 'update')
+
             //2. if data present then build select response
 
             let statusResponse = await productService.productUpdateItem(statusRequest, logisticsResponse)
@@ -1852,7 +1740,7 @@ class OndcService {
 
         try {
             //1. look up for logistics
-            let logisticsResponse = await this.getLogistics(logisticsMessageId, initMessageId, 'update')
+            let logisticsResponse = await logisticsService.getLogistics(logisticsMessageId, initMessageId, 'update')
             //2. if data present then build select response
 
             let statusResponse = await productService.productOrderStatus(logisticsResponse, statusRequest)
@@ -1871,7 +1759,7 @@ class OndcService {
 
         try {
             //1. look up for logistics
-            let logisticsResponse = await this.getLogistics(logisticsMessageId, initMessageId, 'cancel')
+            let logisticsResponse = await logisticsService.getLogistics(logisticsMessageId, initMessageId, 'cancel')
             //2. if data present then build select response
 
             let statusResponse = await productService.productCancel(logisticsResponse)
@@ -1889,7 +1777,7 @@ class OndcService {
 
         try {
             //1. look up for logistics
-            let logisticsResponse = await this.getLogistics(logisticsMessageId, initMessageId, 'cancel')
+            let logisticsResponse = await logisticsService.getLogistics(logisticsMessageId, initMessageId, 'cancel')
             //2. if data present then build select response
 
             let statusResponse = await productService.productSellerCancel(cancelData, logisticsResponse)
@@ -2069,7 +1957,7 @@ class OndcService {
             }
 
 
-            // setTimeout(this.getLogistics(logisticsMessageId,selectMessageId),3000)
+            // setTimeout(logisticsService.getLogistics(logisticsMessageId,selectMessageId),3000)
             //setTimeout(() => {
             this.postSupportRequest(trackRequest, logisticsMessageId, selectMessageId)
             //}, 5000); //TODO move to config
@@ -2122,7 +2010,7 @@ class OndcService {
 
         try {
             //1. look up for logistics
-            let logisticsResponse = await this.getLogistics(logisticsMessageId, initMessageId, 'support')
+            let logisticsResponse = await logisticsService.getLogistics(logisticsMessageId, initMessageId, 'support')
             //2. if data present then build select response
 
             let selectResponse = await productService.productSupport(logisticsResponse)
