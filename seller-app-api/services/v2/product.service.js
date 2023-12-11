@@ -1918,18 +1918,12 @@ class ProductService {
         let confirmRequest = JSON.parse(JSON.stringify(requestQuery.retail_confirm[0]))//select first select request
         const items = confirmRequest.message.order.items
         const logisticData = requestQuery.logistics_on_confirm[0]
-
-        //let qouteItems = []
-        // let detailedQoute = []
-        let totalPrice = 0
-
         let headers = {};
 
         let confirmData = confirmRequest.message.order
         const orderId = confirmData.id;
 
-        let itemList = []
-        let qouteItems = confirmRequest.message.order.items.map((item) => {
+        let qouteItems = items.map((item) => {
             // item.tags={status:logisticData.message.order.fulfillments[0].state?.descriptor?.code};
             item.fulfillment_id = logisticData?.message?.order?.fulfillments[0]?.id
             delete item.state
@@ -1955,8 +1949,6 @@ class ProductService {
 
         confirmData.quote.breakup = updatedBreakup;
         confirmRequest.message.order.quote.breakup = updatedBreakup;
-        console.log("qouteItems-->>>>--", qouteItems)
-        console.log("qouteItems-->>>>breakup--", breakup)
         //confirmRequest.message.order.items = qouteItems;
 
         let org = await this.getOrgForOndc(confirmData.provider.id);
@@ -2051,7 +2043,6 @@ class ProductService {
         savedLogistics.confirmRequest = requestQuery.retail_confirm[0]
         savedLogistics.onConfirmRequest = productData
         savedLogistics.logisticsTransactionId = logisticData?.context?.transaction_id
-        console.log({confirmlogidataa : savedLogistics })
 
         await savedLogistics.save();
 
@@ -2314,7 +2305,7 @@ class ProductService {
 
             let savedLogistics = new SelectRequest();
 
-            const selectData = JSON.parse(JSON.stringify(requestQuery.retail_select[0]));//select first select request
+            const selectData = JSON.parse(JSON.stringify(requestQuery.retail_select[0])); //select first select request
 
             const items = selectData.message.order.items;
             let logisticData = requestQuery.logistics_on_search;
@@ -2623,11 +2614,10 @@ class ProductService {
                 }
 
                 fulfillments = [
-
                     {
-                        "id": deliveryType.fulfillment_id, //TODO: check what needs to go here, ideally it should be item id
+                        "id": deliveryType.fulfillment_id,
                         "@ondc/org/provider_name": logisticProvider.message.catalog["bpp/descriptor"].name,
-                        "tracking": true, //Hard coded
+                        "tracking": logisticProvider.message.catalog["bpp/fulfillments"][0].tracking,
                         "@ondc/org/category": deliveryType.category_id,
                         "@ondc/org/TAT": duration,
                         "state":
@@ -2639,8 +2629,6 @@ class ProductService {
                         }
                     }]
             } else {
-
-                //get org name from provider id
 
                 deliveryCharges = {
                     "title": "Delivery charges",
@@ -2654,7 +2642,7 @@ class ProductService {
                 fulfillments = [
                     {
                         "id": '1',
-                        "@ondc/org/provider_name": org.providerDetail.name,//TODO: merchant name
+                        "@ondc/org/provider_name": org.providerDetail.name,
                         "tracking": false, //Hard coded
                         "@ondc/org/category": config.get("sellerConfig").LOGISTICS_DELIVERY_TYPE,
                         "@ondc/org/TAT": "P1D",
@@ -2684,11 +2672,10 @@ class ProductService {
                 detailedQoute: detailedQoute,
                 context: selectData.context,
                 isQtyAvailable,
-                isServiceable: true,
+                isServiceable,
                 isValidItem,
                 isValidOrg
             });
-
             savedLogistics.transactionId = selectData.context.transaction_id;
             savedLogistics.logisticsTransactionId = logisticProvider?.context?.transaction_id;
             savedLogistics.packaging = "default"//TODO: select packaging option;
@@ -2697,9 +2684,7 @@ class ProductService {
             savedLogistics.selectRequest = requestQuery.retail_select[0];
             savedLogistics.onSelectResponse = productData;
             await savedLogistics.save();
-
             return productData;
-
         } catch (e) {
             console.log(e)
         }

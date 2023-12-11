@@ -36,12 +36,7 @@ class LogisticsService {
                 headers
             );
 
-            console.log(httpRequest)
-
             let result = await httpRequest.send();
-
-            logger.log('info', `[Ondc Service] get logistics : response :`, result.data);
-
             return result.data
 
         } catch (e) {

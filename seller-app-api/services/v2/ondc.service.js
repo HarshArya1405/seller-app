@@ -42,7 +42,7 @@ class OndcService {
             let itemType = ''
             let totalProductValue = 0
 
-            for (let item of payload.message.order.items) {
+            for (let item of items) {
                 let tags = item.tags;
                 if (tags && tags.length > 0) {
                     let tagData = tags.find((tag) => { return tag.code === 'type' })
@@ -102,18 +102,62 @@ class OndcService {
                 "context":
                 {
                     "domain": "nic2004:60232",
-                    "country": "IND",
-                    "city": "std:080",
+                    "country": payload.context.country,
+                    "city": payload.context.city,
                     "action": "search",
-                    "core_version": "1.1.0",
+                    "core_version": payload.context.core_version,
                     "bap_id": config.get("sellerConfig").BPP_ID,
                     "bap_uri": config.get("sellerConfig").BPP_URI,
                     "transaction_id": payload.context.transaction_id,
                     "message_id": logisticsMessageId,
                     "timestamp": new Date(),
-                    "ttl": "PT30S"
+                    "ttl": payload.context.ttl
                 },
-                "message": { "intent": { "category": { "id": "Standard Delivery" }, "provider": { "time": { "days": "1,2,3,4,5,6,7", "range": { "end": "2359", "start": "0000" } } }, "fulfillment": { "type": "Prepaid", "start": { "location": storeLocationEnd }, "end": payload.message.order.fulfillments[0].end }, "@ondc/org/payload_details": { "weight": { "unit": "Kilogram", "value": 10 }, "category": "Grocery", "value": { "currency": "INR", "value": `${totalProductValue}` } } } }
+                "message":
+                {
+                    "intent":
+                    {
+                        "category":
+                        {
+                            "id": config.get("sellerConfig").LOGISTICS_DELIVERY_TYPE
+                        },
+                        "provider":
+                        {
+                            "time":
+                            {
+                                "days": "1,2,3,4,5,6,7",
+                                "range":
+                                {
+                                    "end": "2359",
+                                    "start": "0000"
+                                }
+                            }
+                        },
+                        "fulfillment":
+                        {
+                            "type": "Prepaid",
+                            "start":
+                            {
+                                "location": storeLocationEnd
+                            },
+                            "end": payload.message.order.fulfillments[0].end
+                        },
+                        "@ondc/org/payload_details":
+                        {
+                            "weight":
+                            {
+                                "unit": "Kilogram",
+                                "value": 10
+                            },
+                            "category": "Grocery",
+                            "value":
+                            {
+                                "currency": "INR",
+                                "value": `${totalProductValue}`
+                            }
+                        }
+                    }
+                }
             }
 
             logger.log('info', `[Ondc Service] search logistics payload : param :`, payload);
@@ -121,7 +165,6 @@ class OndcService {
             setTimeout(() => {
                 this.postSelectRequest(searchRequest, logisticsMessageId, selectMessageId)
             }, 10000);
-
             return searchRequest
         } catch (err) {
             logger.error('error', `[Ondc Service] search logistics payload - search logistics payload : param :`, err);
@@ -191,9 +234,9 @@ class OndcService {
     async postSelectRequest(searchRequest, logisticsMessageId, selectMessageId) {
 
         try {
-   
+
             await logisticsService.postSelectRequest(searchRequest, selectMessageId, logisticsMessageId)
-         
+
             //2. wait async to fetch logistics responses
 
             //async post request
@@ -251,13 +294,10 @@ class OndcService {
     }
 
     //get all logistics response from protocol layer
-    
+
     //return select response to protocol layer
     async postSelectResponse(selectResponse) {
         try {
-
-            logger.info('info', `[Ondc Service] post http select response : `, selectResponse);
-
             let headers = {};
             let httpRequest = new HttpRequest(
                 config.get("sellerConfig").BPP_URI,
@@ -268,14 +308,12 @@ class OndcService {
             );
 
             let result = await httpRequest.send();
-
             return result.data
 
         } catch (e) {
             logger.error('error', `[Ondc Service] post http select response : `, e);
             return e
         }
-
     }
 
     //return select response to protocol layer
@@ -306,7 +344,6 @@ class OndcService {
 
     async orderInit(payload = {}, req = {}) {
         try {
-            // const {criteria = {}, payment = {}} = req || {};
             logger.log('info', `[Ondc Service] init logistics payload : param :`, payload.message.order);
             const selectRequest = await SelectRequest.findOne({
                 where: {
@@ -317,8 +354,6 @@ class OndcService {
                     ['createdAt', 'DESC']
                 ]
             })
-
-            //  logger.log('info', `[Ondc Service] old select request :`,selectRequest);
 
             let org = await productService.getOrgForOndc(payload.message.order.provider.id);
             const logistics = selectRequest.selectedLogistics;
@@ -346,8 +381,6 @@ class OndcService {
                 }
             }
 
-            //logger.log('info', `[Ondc Service] old selected logistics :`,logistics);
-
             const order = payload.message.order;
             const initMessageId = payload.context.message_id;
             const logisticsMessageId = uuidv4(); //TODO: in future this is going to be array as packaging for single select request can be more than one
@@ -359,10 +392,10 @@ class OndcService {
             const initRequest = {
                 "context": {
                     "domain": "nic2004:60232",
-                    "country": "IND",
-                    "city": "std:080", //TODO: take city from retail context
+                    "country": payload.context.country,
+                    "city": payload.context.city,
                     "action": "init",
-                    "core_version": "1.1.0",
+                    "core_version": payload.context.core_version,
                     "bap_id": config.get("sellerConfig").BPP_ID,
                     "bap_uri": config.get("sellerConfig").BPP_URI,
                     "bpp_id": logistics.context.bpp_id, //STORED OBJECT
@@ -559,9 +592,6 @@ class OndcService {
                 }
             }
 
-
-            // const logisticsOrderId = uuidv4();
-
             let end = { ...order.fulfillments[0].end }
 
             end.location.address.locality = end.location.address.locality ?? end.location.address.street
@@ -599,7 +629,7 @@ class OndcService {
                 "context": {
                     "domain": "nic2004:60232",
                     "action": "confirm",
-                    "core_version": "1.1.0",
+                    "core_version": payload.context.core_version,
                     "bap_id": config.get("sellerConfig").BPP_ID,
                     "bap_uri": config.get("sellerConfig").BPP_URI,
                     "bpp_id": logistics.context.bpp_id,//STORED OBJECT
@@ -650,8 +680,8 @@ class OndcService {
                         }],
                         "quote": initRequest.selectedLogistics.message.order.quote,
                         "payment": { //TODO: hard coded
-                            "type": "ON-ORDER",
-                            "collected_by": "BAP",
+                            "type": order.payment.type,
+                            "collected_by": order.payment.collected_by,
                             "@ondc/org/settlement_details": []
                         },
                         "billing": {
@@ -662,7 +692,7 @@ class OndcService {
                             "created_at": contextTimestamp,
                             "updated_at": contextTimestamp
                         }, //TODO: pass valid GST number from seller
-                        state: "Created",
+                        state: order.state,
                         created_at: contextTimestamp,
                         updated_at: contextTimestamp
                     }
