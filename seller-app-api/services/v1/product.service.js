@@ -885,17 +885,10 @@ class ProductService {
         let confirmRequest = JSON.parse(JSON.stringify(requestQuery.retail_confirm[0]))//select first select request
         const items = confirmRequest.message.order.items
         const logisticData = requestQuery.logistics_on_confirm[0]
-
-        //let qouteItems = []
-       // let detailedQoute = []
-        let totalPrice = 0
-
         let headers = {};
 
         let confirmData = confirmRequest.message.order
-
-        let itemList = []
-        let qouteItems = confirmRequest.message.order.items.map((item)=>{
+        let qouteItems = items.map((item)=>{
             // item.tags={status:logisticData.message.order.fulfillments[0].state?.descriptor?.code};
             item.fulfillment_id = logisticData.message.order.fulfillments[0].id
             delete item.state
@@ -919,8 +912,6 @@ class ProductService {
 
         confirmData.quote.breakup = updatedBreakup;
         confirmRequest.message.order.quote.breakup = updatedBreakup;
-        console.log("qouteItems-->>>>--",qouteItems)
-        console.log("qouteItems-->>>>breakup--",breakup)
         //confirmRequest.message.order.items = qouteItems;
 
         let org= await this.getOrgForOndc(confirmData.provider.id);
@@ -968,8 +959,8 @@ class ProductService {
                         "end":endDate
                     }
             }
-        confirmRequest.message.order.fulfillments[0]["@ondc/org/provider_name"]='LoadShare Delivery' //TODO: hard coded
-        confirmRequest.message.order.payment["@ondc/org/buyer_app_finder_fee_type"]='percentage' //TODO: hard coded
+        confirmRequest.message.order.fulfillments[0]["@ondc/org/provider_name"] = 'LoadShare Delivery' //TODO: hard coded
+        confirmRequest.message.order.payment["@ondc/org/buyer_app_finder_fee_type"] = 'percentage' //TODO: hard coded
 
         let detailedQoute = confirmRequest.message.order.quote
         //confirmData["order_items"] = orderItems
@@ -986,8 +977,6 @@ class ProductService {
         }
 
         delete confirmData.id
-
-        let confirm = {}
         let httpRequest = new HttpRequest(
             serverUrl,
             `/api/v1/orders`,
@@ -996,10 +985,7 @@ class ProductService {
             headers
         );
 
-        let result = await httpRequest.send();
-
-
-
+       await httpRequest.send();
 
         //update fulfillments
 
@@ -1014,8 +1000,8 @@ class ProductService {
         let savedLogistics = new ConfirmRequest()
 
         savedLogistics.transactionId = confirmRequest.context.transaction_id
-        savedLogistics.packaging = "0"//TODO: select packaging option
-        savedLogistics.providerId = confirmRequest.message.order.provider.id//TODO: select from items provider id
+        savedLogistics.packaging = "0" //TODO: select packaging option
+        savedLogistics.providerId = confirmRequest.message.order.provider.id //TODO: select from items provider id
         savedLogistics.retailOrderId = confirmData.order_id
         savedLogistics.orderId = logisticData.message.order.id
         savedLogistics.selectedLogistics = logisticData
@@ -1024,7 +1010,6 @@ class ProductService {
         savedLogistics.logisticsTransactionId = logisticData.context.transaction_id
 
         await savedLogistics.save();
-
         return productData
     }
 
