@@ -308,125 +308,119 @@ class OndcService {
         try {
             // const {criteria = {}, payment = {}} = req || {};
             logger.log('info', `[Ondc Service] init logistics payload : param :`, payload.message.order);
-            const selectRequest = await SelectRequest.findOne({
-                where: {
-                    transactionId: payload.context.transaction_id,
-                    providerId: payload.message.order.provider.id
-                },
-                order: [
-                    ['createdAt', 'DESC']
-                ]
-            })
+      
+            let logisticsStatus = true;
+            let responseForSelect = {};
 
-            //  logger.log('info', `[Ondc Service] old select request :`,selectRequest);
-
-            let org = await productService.getOrgForOndc(payload.message.order.provider.id);
-            const logistics = selectRequest.selectedLogistics;
-
-            let storeLocationEnd = {}
-            if (org.providerDetail.storeDetails) {
-                storeLocationEnd = {
-                    location: {
-                        gps: `${org.providerDetail.storeDetails.latitude},${org.providerDetail.storeDetails.longitude}`,
-                        address: {
-                            area_code: org.providerDetail.storeDetails.pincode,
-                            name: org.providerDetail.name,
-                            building: org.providerDetail.storeDetails?.building,
-                            locality: org.providerDetail.storeDetails?.locality,
-                            city: org.providerDetail.storeDetails.city,
-                            state: org.providerDetail.storeDetails.state,
-                            country: org.providerDetail.storeDetails.country
-                        }
+            if(payload.message.order.fulfillments[0].type === 'Delivery'){
+                const selectRequest = await SelectRequest.findOne({
+                    where: {
+                        transactionId: payload.context.transaction_id,
+                        providerId: payload.message.order.provider.id
                     },
-                    contact:
-                    {
-                        phone: org.providerDetail.storeDetails.mobile,
-                        email: org.providerDetail.storeDetails.email
-                    }
-                }
-            }
+                    order: [
+                        ['createdAt', 'DESC']
+                    ]
+                })
 
-            //logger.log('info', `[Ondc Service] old selected logistics :`,logistics);
+                let org = await productService.getOrgForOndc(payload.message.order.provider.id);
+                const logistics = selectRequest.selectedLogistics;
 
-            const order = payload.message.order;
-            const initMessageId = payload.context.message_id;
-            const logisticsMessageId = uuidv4(); //TODO: in future this is going to be array as packaging for single select request can be more than one
-            const contextTimeStamp = new Date()
-
-
-            let deliveryType = logistics.message.catalog["bpp/providers"][0].items.find((element) => { return element.category_id === config.get("sellerConfig").LOGISTICS_DELIVERY_TYPE });
-            // let deliveryType = payload.message.order.items
-            const initRequest = {
-                "context": {
-                    "domain": "nic2004:60232",
-                    "country": "IND",
-                    "city": "std:080", //TODO: take city from retail context
-                    "action": "init",
-                    "core_version": "1.1.0",
-                    "bap_id": config.get("sellerConfig").BPP_ID,
-                    "bap_uri": config.get("sellerConfig").BPP_URI,
-                    "bpp_id": logistics.context.bpp_id, //STORED OBJECT
-                    "bpp_uri": logistics.context.bpp_uri, //STORED OBJECT
-                    "transaction_id": logistics.context.transaction_id,
-                    "message_id": logisticsMessageId,
-                    "timestamp": contextTimeStamp,
-                    "ttl": "PT30S"
-                },
-                "message": {
-                    "order": {
-                        "provider": {
-                            "id": logistics.message.catalog["bpp/providers"][0].id
+                let storeLocationEnd = {}
+                if (org.providerDetail.storeDetails) {
+                    storeLocationEnd = {
+                        location: {
+                            gps: `${org.providerDetail.storeDetails.latitude},${org.providerDetail.storeDetails.longitude}`,
+                            address: {
+                                area_code: org.providerDetail.storeDetails.pincode,
+                                name: org.providerDetail.name,
+                                building: org.providerDetail.storeDetails?.building,
+                                locality: org.providerDetail.storeDetails?.locality,
+                                city: org.providerDetail.storeDetails.city,
+                                state: org.providerDetail.storeDetails.state,
+                                country: org.providerDetail.storeDetails.country
+                            }
                         },
-                        "items": [deliveryType],
-                        "fulfillments": [{
-                            "id": logistics.message.catalog["bpp/fulfillments"][0].id,
-                            "type": logistics.message.catalog["bpp/fulfillments"][0].type,
-                            "start": storeLocationEnd,
-                            "end": order.fulfillments[0].end
-                        }],
-                        "billing": { //TODO: discuss whos details should go here buyer or seller
-                            "name": order.billing.name,
-                            "address": {
-                                "name": order.billing.address.name,
-                                "building": order.billing.address.building,
-                                "locality": order.billing.address.locality,
-                                "city": order.billing.address.city,
-                                "state": order.billing.address.state,
-                                "country": order.billing.address.country,
-                                "area_code": order.billing.address.area_code
-                            },
-                            "tax_number": org.providerDetail.GSTN, //FIXME: take GSTN no
-                            "phone": org.providerDetail.storeDetails.mobile, //FIXME: take provider details
-                            "email": org.providerDetail.storeDetails.email, //FIXME: take provider details
-                            "created_at": contextTimeStamp,
-                            "updated_at": contextTimeStamp
-                        },
-                        "payment": {
-                            "@ondc/org/settlement_details": []//order.payment['@ondc/org/settlement_details'] //TODO: need details of prepaid transactions to be settle for seller
+                        contact:
+                        {
+                            phone: org.providerDetail.storeDetails.mobile,
+                            email: org.providerDetail.storeDetails.email
                         }
                     }
                 }
+
+                //logger.log('info', `[Ondc Service] old selected logistics :`,logistics);
+
+                const order = payload.message.order;
+                const initMessageId = payload.context.message_id;
+                const logisticsMessageId = uuidv4(); //TODO: in future this is going to be array as packaging for single select request can be more than one
+                const contextTimeStamp = new Date()
+
+
+                let deliveryType = logistics.message.catalog["bpp/providers"][0].items.find((element) => { return element.category_id === config.get("sellerConfig").LOGISTICS_DELIVERY_TYPE });
+                // let deliveryType = payload.message.order.items
+                const initRequest = {
+                    "context": {
+                        "domain": "nic2004:60232",
+                        "country": "IND",
+                        "city": "std:080", //TODO: take city from retail context
+                        "action": "init",
+                        "core_version": "1.1.0",
+                        "bap_id": config.get("sellerConfig").BPP_ID,
+                        "bap_uri": config.get("sellerConfig").BPP_URI,
+                        "bpp_id": logistics.context.bpp_id, //STORED OBJECT
+                        "bpp_uri": logistics.context.bpp_uri, //STORED OBJECT
+                        "transaction_id": logistics.context.transaction_id,
+                        "message_id": logisticsMessageId,
+                        "timestamp": contextTimeStamp,
+                        "ttl": "PT30S"
+                    },
+                    "message": {
+                        "order": {
+                            "provider": {
+                                "id": logistics.message.catalog["bpp/providers"][0].id
+                            },
+                            "items": [deliveryType],
+                            "fulfillments": [{
+                                "id": logistics.message.catalog["bpp/fulfillments"][0].id,
+                                "type": logistics.message.catalog["bpp/fulfillments"][0].type,
+                                "start": storeLocationEnd,
+                                "end": order.fulfillments[0].end
+                            }],
+                            "billing": { //TODO: discuss whos details should go here buyer or seller
+                                "name": order.billing.name,
+                                "address": {
+                                    "name": order.billing.address.name,
+                                    "building": order.billing.address.building,
+                                    "locality": order.billing.address.locality,
+                                    "city": order.billing.address.city,
+                                    "state": order.billing.address.state,
+                                    "country": order.billing.address.country,
+                                    "area_code": order.billing.address.area_code
+                                },
+                                "tax_number": org.providerDetail.GSTN, //FIXME: take GSTN no
+                                "phone": org.providerDetail.storeDetails.mobile, //FIXME: take provider details
+                                "email": org.providerDetail.storeDetails.email, //FIXME: take provider details
+                                "created_at": contextTimeStamp,
+                                "updated_at": contextTimeStamp
+                            },
+                            "payment": {
+                                "@ondc/org/settlement_details": []//order.payment['@ondc/org/settlement_details'] //TODO: need details of prepaid transactions to be settle for seller
+                            }
+                        }
+                    }
+                }
+                //logger.log('info', `[Ondc Service] build init request :`, {logisticsMessageId,initMessageId: initMessageId});
+
+                responseForSelect = await this.postInitRequest(initRequest, logisticsMessageId, initMessageId)
+                logisticsStatus = true
+            }else{
+                responseForSelect = payload;
+                logisticsStatus = false
             }
-            //logger.log('info', `[Ondc Service] build init request :`, {logisticsMessageId,initMessageId: initMessageId});
-
-            this.postInitRequest(initRequest, logisticsMessageId, initMessageId)
-
-            return { 'status': 'ACK' }
-        } catch (err) {
-            logger.error('error', `[Ondc Service] build init request :`, { error: err.stack, message: err.message });
-            console.log(err)
-            return err
-        }
-    }
-
-    async orderInitWithoutlogistic(payload = {}, req = {}) {
-        try {
-            const initMessageId = payload.context.message_id;
-            const logisticsMessageId = uuidv4(); //TODO: in future this is going to be array as packaging for single select request can be more than one
-
-            //logger.log('info', `[Ondc Service] build init request :`, {logisticsMessageId,initMessageId: initMessageId});
-            const initRequest = await productService.initV2(payload);
-            this.postInitRequest(initRequest, logisticsMessageId, initMessageId)
+            let selectResponse = await productService.productInit(responseForSelect,logisticsStatus)
+            //3. post to protocol layer
+            await this.postInitResponse(selectResponse);
 
             return { 'status': 'ACK' }
         } catch (err) {
@@ -435,7 +429,6 @@ class OndcService {
             return err
         }
     }
-
 
     async postInitRequest(searchRequest, logisticsMessageId, selectMessageId) {
         try {
@@ -447,7 +440,7 @@ class OndcService {
             //async post request
             setTimeout(() => {
                 logger.log('info', `[Ondc Service] search logistics payload - timeout : param :`, searchRequest);
-                this.buildInitRequest(logisticsMessageId, selectMessageId)
+                return this.buildInitRequest(logisticsMessageId, selectMessageId)
             }, 5000); //TODO move to config
         } catch (e) {
             logger.error('error', `[Ondc Service] post http select response : `, e);
@@ -462,12 +455,7 @@ class OndcService {
 
             //1. look up for logistics
             let logisticsResponse = await logisticsService.getLogistics(logisticsMessageId, initMessageId, 'init')
-
-            //2. if data present then build select response
-            logger.log('info', `[Ondc Service] build init request - get logistics response :`, logisticsResponse);
-            let selectResponse = await productService.productInit(logisticsResponse)
-            //3. post to protocol layer
-            await this.postInitResponse(selectResponse);
+            return logisticsResponse;
 
         } catch (err) {
             logger.error('error', `[Ondc Service] build init request :`, { error: err.stack, message: err.message });

@@ -2059,12 +2059,14 @@ class ProductService {
     }
 
 
-    async productInit(requestQuery) {
-        //get search criteria
-        // const items = requestQuery.message.order.items
-        const initData = JSON.parse(JSON.stringify(requestQuery.retail_init[0]))//select first select request
-        const items = initData.message.order.items
-        const logisticData = requestQuery.logistics_on_init[0]
+    async productInit(requestQuery,logistics = false) {
+        let initData ={};
+        let logisticData ={};
+        if(logistics){
+            initData = JSON.parse(JSON.stringify(requestQuery.retail_init[0]))//select first select request
+            logisticData = requestQuery.logistics_on_init[0]
+        }
+        let items = (logistics) ? initData.message.order.items : requestQuery.message.order.items;
 
         let qouteItems = []
         let itemType = ''
@@ -2074,37 +2076,41 @@ class ProductService {
         let qouteItemsDetails = {}
         let itemData = {}
         let isQtyAvailable = true
+        let deliveryCharges = {}
+        let isValidItem = true
 
 
-        let org = await this.getOrgForOndc(initData.message.order.provider.id);
-        let paymentDetails = {
-            "@ondc/org/buyer_app_finder_fee_type": "percent", //TODO: for transaction id keep record to track this details
-            "@ondc/org/buyer_app_finder_fee_amount": "3.0",
-            "@ondc/org/settlement_details": [
-                {
-                    "settlement_counterparty": "seller-app",
-                    "settlement_phase": "sale-amount",
-                    "settlement_type": "neft",
-                    "settlement_bank_account_no": org.providerDetail.bankDetails.accNumber,
-                    "settlement_ifsc_code": org.providerDetail.bankDetails.IFSC,
-                    "beneficiary_name": org.providerDetail.bankDetails.accHolderName,
-                    "bank_name": org.providerDetail.bankDetails.bankName,
-                    "branch_name": org.providerDetail.bankDetails.branchName ?? "Pune"
-                }
-            ]
+        if(logistics){
+            let org = await this.getOrgForOndc(requestQuery.message.order.provider.id);
+            let paymentDetails = {
+                "@ondc/org/buyer_app_finder_fee_type": "percent", //TODO: for transaction id keep record to track this details
+                "@ondc/org/buyer_app_finder_fee_amount": "3.0",
+                "@ondc/org/settlement_details": [
+                    {
+                        "settlement_counterparty": "seller-app",
+                        "settlement_phase": "sale-amount",
+                        "settlement_type": "neft",
+                        "settlement_bank_account_no": org.providerDetail.bankDetails.accNumber,
+                        "settlement_ifsc_code": org.providerDetail.bankDetails.IFSC,
+                        "beneficiary_name": org.providerDetail.bankDetails.accHolderName,
+                        "bank_name": org.providerDetail.bankDetails.bankName,
+                        "branch_name": org.providerDetail.bankDetails.branchName ?? "Pune"
+                    }
+                ]
 
-        }
-
-        //select logistic based on criteria-> for now first one will be picked up
-        let deliveryCharges = {
-            "title": "Delivery charges",
-            "@ondc/org/title_type": "delivery",
-            "@ondc/org/item_id": items[0].fulfillment_id,
-            "price": {
-                "currency": '' + logisticData.message.order.quote.price.currency,
-                "value": '' + logisticData.message.order.quote.price.value
             }
-        }//TODO: need to map all items in the catalog to find out delivery charges
+            initData.message.order.payment = paymentDetails;
+            //select logistic based on criteria-> for now first one will be picked up
+            deliveryCharges = {
+                "title": "Delivery charges",
+                "@ondc/org/title_type": "delivery",
+                "@ondc/org/item_id": items[0].fulfillment_id,
+                "price": {
+                    "currency": '' + logisticData.message.order.quote.price.currency,
+                    "value": '' + logisticData.message.order.quote.price.value
+                }
+            }//TODO: need to map all items in the catalog to find out delivery charges
+        }
         for (let item of items) {
             let tags = item.tags;
             if (tags && tags.length > 0) {
@@ -2277,32 +2283,33 @@ class ProductService {
             qouteItems.push(item)
             detailedQoute.push(qouteItemsDetails)
         }
-
-        totalPrice = parseInt(logisticData.message.order.quote.price.value) + parseInt(totalPrice)
+        let orderPrice = (logistics) ? parseInt(logisticData.message.order.quote.price.value) : 0;
+        totalPrice = orderPrice + parseInt(totalPrice)
         let totalPriceObj = { value: "" + totalPrice, currency: "INR" }
 
-        detailedQoute.push(deliveryCharges);
+        if(logistics){
+            detailedQoute.push(deliveryCharges);
+        }
 
-        initData.message.order.payment = paymentDetails;
         const productData = await getInit({
             qouteItems: qouteItems,
             totalPrice: totalPriceObj,
             detailedQoute: detailedQoute,
-            context: initData.context,
-            message: initData.message,
-            logisticData: initData.logisticData
+            context: (logistics) ? initData.context : requestQuery.context,
+            message:  (logistics) ? initData.message : requestQuery.message,
+            logisticData: (logistics) ? initData.logisticData : {}
         });
-
-        let savedLogistics = new InitRequest()
-
-        savedLogistics.transactionId = initData.context.transaction_id
-        savedLogistics.packaging = "0"//TODO: select packaging option
-        savedLogistics.providerId = initData.message.order.provider.id
-        savedLogistics.selectedLogistics = logisticData
-        savedLogistics.logisticsTransactionId = logisticData.context.transaction_id
-        savedLogistics.initRequest = requestQuery.retail_init[0]
-        savedLogistics.onInitResponse = productData
-        await savedLogistics.save();
+        if(logistics){
+            let savedLogistics = new InitRequest()
+            savedLogistics.transactionId = initData.context.transaction_id
+            savedLogistics.packaging = "0"//TODO: select packaging option
+            savedLogistics.providerId = initData.message.order.provider.id
+            savedLogistics.selectedLogistics = logisticData
+            savedLogistics.logisticsTransactionId = logisticData.context.transaction_id
+            savedLogistics.initRequest = requestQuery.retail_init[0]
+            savedLogistics.onInitResponse = productData
+            await savedLogistics.save();
+        }
 
         return productData
     }
@@ -2595,7 +2602,6 @@ class ProductService {
 
             let deliveryCharges = {}
             let fulfillments = []
-
             if (isServiceable && deliveryType) {
                 //select logistic based on criteria-> for now first one will be picked up
                 deliveryCharges = {
@@ -2669,6 +2675,7 @@ class ProductService {
                         }, end: selectData.message.order.fulfillments[0].end
                     }]
             }
+        
 
             //update fulfillment
             selectData.message.order.fulfillments = fulfillments
