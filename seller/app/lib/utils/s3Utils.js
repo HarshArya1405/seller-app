@@ -1,5 +1,5 @@
-const AWS = require('aws-sdk');
-const mergedEnvironmentConfig = require('../../config/env.config.js');
+import AWS from 'aws-sdk';
+import mergedEnvironmentConfig from '../../config/env.config.js';
 const version = mergedEnvironmentConfig.s3.version;
 const region = mergedEnvironmentConfig.s3.region;
 const bucket = mergedEnvironmentConfig.s3.bucket;
