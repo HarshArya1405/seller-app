@@ -70,7 +70,6 @@ exports.makeObjectPublic = async (key) => {
 
 
 exports.getSignedUrlForRead = async (data) => {
-    // TODO: Use Axios to send http request
     try {
         let myKey = data.path;
         const trimValue = 'https://api-images-prod.s3.amazonaws.com/';
@@ -78,25 +77,23 @@ exports.getSignedUrlForRead = async (data) => {
             myKey = myKey.replace(trimValue, '');
         }
         const params = {
-            Bucket: myBucket,
+            Bucket: bucket, // Make sure myBucket is defined somewhere in your code
             Key: myKey,
             Expires: signedUrlExpireSeconds
         };
-        return await new Promise(
-            (resolve, reject) => s3.getSignedUrl('getObject', params, function (err, url) {
-                if (err) {
-                    // console.log('Error getting presigned url from AWS S3');
-                    reject({ success: false, message: 'Pre-Signed URL erro', urls: url });
-                } else {
-                    // console.log('Presigned URL: ', url);
-                    resolve({ url, path: data.path });
-                }
-            }));
+
+        const url = await s3.getSignedUrlPromise('getObject', params);
+        return { url, path: data.path }; // Resolve with the URL and path
+
     } catch (err) {
-        return err;
+        console.error('Error getting pre-signed URL:', err);
+        return {
+            success: false,
+            message: 'Error generating pre-signed URL',
+            error: err
+        };
     }
 };
-
 exports.getFileAsStream = async (data) => {
     //TODO: Use Axios to send http request
     // promisify read stream from s3
