@@ -34,6 +34,11 @@ class ProductService {
             product.updatedBy = currentUser.id;
             product.organization = currentUser.organization;
             await product.save();
+            if(product.images){
+                for(const image of product.images){
+                    s3.makeObjectPublic(image);
+                }
+            }
             if (data.commonAttributesValues) {
                 await this.createAttribute({ product: product._id, attributes: data.commonAttributesValues }, currentUser);
             }
@@ -80,6 +85,11 @@ class ProductService {
                     product.HSNCode = variant.HSNCode;
                     product.images = variant.images;
                     await product.save();
+                    if(product.images){
+                        for(const image of product.images){
+                            s3.makeObjectPublic(image);
+                        }
+                    }
                     let attributeObj = {
                         ...commonAttributesValues, ...variantAttributes
                     };
@@ -88,6 +98,11 @@ class ProductService {
             } else {
                 product = new Product(productObj);
                 product.organization = currentUser.organization;
+                if(product.images){
+                    for(const image of product.images){
+                        s3.makeObjectPublic(image);
+                    }
+                }
                 await product.save();
                 let attributeObj = {
                     ...commonAttributesValues
@@ -135,6 +150,11 @@ class ProductService {
                         product = new Product(productObj);
                         productId = product._id;
                         await product.save();
+                    }
+                    if(product.images){
+                        for(const image of product.images){
+                            s3.makeObjectPublic(image);
+                        }
                     }
                     let attributeObj = {
                         ...commonAttributesValues, ...variantAttributes

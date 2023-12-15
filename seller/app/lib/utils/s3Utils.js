@@ -25,7 +25,6 @@ exports.getSignedUrlForUpload = async (data) => {
             Bucket: bucket,
             Key: myKey,
             Expires: signedUrlExpireSeconds,
-            ACL: 'public-read'
         };
 
         const url = await s3.getSignedUrlPromise('putObject', params);
@@ -44,6 +43,31 @@ exports.getSignedUrlForUpload = async (data) => {
         };
     }
 };
+
+exports.makeObjectPublic = async (key) => {
+    try {
+        const params = {
+            Bucket: bucket,
+            Key: key,
+            ACL: 'public-read'
+        };
+
+        await s3.putObjectAcl(params).promise();
+        return {
+            success: true,
+            message: 'Object made public successfully.',
+            path: key
+        };
+    } catch (err) {
+        console.error('Error making object public:', err);
+        return {
+            success: false,
+            message: 'Error making object public',
+            error: err
+        };
+    }
+};
+
 
 exports.getSignedUrlForRead = async (data) => {
     // TODO: Use Axios to send http request
