@@ -1910,25 +1910,30 @@ class ProductService {
     }
 
 
-    async productConfirm(requestQuery) {
+    async productConfirm(requestQuery, logistics = false) {
 
-        //get search criteria
-        // const items = requestQuery.message.order.items
-
-        let confirmRequest = JSON.parse(JSON.stringify(requestQuery.retail_confirm[0]))//select first select request
-        const items = confirmRequest.message.order.items
-        const logisticData = requestQuery.logistics_on_confirm[0]
+        let confirmRequest = {};
+        let logisticData = {};
         let headers = {};
-
-        let confirmData = confirmRequest.message.order
+        let quoteItems = {};
+        if (logistics) {
+            confirmRequest = JSON.parse(JSON.stringify(requestQuery.retail_confirm[0]))
+            logisticData = requestQuery.logistics_on_confirm[0]
+        } else {
+            confirmRequest = requestQuery;
+        }
+        let items = confirmRequest.message.order.items;
+        let confirmData = confirmRequest.message.order;
         const orderId = confirmData.id;
-
-        let qouteItems = items.map((item) => {
-            // item.tags={status:logisticData.message.order.fulfillments[0].state?.descriptor?.code};
-            item.fulfillment_id = logisticData?.message?.order?.fulfillments[0]?.id
-            delete item.state
-            return item;
-        });
+        if (logistics) {
+            quoteItems = items.map((item) => {
+                item.fulfillment_id = logisticData?.message?.order?.fulfillments[0]?.id;
+                delete item.state;
+                return item;
+            });
+        } else {
+            quoteItems = items;
+        }
 
         let breakup = confirmData.quote.breakup
 
@@ -1970,48 +1975,48 @@ class ProductService {
                 }
             }
         }
-
-        confirmRequest.message.order.fulfillments[0].start = storeLocationEnd
-        confirmRequest.message.order.fulfillments[0].tracking = false;
-        confirmRequest.message.order.fulfillments[0].state = {
-            "descriptor": {
-                "code": "Pending"
+        if (logistics) {
+            confirmRequest.message.order.fulfillments[0].start = storeLocationEnd
+            confirmRequest.message.order.fulfillments[0].tracking = false;
+            confirmRequest.message.order.fulfillments[0].state = {
+                "descriptor": {
+                    "code": "Pending"
+                }
             }
-        }
-        let today = new Date()
-        let tomorrow = new Date()
-        let endDate = new Date(tomorrow.setDate(today.getDate() + 1))
-        confirmRequest.message.order.fulfillments[0].start.time =
-        {
-            "range":
+            let today = new Date()
+            let tomorrow = new Date()
+            let endDate = new Date(tomorrow.setDate(today.getDate() + 1))
+            confirmRequest.message.order.fulfillments[0].start.time =
             {
-                "start": today, //TODO: need to take this from seller time
-                "end": endDate
+                "range":
+                {
+                    "start": today, //TODO: need to take this from seller time
+                    "end": endDate
+                }
             }
-        }
-        confirmRequest.message.order.fulfillments[0].end.time =
-        {
-            "range":
+            confirmRequest.message.order.fulfillments[0].end.time =
             {
-                "start": today,
-                "end": endDate
+                "range":
+                {
+                    "start": today,
+                    "end": endDate
+                }
             }
+            confirmRequest.message.order.fulfillments[0]["@ondc/org/provider_name"] = 'LoadShare Delivery' //TODO: hard coded
+            confirmRequest.message.order.payment["@ondc/org/buyer_app_finder_fee_type"] = 'percentage' //TODO: hard coded
         }
-        confirmRequest.message.order.fulfillments[0]["@ondc/org/provider_name"] = 'LoadShare Delivery' //TODO: hard coded
-        confirmRequest.message.order.payment["@ondc/org/buyer_app_finder_fee_type"] = 'percentage' //TODO: hard coded
-
         let detailedQoute = confirmRequest.message.order.quote
         //confirmData["order_items"] = orderItems
         console.log("confirmData----->", confirmData)
-        confirmData.items = qouteItems;
+        confirmData.items = quoteItems;
         confirmData.order_id = orderId
         confirmData.orderId = orderId
         confirmData.transaction_id = confirmRequest.context.transaction_id
 
         // if(logisticData?.message?.order?.fulfillments[0].state?.descriptor?.code ==='Pending'){
         confirmData.state = 'Created'
+        confirmData.organization = confirmData.provider.id
 
-        let confirm = {}
         let httpRequest = new HttpRequest(
             serverUrl,
             `/api/v1/orders`,
@@ -2020,40 +2025,37 @@ class ProductService {
             headers
         );
 
-        let result = await httpRequest.send();
+        await httpRequest.send();
 
         //update fulfillments
 
         const productData = await getConfirm({
-            qouteItems: qouteItems,
+            qouteItems: quoteItems,
             detailedQoute: detailedQoute,
             context: confirmRequest.context,
             message: confirmRequest.message,
-            logisticData: logisticData
         });
-
-        let savedLogistics = new ConfirmRequest()
-
-        savedLogistics.transactionId = confirmRequest.context.transaction_id
-        savedLogistics.packaging = "0"//TODO: select packaging option
-        savedLogistics.providerId = confirmRequest.message.order.provider.id//TODO: select from items provider id
-        savedLogistics.retailOrderId = orderId
-        savedLogistics.orderId = logisticData?.message?.order?.id
-        savedLogistics.selectedLogistics = logisticData
-        savedLogistics.confirmRequest = requestQuery.retail_confirm[0]
-        savedLogistics.onConfirmRequest = productData
-        savedLogistics.logisticsTransactionId = logisticData?.context?.transaction_id
-
-        await savedLogistics.save();
-
+        if (logistics) {
+            let savedLogistics = new ConfirmRequest()
+            savedLogistics.transactionId = confirmRequest.context.transaction_id
+            savedLogistics.packaging = "0"//TODO: select packaging option
+            savedLogistics.providerId = confirmRequest.message.order.provider.id//TODO: select from items provider id
+            savedLogistics.retailOrderId = orderId
+            savedLogistics.orderId = logisticData?.message?.order?.id
+            savedLogistics.selectedLogistics = logisticData
+            savedLogistics.confirmRequest = requestQuery.retail_confirm[0]
+            savedLogistics.onConfirmRequest = productData
+            savedLogistics.logisticsTransactionId = logisticData?.context?.transaction_id
+            await savedLogistics.save();
+        }
         return productData
     }
 
 
-    async productInit(requestQuery,logistics = false) {
-        let initData ={};
-        let logisticData ={};
-        if(logistics){
+    async productInit(requestQuery, logistics = false) {
+        let initData = {};
+        let logisticData = {};
+        if (logistics) {
             initData = JSON.parse(JSON.stringify(requestQuery.retail_init[0]))//select first select request
             logisticData = requestQuery.logistics_on_init[0]
         }
@@ -2071,7 +2073,7 @@ class ProductService {
         let isValidItem = true
 
 
-        if(logistics){
+        if (logistics) {
             let org = await this.getOrgForOndc(requestQuery.message.order.provider.id);
             let paymentDetails = {
                 "@ondc/org/buyer_app_finder_fee_type": "percent", //TODO: for transaction id keep record to track this details
@@ -2278,7 +2280,7 @@ class ProductService {
         totalPrice = orderPrice + parseInt(totalPrice)
         let totalPriceObj = { value: "" + totalPrice, currency: "INR" }
 
-        if(logistics){
+        if (logistics) {
             detailedQoute.push(deliveryCharges);
         }
 
@@ -2287,10 +2289,10 @@ class ProductService {
             totalPrice: totalPriceObj,
             detailedQoute: detailedQoute,
             context: (logistics) ? initData.context : requestQuery.context,
-            message:  (logistics) ? initData.message : requestQuery.message,
+            message: (logistics) ? initData.message : requestQuery.message,
             logisticData: (logistics) ? initData.logisticData : {}
         });
-        if(logistics){
+        if (logistics) {
             let savedLogistics = new InitRequest()
             savedLogistics.transactionId = initData.context.transaction_id
             savedLogistics.packaging = "0"//TODO: select packaging option
@@ -2663,7 +2665,7 @@ class ProductService {
                         }, end: selectData.message.order.fulfillments[0].end
                     }]
             }
-        
+
 
             //update fulfillment
             selectData.message.order.fulfillments = fulfillments

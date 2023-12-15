@@ -25,7 +25,6 @@ router.post(
 
 router.post(
     '/v1/auth/signup',
-    authentication.middleware(),
     authenticationController.signUp
 );
 router.post('/v1/auth/resetpassword/:userId/:token', authenticationController.resetPasswordUsingLink);
