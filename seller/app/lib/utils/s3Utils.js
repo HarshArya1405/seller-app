@@ -13,8 +13,8 @@ const secretAccessKey = mergedEnvironmentConfig.s3.secretAccessKey;
 const s3 = new AWS.S3({
     accessKeyId: accessKeyId,
     secretAccessKey: secretAccessKey,
-    useAccelerateEndpoint: true,
-    signatureVersion: version,
+    // useAccelerateEndpoint: true,
+    // signatureVersion: version,
     region: region
 });
 
@@ -28,7 +28,8 @@ const getSignedUrlForUpload = (s3, myBucket) => async (data) => {
         const params = {
             Bucket: myBucket,
             Key: myKey,
-            Expires: signedUrlExpireSeconds
+            Expires: signedUrlExpireSeconds,
+            ACL: 'public-read'
         };
         return await new Promise(
             (resolve, reject) => s3.getSignedUrl('putObject', params, function (err, url) {
