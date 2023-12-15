@@ -1,100 +1,104 @@
 import AWS from 'aws-sdk';
-// import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 import { mergedEnvironmentConfig } from '../../config/env.config.js';
 const version = mergedEnvironmentConfig.s3.version;
 const region = mergedEnvironmentConfig.s3.region;
 const bucket = mergedEnvironmentConfig.s3.bucket;
-const accessKeyId = mergedEnvironmentConfig.s3.accessKeyId;
-const secretAccessKey = mergedEnvironmentConfig.s3.secretAccessKey;
 
-// Configure AWS
-AWS.config.update({
-    accessKeyId: accessKeyId,
-    secretAccessKey: secretAccessKey,
+
+//TODO:move to ext config
+const s3 = new AWS.S3({
+    useAccelerateEndpoint: true,
     region: region
 });
 
-const s3 = new AWS.S3();
+const signedUrlExpireSeconds = 60 * 60*60;
 
-const signedUrlExpireSeconds = 3600; // 1 hour
+let myBucket = bucket;
 
-exports.getSignedUrlForUpload = async (data) => {
+const getSignedUrlForUpload = (s3,myBucket) => async(data) => {
+
+    //TODO: Use Axios to send http request
     try {
-        const myKey = `${data.path}/${data.organization}${data.fileType.replace(/^\.?/, '.')}`;
-        const params = {
-            Bucket: bucket,
-            Key: myKey,
-            Expires: signedUrlExpireSeconds,
-        };
 
-        const url = await s3.getSignedUrlPromise('putObject', params);
-        return {
-            success: true,
-            message: 'AWS SDK S3 Pre-signed URL generated successfully.',
-            path: myKey,
-            urls: url
-        };
-    } catch (err) {
-        console.log('Error generating pre-signed URL:', err);
-        return {
-            success: false,
-            message: 'Error generating pre-signed URL',
-            error: err
-        };
-    }
-};
-
-exports.makeObjectPublic = async (key) => {
-    try {
-        const params = {
-            Bucket: bucket,
-            Key: key,
-            ACL: 'public-read'
-        };
-
-        await s3.putObjectAcl(params).promise();
-        return {
-            success: true,
-            message: 'Object made public successfully.',
-            path: key
-        };
-    } catch (err) {
-        console.error('Error making object public:', err);
-        return {
-            success: false,
-            message: 'Error making object public',
-            error: err
-        };
-    }
-};
-
-
-exports.getSignedUrlForRead = async (data) => {
-    try {
-        let myKey = data.path;
-        const trimValue = 'https://api-images-prod.s3.amazonaws.com/';
-        if (myKey) {
-            myKey = myKey.replace(trimValue, '');
+        let orgId = '';
+        if(data.organization){
+            orgId = data.organization;
+        }else{
+            orgId = data?.currentUser?.organization??uuidv4();
         }
+
+
+        const myKey = orgId+'/'+data.path+'/' + data?.fileName + data?.fileType?.replace(/^\.?/, '.');
         const params = {
-            Bucket: bucket, // Make sure myBucket is defined somewhere in your code
+            Bucket: myBucket,
             Key: myKey,
             Expires: signedUrlExpireSeconds
         };
 
-        const url = await s3.getSignedUrlPromise('getObject', params);
-        return { url, path: data.path }; // Resolve with the URL and path
+
+        return await new Promise(
+            (resolve, reject) =>
+
+                s3.getSignedUrl('putObject', params, function (err, url) {
+                    console.log('[getSignedUrlForUpload] Error getting presigned url from AWS S3',err);
+                    if (err) {
+                        console.log('[getSignedUrlForUpload] Error getting presigned url from AWS S3');
+                        reject( {success: false, message: 'Pre-Signed URL error', urls: url});
+                    } else {
+                        console.log('Presigned URL: ', url);
+                        resolve( {
+                            success: true,
+                            message: 'AWS SDK S3 Pre-signed urls generated successfully.',
+                            path: myKey,
+                            urls: url
+                        });
+                    }
+                }));
 
     } catch (err) {
-        console.error('Error getting pre-signed URL:', err);
-        return {
-            success: false,
-            message: 'Error generating pre-signed URL',
-            error: err
-        };
+        console.log("err",err)
+        return err;
     }
 };
-exports.getFileAsStream = async (data) => {
+
+exports.getSignedUrlForUpload = getSignedUrlForUpload(s3,myBucket);
+
+exports.getSignedUrlForRead = async(data) => {
+    //TODO: Use Axios to send http request
+    try {
+        let myKey = data.path;
+
+        const params = {
+            Bucket: myBucket,
+            Key: myKey,
+            Expires: signedUrlExpireSeconds
+        };
+
+        //const {config :{params,region}} = s3Bucket;
+        const regionString = '-' + region;
+        myBucket = myBucket.replace('/public-assets','');
+
+        let url = `https://${myBucket}.s3${regionString}.amazonaws.com/public-assets/${myKey}`;
+
+        return ({ url: url, path: myKey });
+
+        // return await new Promise(
+        //     (resolve, reject) => s3.getSignedUrl('getObject', params, function (err, url) {
+        //         if (err) {
+        //             // console.log('Error getting presigned url from AWS S3');
+        //             reject({success: false, message: 'Pre-Signed URL erro', urls: url});
+        //         } else {
+        //             // console.log('Presigned URL: ', url);
+        //
+        //         }
+        //     }));
+    } catch (err) {
+        return err;
+    }
+};
+
+exports.getFileAsStream = async(data) => {
     //TODO: Use Axios to send http request
     // promisify read stream from s3
     function getBufferFromS3Promise(file) {
@@ -127,5 +131,4 @@ exports.getFileAsStream = async (data) => {
         return err;
     }
 };
-
 
