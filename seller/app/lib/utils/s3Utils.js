@@ -24,7 +24,7 @@ let myBucket = bucket;
 
 const getSignedUrlForUpload = (s3, myBucket) => async (data) => {
     try {
-        const myKey = data.path + '/' + uuid.v4() + data.fileType.replace(/^\.?/, '.');
+        const myKey = data.path + '/' + data.organization + data.fileType.replace(/^\.?/, '.');
         const params = {
             Bucket: myBucket,
             Key: myKey,
