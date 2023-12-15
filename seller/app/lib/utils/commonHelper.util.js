@@ -1,11 +1,9 @@
 import {getSignedUrlForUpload,getSignedUrlForRead} from '../../lib/utils/s3Utils';
 
 class CommonHelperUtil {
-    async getReadSignUrlForUpload(key,data) {
+    async getReadSignUrlForUpload(data) {
 
-        console.log('{key,path}',{key,data});
-
-        let singedUrl =  await getSignedUrlForUpload({key,...data});
+        let singedUrl =  await getSignedUrlForUpload(data);
 
         console.log('{key,path}',singedUrl);
 

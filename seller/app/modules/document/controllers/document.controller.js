@@ -74,7 +74,7 @@ class DocumentController {
                 organization:req.user.organization,
                 ...req.body
             };
-            const uploadSignedUrl = await commonHelperUtil.getReadSignUrlForUpload(req.params.entity,data);
+            const uploadSignedUrl = await commonHelperUtil.getReadSignUrlForUpload(data);
             return res.send(uploadSignedUrl);
 
         } catch (error) {

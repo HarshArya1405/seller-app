@@ -1,6 +1,6 @@
 import AWS from 'aws-sdk';
-import axios from 'axios';
-import { v4 as uuidv4 } from 'uuid';
+// import axios from 'axios';
+import uuid from 'uuid';
 import { mergedEnvironmentConfig } from '../../config/env.config.js';
 const version = mergedEnvironmentConfig.s3.version;
 const region = mergedEnvironmentConfig.s3.region;
@@ -18,89 +18,67 @@ const s3 = new AWS.S3({
     region: region
 });
 
-const signedUrlExpireSeconds = 60 * 60*60;
+const signedUrlExpireSeconds = 60 * 60 * 60;
 
 let myBucket = bucket;
 
-const getSignedUrlForUpload = (s3,myBucket) => async(data) => {
-    //TODO: Use Axios to send http request
+const getSignedUrlForUpload = (s3, myBucket) => async (data) => {
     try {
-        console.log({data})
-        let orgId = '';
-        if(data.organization){
-            orgId = data.organization;
-        }else{
-            orgId = data.currentUser.organization;
-        }
-
-        const myKey = orgId+'/'+data.path+'/' + data?.fileName + data?.fileType?.replace(/^\.?/, '.');
+        const myKey = data.path + '/' + uuid.v4() + data.fileType.replace(/^\.?/, '.');
         const params = {
             Bucket: myBucket,
             Key: myKey,
             Expires: signedUrlExpireSeconds
         };
-
         return await new Promise(
-            (resolve, reject) =>
-
-                s3.getSignedUrl('putObject', params, function (err, url) {
-                    console.log('[getSignedUrlForUpload] Error getting presigned url from AWS S3',err);
-                    if (err) {
-                        console.log('[getSignedUrlForUpload] Error getting presigned url from AWS S3');
-                        reject( {success: false, message: 'Pre-Signed URL error', urls: url});
-                    } else {
-                        console.log('Presigned URL: ', url);
-                        resolve( {
-                            success: true,
-                            message: 'AWS SDK S3 Pre-signed urls generated successfully.',
-                            path: myKey,
-                            urls: url
-                        });
-                    }
-                }));
-
+            (resolve, reject) => s3.getSignedUrl('putObject', params, function (err, url) {
+                if (err) {
+                    console.log('Error getting presigned url from AWS S3', err);
+                    reject({ success: false, message: 'Pre-Signed URL error', urls: url });
+                } else {
+                    resolve({
+                        success: true,
+                        message: 'AWS SDK S3 Pre-signed urls generated successfully.',
+                        path: myKey,
+                        urls: url
+                    });
+                }
+            }));
     } catch (err) {
         return err;
     }
 };
+exports.getSignedUrlForUpload = getSignedUrlForUpload(s3, myBucket);
 
-exports.getSignedUrlForUpload = getSignedUrlForUpload(s3,myBucket);
-
-exports.getSignedUrlForRead = async(data) => {
-    //TODO: Use Axios to send http request
+exports.getSignedUrlForRead = async (data) => {
+    // TODO: Use Axios to send http request
     try {
         let myKey = data.path;
-
+        const trimValue = 'https://api-images-prod.s3.amazonaws.com/';
+        if (myKey) {
+            myKey = myKey.replace(trimValue, '');
+        }
         const params = {
             Bucket: myBucket,
             Key: myKey,
             Expires: signedUrlExpireSeconds
         };
-
-        //const {config :{params,region}} = s3Bucket;
-        const regionString = '-' + region;
-        myBucket = myBucket.replace('/public-assets','');
-
-        let url = `https://${myBucket}.s3${regionString}.amazonaws.com/public-assets/${myKey}`;
-
-        return ({ url: url, path: myKey });
-
-        // return await new Promise(
-        //     (resolve, reject) => s3.getSignedUrl('getObject', params, function (err, url) {
-        //         if (err) {
-        //             // console.log('Error getting presigned url from AWS S3');
-        //             reject({success: false, message: 'Pre-Signed URL erro', urls: url});
-        //         } else {
-        //             // console.log('Presigned URL: ', url);
-        //
-        //         }
-        //     }));
+        return await new Promise(
+            (resolve, reject) => s3.getSignedUrl('getObject', params, function (err, url) {
+                if (err) {
+                    // console.log('Error getting presigned url from AWS S3');
+                    reject({ success: false, message: 'Pre-Signed URL erro', urls: url });
+                } else {
+                    // console.log('Presigned URL: ', url);
+                    resolve({ url, path: data.path });
+                }
+            }));
     } catch (err) {
         return err;
     }
 };
 
-exports.getFileAsStream = async(data) => {
+exports.getFileAsStream = async (data) => {
     //TODO: Use Axios to send http request
     // promisify read stream from s3
     function getBufferFromS3Promise(file) {
