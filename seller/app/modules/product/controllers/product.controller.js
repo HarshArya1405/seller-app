@@ -1,6 +1,7 @@
 import ProductService from '../v1/services/product.service';
 import ProductCustomizationService from '../v1/services/productCustomization.service';
 import {mergedEnvironmentConfig} from '../../../config/env.config';
+import { commonKeys, templateKeys } from '../../../lib/utils/constants';
 
 var XLSX = require('xlsx');
 const productService = new ProductService();
@@ -278,6 +279,7 @@ class ProductController {
 
             console.log("req.user",req.user)
             let path = req.file.path;
+            let currentUser = req.user;
 
             var workbook = XLSX.readFile(path,{
                 type: 'binary',
@@ -298,24 +300,9 @@ class ProductController {
                     error:'xml sheet has no data'
                 });
             } else {
+                const allTemplateKeys = Object.values(templateKeys).flat()
 
-                const validKeys = [
-                    'productCode', 'productName',
-                    'MRP', 'retailPrice',
-                    'purchasePrice', 'HSNCode',
-                    'GST_Percentage', 'productCategory',
-                    'quantity', 'barcode',
-                    'maxAllowedQty', 'UOM',
-                    'packQty', 'length',
-                    'breadth', 'height',
-                    'weight', 'isReturnable',
-                    'returnWindow', 'isVegetarian',
-                    'manufacturerName', 'manufacturedDate',
-                    'nutritionalInfo', 'additiveInfo',
-                    'instructions', 'isCancellable',
-                    'longDescription', 'availableOnCod',
-                    'description', 'images'
-                ];
+                const validKeys = [...commonKeys, ...allTemplateKeys]
 
                 let inputKeys = Object.keys(jsonData[0]);
 
@@ -401,7 +388,10 @@ class ProductController {
 
                         row.images = imageUrls;
                         try{
-                            await productService.create(row);
+                            let data = {
+                                commonDetails: row
+                            }
+                            await productService.create(data, currentUser);
                         }catch (e) {
                             console.log('product failed to import', row);
                         }
