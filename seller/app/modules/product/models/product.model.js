@@ -20,7 +20,7 @@ const productSchema = new mongoose.Schema({
     packerAddress :{type:Object},
     HSNCode: {type:String},
     vegNonVeg :{type:String},
-    timing : {type:String},
+    timing : {type:Object},
     fulfilmentId : {type:String},
     GST_Percentage: {type:Number},
     productCategory: {type:String},
