@@ -64,3 +64,27 @@ exports.RETURN_REASONS = [
     }
 ];
 
+
+exports.commonKeys = [
+    'productCode', 'productName',
+    'MRP', 'retailPrice',
+    'purchasePrice', 'HSNCode',
+    'GST_Percentage', 'productCategory',
+    'quantity', 'barcode',
+    'maxAllowedQty', 'UOM',
+    'packQty', 'length',
+    'breadth', 'height',
+    'weight', 'isReturnable',
+    'returnWindow', 'isVegetarian',
+    'manufacturerName', 'manufacturedDate',
+    'nutritionalInfo', 'additiveInfo',
+    'instructions', 'isCancellable',
+    'longDescription', 'availableOnCod',
+    'description', 'images'
+];
+
+exports.templateKeys = {
+    grocery: [
+        'length'
+    ]
+};
