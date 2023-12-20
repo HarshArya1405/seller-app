@@ -72,12 +72,8 @@ exports.commonKeys = [
     'GST_Percentage', 'productCategory',
     'quantity', 'barcode',
     'maxAllowedQty', 'UOM',
-    'packQty', 'length',
-    'breadth', 'height',
-    'weight', 'isReturnable',
-    'returnWindow', 'isVegetarian',
+    'packQty','returnWindow',
     'manufacturerName', 'manufacturedDate',
-    'nutritionalInfo', 'additiveInfo',
     'instructions', 'isCancellable',
     'longDescription', 'availableOnCod',
     'description', 'images'
@@ -85,6 +81,27 @@ exports.commonKeys = [
 
 exports.templateKeys = {
     grocery: [
-        'length'
+        'isVegeterian'
+    ],
+    fnb: [
+        'nutritionalInfo', 'additiveInfo', 'isVegeterian'
+    ],
+    fashion: [
+        'length','breadth',
+        'height','weight'
+    ],
+    bpc: [
+        'nutritionalInfo'
+    ],
+    homeandkitchen: [
+        'isReturnable'
+    ],
+    healthandwellness: [
+        'isReturnable'
+    ],
+    electronics: [
+        'length', 'breadth',
+        'height', 'weight',
+        'isReturnable'
     ]
 };
