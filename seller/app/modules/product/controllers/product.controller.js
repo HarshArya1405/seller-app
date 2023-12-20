@@ -10,6 +10,8 @@ import AWS from 'aws-sdk';
 import fetch from 'node-fetch';
 import {uuid} from 'uuidv4';
 import Joi from "joi";
+import fs from 'fs'
+import path from 'path';
 
 const productValidationSchema = Joi.object({
     productCode: Joi.string().required(),
@@ -210,9 +212,21 @@ class ProductController {
     async uploadTemplate(req, res, next) {
         try {
 
-            const file = 'app/modules/product/template/template.xlsx';
-            return res.download(file);
+            const { category } = req.query;
+            if (!category) {
+                return res.status(400).send('Category parameter is missing');
+            }
 
+            const filePath = `app/modules/product/template/${category}.xlsx`;
+            // Check if the file exists for the specified category
+            fs.access(filePath, fs.constants.F_OK, (err) => {
+                if (err) {
+                    return res.status(404).send('Template not found for the specified category');
+                     }
+                // If the file exists, initiate the download
+               const fileName = path.basename(filePath);
+                res.download(filePath, fileName);
+        });
         } catch (error) {
             console.log('[OrderController] [get] Error -', error);
             next(error);
