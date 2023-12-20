@@ -1,6 +1,7 @@
 import ProductService from '../v1/services/product.service';
 import ProductCustomizationService from '../v1/services/productCustomization.service';
 import {mergedEnvironmentConfig} from '../../../config/env.config';
+import { commonKeys, templateKeys } from '../../../lib/utils/constants';
 
 var XLSX = require('xlsx');
 const productService = new ProductService();
@@ -9,6 +10,8 @@ import AWS from 'aws-sdk';
 import fetch from 'node-fetch';
 import {uuid} from 'uuidv4';
 import Joi from "joi";
+import fs from 'fs'
+import path from 'path';
 
 const productValidationSchema = Joi.object({
     productCode: Joi.string().required(),
@@ -209,9 +212,21 @@ class ProductController {
     async uploadTemplate(req, res, next) {
         try {
 
-            const file = 'app/modules/product/template/template.xlsx';
-            return res.download(file);
+            const { category } = req.query;
+            if (!category) {
+                return res.status(400).send('Category parameter is missing');
+            }
 
+            const filePath = `app/modules/product/template/${category}.xlsx`;
+            // Check if the file exists for the specified category
+            fs.access(filePath, fs.constants.F_OK, (err) => {
+                if (err) {
+                    return res.status(404).send('Template not found for the specified category');
+                     }
+                // If the file exists, initiate the download
+               const fileName = path.basename(filePath);
+                res.download(filePath, fileName);
+        });
         } catch (error) {
             console.log('[OrderController] [get] Error -', error);
             next(error);
@@ -278,6 +293,7 @@ class ProductController {
 
             console.log("req.user",req.user)
             let path = req.file.path;
+            let currentUser = req.user;
 
             var workbook = XLSX.readFile(path,{
                 type: 'binary',
@@ -298,24 +314,9 @@ class ProductController {
                     error:'xml sheet has no data'
                 });
             } else {
+                const allTemplateKeys = Object.values(templateKeys).flat()
 
-                const validKeys = [
-                    'productCode', 'productName',
-                    'MRP', 'retailPrice',
-                    'purchasePrice', 'HSNCode',
-                    'GST_Percentage', 'productCategory',
-                    'quantity', 'barcode',
-                    'maxAllowedQty', 'UOM',
-                    'packQty', 'length',
-                    'breadth', 'height',
-                    'weight', 'isReturnable',
-                    'returnWindow', 'isVegetarian',
-                    'manufacturerName', 'manufacturedDate',
-                    'nutritionalInfo', 'additiveInfo',
-                    'instructions', 'isCancellable',
-                    'longDescription', 'availableOnCod',
-                    'description', 'images'
-                ];
+                const validKeys = [...commonKeys, ...allTemplateKeys]
 
                 let inputKeys = Object.keys(jsonData[0]);
 
@@ -401,7 +402,10 @@ class ProductController {
 
                         row.images = imageUrls;
                         try{
-                            await productService.create(row);
+                            let data = {
+                                commonDetails: row
+                            }
+                            await productService.create(data, currentUser);
                         }catch (e) {
                             console.log('product failed to import', row);
                         }
