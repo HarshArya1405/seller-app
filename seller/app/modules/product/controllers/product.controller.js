@@ -358,6 +358,30 @@ class ProductController {
                         row.isCancellable =false;
                     }
 
+                // Determine the category and set the protocolKey accordingly
+                let protocolKey = null; // Set the default protocolKey
+                if (category === 'fnb') {
+                    protocolKey = "@ondc/org/mandatory_reqs_veggies_fruits";
+                } else if(category === 'fashion'){
+                    protocolKey = "@ondc/org/statutory_reqs_packaged_commodities"
+                } else if(category === 'electronics'){
+                    protocolKey = ""
+                } else if(category === 'grocery'){
+                    protocolKey = "@ondc/org/statutory_reqs_packaged_commodities", "@ondc/org/mandatory_reqs_veggies_fruits", "@ondc/org/statutory_reqs_prepackaged_food"
+                } else if(category === "homeandkitchen"){
+                    protocolKey = "@ondc/org/statutory_reqs_packaged_commodities"
+                } else if(category === 'healthandwellness'){
+                    protocolKey = "@ondc/org/statutory_reqs_packaged_commodities"
+                } else if(category === 'bpc'){
+                    protocolKey = "@ondc/org/statutory_reqs_packaged_commodities"
+                }
+                // Modify the row object to include the protocolKey
+                row.productSubcategory1 = {
+                    value: row.productName,
+                    key: row.productName,
+                    protocolKey: protocolKey
+                };
+
 
             // Validate based on the category schema
             const categorySchema = bulkUploadValidation[category];
