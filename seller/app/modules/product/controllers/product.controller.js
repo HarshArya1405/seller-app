@@ -2,6 +2,7 @@ import ProductService from '../v1/services/product.service';
 import ProductCustomizationService from '../v1/services/productCustomization.service';
 import {mergedEnvironmentConfig} from '../../../config/env.config';
 import { commonKeys, templateKeys } from '../../../lib/utils/constants';
+import { bulkUploadValidation } from '../../../lib/utils/bulkUploadValidaton';
 
 var XLSX = require('xlsx');
 const productService = new ProductService();
@@ -290,6 +291,10 @@ class ProductController {
 
     async uploadCatalog(req, res, next) {
         try {
+            const { category } = req.query;
+                if (!category) {
+                    return res.status(400).send('Category parameter is missing');
+                }
 
             console.log("req.user",req.user)
             let path = req.file.path;
@@ -331,9 +336,54 @@ class ProductController {
 
                 for (const row of jsonData) {
 
-                    const { rowData, error } = productValidationSchema.validate(row);
-                    if(!error){
-                        row.organization = req.user.organization;
+
+                    if (row.isReturnable?.toLowerCase() === 'yes'){
+                        row.isReturnable=true;
+                    }else{
+                        row.isReturnable = false;
+                    }
+                    if (row.isVegetarian?.toLowerCase() === 'yes'){
+                        row.isVegetarian =true;
+                    }else{
+                        row.isVegetarian=false;
+                    }
+                    if (row.availableOnCod?.toLowerCase() === 'yes'){
+                        row.availableOnCod =true;
+                    }else{
+                        row.availableOnCod =false;
+                    }
+                    if (row.isCancellable?.toLowerCase() === 'yes'){
+                        row.isCancellable =true;
+                    }else{
+                        row.isCancellable =false;
+                    }
+
+
+            // Validate based on the category schema
+            const categorySchema = bulkUploadValidation[category];
+            if (!categorySchema) {
+                return res.status(400).json({
+                    success: false,
+                    message: `Category '${category}' schema not found`,
+                    error: `Category '${category}' schema not found`
+                });
+            }
+
+            const mergedSchema = Joi.object({
+                commonDetails: bulkUploadValidation.commonDetails,
+                [category]: categorySchema,
+            });
+
+            console.log("MERGEDDDD", mergedSchema);
+
+            // Validate merged schema for the row
+            const { error: validationError, value: validatedRow } = mergedSchema.validate(row, {
+                abortEarly: false,
+                allowUnknown: true
+            });
+
+                    if(!validationError){
+                        validatedRow.organization = req.user.organization;
 
                         let images = row?.images?.split(',') ?? [];
 
@@ -376,41 +426,22 @@ class ProductController {
 
                         }
 
-                        if (row.isReturnable?.toLowerCase() === 'yes'){
-                            row.isReturnable=true;
-                        }else{
-                            row.isReturnable = false;
-                        }
-                        if (row.isVegetarian?.toLowerCase() === 'yes'){
-                            row.isVegetarian =true;
-                        }else{
-                            row.isVegetarian=false;
-                        }
-                        if (row.availableOnCod?.toLowerCase() === 'yes'){
-                            row.availableOnCod =true;
-                        }else{
-                            row.availableOnCod =false;
-                        }
-                        if (row.isCancellable?.toLowerCase() === 'yes'){
-                            row.isCancellable =true;
-                        }else{
-                            row.isCancellable =false;
-                        }
-
-
                         console.log('manufactured date----->',row.manufacturedDate);
 
                         row.images = imageUrls;
                         try{
                             let data = {
-                                commonDetails: row
+                                commonDetails: validatedRow
                             }
                             await productService.create(data, currentUser);
                         }catch (e) {
-                            console.log('product failed to import', row);
+                            console.log("e", e);
                         }
                     }else{
-                        console.log("error in row -->",error);
+                        return res.status(400).json({
+                            message: 'Row validation failed',
+                            error: validationError.details.map(err => err.message)
+                        });
                     }
 
 
