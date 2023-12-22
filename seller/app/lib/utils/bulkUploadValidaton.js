@@ -1,7 +1,7 @@
 import Joi from 'joi';
 
 const categoryValidation = {
-    fnb: {
+    foodandbeverages: {
         length: Joi.any(),
         breadth: Joi.any(),
         height: Joi.any(),
@@ -22,9 +22,10 @@ const categoryValidation = {
         weight: Joi.any()
     },
     appliances: {
-
+        UOM: Joi.string(),//units of measure
+        UOMValue: Joi.string().allow(''),
     },
-    bpc: {
+    beautyandpersonalcare: {
         UOM: Joi.string(),//units of measure
         UOMValue: Joi.string().allow(''),
         weight: Joi.any()

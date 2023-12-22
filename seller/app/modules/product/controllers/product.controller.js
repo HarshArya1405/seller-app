@@ -215,14 +215,22 @@ class ProductController {
 
             const { category } = req.query;
             if (!category) {
-                return res.status(400).send('Category parameter is missing');
+                return res.status(400).json({
+                    success: false,
+                    message: 'Category parameter is missing',
+                    error: 'Category parameter is missing'
+                });
             }
 
-            const filePath = `app/modules/product/template/${category}.xlsx`;
+            const filePath = `app/modules/product/template/${category.toLowerCase().replace(/\s+/g, '_')}.xlsx`;
             // Check if the file exists for the specified category
             fs.access(filePath, fs.constants.F_OK, (err) => {
                 if (err) {
-                    return res.status(404).send('Template not found for the specified category');
+                    return res.status(404).json({
+                        success: false,
+                        message: 'Template not found for the specified category',
+                        error: 'Template not found for the specified category'
+                    });
                 }
                 // If the file exists, initiate the download
                 const fileName = path.basename(filePath);
@@ -335,7 +343,7 @@ class ProductController {
                 }
 
                 // Validate based on the category schema
-                const mergedSchema = mergedValidation(category);
+                const mergedSchema = mergedValidation(category.toLowerCase().replace(/\s+/g, '_'));
                 // if (!categorySchema) {
                 //     return res.status(400).json({
                 //         success: false,
@@ -382,30 +390,33 @@ class ProductController {
 
                     // Determine the category and set the protocolKey accordingly
                     let protocolKey = null; // Set the default protocolKey
-                    if (category === 'fnb') {
-                        protocolKey = '@ondc/org/mandatory_reqs_veggies_fruits';
-                    } else if (category === 'fashion') {
-                        protocolKey = '@ondc/org/statutory_reqs_packaged_commodities';
-                    } else if (category === 'electronics') {
-                        protocolKey = '';
-                    } else if (category === 'grocery') {
-                        protocolKey = '@ondc/org/statutory_reqs_packaged_commodities', '@ondc/org/mandatory_reqs_veggies_fruits', '@ondc/org/statutory_reqs_prepackaged_food';
-                    } else if (category === 'homeandkitchen') {
-                        protocolKey = '@ondc/org/statutory_reqs_packaged_commodities';
-                    } else if (category === 'healthandwellness') {
-                        protocolKey = '@ondc/org/statutory_reqs_packaged_commodities';
-                    } else if (category === 'bpc') {
-                        protocolKey = '@ondc/org/statutory_reqs_packaged_commodities';
+                    if (category === 'Food and Beverages') {
+                        protocolKey = "@ondc/org/mandatory_reqs_veggies_fruits";
+                    } else if (category === 'Fashion') {
+                        protocolKey = "@ondc/org/statutory_reqs_packaged_commodities"
+                    } else if (category === 'Electronics') {
+                        protocolKey = ""
+                    } else if (category === 'Grocery') {
+                        protocolKey = "@ondc/org/statutory_reqs_packaged_commodities"
+                    } else if (category === "Home and Kitchen") {
+                        protocolKey = "@ondc/org/statutory_reqs_packaged_commodities"
+                    } else if (category === 'Health and Wellness') {
+                        protocolKey = "@ondc/org/statutory_reqs_packaged_commodities"
+                    } else if (category === 'Beauty and Personal Care') {
+                        protocolKey = "@ondc/org/statutory_reqs_packaged_commodities"
+                    } else if (category === 'Appliances') {
+                        protocolKey = "@ondc/org/statutory_reqs_packaged_commodities"
                     }
                     // Modify the row object to include the protocolKey
-                    row.productSubcategory1 = {
-                        value: row.productName,
-                        key: row.productName,
+                    row.productSubcategory1 = JSON.stringify({
+                        value: (row.productSubcategory1).toLowerCase().replace(/\s+/g, '_'),
+                        key: row.productSubcategory1,
                         protocolKey: protocolKey
-                    };
+                    });
+                    row.productCategory = category;
 
                     // Validate merged schema for the row
-                    const { error: validationError, value: validatedRow } = mergedSchema.validate(row,{
+                    const { error: validationError, value: validatedRow } = mergedSchema.validate(row, {
                         allowUnknown: true // Allows unknown keys in the input
                     });
 
