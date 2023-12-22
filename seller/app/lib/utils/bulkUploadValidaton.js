@@ -89,7 +89,7 @@ export const mergedValidation = (category) => {
     const categorySchema = categoryValidation[category];
 
     if (!categorySchema) {
-        throw new Error(`Category '${category}' schema not found`);
+        return commonDetails;
     }
 
     // Merge commonDetails schema with the specified category schema
