@@ -82,6 +82,22 @@ class LogisticsService {
         }
     }
 
+    async postCancelRequest(cancelRequest) {
+        try {
+            let headers = {};
+            let httpRequest = new HttpRequest(
+                config.get("sellerConfig").BPP_URI,
+                `/protocol/logistics/v1/cancel`,
+                'POST',
+                cancelRequest,
+                headers
+            );
+            await httpRequest.send();
+        } catch (e) {
+            logger.error('error', `[Logistics Service] post http select response : `, e);
+            return e
+        }
+    }
 
     async postConfirmRequest(searchRequest) {
         try {

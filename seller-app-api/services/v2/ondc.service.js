@@ -1105,52 +1105,87 @@ class OndcService {
     }
     async orderCancelFromSeller(payload = {}, req = {}) {
         try {
-            //const {criteria = {}, payment = {}} = req || {};
+            const order = payload.data;
 
+            let requestData = {
+                context:
+                {
+                  domain:"ONDC:RET10",
+                  country:"IND",
+                  city:"std:080",
+                  action:"cancel",
+                  core_version:"1.2.0",
+                  bap_id: config.get("sellerConfig").BPP_ID,
+                  bap_uri: config.get("sellerConfig").BPP_URI,
+                  bpp_id:"sellerNP.com",
+                  bpp_uri:"https://sellerNP.com/ondc",
+                  transaction_id:uuidv4(),
+                  message_id:uuidv4(),
+                  timestamp:new Date(),
+                  ttl:"PT30S"
+                },
+                message:
+                {
+                  order_id:order.orderId,
+                  cancellation_reason_id:order.cancellation_reason_id,
+                  descriptor:
+                  {
+                    name:"fulfillment",
+                    short_desc:"F1"
+                  }
+                }
+              }
+              
+            //const {criteria = {}, payment = {}} = req || {};
+            let logistic = false;
             const confirmRequest = await ConfirmRequest.findOne({
                 where: {
                     retailOrderId: payload.data.orderId
                 }
             })
+            if(confirmRequest){
+                logistic = true;
+            }
+            const logistics = (logistic) ? confirmRequest.selectedLogistics : {};
 
-            const logistics = confirmRequest.selectedLogistics;
+            let context = (logistic) ? confirmRequest.confirmRequest.context : requestData.context
+            order.context = context
+            if(logistic){
 
-            const order = payload.data;
-
-            order.context = confirmRequest.confirmRequest.context
-
-            const selectMessageId = uuidv4();
-            const logisticsMessageId = uuidv4(); //TODO: in future this is going to be array as packaging for single select request can be more than one
-
-            const trackRequest = {
-                "context": {
-                    "domain": "nic2004:60232",
-                    "action": "cancel",
-                    "core_version": "1.1.0",
-                    "bap_id": config.get("sellerConfig").BPP_ID,
-                    "bap_uri": config.get("sellerConfig").BPP_URI,
-                    "bpp_id": logistics.context.bpp_id,//STORED OBJECT
-                    "bpp_uri": logistics.context.bpp_uri, //STORED OBJECT
-                    "transaction_id": confirmRequest.logisticsTransactionId,
-                    "message_id": logisticsMessageId,
-                    "city": "std:080", //TODO: take it from request
-                    "country": "IND",
-                    "timestamp": new Date()
-                },
-                "message": {
-                    "order_id": order.orderId,
-                    "cancellation_reason_id": order.cancellation_reason_id
+                const selectMessageId = uuidv4();
+                const logisticsMessageId = uuidv4(); //TODO: in future this is going to be array as packaging for single select request can be more than one
+                
+                const trackRequest = {
+                    "context": {
+                        "domain": "nic2004:60232",
+                        "action": "cancel",
+                        "core_version": "1.1.0",
+                        "bap_id": config.get("sellerConfig").BPP_ID,
+                        "bap_uri": config.get("sellerConfig").BPP_URI,
+                        "bpp_id": logistics.context.bpp_id,//STORED OBJECT
+                        "bpp_uri": logistics.context.bpp_uri, //STORED OBJECT
+                        "transaction_id": confirmRequest.logisticsTransactionId,
+                        "message_id": logisticsMessageId,
+                        "city": "std:080", //TODO: take it from request
+                        "country": "IND",
+                        "timestamp": new Date()
+                    },
+                    "message": {
+                        "order_id": order.orderId,
+                        "cancellation_reason_id": order.cancellation_reason_id
+                    }
                 }
+                
+                payload = { message: { order: order }, context: context }
+                
+                console.log("payload-------------->", payload);
+                this.postSellerCancelRequest(payload, trackRequest, logisticsMessageId, selectMessageId,logistic)
             }
 
-            payload = { message: { order: order }, context: confirmRequest.confirmRequest.context }
+            let statusResponse = await productService.productSellerCancel(cancelData, logisticsResponse)
 
-            console.log("payload-------------->", payload);
-            // setTimeout(logisticsService.getLogistics(logisticsMessageId,selectMessageId),3000)
-            //setTimeout(() => {
-            this.postSellerCancelRequest(payload, trackRequest, logisticsMessageId, selectMessageId)
-            //}, 5000); //TODO move to config
-
+            //3. post to protocol layer
+            await this.postSellerCancelResponse(statusResponse);
             return { status: 'ACK' }
         } catch (err) {
 
@@ -1336,8 +1371,6 @@ class OndcService {
             throw err;
         }
     }
-
-
     async postStatusRequest(statusRequest, logisticsMessageId, selectMessageId, unsoliciated, payload) {
 
         try {
@@ -1355,7 +1388,6 @@ class OndcService {
             return e
         }
     }
-
     async postUpdateRequest(orderData, searchRequest, logisticsMessageId, selectMessageId) {
 
         try {
@@ -1611,37 +1643,14 @@ class OndcService {
             return e
         }
     }
-    async postSellerCancelRequest(cancelData, cancelRequest, logisticsMessageId, selectMessageId) {
+    async postSellerCancelRequest(cancelData, cancelRequest, logisticsMessageId, selectMessageId, logistic = false) {
 
         try {
-            //1. post http to protocol/logistics/v1/search
-
-            try {
-
-                let headers = {};
-                let httpRequest = new HttpRequest(
-                    config.get("sellerConfig").BPP_URI,
-                    `/protocol/logistics/v1/cancel`,
-                    'POST',
-                    cancelRequest,
-                    headers
-                );
-
-
-                await httpRequest.send();
-
-            } catch (e) {
-                logger.error('error', `[Ondc Service] post http select response : `, e);
-                return e
-            }
-
-            //2. wait async to fetch logistics responses
-
-            //async post request
-            setTimeout(() => {
-                logger.log('info', `[Ondc Service] search logistics payload - timeout : param :`, cancelRequest);
-                this.buildSellerCancelRequest(cancelData, logisticsMessageId, selectMessageId)
-            }, 10000); //TODO move to config
+            await logisticsService.postCancelRequest(searchRequest, logisticsMessageId, selectMessageId)
+            return await Promise.all([
+                this.buildSellerCancelRequest(logisticsMessageId, selectMessageId),
+                this.timeout(5000)
+            ]);
         } catch (e) {
             logger.error('error', `[Ondc Service] post http select response : `, e);
             return e
@@ -1783,11 +1792,7 @@ class OndcService {
             //1. look up for logistics
             let logisticsResponse = await logisticsService.getLogistics(logisticsMessageId, initMessageId, 'cancel')
             //2. if data present then build select response
-
-            let statusResponse = await productService.productSellerCancel(cancelData, logisticsResponse)
-
-            //3. post to protocol layer
-            await this.postSellerCancelResponse(statusResponse);
+            return logisticsResponse;
 
         } catch (e) {
             console.log(e)
