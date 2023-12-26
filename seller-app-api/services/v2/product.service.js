@@ -1842,19 +1842,22 @@ class ProductService {
         return productData
     }
 
-    async productSellerCancel(cancelData, requestQuery) {
-
-        const cancelRequest = requestQuery.retail_cancel[0]//select first select request
-        const logisticData = requestQuery.logistics_on_cancel[0]
-
-        console.log("cancelData----->", cancelData);
-        console.log("logisticData----->", logisticData);
-
+    async productSellerCancel(cancelData, requestQuery , logistic = false) {
+        let orderId;
+        if(logistic){
+            const cancelRequest = requestQuery.retail_cancel[0]//select first select request
+            const logisticData = requestQuery.logistics_on_cancel[0]
+            
+            console.log("cancelData----->", cancelData);
+            console.log("logisticData----->", logisticData);
+            orderId = cancelData.message.order.orderId
+        }
+        orderId  = requestQuery.data.orderId
 
         let confirm = {}
         let httpRequest = new HttpRequest(
             serverUrl,
-            `/api/v1/orders/${cancelData.message.order.orderId}/ondcGet`,
+            `/api/v1/orders/${orderId}/ondcGet`,
             'GET',
             {},
             {}
@@ -1863,14 +1866,16 @@ class ProductService {
         let result = await httpRequest.send();
 
         let updateOrder = result.data
-
-        updateOrder.state = logisticData.message.order.state
-        updateOrder.cancellation_reason_id = cancelData.message.order.cancellation_reason_id
+        let orderState = (logistic) ? cancelData.message.order.state : 'cancel';
+        let cancellationReason = (logistic) ? cancelData.message.order.cancellation_reason_id : requestQuery.data.cancellation_reason_id;
+        
+        updateOrder.state = orderState
+        updateOrder.cancellation_reason_id = cancellationReason
 
         //update order level state
         httpRequest = new HttpRequest(
             serverUrl,
-            `/api/v1/orders/${result.data.orderId}/ondcUpdate`,
+            `/api/v1/orders/${orderId}/ondcUpdate`,
             'PUT',
             { data: updateOrder },
             {}
@@ -1878,7 +1883,7 @@ class ProductService {
 
         let updateResult = await httpRequest.send();
 
-        updateOrder.id = cancelData.message.order.orderId
+        updateOrder.id = orderId
         //update item level fulfillment status
         // let items = updateOrder.items.map((item)=>{
         //     item.tags={status:updateOrder.state};
@@ -1889,7 +1894,7 @@ class ProductService {
         //updateOrder.items = items;
         //updateOrder.id = cancelData.order_id;
         const productData = await getCancel({
-            context: cancelData.context,
+            context: (logistic) ? cancelData.context : {},
             updateOrder: updateOrder
         });
 
