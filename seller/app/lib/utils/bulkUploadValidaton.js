@@ -9,38 +9,22 @@ const categoryValidation = {
         isVegetarian: Joi.boolean(),
     },
     fashion: {
-        UOM: Joi.string(),//units of measure
-        UOMValue: Joi.string().allow(''),
+
+    },
+    grocery: {
         length: Joi.any(),
         breadth: Joi.any(),
         height: Joi.any(),
         weight: Joi.any(),
     },
-    grocery: {
-        UOM: Joi.string(),//units of measure
-        UOMValue: Joi.string().allow(''),
-        weight: Joi.any()
-    },
     appliances: {
-        UOM: Joi.string(),//units of measure
-        UOMValue: Joi.string().allow(''),
     },
     beautyandpersonalcare: {
-        UOM: Joi.string(),//units of measure
-        UOMValue: Joi.string().allow(''),
         weight: Joi.any()
     },
     electronics: {
-        length: Joi.any(),
-        breadth: Joi.any(),
-        height: Joi.any(),
-        weight: Joi.any()
     },
     homeandkitchen: {
-        length: Joi.any(),
-        breadth: Joi.any(),
-        height: Joi.any(),
-        weight: Joi.any(),
     },
     healthandwellness: {
         manufacturedDate: Joi.string(),

@@ -12,51 +12,8 @@ const productCustomizationService = new ProductCustomizationService();
 import AWS from 'aws-sdk';
 import fetch from 'node-fetch';
 import { uuid } from 'uuidv4';
-import Joi from 'joi';
 import fs from 'fs';
 import path from 'path';
-
-const productValidationSchema = Joi.object({
-    productCode: Joi.string().required(),
-    productName: Joi.string().required(),
-    MRP: Joi.number().required(),
-    retailPrice: Joi.number().required(),
-    purchasePrice: Joi.number().required(),
-    HSNCode: Joi.string().required(),
-    GST_Percentage: Joi.number().required(),
-    productCategory: Joi.string().required(),
-    productSubcategory1: Joi.string().required(),
-    productSubcategory2: Joi.string(),
-    productSubcategory3: Joi.string(),
-    quantity: Joi.number().required(),
-    barcode: Joi.number().required(),
-    maxAllowedQty: Joi.number().required(),
-    packQty: Joi.any(),
-    UOM: Joi.string().required(),//units of measure
-    length: Joi.any().required(),
-    breadth: Joi.any().required(),
-    height: Joi.any().required(),
-    weight: Joi.any().required(),
-    isReturnable: Joi.string().required(),
-    returnWindow: Joi.string().required(),
-    isVegetarian: Joi.string(),
-    manufacturerName: Joi.string(),
-    manufacturedDate: Joi.string(),
-    nutritionalInfo: Joi.string(),
-    additiveInfo: Joi.string(),
-    instructions: Joi.string(),
-    isCancellable: Joi.string().required(),
-    availableOnCod: Joi.string().required(),
-    longDescription: Joi.string().required(),
-    description: Joi.string().required(),
-    images: Joi.string().required(),
-    manufacturerOrPackerName: Joi.string(),
-    manufacturerOrPackerAddress: Joi.string(),
-    commonOrGenericNameOfCommodity: Joi.string(),
-    monthYearOfManufacturePackingImport: Joi.string(),
-    importerFSSAILicenseNo: Joi.number(),
-    brandOwnerFSSAILicenseNo: Joi.number()
-}).options({ allowUnknown: true });
 
 class ProductController {
 
@@ -345,9 +302,8 @@ class ProductController {
                 }
 
                 // Validate based on the category schema
-                const mergedSchema = mergedValidation(category.toLowerCase().replace(/\s+/g, '_'));
-                const commonSchema = mergerdAttributeValidation(category.toLowerCase().replace(/\s+/g, '_'));
-
+                const mergedSchema = mergedValidation(category.toLowerCase().replace(/\s+/g, ''));
+                const commonSchema = mergerdAttributeValidation(category.toLowerCase().replace(/\s+/g, ''));
                 for (const row of jsonData) {
 
 
@@ -400,7 +356,7 @@ class ProductController {
                     row.productCategory = category;
 
                     // Validate common attributes separately
-                    const commonKeys = Object.keys(row).filter(key => templateAttributeKeys[category].includes(key));
+                    const commonKeys = Object.keys(row).filter(key => templateAttributeKeys[category.toLowerCase().replace(/\s+/g, '')].includes(key));
                     const commonRow = {};
                     commonKeys.forEach(key => {
                         commonRow[key] = row[key];
