@@ -1,10 +1,7 @@
 import Joi from "joi";
 
-module.exports = {
-    create: ()=> {
-        return Joi.object({
-            bpc: Joi.object({
-                brand: Joi.string().required(),
+const bulkUploadAttributeValidation = {
+            bpc: {
                 color: Joi.string(),
                 colorName: Joi.string(),
                 gender: Joi.string(),
@@ -14,16 +11,8 @@ module.exports = {
                 preference: Joi.string(),
                 formulation: Joi.string(),
                 skinType: Joi.string()
-            })
-        })
-    }
-}
-
-module.exports - {
-    create: ()=> {
-        return Joi.object({
-            electronic: Joi.object({
-                brand: Joi.string().required(),
+            },
+            electronic: {
                 model: Joi.string(),
                 modelYear: Joi.number(),
                 color: Joi.string(),
@@ -53,29 +42,13 @@ module.exports - {
                 breadth: Joi.any(),
                 height: Joi.any(),
                 refurbrished: Joi.string()
-            })
-        })
-    }
-}
-
-module.exports = {
-    create: ()=> {
-        return Joi.object({
-            healthandwellness: Joi.object({
-                brand: Joi.string().required(),
+            },
+            healthandwellness: {
                 prescriptionRequired: Joi.string().required(),
                 usageInstruction: Joi.string(),
                 remarks: Joi.string()
-            })
-        })
-    }
-}
-
-module.exports = {
-    create: ()=> {
-        return Joi.object({
-           homeandkitchen: Joi.object({
-                brand: Joi.string().required(),
+            },
+           homeandkitchen:{
                 color: Joi.string(),
                 colorName: Joi.string(),
                 material: Joi.string(),
@@ -88,19 +61,11 @@ module.exports = {
                 assemblyRequired: Joi.boolean(),
                 careInstructions: Joi.string(),
                 specialFeatures: Joi.string()
-            })
-        })
-    }
-}
-
-module.exports = {
-    create: ()=> {
-        return Joi.object({
-            fashion: Joi.object({
+            },
+            fashion:{
                 gender: Joi.string(),
                 color: Joi.string(),
                 size: Joi.string(),
-                brand: Joi.string(),
                 sizeChart: Joi.string(),
                 fabric: Joi.string(),
                 strapMaterial: Joi.string(),
@@ -188,7 +153,20 @@ module.exports = {
                 sustainability: Joi.string(),
                 handcrafted: Joi.string(),
                 craftmark: Joi.string(),
-            })
-        })
-    }
-}
+            }
+        }
+
+        export const mergerdAttributeValidation = (category) => {
+            let commonAttribute = Joi.object({
+                brand: Joi.string().required()
+            });
+
+            const categoryAttributeSchema = bulkUploadAttributeValidation[category]
+            if (!categoryAttributeSchema) {
+                return commonAttribute;
+            }
+
+            const mergedAttributeSchema = commonAttribute.keys(categoryAttributeSchema);
+
+            return mergedAttributeSchema;
+        }

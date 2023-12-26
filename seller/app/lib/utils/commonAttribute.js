@@ -74,4 +74,4 @@ exports.templateAttributeKeys = {
         'seam','waistBand','sustainability',
         'handcrafted','craftmark',
     ]
-}
+};
