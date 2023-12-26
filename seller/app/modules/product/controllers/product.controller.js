@@ -3,6 +3,8 @@ import ProductCustomizationService from '../v1/services/productCustomization.ser
 import { mergedEnvironmentConfig } from '../../../config/env.config';
 import { commonKeys, templateKeys } from '../../../lib/utils/constants';
 import { mergedValidation } from '../../../lib/utils/bulkUploadValidaton';
+import { mergerdAttributeValidation } from '../../../lib/utils/bulkUploadAttributeValidation'
+import { templateAttributeKeys } from '../../../lib/utils/commonAttribute';
 
 var XLSX = require('xlsx');
 const productService = new ProductService();
@@ -344,25 +346,7 @@ class ProductController {
 
                 // Validate based on the category schema
                 const mergedSchema = mergedValidation(category.toLowerCase().replace(/\s+/g, '_'));
-                // if (!categorySchema) {
-                //     return res.status(400).json({
-                //         success: false,
-                //         message: `Category '${category}' schema not found`,
-                //         error: `Category '${category}' schema not found`
-                //     });
-                // }
-
-                // // eslint-disable-next-line no-inner-declarations
-                // function mergeSchemas(commonDetailsSchema, categorySchema) {
-                //     return Joi.object().keys({}).concat(commonDetailsSchema).keys({}).concat(categorySchema);
-                // }
-
-                // const mergedSchema = mergeSchemas(
-                //     bulkUploadValidation.commonDetails,
-                //     categorySchema
-                // );
-
-                console.log('MERGEDDDD', mergedSchema);
+                const commonSchema = mergerdAttributeValidation(category.toLowerCase().replace(/\s+/g, '_'));
 
                 for (const row of jsonData) {
 
@@ -415,12 +399,25 @@ class ProductController {
                     });
                     row.productCategory = category;
 
+                    // Validate common attributes separately
+                    const commonKeys = Object.keys(row).filter(key => templateAttributeKeys[category].includes(key));
+                    const commonRow = {};
+                    commonKeys.forEach(key => {
+                        commonRow[key] = row[key];
+                        delete row[key]; // Remove common keys from original row
+                    });
+
+                    const { error: commonValidationError, value: validatedCommonRow } = commonSchema.validate(commonRow, {
+                        allowUnknown: true // Validate common attributes separately
+                    });
+
                     // Validate merged schema for the row
                     const { error: validationError, value: validatedRow } = mergedSchema.validate(row, {
                         allowUnknown: true // Allows unknown keys in the input
                     });
 
-                    if (!validationError) {
+                    if (!commonValidationError && !validationError) {
+                        Object.assign(row, validatedCommonRow);
                         validatedRow.organization = req.user.organization;
 
                         let images = row?.images?.split(',') ?? [];
@@ -469,16 +466,28 @@ class ProductController {
                         row.images = imageUrls;
                         try {
                             let data = {
-                                commonDetails: validatedRow
+                                commonDetails: validatedRow,
+                                commonAttributesValues: validatedCommonRow
                             };
                             await productService.create(data, currentUser);
                         } catch (e) {
                             console.log('e', e);
                         }
                     } else {
+                        // Handle validation errors
+                        let errors = [];
+        
+                        if (commonValidationError) {
+                            errors = errors.concat(commonValidationError.details.map(err => err.message));
+                        }
+        
+                        if (validationError) {
+                            errors = errors.concat(validationError.details.map(err => err.message));
+                        }
+        
                         return res.status(400).json({
                             message: 'Row validation failed',
-                            error: validationError.details.map(err => err.message)
+                            error: errors
                         });
                     }
 
