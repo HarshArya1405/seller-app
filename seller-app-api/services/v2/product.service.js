@@ -1847,9 +1847,6 @@ class ProductService {
         if(logistic){
             const cancelRequest = requestQuery.retail_cancel[0]//select first select request
             const logisticData = requestQuery.logistics_on_cancel[0]
-            
-            console.log("cancelData----->", cancelData);
-            console.log("logisticData----->", logisticData);
             orderId = cancelData.message.order.orderId
         }
         orderId  = requestQuery.data.orderId
@@ -1866,7 +1863,7 @@ class ProductService {
         let result = await httpRequest.send();
 
         let updateOrder = result.data
-        let orderState = (logistic) ? cancelData.message.order.state : 'cancel';
+        let orderState = (logistic) ? cancelData.message.order.state : 'Cancelled';
         let cancellationReason = (logistic) ? cancelData.message.order.cancellation_reason_id : requestQuery.data.cancellation_reason_id;
         
         updateOrder.state = orderState
@@ -1897,6 +1894,7 @@ class ProductService {
             context: (logistic) ? cancelData.context : {},
             updateOrder: updateOrder
         });
+        console.log({postCancelRequestttttt : productData.message.order})
 
         return productData
     }

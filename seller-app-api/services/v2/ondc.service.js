@@ -349,7 +349,7 @@ class OndcService {
                         ['createdAt', 'DESC']
                     ]
                 })
-                
+
                 let org = await productService.getOrgForOndc(payload.message.order.provider.id);
                 const logistics = selectRequest.selectedLogistics;
 
@@ -685,7 +685,7 @@ class OndcService {
                 logisticsStatus = true;
             }
             //}, 10000); //TODO move to config
-            let selectResponse = await productService.productConfirm(postConfirmRequest,logisticsStatus)
+            let selectResponse = await productService.productConfirm(postConfirmRequest, logisticsStatus)
 
             //3. post to protocol layer
             await this.postConfirmResponse(selectResponse);
@@ -1105,24 +1105,24 @@ class OndcService {
     }
     async orderCancelFromSeller(payload = {}, req = {}) {
         try {
-            const order = payload.data;              
+            const order = payload.data;
             //const {criteria = {}, payment = {}} = req || {};
             let logistic = false;
             let postCancelRequest = {}
+
             const confirmRequest = await ConfirmRequest.findOne({
                 where: {
                     retailOrderId: payload.data.orderId
                 }
             })
-            if(confirmRequest){
+            if (confirmRequest) {
                 logistic = true;
             }
             const logistics = (logistic) ? confirmRequest.selectedLogistics : payload;
 
             let context = (logistic) ? confirmRequest.confirmRequest.context : {}
             order.context = context
-            if(logistic){
-
+            if (logistic) {
                 const selectMessageId = uuidv4();
                 const logisticsMessageId = uuidv4(); //TODO: in future this is going to be array as packaging for single select request can be more than one         
                 const trackRequest = {
@@ -1144,17 +1144,16 @@ class OndcService {
                         "order_id": order.orderId,
                         "cancellation_reason_id": order.cancellation_reason_id
                     }
-                }     
+                }
                 payload = { message: { order: order }, context: context }
-                
-                console.log("payload-------------->", payload);
-                postCancelRequest = this.postSellerCancelRequest(payload, trackRequest, logisticsMessageId, selectMessageId,logistic)
+
+                postCancelRequest = this.postSellerCancelRequest(payload, trackRequest, logisticsMessageId, selectMessageId, logistic)
             }
-
-            let cancelResponse = await productService.productSellerCancel(postCancelRequest, logistics ,logistic)
-
+            let cancelResponse = await productService.productSellerCancel(postCancelRequest, logistics, logistic)
             //3. post to protocol layer
-            await this.postSellerCancelResponse(cancelResponse);
+            if (logistic) {
+                await this.postSellerCancelResponse(cancelResponse);
+            }
             return { status: 'ACK' }
         } catch (err) {
 
@@ -1885,10 +1884,7 @@ class OndcService {
                 headers
             );
 
-            console.log(httpRequest)
-
             let result = await httpRequest.send();
-
             return result.data
 
         } catch (e) {
@@ -2134,7 +2130,7 @@ class OndcService {
         this.postItemUpdateRequest(payload);
         return { success: true };
     }
-    
+
     timeout(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
