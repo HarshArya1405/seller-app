@@ -55,12 +55,37 @@ module.exports = {
                 purchasePrice: Joi.number(),
                 barcode: Joi.number(),
                 images: Joi.array(),
+                type: Joi.string(),
+                organization: Joi.string().required()
             }),
             commonAttributesValues: Joi.object(),
             customizationDetails: Joi.object({
                 customizationGroups: Joi.array(),
                 customizations: Joi.array(),
             }),
+            organization: Joi.string()
+        });
+    },
+    createCust: () => {
+        return Joi.object({
+            commonDetails: Joi.object({
+                productName: Joi.string(),
+                UOM: Joi.string(),//units of measure
+                UOMValue : Joi.string().allow(''),
+                MRP: Joi.number(),
+                type: Joi.string(),
+                inStock: Joi.boolean(),
+                available: Joi.string(),
+                maximum: Joi.number(),
+                type: Joi.string(),
+                organization: Joi.string()
+            }),
+            commonAttributesValues: Joi.object(),
+            customizationDetails: Joi.object({
+                customizationGroups: Joi.array(),
+                customizations: Joi.array(),
+            }),
+            organization: Joi.string()
         });
     },
     createWithVariant: () => {
