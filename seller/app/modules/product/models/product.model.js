@@ -6,6 +6,14 @@ const productSchema = new mongoose.Schema({
         required:true,
         default: () => uuid(),
     },
+    type: {
+        type: String,
+        enum: ['items', 'options'],
+        default: 'items'
+    },
+    inStock: {type: Boolean},
+    available: {type:Boolean},
+    maximum: {type:Number},
     productCode: {type:String},
     productName: {type:String,required:true},
     variantGroup : {type:String,ref:'VariantGroup'},
@@ -32,6 +40,7 @@ const productSchema = new mongoose.Schema({
     maxAllowedQty: {type:Number},
     packQty:{type:String},
     UOM: {type:String},//units of measure
+    UOMValue: {type:String},
     length: {type:String},
     breadth: {type:String},
     height: {type:String},
