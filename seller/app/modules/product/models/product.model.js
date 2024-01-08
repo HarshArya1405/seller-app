@@ -8,7 +8,7 @@ const productSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        enum: ['items', 'options'],
+        enum: ['items', 'customization'],
         default: 'items'
     },
     inStock: {type: Boolean},
