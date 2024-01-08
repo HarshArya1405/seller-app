@@ -10,7 +10,6 @@ const customizationGroupSchema = new mongoose.Schema({
     },
     id: {
         type: String,
-        required: true,
     },
     organization: {type:String,ref:'Organozation'},
     name: {type:String},
@@ -30,6 +29,7 @@ const customizationGroupSchema = new mongoose.Schema({
         type: Number,
         default: Date.now()
     },
+    customizations: [{ type: String, ref: 'Customization' }],
 }, {
     strict: true,
     timestamps: true
