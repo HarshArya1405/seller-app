@@ -122,4 +122,14 @@ router.delete('/v1/product/:productId/customizations/:groupId',
     authentication.middleware(),
     productController.deleteCustomizationForGroup,
 );
+
+router.post('/v1/product/createCustomization',
+    authentication.middleware(),
+    productController.createCustomization
+);
+
+router.get('/v1/product/getCustomization',
+    authentication.middleware(),
+    productController.getCustomization
+);
 module.exports = router;

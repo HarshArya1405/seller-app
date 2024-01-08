@@ -1,6 +1,7 @@
 import Product from '../../models/product.model';
 import ProductAttribute from '../../models/productAttribute.model';
 import ProductCustomizationService from './productCustomization.service';
+import productSchema from '../../v1/validationSchema/api-params-validation-schema/product.validate.schema';
 import VariantGroup from '../../models/variantGroup.model';
 import { Categories, SubCategories, Attributes } from '../../../../lib/utils/categoryVariant';
 import Organization from '../../../organization/models/organization.model';
@@ -29,18 +30,42 @@ class ProductService {
             if (productExist) {
                 throw new DuplicateRecordFoundError(MESSAGES.PRODUCT_ALREADY_EXISTS);
             }
-            let product = new Product(data.commonDetails);
+            let productData = data.commonDetails
+    
+            let product = new Product(productData);
             product.createdBy = currentUser.id;
             product.updatedBy = currentUser.id;
             product.organization = currentUser.organization;
+
+            // Set the product type based on the provided JSON
+            product.type = productData.type;
+
+            // Conditional Joi schema validation based on product type
+            let schema;
+            if (product.type === 'options') {
+                schema = productSchema.createCust(); // Use 'options' specific schema
+            } else {
+                schema = productSchema.create(); // Use default schema
+            }
+    
             await product.save();
-            if (data.commonAttributesValues) {
-                await this.createAttribute({ product: product._id, attributes: data.commonAttributesValues }, currentUser);
+
+            // if (data.commonAttributesValues) {
+            //     await this.createAttribute({ product: product._id, attributes: data.commonAttributesValues }, currentUser);
+            // }
+            // if (data.customizationDetails) {
+            //     await productCustomizationService.create(product._id, data.customizationDetails, currentUser);
+            // }
+    
+            // Check the type of the product
+            if (product.type === 'options') {
+                // Return specific keys for 'options' type
+                const { _id, productName, retailPrice, inStock, UOM, UOMValue, available, maximum } = product;
+                return { data: { _id, productName, retailPrice, inStock, UOM, UOMValue, available, maximum } };
+            } else {
+                // Return everything for 'items' type
+                return { data: product };
             }
-            if (data.customizationDetails) {
-                await productCustomizationService.create(product._id, data.customizationDetails, currentUser);
-            }
-            return { data: product };
         } catch (err) {
             console.log(`[ProductService] [create] Error in creating product ${currentUser.organization}`, err);
             throw err;
@@ -602,6 +627,45 @@ class ProductService {
             throw err;
         }
     }
+
+    async createCustomization(customizationDetails, currentUser) {
+        try {
+            if (customizationDetails) {
+    
+                const customizations = customizationDetails.customizations;
+    
+                for (const customization of customizations) {
+                    // Check for duplicate customization by name
+                    const existingCustomization = await Product.findOne({ productName: customization.productName, organization: currentUser.organization });
+                    if (!existingCustomization) {
+                        let newCustomizationObj = {
+                            ...customization,
+                            orgId: currentUser.organization,
+                            updatedBy: currentUser.id,
+                            createdBy: currentUser.id,
+                        };
+                        let newCustomization = new Product(newCustomizationObj);
+                        await newCustomization.save();
+                    }
+                }
+    
+                return { success: true };
+            }
+        } catch (err) {
+            console.log(`[CustomizationService] [create] Error - ${currentUser.organization}`, err);
+            throw err;
+        }
+    }
+
+    async getCustomization(currentUser) {
+        try {
+            const existingGroups = await Product.find({ organization: currentUser.organization });
+            return existingGroups;
+        } catch (err) {
+            console.log(`[CustomizationService] [getCustomizationGroups] Error - ${currentUser.organization}`, err);
+            throw err;
+        }
+    }    
 
 }
 export default ProductService;
