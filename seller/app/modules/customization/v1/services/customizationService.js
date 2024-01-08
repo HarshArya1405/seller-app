@@ -1,5 +1,5 @@
 import customizationModel from '../../models/customizationModel';
-import customizationGroupModel from '../../models/customizationGroupModel';
+import CustomizationGroup from '../../models/customizationGroupModel';
 
 class CustomizationService {
         /**
@@ -11,7 +11,7 @@ class CustomizationService {
         async createCustomizationGroups(customizationDetails, currentUser) {
             try {
                 if (customizationDetails) {
-                    const existingGroups = await customizationGroupModel.find({ organization: currentUser.organization });
+                    const existingGroups = await CustomizationGroup.find({ organization: currentUser.organization });
         
                     const customizationGroups = customizationDetails.customizationGroups;
         
@@ -25,7 +25,7 @@ class CustomizationService {
                                 updatedBy: currentUser.id,
                                 createdBy: currentUser.id,
                             };
-                            let newCustomizationGroup = new customizationGroupModel(customizationGroupObj);
+                            let newCustomizationGroup = new CustomizationGroup(customizationGroupObj);
                             await newCustomizationGroup.save();
                         }
                     }
@@ -40,7 +40,7 @@ class CustomizationService {
 
         async getCustomizationGroups(currentUser) {
             try {
-                const existingGroups = await customizationGroupModel.find({ organization: currentUser.organization });
+                const existingGroups = await CustomizationGroup.find({ organization: currentUser.organization });
                 return existingGroups;
             } catch (err) {
                 console.log(`[CustomizationService] [getCustomizationGroups] Error - ${currentUser.organization}`, err);
@@ -51,7 +51,7 @@ class CustomizationService {
         async updateCustomizationGroups(customizationDetails, currentUser) {
             try {
                 if (customizationDetails) {
-                    const existingGroups = await customizationGroupModel.find({ organization: currentUser.organization });
+                    const existingGroups = await CustomizationGroup.findOne({ organization: currentUser.organization });
         
                     const customizationGroups = customizationDetails.customizationGroups;
         
@@ -76,7 +76,7 @@ class CustomizationService {
                                 updatedBy: currentUser.id,
                                 createdBy: currentUser.id,
                             };
-                            let newCustomizationGroup = new customizationGroupModel(customizationGroupObj);
+                            let newCustomizationGroup = new CustomizationGroup(customizationGroupObj);
                             await newCustomizationGroup.save();
                         }
                     }
@@ -91,7 +91,7 @@ class CustomizationService {
 
         async deleteCustomizationGroup(currentUser) {
             try {
-                await customizationGroupModel.deleteMany({ organization: currentUser.organization });
+                await CustomizationGroup.deleteMany({ organization: currentUser.organization });
                 return { success: true };
             } catch (err) {
                 console.log(`[CustomizationService] [deleteCustomizations] Error - ${currentUser.organization}`, err);
