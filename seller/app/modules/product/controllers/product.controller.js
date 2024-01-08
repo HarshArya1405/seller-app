@@ -528,6 +528,28 @@ class ProductController {
         }
     }
 
+    async createCustomization(req, res, next){
+        try {
+            const data = req.body;
+            data.organization = req.user.organization;
+            
+            const result = await productService.createCustomization(data, req.user);
+            return res.send(result);
+        } catch (error) {
+            console.log('[CustomizationController] [create] Error -', error);
+            next(error);
+        }
+    }
+    async getCustomization(req, res, next) {
+        try {
+            const currentUser = req.user;
+            const existingGroups = await productService.getCustomization(currentUser);
+            return res.send(existingGroups);
+        } catch (error) {
+            console.log('[CustomizationController] [getCustomizationGroups] Error -', error);
+            next(error);
+        }
+    }    
 
 }
 
