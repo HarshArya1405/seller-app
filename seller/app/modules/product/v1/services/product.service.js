@@ -628,5 +628,44 @@ class ProductService {
         }
     }
 
+    async createCustomization(customizationDetails, currentUser) {
+        try {
+            if (customizationDetails) {
+    
+                const customizations = customizationDetails.customizations;
+    
+                for (const customization of customizations) {
+                    // Check for duplicate customization by name
+                    const existingCustomization = await Product.findOne({ productName: customization.productName, organization: currentUser.organization });
+                    if (!existingCustomization) {
+                        let newCustomizationObj = {
+                            ...customization,
+                            orgId: currentUser.organization,
+                            updatedBy: currentUser.id,
+                            createdBy: currentUser.id,
+                        };
+                        let newCustomization = new Product(newCustomizationObj);
+                        await newCustomization.save();
+                    }
+                }
+    
+                return { success: true };
+            }
+        } catch (err) {
+            console.log(`[CustomizationService] [create] Error - ${currentUser.organization}`, err);
+            throw err;
+        }
+    }
+
+    async getCustomization(currentUser) {
+        try {
+            const existingGroups = await Product.find({ organization: currentUser.organization });
+            return existingGroups;
+        } catch (err) {
+            console.log(`[CustomizationService] [getCustomizationGroups] Error - ${currentUser.organization}`, err);
+            throw err;
+        }
+    }    
+
 }
 export default ProductService;
