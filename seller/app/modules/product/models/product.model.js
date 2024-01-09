@@ -66,7 +66,8 @@ const productSchema = new mongoose.Schema({
     commonOrGenericNameOfCommodity:{type:String},
     monthYearOfManufacturePackingImport:{type:String},
     importerFSSAILicenseNo:{type:String},
-    brandOwnerFSSAILicenseNo:{type:String}
+    brandOwnerFSSAILicenseNo:{type:String},
+    customizationGroupId: { type: String, ref: 'CustomizationGroup'}
 
 },{  
     strict: true,
