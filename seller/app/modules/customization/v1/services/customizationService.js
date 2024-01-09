@@ -1,5 +1,8 @@
 import customizationModel from '../../models/customizationModel';
 import CustomizationGroup from '../../models/customizationGroupModel';
+import CustomizationGroupMapping from '../../models/customizationGroupMappingModel';
+import { DuplicateRecordFoundError, NoRecordFoundError } from '../../../../lib/errors';
+import MESSAGES from '../../../../lib/utils/messages';
 
 class CustomizationService {
         /**
@@ -11,26 +14,30 @@ class CustomizationService {
         async createCustomizationGroups(customizationDetails, currentUser) {
             try {
                 if (customizationDetails) {
-                    const existingGroups = await CustomizationGroup.find({ organization: currentUser.organization });
+                    const existingGroup = await CustomizationGroup.findOne({ 
+                        name: customizationDetails.name,
+                        organization: currentUser.organization 
+                    });
         
-                    const customizationGroups = customizationDetails.customizationGroups;
-        
-                    for (const customizationGroup of customizationGroups) {
-                        // Check for duplicate customization by name
-                        const existingGroup = existingGroups.find(group => group.name === customizationGroup.name);
-                        if (!existingGroup) {
-                            let customizationGroupObj = {
-                                ...customizationGroup,
-                                organization: currentUser.organization,
-                                updatedBy: currentUser.id,
-                                createdBy: currentUser.id,
-                            };
-                            let newCustomizationGroup = new CustomizationGroup(customizationGroupObj);
-                            await newCustomizationGroup.save();
-                        }
+                    if (!existingGroup) {
+                        let customizationGroupObj = {
+                            ...customizationDetails,
+                            organization: currentUser.organization,
+                            updatedBy: currentUser.id,
+                            createdBy: currentUser.id,
+                        };
+                        let newCustomizationGroup = new CustomizationGroup(customizationGroupObj);
+                        await newCustomizationGroup.save();
+                        
+                    // Create an instance of CustomizationService
+                    const customizationService = new CustomizationService();
+
+                    // Call the function using the instance
+                    await customizationService.mappingCustomizations(newCustomizationGroup._id, customizationDetails);
+                        return { success: true };
+                    } else {
+                        throw new DuplicateRecordFoundError(MESSAGES.CUSTOMIZATION_GROUP_ALREADY_EXISTS);
                     }
-        
-                    return { success: true };
                 }
             } catch (err) {
                 console.log(`[CustomizationService] [create] Error - ${currentUser.organization}`, err);
@@ -51,43 +58,35 @@ class CustomizationService {
         async updateCustomizationGroups(customizationDetails, currentUser) {
             try {
                 if (customizationDetails) {
-                    const existingGroups = await CustomizationGroup.findOne({ organization: currentUser.organization });
+                    const existingGroup = await CustomizationGroup.findOne({ 
+                        name: customizationDetails.name,
+                        organization: currentUser.organization 
+                    });
         
-                    const customizationGroups = customizationDetails.customizationGroups;
-        
-                    for (const customizationGroup of customizationGroups) {
-                        // Check for existing group by name
-                        const existingGroup = existingGroups.find(group => group.name === customizationGroup.name);
-                        if (existingGroup) {
-                            // Update existing group with new details
-                            await customizationGroupModel.findOneAndUpdate(
-                                { _id: existingGroup._id },
-                                {
-                                    ...customizationGroup,
-                                    organization: currentUser.organization,
-                                    updatedBy: currentUser.id,
-                                }
-                            );
-                        } else {
-                            // If group doesn't exist, create a new one
-                            let customizationGroupObj = {
-                                ...customizationGroup,
-                                organization: currentUser.organization,
+                    if (existingGroup) {
+                        // Delete all mapping data associated with the existing group
+                        await CustomizationGroupMapping.deleteMany({ parent: existingGroup._id });
+                        
+                        await CustomizationGroup.findOneAndUpdate(
+                            { _id: existingGroup._id },
+                            {
+                                ...existingGroup.toObject(),
+                                ...customizationDetails,
                                 updatedBy: currentUser.id,
-                                createdBy: currentUser.id,
-                            };
-                            let newCustomizationGroup = new CustomizationGroup(customizationGroupObj);
-                            await newCustomizationGroup.save();
-                        }
-                    }
+                            },
+                            { new: true }
+                        );
         
-                    return { success: true };
+                        return { success: true };
+                    } else {
+                        throw new NoRecordFoundError(MESSAGES.CUSTOMIZATION_GROUP_NOT_EXISTS);
+                    }
                 }
             } catch (err) {
                 console.log(`[CustomizationService] [update] Error - ${currentUser.organization}`, err);
                 throw err;
             }
-        }
+        }              
 
         async deleteCustomizationGroup(currentUser) {
             try {
@@ -98,6 +97,39 @@ class CustomizationService {
                 throw err;
             }
         }
+
+        async mappingCustomizations(newCustomizationGroupId, customizationDetails) {
+            try {
+                const { customizationId, nextGroupId, default: isDefault } = customizationDetails;
+
+                if(nextGroupId && nextGroupId.length > 0){
+                    for(const group of nextGroupId){
+                        console.log("GROUPPPPPPP", group);
+                        const customizationMapping = new CustomizationGroupMapping({
+                            customizationId,
+                            parent: newCustomizationGroupId,
+                            child: group.groupId,
+                            default: isDefault,
+                        });
+                
+                        await customizationMapping.save();
+                    }
+                } else {
+                    const customizationMapping = new CustomizationGroupMapping({
+                        customizationId,
+                        parent: newCustomizationGroupId,
+                        child: "",
+                        default: isDefault,
+                    });
+            
+                    await customizationMapping.save();
+                }
+                return {success: true}
+            } catch (error) {
+                console.log(`Error populating customizations: ${error}`);
+                throw error;
+            }
+        }            
 }
 
 export default CustomizationService;

@@ -132,4 +132,14 @@ router.get('/v1/product/getCustomization',
     authentication.middleware(),
     productController.getCustomization
 );
+
+router.put('/v1/product/updateCustomization',
+    authentication.middleware(),
+    productController.updateCustomization
+);
+router.delete('/v1/product/deleteCustomization/:customizationId',
+    authentication.middleware(),
+    productController.deleteCustomization
+);
+
 module.exports = router;

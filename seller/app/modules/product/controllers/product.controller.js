@@ -505,7 +505,43 @@ class ProductController {
             console.log('[CustomizationController] [getCustomizationGroups] Error -', error);
             next(error);
         }
-    }    
+    }
+    async updateCustomization(req, res, next) {
+        try {
+            const updatedDetails = req.body;
+            //console.log("UPDATED", updatedDetails);
+    
+            const updateResult = await productService.updateCustomization(updatedDetails, req.user);
+            //console.log("RESULT", updateResult);
+    
+            if (updateResult) {
+                return res.status(200).json({ success: true, message: 'Customizations updated successfully.' });
+            } else {
+                return res.status(400).json({ success: false, message: 'Failed to update customizations.' });
+            }
+        } catch (error) {
+            console.log('[CustomizationController] [updateCustomization] Error -', error);
+            next(error);
+        }
+    }
+    
+    async deleteCustomization(req, res, next) {
+        try {
+            const { customizationId } = req.params;
+            const deleteResult = await productService.deleteCustomization(customizationId, req.user);
+    
+            if (deleteResult && deleteResult.success) {
+                return res.status(200).json({ success: true, message: 'Customization deleted successfully.', deletedCustomization: deleteResult.deletedCustomization });
+            } else {
+                return res.status(404).json({ success: false, message: 'Failed to delete customization or customization not found.' });
+            }
+        } catch (error) {
+            console.log('[CustomizationController] [deleteCustomization] Error -', error);
+            next(error);
+        }
+    }
+    
+    
 
 }
 

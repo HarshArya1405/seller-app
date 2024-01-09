@@ -8,12 +8,8 @@ const customizationGroupSchema = new mongoose.Schema({
         required: true,
         default: () => uid(),
     },
-    id: {
-        type: String,
-    },
     organization: {type:String,ref:'Organozation'},
     name: {type:String},
-    defaultCustomizationId : {type:String},
     isMandatory : {type:Boolean}, 
     inputType: {type:String},
     minQuantity: {type:Number},
@@ -28,14 +24,13 @@ const customizationGroupSchema = new mongoose.Schema({
     updatedAt: {
         type: Number,
         default: Date.now()
-    },
-    customizations: [{ type: String, ref: 'Customization' }],
+    }
 }, {
     strict: true,
     timestamps: true
 });
 
 
-customizationGroupSchema.index({ id: 1 ,organization:1}, { unique: true });
+//customizationGroupSchema.index({ _id: 1 ,organization:1}, { unique: false });
 const CustomizationGroup = mongoose.model('CustomizationGroup', customizationGroupSchema);
 module.exports = CustomizationGroup;

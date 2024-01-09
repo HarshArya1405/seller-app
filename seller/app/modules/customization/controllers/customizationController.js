@@ -6,7 +6,7 @@ class CustomizationController {
     async storeCustomizationsGroup(req, res, next) {
         try {
             const data = req.body;
-            const categoryVariant = await customizationService.createCustomizationGroups(data.customizationDetails, req.user);
+            const categoryVariant = await customizationService.createCustomizationGroups(data, req.user);
             return res.send(categoryVariant);
         } catch (error) {
             next(error);
@@ -26,8 +26,8 @@ class CustomizationController {
     async updateCustomizationsGroup(req, res, next) {
         try {
             const currentUser = req.user;
-            const { customizationDetails } = req.body;
-            const updateResult = await customizationService.updateCustomizationGroups(customizationDetails, currentUser);
+            const data = req.body;
+            const updateResult = await customizationService.updateCustomizationGroups(data, currentUser);
             return res.send(updateResult);
         } catch (error) {
             next(error);
