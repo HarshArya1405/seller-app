@@ -687,18 +687,22 @@ class ProductService {
     }
     
     
-    async updateCustomization(customizationDetails, currentUser) {
+    async updateCustomization(customizationDetails, currentUser, customizationId) {
         try {
             //TODO:Tirth check if given name has already been use in other group and throw error(Done)
             if (customizationDetails) {
-                const { productName } = customizationDetails;
                 const existingCustomization = await Product.findOne({
-                    productName,
+                    _id: customizationId,
                     organization: currentUser.organization
                 });
+
+                if (!existingCustomization) {
+                    throw new NoRecordFoundError(MESSAGES.CUSTOMIZATION_RECORD_NOT_FOUND);
+                }
         
                 const isNameUsedInOtherGroup = await Product.findOne({
-                    productName
+                    productName: customizationDetails.productName,
+                    _id: { $ne: customizationId } 
                 });
         
                 if (isNameUsedInOtherGroup) {
@@ -708,7 +712,7 @@ class ProductService {
                 if (existingCustomization) {
                     // Update existing customization
                     await Product.findOneAndUpdate(
-                        { _id: existingCustomization._id },
+                        customizationId,
                         {
                             ...customizationDetails,
                             updatedBy: currentUser.id,
