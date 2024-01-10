@@ -123,8 +123,9 @@ router.delete('/v1/product/:productId/customizations/:groupId',
     productController.deleteCustomizationForGroup,
 );
 
-router.post('/v1/product/createCustomization',
+router.post('/v1/product/createCustomization',//TODO:Tirth - add joi validation(Done)
     authentication.middleware(),
+    apiParamsValidator.middleware({ schema: productSchema.createCust() }),
     productController.createCustomization
 );
 
@@ -133,8 +134,9 @@ router.get('/v1/product/getCustomization',
     productController.getCustomization
 );
 
-router.put('/v1/product/updateCustomization',
+router.put('/v1/product/updateCustomization',//TODO:Tirth - add joi validation(Done)
     authentication.middleware(),
+    apiParamsValidator.middleware({ schema: productSchema.update() }),
     productController.updateCustomization
 );
 router.delete('/v1/product/deleteCustomization/:customizationId',

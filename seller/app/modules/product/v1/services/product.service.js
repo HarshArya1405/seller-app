@@ -656,23 +656,54 @@ class ProductService {
         }
     }    
 
-    async getCustomization() {
+    //TODO:Tirth - add filter on name and proper contion to find customization ,handle pagination(Done)
+
+    async getCustomization(params) {
         try {
-            const existingGroups = await Product.find();
-            return existingGroups;
+            let query = {};
+            if (params.name) {
+                query.productName = { $regex: params.name, $options: 'i' };
+            }
+            if (params.organization) {
+                query.organization = params.organization;
+            }
+    
+            const data = await Product.find(query)
+                .sort({ createdAt: 1 })
+                .skip(params.offset * params.limit)
+                .limit(params.limit);
+    
+            const count = await Product.count(query);
+    
+            let customizations = {
+                count,
+                data
+            };
+            return customizations;
         } catch (err) {
-            console.log('[CustomizationService] [getCustomizationGroups] Error:', err);
+            console.log('[CustomizationService] [getCustomization] Error:', err);
             throw err;
         }
     }
     
+    
     async updateCustomization(customizationDetails, currentUser) {
         try {
-            if (customizationDetails) {
-                const existingCustomization = await Product.findOne({ 
-                    productName: customizationDetails.productName, 
-                    organization: currentUser.organization 
-                });
+                //TODO:Tirth check if given name has already been use in other group and throw error(Done)
+                if (customizationDetails) {
+                    const { productName } = customizationDetails;
+                    const existingCustomization = await Product.findOne({
+                        productName,
+                        organization: currentUser.organization
+                    });
+        
+                    const isNameUsedInOtherGroup = await Product.findOne({
+                        productName
+                    });
+        
+                    if (isNameUsedInOtherGroup) {
+                        throw new DuplicateRecordFoundError(MESSAGES.CUSTOMIZATION_ALREADY_EXISTS);
+                    }
     
                 if (existingCustomization) {
                     // Update existing customization

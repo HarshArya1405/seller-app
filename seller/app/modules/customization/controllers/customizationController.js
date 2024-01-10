@@ -37,8 +37,20 @@ class CustomizationController {
     async deleteCustomizationGroup(req, res, next) {
         try {
             const currentUser = req.user;
-            const deleteResult = await customizationService.deleteCustomizationGroups(currentUser);
+            const {groupId} = req.params;
+            const deleteResult = await customizationService.deleteCustomizationGroup(currentUser, groupId);
             return res.send(deleteResult);
+        } catch(error) {
+            next(error);
+        }
+    }
+
+    async getCustomizationGroupById(req, res, next) {
+        const { groupId } = req.params;
+        try{
+            const currentUser = req.user;
+            const customizationGroup = await customizationService.getCustomizationGroupById(groupId, currentUser);
+            return res.send(customizationGroup);
         } catch(error) {
             next(error);
         }

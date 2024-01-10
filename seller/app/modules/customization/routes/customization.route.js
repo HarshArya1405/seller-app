@@ -8,9 +8,26 @@ const router = express.Router();
 
 const customizationController = new CustomizationController();
 
-router.post('/v1/customizationGroup', authentication.middleware(), apiParamsValidator.middleware({ schema: customizationSchema.create() }), customizationController.storeCustomizationsGroup)
-router.get('/v1/getCustomizationGroup', authentication.middleware(), customizationController.getCustomizationsGroup);
-router.put('/v1/updateCustomizationGroup', authentication.middleware(), apiParamsValidator.middleware({ schema: customizationSchema.update() }), customizationController.updateCustomizationsGroup);
-router.delete('/v1/deleteCustomizationGroup', authentication.middleware(), customizationController.deleteCustomizationGroup);
+router.post('/v1/customizationGroup', 
+    authentication.middleware(), 
+    apiParamsValidator.middleware({ schema: customizationSchema.create() }), 
+    customizationController.storeCustomizationsGroup);
+
+router.get('/v1/getCustomizationGroup', 
+    authentication.middleware(), 
+    customizationController.getCustomizationsGroup);
+
+router.get('/v1/getustomizationGroupById/:groupId',
+    authentication.middleware(),
+    customizationController.getCustomizationGroupById)
+
+router.put('/v1/updateCustomizationGroup', 
+    authentication.middleware(), 
+    apiParamsValidator.middleware({ schema: customizationSchema.update() }), 
+    customizationController.updateCustomizationsGroup);
+
+router.delete('/v1/deleteCustomizationGroup/:groupId', 
+    authentication.middleware(), 
+    customizationController.deleteCustomizationGroup);
 
 module.exports = router
