@@ -13,19 +13,19 @@ router.post('/v1/customizationGroup',
     apiParamsValidator.middleware({ schema: customizationSchema.create() }), 
     customizationController.storeCustomizationsGroup);
 
-router.get('/v1/getustomizationGroupById/:groupId',
+router.get('/v1/customizationGroup/:groupId',
     authentication.middleware(),
     customizationController.getCustomizationGroupById);
 
-router.delete('/v1/deleteCustomizationGroup/:groupId', 
+router.delete('/v1/customizationGroup/:groupId', 
     authentication.middleware(), 
     customizationController.deleteCustomizationGroup);
 
-router.get('/v1/getCustomizationGroup', 
+router.get('/v1/customizationGroups', 
     authentication.middleware(), 
     customizationController.getCustomizationsGroup);
 
-router.put('/v1/updateCustomizationGroup/:groupId', 
+router.put('/v1/customizationGroup/:groupId', 
     authentication.middleware(), 
     apiParamsValidator.middleware({ schema: customizationSchema.update() }), 
     customizationController.updateCustomizationsGroup);

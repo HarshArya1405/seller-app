@@ -75,8 +75,6 @@ module.exports = {
             inStock: Joi.boolean(),
             available: Joi.string(),
             maximum: Joi.number(),
-            type: Joi.string(),
-            organization: Joi.string()
         });
     },
 
@@ -89,8 +87,6 @@ module.exports = {
             inStock: Joi.boolean(),
             available: Joi.string(),
             maximum: Joi.number(),
-            type: Joi.string().allow(''),
-            organization: Joi.string()
         });
     },
     createWithVariant: () => {

@@ -36,18 +36,7 @@ class ProductService {
             product.createdBy = currentUser.id;
             product.updatedBy = currentUser.id;
             product.organization = currentUser.organization;
-
-            // Set the product type based on the provided JSON
-            product.type = productData.type;
-
-            // Conditional Joi schema validation based on product type
-            let schema;
-            if (product.type === 'options') {
-                schema = productSchema.createCust(); // Use 'options' specific schema
-            } else {
-                schema = productSchema.create(); // Use default schema
-            }
-    
+            product.type = 'item';
             await product.save();
 
             // if (data.commonAttributesValues) {
@@ -57,15 +46,9 @@ class ProductService {
             //     await productCustomizationService.create(product._id, data.customizationDetails, currentUser);
             // }
     
-            // Check the type of the product
-            if (product.type === 'options') {
-                // Return specific keys for 'options' type
-                const { _id, productName, retailPrice, inStock, UOM, UOMValue, available, maximum } = product;
-                return { data: { _id, productName, retailPrice, inStock, UOM, UOMValue, available, maximum } };
-            } else {
-                // Return everything for 'items' type
-                return { data: product };
-            }
+        
+            return { data: product };
+            
         } catch (err) {
             console.log(`[ProductService] [create] Error in creating product ${currentUser.organization}`, err);
             throw err;
@@ -100,6 +83,7 @@ class ProductService {
                     product.quantity = variant.quantity;
                     product.organization = currentUser.organization;
                     product.MRP = variant.MRP;
+                    product.type = 'item';
                     product.retailPrice = variant.retailPrice;
                     product.purchasePrice = variant.purchasePrice;
                     product.HSNCode = variant.HSNCode;
@@ -113,6 +97,7 @@ class ProductService {
             } else {
                 product = new Product(productObj);
                 product.organization = currentUser.organization;
+                product.type = 'item';
                 await product.save();
                 let attributeObj = {
                     ...commonAttributesValues
@@ -640,12 +625,13 @@ class ProductService {
                     let newCustomizationObj = {
                         ...customizationDetails,
                         organization: currentUser.organization,
+                        type:'customization',
                         updatedBy: currentUser.id,
                         createdBy: currentUser.id,
                     };
                     let newCustomization = new Product(newCustomizationObj);
                     await newCustomization.save();
-                    return { success: true };
+                    return newCustomization;
                 } else {
                     throw new DuplicateRecordFoundError(MESSAGES.CUSTOMIZATION_ALREADY_EXISTS);
                 }
@@ -660,7 +646,9 @@ class ProductService {
 
     async getCustomization(params) {
         try {
-            let query = {};
+            let query = {
+                type : 'customization'
+            };
             if (params.name) {
                 query.productName = { $regex: params.name, $options: 'i' };
             }

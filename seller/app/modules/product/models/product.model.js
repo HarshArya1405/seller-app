@@ -8,12 +8,12 @@ const productSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        enum: ['items', 'customization'],
+        enum: ['item', 'customization'],
         default: 'items'
     },
     inStock: {type: Boolean},
-    available: {type:Boolean},
-    maximum: {type:Number},
+    available: {type:String},
+    maximum: {type:String},
     productCode: {type:String},
     productName: {type:String,required:true},
     variantGroup : {type:String,ref:'VariantGroup'},

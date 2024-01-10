@@ -34,8 +34,8 @@ class CustomizationService {
                     
                     //TODO:Tirth why creating obj for paren class, use "this" for that(Done)
 
-                    await this.mappingCustomizations(newCustomizationGroup._id, customizationDetails);
-                    return { success: true };
+                    await this.mappingCustomizations(newCustomizationGroup._id, customizationDetails.customizations);
+                    return newCustomizationGroup;
                 } else {
                     throw new DuplicateRecordFoundError(MESSAGES.CUSTOMIZATION_GROUP_ALREADY_EXISTS);
                 }
@@ -47,16 +47,19 @@ class CustomizationService {
     }
 
     //TODO:Tirth add filter on name(Done)
-    async getCustomizationGroups(currentUser, nameFilter) {
+    async getCustomizationGroups(currentUser, params) {
         try {
             let query = {};
             
-            if (nameFilter) {
-                query.name = { $regex: nameFilter, $options: 'i' }; // Case-insensitive name search
+            if (params.name) {
+                query.name = { $regex: params.name, $options: 'i' }; // Case-insensitive name search
             }
     
-            const existingGroups = await CustomizationGroup.find(query);
-            return existingGroups;
+            const existingGroups = await CustomizationGroup.find(query).sort({ createdAt: 1 })
+                .skip(params.offset)
+                .limit(params.limit);
+            const count = await CustomizationGroup.count(query);
+            return {count,data:existingGroups};
         } catch (err) {
             console.log(`[CustomizationService] [getCustomizationGroups] Error - ${currentUser.organization}`, err);
             throw err;
