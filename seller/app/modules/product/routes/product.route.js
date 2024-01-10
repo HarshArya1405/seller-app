@@ -123,7 +123,7 @@ router.delete('/v1/product/:productId/customizations/:groupId',
     productController.deleteCustomizationForGroup,
 );
 
-router.post('/v1/product/createCustomization',
+router.post('/v1/product/createCustomization',//TODO:Tirth - add joi validation
     authentication.middleware(),
     productController.createCustomization
 );
@@ -133,7 +133,7 @@ router.get('/v1/product/getCustomization',
     productController.getCustomization
 );
 
-router.put('/v1/product/updateCustomization',
+router.put('/v1/product/updateCustomization',//TODO:Tirth - add joi validation
     authentication.middleware(),
     productController.updateCustomization
 );

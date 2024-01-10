@@ -639,7 +639,7 @@ class ProductService {
                 if (!existingCustomization) {
                     let newCustomizationObj = {
                         ...customizationDetails,
-                        orgId: currentUser.organization,
+                        organization: currentUser.organization,
                         updatedBy: currentUser.id,
                         createdBy: currentUser.id,
                     };
@@ -658,6 +658,7 @@ class ProductService {
 
     async getCustomization() {
         try {
+            //TODO:Tirth - add filter on name and proper contion to find customization ,handle pagination
             const existingGroups = await Product.find();
             return existingGroups;
         } catch (err) {
@@ -669,6 +670,7 @@ class ProductService {
     async updateCustomization(customizationDetails, currentUser) {
         try {
             if (customizationDetails) {
+                //TODO:Tirth check if given name has already been use in other group and throw error
                 const existingCustomization = await Product.findOne({ 
                     productName: customizationDetails.productName, 
                     organization: currentUser.organization 
@@ -680,7 +682,6 @@ class ProductService {
                         { _id: existingCustomization._id },
                         {
                             ...customizationDetails,
-                            organization: currentUser.organization,
                             updatedBy: currentUser.id,
                         }
                     );
