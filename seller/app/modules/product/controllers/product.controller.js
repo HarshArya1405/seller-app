@@ -498,20 +498,32 @@ class ProductController {
     }
     async getCustomization(req, res, next) {
         try {
-            const currentUser = req.user;
-            const existingGroups = await productService.getCustomization(currentUser);
-            return res.send(existingGroups);
+            const { name, organization } = req.query;
+            const offset = parseInt(req.query.offset) || 0;
+            const limit = parseInt(req.query.limit) || 10;
+
+            const params = {
+                name,
+                organization,
+                offset,
+                limit
+            };
+
+            const customizations = await productService.getCustomization(params);
+            return res.json(customizations);
         } catch (error) {
-            console.log('[CustomizationController] [getCustomizationGroups] Error -', error);
+            console.log('[CustomizationController] [getCustomization] Error:', error);
             next(error);
         }
     }
+
     async updateCustomization(req, res, next) {
         try {
+            const { customizationId } = req.params;
             const updatedDetails = req.body;
             //console.log("UPDATED", updatedDetails);
     
-            const updateResult = await productService.updateCustomization(updatedDetails, req.user);
+            const updateResult = await productService.updateCustomization(updatedDetails, req.user, customizationId);
             //console.log("RESULT", updateResult);
     
             if (updateResult) {

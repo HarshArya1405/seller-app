@@ -134,7 +134,7 @@ router.get('/v1/product/getCustomization',
     productController.getCustomization
 );
 
-router.put('/v1/product/updateCustomization',//TODO:TIRTH - add id
+router.put('/v1/product/updateCustomization/:customizationId',//TODO:TIRTH - add id
     authentication.middleware(),
     apiParamsValidator.middleware({ schema: productSchema.updateCust() }),
     productController.updateCustomization
