@@ -13,17 +13,21 @@ router.post('/v1/customizationGroup',
     apiParamsValidator.middleware({ schema: customizationSchema.create() }), 
     customizationController.storeCustomizationsGroup);
 
+router.get('/v1/getustomizationGroupById/:groupId',
+    authentication.middleware(),
+    customizationController.getCustomizationGroupById);
+
+router.delete('/v1/deleteCustomizationGroup/:groupId', 
+    authentication.middleware(), 
+    customizationController.deleteCustomizationGroup);
+
 router.get('/v1/getCustomizationGroup', 
     authentication.middleware(), 
     customizationController.getCustomizationsGroup);
 
-router.put('/v1/updateCustomizationGroup', 
+router.put('/v1/updateCustomizationGroup/:groupId', 
     authentication.middleware(), 
     apiParamsValidator.middleware({ schema: customizationSchema.update() }), 
     customizationController.updateCustomizationsGroup);
-
-router.delete('/v1/deleteCustomizationGroup', 
-    authentication.middleware(), 
-    customizationController.deleteCustomizationGroup);
 
 module.exports = router;

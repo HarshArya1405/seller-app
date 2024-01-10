@@ -20,19 +20,21 @@ class CustomizationService {
 
                 if (!existingGroup) {
                     let customizationGroupObj = {
-                        ...customizationDetails,  //TODO:Tirth why dumping all obj, add only specific fields
+                        name: customizationDetails.name,   //TODO:Tirth why dumping all obj, add only specific fields(Done)
+                        inputType: customizationDetails.inputType,
+                        minQuantity: customizationDetails.minQuantity,
+                        maxQuantity: customizationDetails.maxQuantity,
+                        seq: customizationDetails.seq,
                         organization: currentUser.organization,
                         updatedBy: currentUser.id,
                         createdBy: currentUser.id,
                     };
                     let newCustomizationGroup = new CustomizationGroup(customizationGroupObj);
                     await newCustomizationGroup.save();
+                    
+                    //TODO:Tirth why creating obj for paren class, use "this" for that(Done)
 
-                    // Create an instance of CustomizationService
-                    const customizationService = new CustomizationService(); //TODO:Tirth why creating obj for paren class, use "this" for that
-
-                    // Call the function using the instance
-                    await customizationService.mappingCustomizations(newCustomizationGroup._id, customizationDetails);
+                    await this.mappingCustomizations(newCustomizationGroup._id, customizationDetails);
                     return { success: true };
                 } else {
                     throw new DuplicateRecordFoundError(MESSAGES.CUSTOMIZATION_GROUP_ALREADY_EXISTS);
@@ -44,29 +46,43 @@ class CustomizationService {
         }
     }
 
-    async getCustomizationGroups(currentUser) {
+    //TODO:Tirth add filter on name(Done)
+    async getCustomizationGroups(currentUser, nameFilter) {
         try {
-            //TODO:Tirth add filter on name
-            const existingGroups = await CustomizationGroup.find({ organization: currentUser.organization });
+            let query = {};
+            
+            if (nameFilter) {
+                query.name = { $regex: nameFilter, $options: 'i' }; // Case-insensitive name search
+            }
+    
+            const existingGroups = await CustomizationGroup.find(query);
             return existingGroups;
         } catch (err) {
             console.log(`[CustomizationService] [getCustomizationGroups] Error - ${currentUser.organization}`, err);
             throw err;
         }
-    }
+    }    
 
-    async updateCustomizationGroups(customizationDetails, currentUser) {
+    async updateCustomizationGroups(id,customizationDetails, currentUser) {
+        //TODO:Tirth check if given name has already been use in other group and throw error(Done)
         try {
             if (customizationDetails) {
-                //TODO:Tirth check if given name has already been use in other group and throw error
-                const existingGroup = await CustomizationGroup.findOne({
+                const existingGroupWithSameName = await CustomizationGroup.findOne({
+                    _id:{$ne:id},
                     name: customizationDetails.name,
-                    organization: currentUser.organization
+                    organization: currentUser.organization,
+                });
+    
+                if (existingGroupWithSameName) {
+                    throw new DuplicateRecordFoundError(MESSAGES.CUSTOMIZATION_ALREADY_EXISTS);
+                }
+                let existingGroup = await CustomizationGroup.findOne({
+                    _id: id,
+                    organization: currentUser.organization,
                 });
                 if (existingGroup) {
                     // Delete all mapping data associated with the existing group
-                    await CustomizationGroupMapping.deleteMany({ parent: existingGroup._id });
-
+                    
                     await CustomizationGroup.findOneAndUpdate(
                         { _id: existingGroup._id },
                         {
@@ -76,7 +92,8 @@ class CustomizationService {
                         },
                         { new: true }
                     );
-
+                    await CustomizationGroupMapping.deleteMany({ parent: existingGroup._id });
+                    await this.mappingCustomizations(id, customizationDetails);
                     return { success: true };
                 } else {
                     throw new NoRecordFoundError(MESSAGES.CUSTOMIZATION_GROUP_NOT_EXISTS);
@@ -88,11 +105,11 @@ class CustomizationService {
         }
     }
 
-    async deleteCustomizationGroup(currentUser) {
+    async deleteCustomizationGroup(currentUser, groupId) {
         try {
-            //TODO:Tirth write proper query 
-            await CustomizationGroup.deleteMany({ organization: currentUser.organization });
-            return { success: true };
+            //TODO:Tirth write proper query(Done)
+            const deletedCustomizationGroup = await CustomizationGroup.deleteOne({ _id: groupId, organization: currentUser.organization });
+            return { success: true, deletedCustomizationGroup };
         } catch (err) {
             console.log(`[CustomizationService] [deleteCustomizations] Error - ${currentUser.organization}`, err);
             throw err;
@@ -130,8 +147,25 @@ class CustomizationService {
             throw error;
         }
     }
-
-    //TODO:Tirth add getOneGroup function also
+    //TODO:Tirth add getOneGroup function also(Done)
+    async getCustomizationGroupById(groupId, currentUser) {
+        try {
+            const customizationGroup = await CustomizationGroup.findOne({
+                _id: groupId,
+                organization: currentUser.organization
+            });
+            
+            if (!customizationGroup) {
+                throw new NoRecordFoundError(MESSAGES.CUSTOMIZATION_GROUP_NOT_EXISTS);
+            }
+    
+            return customizationGroup;
+        } catch (err) {
+            console.log(`[CustomizationService] [getCustomizationGroupById] Error - ${currentUser.organization}`, err);
+            throw err;
+        }
+    }
+    
 }
 
 export default CustomizationService;

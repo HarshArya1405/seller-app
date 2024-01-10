@@ -68,23 +68,28 @@ module.exports = {
     },
     createCust: () => {
         return Joi.object({
-            commonDetails: Joi.object({
-                productName: Joi.string(),
-                UOM: Joi.string(),//units of measure
-                UOMValue : Joi.string().allow(''),
-                MRP: Joi.number(),
-                type: Joi.string(),
-                inStock: Joi.boolean(),
-                available: Joi.string(),
-                maximum: Joi.number(),
-                type: Joi.string(),
-                organization: Joi.string()
-            }),
-            commonAttributesValues: Joi.object(),
-            customizationDetails: Joi.object({
-                customizationGroups: Joi.array(),
-                customizations: Joi.array(),
-            }),
+            productName: Joi.string(),
+            UOM: Joi.string(),//units of measure
+            UOMValue : Joi.string().allow(''),
+            MRP: Joi.number(),
+            inStock: Joi.boolean(),
+            available: Joi.string(),
+            maximum: Joi.number(),
+            type: Joi.string(),
+            organization: Joi.string()
+        });
+    },
+
+    updateCust: () => {
+        return Joi.object({
+            productName: Joi.string(),
+            UOM: Joi.string(),//units of measure
+            UOMValue : Joi.string().allow(''),
+            MRP: Joi.number(),
+            inStock: Joi.boolean(),
+            available: Joi.string(),
+            maximum: Joi.number(),
+            type: Joi.string().allow(''),
             organization: Joi.string()
         });
     },
