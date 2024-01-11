@@ -1254,71 +1254,74 @@ class OndcService {
                 }
             })
 
-            const logistics = confirmRequest.selectedLogistics;
+            // const logistics = confirmRequest.selectedLogistics;
 
             const order = payload.data;
             const selectMessageId = uuidv4();//payload.context.message_id;
             const logisticsMessageId = uuidv4(); //TODO: in future this is going to be array as packaging for single select request can be more than one
 
-            const trackRequest = {
-                "context": {
-                    "domain": "nic2004:60232",
-                    "action": "update",
-                    "core_version": "1.1.0",
-                    "bap_id": config.get("sellerConfig").BPP_ID,
-                    "bap_uri": config.get("sellerConfig").BPP_URI,
-                    "bpp_id": logistics.context.bpp_id,//STORED OBJECT
-                    "bpp_uri": logistics.context.bpp_uri, //STORED OBJECT
-                    "transaction_id": confirmRequest.logisticsTransactionId,
-                    "message_id": logisticsMessageId,
-                    "city": "std:080", //TODO: take it from request
-                    "country": "IND",
-                    "timestamp": new Date()
-                },
-                "message": {
-                    "order": {
-                        "id": order.orderId,
-                        "state": "Accepted",
-                        "items": logistics.items,
-                        "@ondc/org/linked_order": {
-                            "items": [{ //TODO: get valid item from list and update the fields
-                                "descriptor": {
-                                    "name": "KIT KAT"
-                                },
-                                "quantity": {
-                                    "count": 2,
-                                    "measure": {
-                                        "value": 200,
-                                        "unit": "Gram"
-                                    }
-                                },
-                                "price": {
-                                    "currency": "INR",
-                                    "value": "200.00"
-                                },
-                                "category_id": "Grocery"
-                            }]
-                        },
-                        "fulfillments": [{
-                            "id": logistics.message.order.fulfillments[0].id,
-                            "type": logistics.message.order.fulfillments[0].type,
-                            "tracking": logistics.message.order.fulfillments[0].tracking,
-                            "tags": {
-                                "@ondc/org/order_ready_to_ship": "yes" //TBD: passing this value for update triggers logistics workflow
-                            }
-                        }],
-                        "updated_at": new Date()
-                    },
-                    "update_target": "fulfillment"
-                }
+            // const trackRequest = {
+            //     "context": {
+            //         "domain": "nic2004:60232",
+            //         "action": "update",
+            //         "core_version": "1.1.0",
+            //         "bap_id": config.get("sellerConfig").BPP_ID,
+            //         "bap_uri": config.get("sellerConfig").BPP_URI,
+            //         "bpp_id": logistics.context.bpp_id,//STORED OBJECT
+            //         "bpp_uri": logistics.context.bpp_uri, //STORED OBJECT
+            //         "transaction_id": confirmRequest.logisticsTransactionId,
+            //         "message_id": logisticsMessageId,
+            //         "city": "std:080", //TODO: take it from request
+            //         "country": "IND",
+            //         "timestamp": new Date()
+            //     },
+            //     "message": {
+            //         "order": {
+            //             "id": order.orderId,
+            //             "state": "Accepted",
+            //             "items": logistics.items,
+            //             "@ondc/org/linked_order": {
+            //                 "items": [{ //TODO: get valid item from list and update the fields
+            //                     "descriptor": {
+            //                         "name": "KIT KAT"
+            //                     },
+            //                     "quantity": {
+            //                         "count": 2,
+            //                         "measure": {
+            //                             "value": 200,
+            //                             "unit": "Gram"
+            //                         }
+            //                     },
+            //                     "price": {
+            //                         "currency": "INR",
+            //                         "value": "200.00"
+            //                     },
+            //                     "category_id": "Grocery"
+            //                 }]
+            //             },
+            //             "fulfillments": [{
+            //                 "id": logistics.message.order.fulfillments[0].id,
+            //                 "type": logistics.message.order.fulfillments[0].type,
+            //                 "tracking": logistics.message.order.fulfillments[0].tracking,
+            //                 "tags": {
+            //                     "@ondc/org/order_ready_to_ship": "yes" //TBD: passing this value for update triggers logistics workflow
+            //                 }
+            //             }],
+            //             "updated_at": new Date()
+            //         },
+            //         "update_target": "fulfillment"
+            //     }
 
-            }
+            // }
 
 
-            payload = { message: { order: order }, context: { ...confirmRequest.confirmRequest.context, message_id: uuidv4() } };
+            payload = {
+                message: { order: order },
+                context: { ...confirmRequest?.confirmRequest?.context, message_id: uuidv4() }
+            };
             // setTimeout(logisticsService.getLogistics(logisticsMessageId,selectMessageId),3000)
             //setTimeout(() => {
-            this.postUpdateItemRequest(payload, trackRequest, logisticsMessageId, selectMessageId);
+            this.postUpdateItemRequest(payload, {}, logisticsMessageId, selectMessageId);
             //}, 5000); //TODO move to config
 
             return { status: 'ACK' }
