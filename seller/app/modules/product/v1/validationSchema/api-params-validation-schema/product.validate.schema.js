@@ -70,10 +70,9 @@ module.exports = {
         return Joi.object({
             productName: Joi.string(),
             UOM: Joi.string(),//units of measure
-            UOMValue : Joi.string().allow(''),
+            UOMValue : Joi.number().allow(''),
             MRP: Joi.number(),
-            inStock: Joi.boolean(),
-            available: Joi.string(),
+            available: Joi.number(),
             maximum: Joi.number(),
         });
     },
@@ -82,10 +81,9 @@ module.exports = {
         return Joi.object({
             productName: Joi.string(),
             UOM: Joi.string(),//units of measure
-            UOMValue : Joi.string().allow(''),
+            UOMValue : Joi.number().allow(''),
             MRP: Joi.number(),
-            inStock: Joi.boolean(),
-            available: Joi.string(),
+            available: Joi.number(),
             maximum: Joi.number(),
         });
     },
