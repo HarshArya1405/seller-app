@@ -26,7 +26,7 @@ class OndcService {
 
             this.postSearchRequest(order, selectMessageId)
 
-            return {}
+            return {}   
         } catch (err) {
             logger.error('error', `[Ondc Service] search logistics payload - search logistics payload : param :`, err);
             throw err;
@@ -662,7 +662,7 @@ class OndcService {
                             }],
                             "quote": initRequest.selectedLogistics.message.order.quote,
                             "payment": { //TODO: hard coded
-                                "type": order.payment.type,
+                                "type": "POST-FULFILLMENT",
                                 "collected_by": order.payment.collected_by,
                                 "@ondc/org/settlement_details": []
                             },
