@@ -6,6 +6,14 @@ const productSchema = new mongoose.Schema({
         required:true,
         default: () => uuid(),
     },
+    type: {
+        type: String,
+        enum: ['item', 'customization'],
+        default: 'items'
+    },
+    inStock: {type: Boolean},
+    available: {type:String},
+    maximum: {type:String},
     productCode: {type:String},
     productName: {type:String,required:true},
     variantGroup : {type:String,ref:'VariantGroup'},
@@ -32,6 +40,7 @@ const productSchema = new mongoose.Schema({
     maxAllowedQty: {type:Number},
     packQty:{type:String},
     UOM: {type:String},//units of measure
+    UOMValue: {type:String},
     length: {type:String},
     breadth: {type:String},
     height: {type:String},
@@ -57,7 +66,8 @@ const productSchema = new mongoose.Schema({
     commonOrGenericNameOfCommodity:{type:String},
     monthYearOfManufacturePackingImport:{type:String},
     importerFSSAILicenseNo:{type:String},
-    brandOwnerFSSAILicenseNo:{type:String}
+    brandOwnerFSSAILicenseNo:{type:String},
+    customizationGroupId: { type: String, ref: 'CustomizationGroup'}
 
 },{  
     strict: true,

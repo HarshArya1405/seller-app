@@ -331,21 +331,21 @@ class ProductController {
                     // Determine the category and set the protocolKey accordingly
                     let protocolKey = null; // Set the default protocolKey
                     if (category === 'Food and Beverages') {
-                        protocolKey = "@ondc/org/mandatory_reqs_veggies_fruits";
+                        protocolKey = '@ondc/org/mandatory_reqs_veggies_fruits';
                     } else if (category === 'Fashion') {
-                        protocolKey = "@ondc/org/statutory_reqs_packaged_commodities"
+                        protocolKey = '@ondc/org/statutory_reqs_packaged_commodities';
                     } else if (category === 'Electronics') {
-                        protocolKey = ""
+                        protocolKey = '';
                     } else if (category === 'Grocery') {
-                        protocolKey = "@ondc/org/statutory_reqs_packaged_commodities"
-                    } else if (category === "Home and Kitchen") {
-                        protocolKey = "@ondc/org/statutory_reqs_packaged_commodities"
+                        protocolKey = '@ondc/org/statutory_reqs_packaged_commodities';
+                    } else if (category === 'Home and Kitchen') {
+                        protocolKey = '@ondc/org/statutory_reqs_packaged_commodities';
                     } else if (category === 'Health and Wellness') {
-                        protocolKey = "@ondc/org/statutory_reqs_packaged_commodities"
+                        protocolKey = '@ondc/org/statutory_reqs_packaged_commodities';
                     } else if (category === 'Beauty and Personal Care') {
-                        protocolKey = "@ondc/org/statutory_reqs_packaged_commodities"
+                        protocolKey = '@ondc/org/statutory_reqs_packaged_commodities';
                     } else if (category === 'Appliances') {
-                        protocolKey = "@ondc/org/statutory_reqs_packaged_commodities"
+                        protocolKey = '@ondc/org/statutory_reqs_packaged_commodities';
                     }
                     // Modify the row object to include the protocolKey
                     row.productSubcategory1 = JSON.stringify({
@@ -484,7 +484,75 @@ class ProductController {
         }
     }
 
+    async createCustomization(req, res, next){
+        try {
+            const data = req.body;
+            data.organization = req.user.organization;
+            
+            const result = await productService.createCustomization(data, req.user);
+            return res.send(result);
+        } catch (error) {
+            console.log('[CustomizationController] [create] Error -', error);
+            next(error);
+        }
+    }
+    async getCustomization(req, res, next) {
+        try {
+            const { name, organization } = req.query;
+            const offset = parseInt(req.query.offset) || 0;
+            const limit = parseInt(req.query.limit) || 10;
 
+            const params = {
+                name,
+                organization,
+                offset,
+                limit
+            };
+
+            const customizations = await productService.getCustomization(params);
+            return res.json(customizations);
+        } catch (error) {
+            console.log('[CustomizationController] [getCustomization] Error:', error);
+            next(error);
+        }
+    }
+
+    async updateCustomization(req, res, next) {
+        try {
+            const { customizationId } = req.params;
+            const updatedDetails = req.body;
+            //console.log("UPDATED", updatedDetails);
+    
+            const updateResult = await productService.updateCustomization(updatedDetails, req.user, customizationId);
+            //console.log("RESULT", updateResult);
+    
+            if (updateResult) {
+                return res.status(200).json({ success: true, message: 'Customizations updated successfully.' });
+            } else {
+                return res.status(400).json({ success: false, message: 'Failed to update customizations.' });
+            }
+        } catch (error) {
+            console.log('[CustomizationController] [updateCustomization] Error -', error);
+            next(error);
+        }
+    }
+    
+    async deleteCustomization(req, res, next) {
+        try {
+            const { customizationId } = req.params;
+            const deleteResult = await productService.deleteCustomization(customizationId, req.user);
+    
+            if (deleteResult && deleteResult.success) {
+                return res.status(200).json({ success: true, message: 'Customization deleted successfully.', deletedCustomization: deleteResult.deletedCustomization });
+            } else {
+                return res.status(404).json({ success: false, message: 'Failed to delete customization or customization not found.' });
+            }
+        } catch (error) {
+            console.log('[CustomizationController] [deleteCustomization] Error -', error);
+            next(error);
+        }
+    }
+    
 }
 
 export default ProductController;
