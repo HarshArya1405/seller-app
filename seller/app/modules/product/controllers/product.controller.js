@@ -552,6 +552,21 @@ class ProductController {
             next(error);
         }
     }
+
+    async getCustomizationById(req, res, next) {
+        try {
+            const currentUser = req.user;
+            const { customizationId } = req.params;
+    
+            const customization = await productService.getCustomizationById(customizationId, currentUser);
+    
+            return res.send(customization);
+        } catch (err) {
+            console.error('[CustomizationController] [getCustomizationById] Error:', err);
+            next(err);
+        }
+    }
+    
     
 }
 
