@@ -147,6 +147,7 @@ router.delete('/v1/product/deleteCustomization/:customizationId',
 
 router.get('/v1/product/getCustomizationById/:customizationId',
     authentication.middleware(),
-    productController.getCustomizationById)
+    productController.getCustomizationById
+);
 
 module.exports = router;
