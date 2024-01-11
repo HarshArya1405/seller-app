@@ -69,6 +69,7 @@ module.exports = {
     createCust: () => {
         return Joi.object({
             productName: Joi.string(),
+            vegNonVeg: Joi.string(),
             UOM: Joi.string(),//units of measure
             UOMValue : Joi.number().allow(''),
             MRP: Joi.number(),
@@ -80,6 +81,7 @@ module.exports = {
     updateCust: () => {
         return Joi.object({
             productName: Joi.string(),
+            vegNonVeg: Joi.string(),
             UOM: Joi.string(),//units of measure
             UOMValue : Joi.number().allow(''),
             MRP: Joi.number(),
