@@ -34,13 +34,10 @@ const MESSAGES = {
     STORE_NOT_EXISTS: 'We weren\'t able to find any store with this details',
     STORE_ALREADY_EXISTS: 'A Store with the given name already exists',
     PROVIDER_NOT_EXIST: 'Provider details not found, Please add provider first !',
-    GROUP_NOT_FOUND: 'We couldn\'t find the group',
+    GROUP_NOT_FOUND: 'We couldn\'t find the group with given details',
     CUSTOMIZATION_GROUP_ALREADY_EXISTS: 'A group with this name already exists',
     CUSTOMIZATION_ALREADY_EXISTS: 'A customization with this name already exists',
     CUSTOMIZATION_RECORD_NOT_FOUND: 'Customization Record not found'
-
-
-
 };
 
 export default MESSAGES;
