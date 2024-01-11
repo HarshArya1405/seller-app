@@ -1661,13 +1661,13 @@ class ProductService {
     }
     async productUpdateItem(data, requestQuery) {
 
-        const statusRequest = requestQuery.retail_update[0]//select first select request
+        // const statusRequest = requestQuery.retail_update[0]//select first select request
 
 
         console.log("data-------->", data.items);
         console.log("data-------->", data);
         let updatedItems = []
-        for (let item of data.message.order.items) {
+        // for (let item of data.message.order.items) {
 
             //let updateItem = statusRequest.message.order.items.find((itemObj) => {return itemObj.id === item.id});
             //
@@ -1677,10 +1677,10 @@ class ProductService {
             //     item.reason_code = updateItem.tags.reason_code;
             // }
 
-            updatedItems.push(item);
-        }
+            // updatedItems.push(item);
+        // }
 
-        data.items = updatedItems;
+        // data.items = updatedItems;
 
         //update order level state
         // httpRequest = new HttpRequest(
@@ -1694,27 +1694,27 @@ class ProductService {
         // let updateResult = await httpRequest.send();
 
         //update item level fulfillment status
-        let items = data.message.order.items.map((item) => {
+        // let items = data.message.order.items.map((item) => {
 
-            console.log("item--->", item)
-            if (item.state == 'Cancelled') {
-                item.tags = { status: 'Cancelled' };
-            }
-            if (item.state == 'Liquidated') {
-                item.tags = { status: 'Liquidated' };
-            }
-            if (item.state == 'Rejected') {
-                item.tags = { status: 'Rejected' };
-            }
-            // item.tags={status:logisticData.message.order.fulfillments[0].state?.descriptor?.code};
-            item.fulfillment_id = data.message.order.fulfillments[0].id
-            delete item.state
-            delete item.reason_code
-            return item;
-        });
+        //     console.log("item--->", item)
+        //     if (item.state == 'Cancelled') {
+        //         item.tags = { status: 'Cancelled' };
+        //     }
+        //     if (item.state == 'Liquidated') {
+        //         item.tags = { status: 'Liquidated' };
+        //     }
+        //     if (item.state == 'Rejected') {
+        //         item.tags = { status: 'Rejected' };
+        //     }
+        //     // item.tags={status:logisticData.message.order.fulfillments[0].state?.descriptor?.code};
+        //     item.fulfillment_id = data.message.order.fulfillments[0].id
+        //     delete item.state
+        //     delete item.reason_code
+        //     return item;
+        // });
 
-        data.message.order.items = items;
-        data.message.order.id = data.message.order.orderId;
+        // data.message.order.items = items;
+        // data.message.order.id = data.message.order.orderId;
 
         const productData = await getUpdate({
             context: data.context,
