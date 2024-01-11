@@ -730,7 +730,25 @@ class ProductService {
             throw err;
         }
     }
+
+    async getCustomizationById(customizationId, currentUser) {
+        try {
+            const customization = await Product.findOne({ 
+                _id: customizationId,
+                organization: currentUser.organization,
+                type: 'customization'
+            });
     
+            if (!customization) {
+                throw new NoRecordFoundError(MESSAGES.CUSTOMIZATION_RECORD_NOT_FOUND);
+            }
+    
+            return customization;
+        } catch (err) {
+            console.log(`[CustomizationService] [getCustomizationById] Error - ${currentUser.organization}`, err);
+            throw err;
+        }
+    }    
     
 }
 export default ProductService;
