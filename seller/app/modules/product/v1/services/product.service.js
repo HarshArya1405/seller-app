@@ -1,7 +1,6 @@
 import Product from '../../models/product.model';
 import ProductAttribute from '../../models/productAttribute.model';
 import ProductCustomizationService from './productCustomization.service';
-import productSchema from '../../v1/validationSchema/api-params-validation-schema/product.validate.schema';
 import VariantGroup from '../../models/variantGroup.model';
 import { Categories, SubCategories, Attributes } from '../../../../lib/utils/categoryVariant';
 import Organization from '../../../organization/models/organization.model';

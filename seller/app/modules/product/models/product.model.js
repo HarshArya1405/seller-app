@@ -9,11 +9,10 @@ const productSchema = new mongoose.Schema({
     type: {
         type: String,
         enum: ['item', 'customization'],
-        default: 'items'
+        default: 'item'
     },
-    inStock: {type: Boolean},
-    available: {type:String},
-    maximum: {type:String},
+    available: {type:Number},
+    maximum: {type:Number},
     productCode: {type:String},
     productName: {type:String,required:true},
     variantGroup : {type:String,ref:'VariantGroup'},

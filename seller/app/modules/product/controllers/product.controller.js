@@ -3,7 +3,7 @@ import ProductCustomizationService from '../v1/services/productCustomization.ser
 import { mergedEnvironmentConfig } from '../../../config/env.config';
 import { commonKeys, templateKeys } from '../../../lib/utils/constants';
 import { mergedValidation } from '../../../lib/utils/bulkUploadValidaton';
-import { mergerdAttributeValidation } from '../../../lib/utils/bulkUploadAttributeValidation'
+import { mergerdAttributeValidation } from '../../../lib/utils/bulkUploadAttributeValidation';
 import { templateAttributeKeys } from '../../../lib/utils/commonAttribute';
 
 var XLSX = require('xlsx');
@@ -404,7 +404,7 @@ class ProductController {
                                     region: region
                                 });
 
-                                const uploadedImage = await s3.upload({
+                                await s3.upload({
                                     Bucket: bucket,
                                     Key: keyName,
                                     Body: blob

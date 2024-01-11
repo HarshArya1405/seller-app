@@ -71,7 +71,7 @@ module.exports = {
             productName: Joi.string(),
             vegNonVeg: Joi.string(),
             UOM: Joi.string(),//units of measure
-            UOMValue : Joi.number().allow(''),
+            UOMValue : Joi.string().allow(''),
             MRP: Joi.number(),
             available: Joi.number(),
             maximum: Joi.number(),
@@ -83,7 +83,7 @@ module.exports = {
             productName: Joi.string(),
             vegNonVeg: Joi.string(),
             UOM: Joi.string(),//units of measure
-            UOMValue : Joi.number().allow(''),
+            UOMValue : Joi.string().allow(''),
             MRP: Joi.number(),
             available: Joi.number(),
             maximum: Joi.number(),
