@@ -210,7 +210,8 @@ class CustomizationService {
                 for(const group of mapping.groups){
                     const nextGroup = await CustomizationGroup.findOne({_id: group.child})
                     if (!nextGroup) {
-                        throw new NoRecordFoundError(MESSAGES.NEXT_GROUP_NOT_FOUND);
+                        console.error(`[CustomizationService] [getCustomizationGroupById] Warning - Next group not found: ${group.child}`);
+                        continue;
                     }
                     let groupObj = {
                         groupId: group.child,
