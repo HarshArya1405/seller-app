@@ -31,7 +31,7 @@ class CustomizationService {
                         createdBy: currentUser.id,
                     };
                     let newCustomizationGroup = new CustomizationGroup(customizationGroupObj);
-                    await this.isValidTreeStructure("",customizationDetails)
+                    await this.isValidTreeStructure('',customizationDetails);
                     await newCustomizationGroup.save();
                     
                     //TODO:Tirth why creating obj for paren class, use "this" for that(Done)
@@ -83,7 +83,6 @@ class CustomizationService {
                 //     throw new DuplicateRecordFoundError(MESSAGES.CUSTOMIZATION_ALREADY_EXISTS);
                 // }
                 //await this.isValidTreeStructure(id, customizationDetails);
-                return await this.isValidTreeStructure(id, customizationDetails, currentUser)
 
                 let existingGroup = await CustomizationGroup.findOne({
                     _id: id,
@@ -305,10 +304,10 @@ class CustomizationService {
 
     async isValidTreeStructure(id, customizationDetails, currentUser) {
         let parentIds = [];
-        let isUpdate = (id)? true : false
+        let isUpdate = (id)? true : false;
 
         if(isUpdate){
-            parentIds.push(id)
+            parentIds.push(id);
         }
     
         // Start the traversal with the customizations from the input
@@ -324,15 +323,15 @@ class CustomizationService {
     }
 
     async traverseBackward(groupId, parentIds=[], currentUser) {
-        let isDuplicatePresent = false
+        let isDuplicatePresent = false;
         if(parentIds.length > 0){
-            isDuplicatePresent = this.hasDuplicates(parentIds)
+            isDuplicatePresent = this.hasDuplicates(parentIds);
         }
 
         if(isDuplicatePresent){
-            throw new ConflictError(MESSAGES.CIRCULAR_REFERENCE_DETECT)
+            throw new ConflictError(MESSAGES.CIRCULAR_REFERENCE_DETECT);
         }
-        let mappedData = await CustomizationGroupMapping.find({parent: groupId, organization: currentUser.organization})
+        let mappedData = await CustomizationGroupMapping.find({parent: groupId, organization: currentUser.organization});
 
         let mappings = this.groupBy(mappedData, 'customization');
         console.log({mappings});
@@ -342,9 +341,9 @@ class CustomizationService {
                 for( const group of mapping.groups){
                     console.log({group});
                     if(group.child){
-                        parentIds.push(group.child)
+                        parentIds.push(group.child);
                         console.log({parentIds});
-                        parentIds = await this.traverseBackward(group.child, parentIds, currentUser)
+                        parentIds = await this.traverseBackward(group.child, parentIds, currentUser);
                     }
                 }
             }
