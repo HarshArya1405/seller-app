@@ -56,7 +56,8 @@ module.exports = {
                 barcode: Joi.number(),
                 images: Joi.array(),
                 type: Joi.string(),
-                organization: Joi.string().required()
+                organization: Joi.string().required(),
+                customizationGroupId: Joi.string(),
             }),
             commonAttributesValues: Joi.object(),
             customizationDetails: Joi.object({
@@ -75,6 +76,7 @@ module.exports = {
             MRP: Joi.number(),
             available: Joi.number(),
             maximum: Joi.number(),
+            customizationGroupId: Joi.string(),
         });
     },
 
@@ -87,6 +89,7 @@ module.exports = {
             MRP: Joi.number(),
             available: Joi.number(),
             maximum: Joi.number(),
+            customizationGroupId: Joi.string(),
         });
     },
     createWithVariant: () => {
@@ -212,6 +215,7 @@ module.exports = {
                 purchasePrice: Joi.number(),
                 barcode: Joi.number(),
                 images: Joi.array(),
+                customizationGroupId: Joi.string(),
             }),
             commonAttributesValues: Joi.object(),
             customizationDetails: Joi.object({
