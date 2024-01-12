@@ -38,7 +38,9 @@ const MESSAGES = {
     CUSTOMIZATION_GROUP_ALREADY_EXISTS: 'A group with this name already exists',
     CUSTOMIZATION_ALREADY_EXISTS: 'A customization with this name already exists',
     CUSTOMIZATION_RECORD_NOT_FOUND: 'Customization Record not found',
-    CUSTOMIZATION_GROUP_MAPPING_NOT_EXISTS: 'Mapping does not exists'
+    CUSTOMIZATION_GROUP_MAPPING_NOT_EXISTS: 'Mapping does not exists',
+    CIRCULAR_REFERENCE_ERROR: 'Group id already exists',
+    NEXT_GROUP_NOT_FOUND: 'Next Group is not present'
 
 
 

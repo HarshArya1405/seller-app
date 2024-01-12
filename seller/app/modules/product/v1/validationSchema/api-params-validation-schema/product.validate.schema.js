@@ -56,7 +56,7 @@ module.exports = {
                 barcode: Joi.number(),
                 images: Joi.array(),
                 type: Joi.string(),
-                organization: Joi.string().required(),
+                organization: Joi.string(),
                 customizationGroupId: Joi.string(),
             }),
             commonAttributesValues: Joi.object(),

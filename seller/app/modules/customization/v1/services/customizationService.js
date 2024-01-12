@@ -209,6 +209,10 @@ class CustomizationService {
 
                 for(const group of mapping.groups){
                     const nextGroup = await CustomizationGroup.findOne({_id: group.child})
+                    if (!nextGroup) {
+                        console.error(`[CustomizationService] [getCustomizationGroupById] Warning - Next group not found: ${group.child}`);
+                        continue;
+                    }
                     let groupObj = {
                         groupId: group.child,
                         name: nextGroup.name
