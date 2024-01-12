@@ -115,7 +115,7 @@ class CustomizationService {
     async deleteCustomizationGroup(currentUser, groupId) {
         try {
             //TODO:Tirth write proper query(Done)
-            await CustomizationGroupMapping.deleteMany({ groupId });
+            await CustomizationGroupMapping.updateMany({ 'groups.child': groupId }, { $pull: { 'groups.$.child': groupId } });
             const deletedCustomizationGroup = await CustomizationGroup.deleteOne({ _id: groupId, organization: currentUser.organization });
             return { success: true, deletedCustomizationGroup };
         } catch (err) {
