@@ -40,7 +40,11 @@ const MESSAGES = {
     CUSTOMIZATION_RECORD_NOT_FOUND: 'Customization Record not found',
     CUSTOMIZATION_GROUP_MAPPING_NOT_EXISTS: 'Mapping does not exists',
     CIRCULAR_REFERENCE_ERROR: 'Group id already exists',
-    NEXT_GROUP_NOT_FOUND: 'Next Group is not present'
+    NEXT_GROUP_NOT_FOUND: 'Next Group is not present',
+    DUPLICATE_ID_FOUND : 'Duplicate id is present',
+    CHILD_ID_ERROR: "Child Id cannot be a Parent Id",
+    CIRCULAR_REFERENCE_DETECT: "A parent cannot be a child of itself",
+    UNDEFINED_CONFLICT_ERROR: "Group Id has an undefined parent"
 
 
 
