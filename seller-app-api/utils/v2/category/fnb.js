@@ -241,6 +241,9 @@ export async function mapFnBData(data) {
                     let customizationData = customizationSchema(customization,items)
                     productAvailable.push(customizationData)
                 }
+            }else{
+                let item = itemSchema({...items, org: org},[],customMenuData)
+                productAvailable.push(item)
             }
         }
         bppDetails = {
@@ -616,8 +619,8 @@ function customizationSchema(customizations,item) {
         "price":
         {
           "currency":"INR",
-          "value":`${customizations.price}`,
-          "maximum_value":`${customizations.price}`
+          "value":`${customizations.MRP}`,
+          "maximum_value":`${customizations.MRP}`
         },
         "category_id":item.productSubcategory1 ?? "NA",
         "related":true,

@@ -208,6 +208,7 @@ class CustomizationService {
 
                 for(const group of mapping.groups){
                     const nextGroup = await CustomizationGroup.findOne({_id: group.child});
+                    defaultValue = group.default;
                     if (!nextGroup) {
                         console.error(`[CustomizationService] [getCustomizationGroupById] Warning - Next group not found: ${group.child}`);
                         continue;
@@ -217,7 +218,6 @@ class CustomizationService {
                         name: nextGroup.name
                     };
                     groupData.push(groupObj);
-                    defaultValue = group.default;
                 }
 
                 customizationObj = {
