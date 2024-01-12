@@ -1,7 +1,7 @@
 import CustomizationGroup from '../../models/customizationGroupModel';
 import CustomizationGroupMapping from '../../models/customizationGroupMappingModel';
 import Product from '../../../product/models/product.model';
-import { DuplicateRecordFoundError, NoRecordFoundError } from '../../../../lib/errors';
+import { ConflictError, DuplicateRecordFoundError, NoRecordFoundError } from '../../../../lib/errors';
 import MESSAGES from '../../../../lib/utils/messages';
 
 class CustomizationService {
@@ -72,15 +72,15 @@ class CustomizationService {
         //TODO:Tirth check if given name has already been use in other group and throw error(Done)
         try {
             if (customizationDetails) {
-                const existingGroupWithSameName = await CustomizationGroup.findOne({
-                    _id:{$ne:id},
-                    name: customizationDetails.name,
-                    organization: currentUser.organization,
-                });
+                // const existingGroupWithSameName = await CustomizationGroup.findOne({
+                //     _id:{$ne:id},
+                //     name: customizationDetails.name,
+                //     organization: currentUser.organization,
+                // });
     
-                if (existingGroupWithSameName) {
-                    throw new DuplicateRecordFoundError(MESSAGES.CUSTOMIZATION_ALREADY_EXISTS);
-                }
+                // if (existingGroupWithSameName) {
+                //     throw new DuplicateRecordFoundError(MESSAGES.CUSTOMIZATION_ALREADY_EXISTS);
+                // }
                 let existingGroup = await CustomizationGroup.findOne({
                     _id: id,
                     organization: currentUser.organization,
@@ -232,6 +232,7 @@ class CustomizationService {
             }
 
             const response = {
+                _id: customizationGroup._id,
                 name: customizationGroup.name,
                 inputType: customizationGroup.inputType,
                 minQuantity: customizationGroup.minQuantity,
