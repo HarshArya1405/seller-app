@@ -1,7 +1,7 @@
 import CustomizationGroup from '../../models/customizationGroupModel';
 import CustomizationGroupMapping from '../../models/customizationGroupMappingModel';
 import Product from '../../../product/models/product.model';
-import { DuplicateRecordFoundError, NoRecordFoundError } from '../../../../lib/errors';
+import { ConflictError, DuplicateRecordFoundError, NoRecordFoundError } from '../../../../lib/errors';
 import MESSAGES from '../../../../lib/utils/messages';
 
 class CustomizationService {
@@ -233,6 +233,7 @@ class CustomizationService {
             }
 
             const response = {
+                _id: customizationGroup._id,
                 name: customizationGroup.name,
                 inputType: customizationGroup.inputType,
                 minQuantity: customizationGroup.minQuantity,
