@@ -138,7 +138,9 @@ module.exports = {
                 commonOrGenericNameOfCommodity:Joi.string(),
                 monthYearOfManufacturePackingImport:Joi.string(),
                 importerFSSAILicenseNo:Joi.string(),
-                brandOwnerFSSAILicenseNo:Joi.string()
+                brandOwnerFSSAILicenseNo:Joi.string(),
+                customizationGroupId: Joi.string(),
+                type: Joi.string(),
             }),
             commonAttributesValues: Joi.object(),
             variantSpecificDetails: Joi.array().items(
@@ -216,6 +218,7 @@ module.exports = {
                 barcode: Joi.number(),
                 images: Joi.array(),
                 customizationGroupId: Joi.string(),
+                type: Joi.string(),
             }),
             commonAttributesValues: Joi.object(),
             customizationDetails: Joi.object({
@@ -271,7 +274,9 @@ module.exports = {
                 commonOrGenericNameOfCommodity:Joi.string(),
                 monthYearOfManufacturePackingImport:Joi.string(),
                 importerFSSAILicenseNo:Joi.string(),
-                brandOwnerFSSAILicenseNo:Joi.string()
+                brandOwnerFSSAILicenseNo:Joi.string(),
+                customizationGroupId: Joi.string(),
+                type: Joi.string()
             }),
             commonAttributesValues: Joi.object(),
             variationOn: Joi.string(),
