@@ -79,10 +79,10 @@ class ProductService {
 
             if (!category) {
                 category = {
-                    "name": "Electronics",
-                    "domain": "ONDC:RET14"
+                    "name": "F&B",
+                    "domain": "ONDC:RET11"
                 };
-                requestQuery.context.domain = 'ONDC:RET14';
+                requestQuery.context.domain = 'ONDC:RET11';
             }
 
 

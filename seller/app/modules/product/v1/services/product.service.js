@@ -1,6 +1,6 @@
 import Product from '../../models/product.model';
+import CustomizationService from '../../../customization/v1/services/customizationService'
 import ProductAttribute from '../../models/productAttribute.model';
-import ProductCustomizationService from './productCustomization.service';
 import VariantGroup from '../../models/variantGroup.model';
 import { Categories, SubCategories, Attributes } from '../../../../lib/utils/categoryVariant';
 import Organization from '../../../organization/models/organization.model';
@@ -11,8 +11,7 @@ import CustomMenuTiming from '../../models/customMenuTiming.model';
 import CustomMenu from '../../models/customMenu.model';
 import MESSAGES from '../../../../lib/utils/messages';
 import { DuplicateRecordFoundError, NoRecordFoundError } from '../../../../lib/errors';
-
-const productCustomizationService = new ProductCustomizationService();
+const customizationService = new CustomizationService();
 
 class ProductService {
     /**
@@ -37,15 +36,6 @@ class ProductService {
             product.organization = currentUser.organization;
             product.type = 'item';
             await product.save();
-
-            // if (data.commonAttributesValues) {
-            //     await this.createAttribute({ product: product._id, attributes: data.commonAttributesValues }, currentUser);
-            // }
-            // if (data.customizationDetails) {
-            //     await productCustomizationService.create(product._id, data.customizationDetails, currentUser);
-            // }
-    
-        
             return { data: product };
             
         } catch (err) {
@@ -317,7 +307,7 @@ class ProductService {
                             attributeData.push(attributeObj);
                         }
                         product.attributes = attributeData;
-                        product.customizationDetails = await productCustomizationService.getforApi(product._id) ?? '';
+                        product.customizationDetails = await customizationService.mappdedData(product.customizationGroupId,{organization:product.organization}) ?? '';
                         productData.push(product);
                     }
                     // getting Menu for org -> 
@@ -430,7 +420,7 @@ class ProductService {
             let productData = {
                 commonDetails: product,
                 commonAttributesValues: attributeObj,
-                customizationDetails: await productCustomizationService.get(productId, { organization: product.organization }),
+                customizationDetails: await customizationService.mappdedData(product.customizationGroupId,{organization:product.organization}),
             };
             const variantGroup = await VariantGroup.findOne({ _id: product.variantGroup });
             if (variantGroup) {
@@ -475,7 +465,7 @@ class ProductService {
                 attributeData.push(attributeObj);
             }
             product.attributes = attributeData;
-            product.customizationDetails = await productCustomizationService.getforApi(product._id) ?? '';
+            product.customizationDetails = await customizationService.mappdedData(product.customizationGroupId,{organization:product.organization}) ?? '';
             return product;
 
         } catch (err) {
@@ -522,9 +512,6 @@ class ProductService {
             await Product.updateOne({ _id: productId, organization: currentUser.organization }, productObj);
             if (commonAttributesValues) {
                 await this.createAttribute({ product: productId, attributes: commonAttributesValues }, currentUser);
-            }
-            if (data.customizationDetails) {
-                await productCustomizationService.create(product._id, data.customizationDetails, currentUser);
             }
             return { data: productObj };
 
