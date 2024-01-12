@@ -31,6 +31,7 @@ class CustomizationService {
                         createdBy: currentUser.id,
                     };
                     let newCustomizationGroup = new CustomizationGroup(customizationGroupObj);
+                    await this.isValidTreeStructure("",customizationDetails)
                     await newCustomizationGroup.save();
                     
                     //TODO:Tirth why creating obj for paren class, use "this" for that(Done)
@@ -81,6 +82,9 @@ class CustomizationService {
                 // if (existingGroupWithSameName) {
                 //     throw new DuplicateRecordFoundError(MESSAGES.CUSTOMIZATION_ALREADY_EXISTS);
                 // }
+                //await this.isValidTreeStructure(id, customizationDetails);
+                return await this.isValidTreeStructure(id, customizationDetails, currentUser)
+
                 let existingGroup = await CustomizationGroup.findOne({
                     _id: id,
                     organization: currentUser.organization,
@@ -297,6 +301,59 @@ class CustomizationService {
             }
         }
         return {customizationGroups,customizations};
+    }
+
+    async isValidTreeStructure(id, customizationDetails, currentUser) {
+        let parentIds = [];
+        let isUpdate = (id)? true : false
+
+        if(isUpdate){
+            parentIds.push(id)
+        }
+    
+        // Start the traversal with the customizations from the input
+        parentIds = await this.traverseBackward(id, parentIds, currentUser);
+    
+        // Check if all customizations are unique
+        // const uniqueCustomizationIds = new Set(allCustomizationIds);
+        // if (uniqueCustomizationIds.size !== allCustomizationIds.length) {
+        //     throw new Error('Duplicate customizationIds found in the tree structure.');
+        // }
+    
+        return parentIds;
+    }
+
+    async traverseBackward(groupId, parentIds=[], currentUser) {
+        let isDuplicatePresent = false
+        if(parentIds.length > 0){
+            isDuplicatePresent = this.hasDuplicates(parentIds)
+        }
+
+        if(isDuplicatePresent){
+            throw new ConflictError(MESSAGES.CIRCULAR_REFERENCE_DETECT)
+        }
+        let mappedData = await CustomizationGroupMapping.find({parent: groupId, organization: currentUser.organization})
+
+        let mappings = this.groupBy(mappedData, 'customization');
+        console.log({mappings});
+        for (const mapping of mappings ) {
+            console.log({mapping});
+            if(mapping.groups && mapping.groups.length > 0){
+                for( const group of mapping.groups){
+                    console.log({group});
+                    if(group.child){
+                        parentIds.push(group.child)
+                        console.log({parentIds});
+                        parentIds = await this.traverseBackward(group.child, parentIds, currentUser)
+                    }
+                }
+            }
+        }
+        return parentIds;
+    }
+
+    async hasDuplicates(array) {
+        return (new Set(array)).size !== array.length;
     }
 }
 
