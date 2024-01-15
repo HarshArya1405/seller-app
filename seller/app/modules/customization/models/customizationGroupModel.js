@@ -8,7 +8,7 @@ const customizationGroupSchema = new mongoose.Schema({
         required: true,
         default: () => uid(),
     },
-    organization: {type:String,ref:'Organozation'},
+    organization: {type:String,ref:'Organization'},
     name: {type:String},
     description: {type:String},
     inputType: {type:String},

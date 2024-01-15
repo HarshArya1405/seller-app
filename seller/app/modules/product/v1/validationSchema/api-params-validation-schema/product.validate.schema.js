@@ -77,7 +77,6 @@ module.exports = {
             MRP: Joi.number(),
             available: Joi.number(),
             maximum: Joi.number(),
-            customizationGroupId: Joi.string(),
         });
     },
 
@@ -91,7 +90,6 @@ module.exports = {
             MRP: Joi.number(),
             available: Joi.number(),
             maximum: Joi.number(),
-            customizationGroupId: Joi.string(),
         });
     },
     createWithVariant: () => {
