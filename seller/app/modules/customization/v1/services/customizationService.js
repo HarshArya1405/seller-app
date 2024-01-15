@@ -82,7 +82,7 @@ class CustomizationService {
                 // if (existingGroupWithSameName) {
                 //     throw new DuplicateRecordFoundError(MESSAGES.CUSTOMIZATION_ALREADY_EXISTS);
                 // }
-                //await this.isValidTreeStructure(id, customizationDetails);
+                await this.isValidTreeStructure(id, customizationDetails);
 
                 let existingGroup = await CustomizationGroup.findOne({
                     _id: id,
@@ -325,13 +325,15 @@ class CustomizationService {
     async traverseBackward(groupId, parentIds=[], currentUser) {
         let isDuplicatePresent = false;
         if(parentIds.length > 0){
-            isDuplicatePresent = this.hasDuplicates(parentIds);
+            isDuplicatePresent = await this.hasDuplicates(parentIds);
         }
+
+        //console.log("DUPLICATE", isDuplicatePresent);
 
         if(isDuplicatePresent){
             throw new ConflictError(MESSAGES.CIRCULAR_REFERENCE_DETECT);
         }
-        let mappedData = await CustomizationGroupMapping.find({parent: groupId, organization: currentUser.organization});
+        let mappedData = await CustomizationGroupMapping.find({parent: groupId, /*organization: currentUser.organization*/});
 
         let mappings = this.groupBy(mappedData, 'customization');
         console.log({mappings});
