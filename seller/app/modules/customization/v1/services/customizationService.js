@@ -50,12 +50,16 @@ class CustomizationService {
     }
 
     //TODO:Tirth add filter on name(Done)
-    async getCustomizationGroups(currentUser, params) {
+    async getCustomizationGroups(params, currentUser) {
         try {
             let query = {};
             
             if (params.name) {
                 query.name = { $regex: params.name, $options: 'i' }; // Case-insensitive name search
+            }
+
+            if (params.seq) {
+                query.seq = { $gt: Number(params.seq) }; // Find sequences greater than the provided value
             }
     
             const existingGroups = await CustomizationGroup.find(query).sort({ createdAt: 1 })
