@@ -224,7 +224,7 @@ class CustomizationService {
                     let groupObj = {
                         groupId: group.child,
                         name: nextGroup.name,
-                        description:nextGroup.description
+                        description:nextGroup?.description ?? ''
                     };
                     groupData.push(groupObj);
                 }
@@ -232,7 +232,8 @@ class CustomizationService {
                 customizationObj = {
                     customizationId: {
                         id: customizationId,
-                        name: customization.productName
+                        name: customization.productName,
+                        description:customization?.description ?? ''
                     },
                     nextGroupId: groupData,
                     default: defaultValue 
@@ -243,7 +244,7 @@ class CustomizationService {
             const response = {
                 _id: customizationGroup._id,
                 name: customizationGroup.name,
-                description:customizationGroup.description,
+                description:customizationGroup?.description ?? '',
                 inputType: customizationGroup.inputType,
                 minQuantity: customizationGroup.minQuantity,
                 maxQuantity: customizationGroup.maxQuantity,
