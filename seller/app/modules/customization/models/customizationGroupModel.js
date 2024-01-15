@@ -10,7 +10,7 @@ const customizationGroupSchema = new mongoose.Schema({
     },
     organization: {type:String,ref:'Organozation'},
     name: {type:String},
-    isMandatory : {type:Boolean}, 
+    description: {type:String},
     inputType: {type:String},
     minQuantity: {type:Number},
     maxQuantity: {type:Number},
