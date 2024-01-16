@@ -19,6 +19,7 @@ const MESSAGES = {
     CUSTOMIZATION_GROUP_NOT_EXISTS: 'We couldn\'t find the customization group with given details',
     PRODUCT_ALREADY_EXISTS:'A product with this name already exists.',
     PRODUCT_NOT_EXISTS: 'We couldn\'t find the product with given details',
+    PRODUCT_DOESNOT_BELONG_TO_CUSTOMIZATION_GROUP: 'Product doesnot belong to customization group',
 
     ROLE_NOT_EXISTS: 'We couldn\'t find the role with given name',
     ROLE_ALREADY_EXISTS: 'A Role with the given name already exists',
@@ -44,7 +45,9 @@ const MESSAGES = {
     DUPLICATE_ID_FOUND : 'Duplicate id is present',
     CHILD_ID_ERROR: "Child Id cannot be a Parent Id",
     CIRCULAR_REFERENCE_DETECT: "A parent cannot be a child of itself",
-    UNDEFINED_CONFLICT_ERROR: "Group Id has an undefined parent"
+    UNDEFINED_CONFLICT_ERROR: "Group Id has an undefined parent",
+    CUSTOMIZATION_GROUP_EXISTS_FOR_ONE_OR_MORE_PRODUCTS: 'Cannot delete customization group. It is used in one or more products.',
+    CUSTOMIZATION_GROUP_CHILD: 'Cannot delete customization group. It is a child in the mapping table.'
 
 
 

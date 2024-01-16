@@ -123,7 +123,17 @@ class CustomizationService {
     async deleteCustomizationGroup(currentUser, groupId) {
         try {
             //TODO:Tirth write proper query(Done)
-            await CustomizationGroupMapping.updateMany({ 'groups.child': groupId }, { $pull: { 'groups.$.child': groupId } });
+             // Check if the group is used in any products
+            const isUsedInProducts = await Product.findOne({ customizationGroupId: groupId, organization: currentUser.organization });
+            if (isUsedInProducts) {
+                throw new ConflictError(MESSAGES.CUSTOMIZATION_GROUP_EXISTS_FOR_ONE_OR_MORE_PRODUCTS);
+            }
+
+            // Check if the group is a child in the mapping table
+            const isChildInMapping = await CustomizationGroupMapping.findOne({ child: groupId, organization: currentUser.organization });
+            if (isChildInMapping) {
+                throw new ConflictError(MESSAGES.CUSTOMIZATION_GROUP_CHILD);
+            }
             const deletedCustomizationGroup = await CustomizationGroup.deleteOne({ _id: groupId, organization: currentUser.organization });
             return { success: true, deletedCustomizationGroup };
         } catch (err) {
