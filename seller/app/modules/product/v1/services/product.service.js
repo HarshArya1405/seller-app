@@ -1,6 +1,6 @@
 import Product from '../../models/product.model';
-import CustomizationService from '../../../customization/v1/services/customizationService'
-import CustomizationGroup from '../../../customization/models/customizationGroupModel'
+import CustomizationService from '../../../customization/v1/services/customizationService';
+import CustomizationGroup from '../../../customization/models/customizationGroupModel';
 import CustomizationGroupMapping from '../../../customization/models/customizationGroupMappingModel';
 import ProductAttribute from '../../models/productAttribute.model';
 import VariantGroup from '../../models/variantGroup.model';
@@ -208,7 +208,7 @@ class ProductService {
                 count,
                 data
             };
-            return { products };
+            return products;
         } catch (err) {
             console.log('[OrderService] [getAll] Error in getting all organization ', err);
             throw err;
@@ -734,43 +734,34 @@ class ProductService {
         try {
             // Fetch customization details for the product's customizationGroup
             const customizationGroup = await CustomizationGroup.findOne({
-                _id: groupId
+                _id: groupId,
+                organization:currentUser.organization
             });
 
-            //console.log("GROUPPPP", customizationGroup);
-    
             if (!customizationGroup) {
                 throw new NoRecordFoundError(MESSAGES.CUSTOMIZATION_GROUP_NOT_EXISTS);
             }
     
-            // Fetch customizationGroupMapping datas using the provided groupId
             const mappingData = await CustomizationGroupMapping.find({
-                parent: groupId
+                parent: groupId,
+                organization:currentUser.organization
             });
 
-            //console.log("MAPPPPP", mappingData);
+            let customizationIds = mappingData.map((data)=> data.customization);
 
-            let customizationIds = mappingData.map((data)=> data.customization)
-
-            //console.log("IDSSS", customizationIds);
-
-            let customizationData = await Product.findOne({type: 'customization', organization: currentUser.organization, _id: {$in : customizationIds}}).sort({MRP:-1})
-
-            //console.log("DATAAA", customizationData);
-
+            let customizationData = await Product.findOne({type: 'customization', organization: currentUser.organization, _id: {$in : customizationIds}}).sort({MRP:-1});
             accumulatedMRP += customizationData.MRP;
-
-            let groupData = this.groupBy(mappingData, 'customization')
+            let groupData = this.groupBy(mappingData, 'customization');
 
             for(const data of groupData){
                 if(data.id === customizationData._id){
-                   if(data.groups && data.groups.length > 0){
+                    if(data.groups && data.groups.length > 0){
                         for(const group of data.groups){
                             if(group.child){
-                                accumulatedMRP = await this.getMaxMRP(group.child, accumulatedMRP, currentUser)
+                                accumulatedMRP = await this.getMaxMRP(group.child, accumulatedMRP, currentUser);
                             }
                         }
-                   }
+                    }
                 }
             }
 
