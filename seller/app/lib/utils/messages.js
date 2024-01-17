@@ -47,7 +47,9 @@ const MESSAGES = {
     CIRCULAR_REFERENCE_DETECT: 'A parent detected in next groups !!',
     UNDEFINED_CONFLICT_ERROR: 'Group Id has an undefined parent',
     CUSTOMIZATION_GROUP_EXISTS_FOR_ONE_OR_MORE_PRODUCTS: 'Cannot delete customization group. It is used in one or more products.',
-    CUSTOMIZATION_GROUP_CHILD: 'Cannot delete customization group. It is a child in the mapping table.'
+    CUSTOMIZATION_GROUP_CHILD: 'Cannot delete customization group. It is a child in the mapping table.',
+    SEQ_CHILD_ERROR: 'Cannot update seq value to a value less than the seq value of a child group.',
+    SE_NEXTGROUP_ERROR: 'Cannot update seq value to a value greater than or equal to the seq value of the next group.'
 
 
 

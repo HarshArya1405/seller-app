@@ -198,13 +198,17 @@ class ProductService {
             if (params.organization) {
                 query.organization = params.organization;
             }
+            // Apply the type filter if provided
+            if (params.type && (params.type === 'item' || params.type === 'customization')) {
+                query.type = params.type;
+            }
             const data = await Product.find(query).sort({ createdAt: 1 }).skip(params.offset * params.limit).limit(params.limit);
             const count = await Product.count(query);
             let products = {
                 count,
                 data
             };
-            return products;
+            return { products };
         } catch (err) {
             console.log('[OrderService] [getAll] Error in getting all organization ', err);
             throw err;
