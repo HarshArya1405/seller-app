@@ -86,7 +86,7 @@ class CustomizationService {
                 });
                 if (existingGroup) {
                     // Check and handle sequence (seq) update
-                    if (customizationDetails.seq) {
+                    if (customizationDetails.seq >= existingGroup.seq) {
                         const nextGroupIds = customizationDetails.customizations.map((c) => c.nextGroupId.map((ng) => ng.groupId)).flat();
                         //console.log("IDDDDSSS", nextGroupIds);
                         for (const nextGroupId of nextGroupIds) {
@@ -96,25 +96,21 @@ class CustomizationService {
                             });
 
                             //console.log("NEXXTTTT", nextGroup);
-    
                             if (nextGroup && nextGroup.seq <= customizationDetails.seq) {
                                 throw new ConflictError(MESSAGES.SE_NEXTGROUP_ERROR);
                             }
+                        }
+                    } else {
+                        // Check if the existing group is a parent in the group mapping table
+                        const isChild = await CustomizationGroupMapping.findOne({
+                            child: existingGroup._id,
+                        });
     
-                            if (nextGroup && nextGroup.seq > customizationDetails.seq) {
-                                // Check if the next group is a child in the group mapping table
-                                const isChild = await CustomizationGroupMapping.findOne({
-                                    parent: existingGroup._id,
-                                    child: nextGroup._id,
-                                });
-    
-                                if (isChild) {
-                                    throw new ConflictError(MESSAGES.SEQ_CHILD_ERROR);
-                                }
-                            }
+                        // Throw a child error only if the existing group is a parent in the group mapping table
+                        if (isChild) {
+                            throw new ConflictError(MESSAGES.SEQ_CHILD_ERROR);
                         }
                     }
-    
                     // Delete all mapping data associated with the existing group
                     await CustomizationGroup.findOneAndUpdate(
                         { _id: existingGroup._id },
