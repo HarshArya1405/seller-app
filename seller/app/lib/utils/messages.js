@@ -43,9 +43,9 @@ const MESSAGES = {
     CIRCULAR_REFERENCE_ERROR: 'Group id already exists',
     NEXT_GROUP_NOT_FOUND: 'Next Group is not present',
     DUPLICATE_ID_FOUND : 'Duplicate id is present',
-    CHILD_ID_ERROR: "Child Id cannot be a Parent Id",
-    CIRCULAR_REFERENCE_DETECT: "A parent cannot be a child of itself",
-    UNDEFINED_CONFLICT_ERROR: "Group Id has an undefined parent",
+    CHILD_ID_ERROR: 'Child Id cannot be a Parent Id',
+    CIRCULAR_REFERENCE_DETECT: 'A parent detected in next groups !!',
+    UNDEFINED_CONFLICT_ERROR: 'Group Id has an undefined parent',
     CUSTOMIZATION_GROUP_EXISTS_FOR_ONE_OR_MORE_PRODUCTS: 'Cannot delete customization group. It is used in one or more products.',
     CUSTOMIZATION_GROUP_CHILD: 'Cannot delete customization group. It is a child in the mapping table.'
 
