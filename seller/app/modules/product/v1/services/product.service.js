@@ -426,7 +426,6 @@ class ProductService {
             let productData = {
                 commonDetails: product,
                 commonAttributesValues: attributeObj,
-                customizationDetails: await customizationService.mappdedData(product.customizationGroupId,{organization:product.organization}),
             };
             const variantGroup = await VariantGroup.findOne({ _id: product.variantGroup });
             if (variantGroup) {
