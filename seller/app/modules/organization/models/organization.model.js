@@ -1,7 +1,6 @@
 import mongoose from'mongoose';
 import { uuid } from 'uuidv4';
-import s3 from '../../../lib/utils/s3Utils';
-import Joi, { array } from 'joi';
+
 const organizationSchema = new mongoose.Schema({ //Users who has login ability should go under User schema
     _id:{
         type: String, 
@@ -29,8 +28,11 @@ const organizationSchema = new mongoose.Schema({ //Users who has login ability s
         branchName:{type:String}
     },
     PAN:{type:String},
+    isPANVerified:{type:Boolean},
     GSTN:{type:String},
+    isGSTNVerified:{type:Boolean},
     FSSAI:{type:String},
+    isFSSAIVerified:{type:Boolean},
     createdAt:{
         type:Number,
         default:Date.now()

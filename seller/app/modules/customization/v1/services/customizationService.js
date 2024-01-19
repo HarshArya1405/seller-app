@@ -34,9 +34,9 @@ class CustomizationService {
                     let newCustomizationGroup = new CustomizationGroup(customizationGroupObj);
                     // await this.isValidTreeStructure('',customizationDetails);
                     await newCustomizationGroup.save();
-                    
+
                     //TODO:Tirth why creating obj for paren class, use "this" for that(Done)
-                    for(const customizations of customizationDetails.customizations ){
+                    for (const customizations of customizationDetails.customizations) {
                         await this.mappingCustomizations(newCustomizationGroup._id, customizations);
                     }
                     return newCustomizationGroup;
@@ -54,7 +54,7 @@ class CustomizationService {
     async getCustomizationGroups(params, currentUser) {
         try {
             let query = {};
-            
+
             if (params.name) {
                 query.name = { $regex: params.name, $options: 'i' }; // Case-insensitive name search
             }
@@ -62,23 +62,23 @@ class CustomizationService {
             if (params.seq) {
                 query.seq = { $gt: Number(params.seq) }; // Find sequences greater than the provided value
             }
-    
+
             const existingGroups = await CustomizationGroup.find(query).sort({ createdAt: 1 })
                 .skip(params.offset)
                 .limit(params.limit);
             const count = await CustomizationGroup.count(query);
-            return {count,data:existingGroups};
+            return { count, data: existingGroups };
         } catch (err) {
             console.log(`[CustomizationService] [getCustomizationGroups] Error - ${currentUser.organization}`, err);
             throw err;
         }
-    }    
+    }
 
-    async updateCustomizationGroups(id,customizationDetails, currentUser) {
+    async updateCustomizationGroups(id, customizationDetails, currentUser) {
         //TODO:Tirth check if given name has already been use in other group and throw error(Done)
         try {
             if (customizationDetails) {
-                await this.isValidTreeStructure(id, customizationDetails,currentUser);
+                await this.isValidTreeStructure(id, customizationDetails, currentUser);
 
                 let existingGroup = await CustomizationGroup.findOne({
                     _id: id,
@@ -96,25 +96,25 @@ class CustomizationService {
                             });
 
                             //console.log("NEXXTTTT", nextGroup);
-    
+
                             if (nextGroup && nextGroup.seq <= customizationDetails.seq) {
                                 throw new ConflictError(MESSAGES.SE_NEXTGROUP_ERROR);
                             }
-    
+
                             if (nextGroup && nextGroup.seq > customizationDetails.seq) {
                                 // Check if the next group is a child in the group mapping table
                                 const isChild = await CustomizationGroupMapping.findOne({
                                     parent: existingGroup._id,
                                     child: nextGroup._id,
                                 });
-    
+
                                 if (isChild) {
                                     throw new ConflictError(MESSAGES.SEQ_CHILD_ERROR);
                                 }
                             }
                         }
                     }
-    
+
                     // Delete all mapping data associated with the existing group
                     await CustomizationGroup.findOneAndUpdate(
                         { _id: existingGroup._id },
@@ -125,13 +125,13 @@ class CustomizationService {
                         },
                         { new: true }
                     );
-    
+
                     await CustomizationGroupMapping.deleteMany({ parent: existingGroup._id });
-    
+
                     for (const customizations of customizationDetails.customizations) {
                         await this.mappingCustomizations(id, customizations);
                     }
-    
+
                     return { success: true };
                 } else {
                     throw new NoRecordFoundError(MESSAGES.CUSTOMIZATION_GROUP_NOT_EXISTS);
@@ -202,15 +202,15 @@ class CustomizationService {
     groupBy(array, key) {
         return Object.values(array.reduce((result, item) => {
             const groupKey = item[key];
-      
+
             // Create a new group if it doesn't exist
             if (!result[groupKey]) {
                 result[groupKey] = { id: groupKey, groups: [] };
             }
-      
+
             // Add the current item to the group
             result[groupKey].groups.push(item);
-      
+
             return result;
         }, {}));
     }
@@ -222,7 +222,7 @@ class CustomizationService {
                 _id: groupId,
                 organization: currentUser.organization
             });
-    
+
             if (!customizationGroup) {
                 throw new NoRecordFoundError(MESSAGES.CUSTOMIZATION_GROUP_NOT_EXISTS);
             }
@@ -237,10 +237,10 @@ class CustomizationService {
                 let customizationObj = {};
                 // Access the customizationId property for each mapping
                 const customizationId = mapping.id;
-    
+
                 // Fetch customization details using the customizationId from mapping
                 const customization = await Product.findById(customizationId);
-    
+
                 if (!customization) {
                     console.error(`[CustomizationService] [getCustomizationGroupById] Error - Customization not found: ${customizationId}`);
                     continue;
@@ -249,8 +249,8 @@ class CustomizationService {
                 let groupData = [];
                 let defaultValue;
 
-                for(const group of mapping.groups){
-                    const nextGroup = await CustomizationGroup.findOne({_id: group.child});
+                for (const group of mapping.groups) {
+                    const nextGroup = await CustomizationGroup.findOne({ _id: group.child });
                     defaultValue = group.default;
                     if (!nextGroup) {
                         console.error(`[CustomizationService] [getCustomizationGroupById] Warning - Next group not found: ${group.child}`);
@@ -259,7 +259,7 @@ class CustomizationService {
                     let groupObj = {
                         groupId: group.child,
                         name: nextGroup.name,
-                        description:nextGroup?.description ?? ''
+                        description: nextGroup?.description ?? ''
                     };
                     groupData.push(groupObj);
                 }
@@ -268,10 +268,10 @@ class CustomizationService {
                     customizationId: {
                         id: customizationId,
                         name: customization.productName,
-                        description:customization?.description ?? ''
+                        description: customization?.description ?? ''
                     },
                     nextGroupId: groupData,
-                    default: defaultValue 
+                    default: defaultValue
                 };
                 customizationData.push(customizationObj);
             }
@@ -279,47 +279,47 @@ class CustomizationService {
             const response = {
                 _id: customizationGroup._id,
                 name: customizationGroup.name,
-                description:customizationGroup?.description ?? '',
+                description: customizationGroup?.description ?? '',
                 inputType: customizationGroup.inputType,
                 minQuantity: customizationGroup.minQuantity,
                 maxQuantity: customizationGroup.maxQuantity,
                 seq: customizationGroup.seq,
                 customizations: customizationData
             };
-    
+
             return response;
         } catch (err) {
             console.log(`[CustomizationService] [getCustomizationGroupById] Error - ${currentUser.organization}`, err);
             throw err;
         }
     }
-    async mappdedData(groupId,currentUser){
-        if(groupId){
-            const mappedData = await this.getMappedCustomizationAndGroup(groupId,[],[],currentUser);
+    async mappdedData(groupId, currentUser) {
+        if (groupId) {
+            const mappedData = await this.getMappedCustomizationAndGroup(groupId, [], [], currentUser);
             return {
-                customizationGroups : mappedData.customizationGroups,
-                customizations : mappedData.customizations
+                customizationGroups: mappedData.customizationGroups,
+                customizations: mappedData.customizations
             };
         }
         return '';
     }
 
-    async getMappedCustomizationAndGroup(groupId,customizationGroups=[],customizations = [],currentUser){
-        const group = await CustomizationGroup.findOne({_id:groupId,organization:currentUser.organization});
-        if(!group){
-            throw new NoRecordFoundError(MESSAGES.CUSTOMIZATION_GROUP_NOT_EXISTS+groupId);
+    async getMappedCustomizationAndGroup(groupId, customizationGroups = [], customizations = [], currentUser) {
+        const group = await CustomizationGroup.findOne({ _id: groupId, organization: currentUser.organization });
+        if (!group) {
+            throw new NoRecordFoundError(MESSAGES.CUSTOMIZATION_GROUP_NOT_EXISTS + groupId);
         }
         customizationGroups.push(group);
-        const mappedData = await CustomizationGroupMapping.find({parent:groupId,organization:currentUser.organization});
-        const mappingData =this.groupBy(mappedData, 'customization');
-        if(mappingData && mappingData.length>0){
-            for(const data of mappingData){
-                let customizationObj ={};
-                const customization = await Product.findOne({_id:data.id,organization:currentUser.organization,type:'customization'},{available:1,maximum:1,productName:1,UOMValue:1,UOM:1,MRP:1,vegNonVeg:1});
-                if(customization){
-                    if(data.groups && data.groups.length>0){
-                        for(const group of data.groups){
-                            customizationObj={
+        const mappedData = await CustomizationGroupMapping.find({ parent: groupId, organization: currentUser.organization });
+        const mappingData = this.groupBy(mappedData, 'customization');
+        if (mappingData && mappingData.length > 0) {
+            for (const data of mappingData) {
+                let customizationObj = {};
+                const customization = await Product.findOne({ _id: data.id, organization: currentUser.organization, type: 'customization' }, { available: 1, maximum: 1, productName: 1, UOMValue: 1, UOM: 1, MRP: 1, vegNonVeg: 1 });
+                if (customization) {
+                    if (data.groups && data.groups.length > 0) {
+                        for (const group of data.groups) {
+                            customizationObj = {
                                 _id: customization._id,
                                 name: customization.productName,
                                 MRP: customization.MRP,
@@ -332,8 +332,8 @@ class CustomizationService {
                                 vegNonVeg: customization.vegNonVeg
                             };
                             customizations.push(customizationObj);
-                            if(group.child){
-                                const mappedGroupdata = await this.getMappedCustomizationAndGroup(group.child,customizationGroups,customizations,currentUser);
+                            if (group.child) {
+                                const mappedGroupdata = await this.getMappedCustomizationAndGroup(group.child, customizationGroups, customizations, currentUser);
                                 customizationGroups = mappedGroupdata.customizationGroups ?? [];
                                 customizations = mappedGroupdata.customizations ?? [];
                             }
@@ -342,41 +342,41 @@ class CustomizationService {
                 }
             }
         }
-        return {customizationGroups,customizations};
+        return { customizationGroups, customizations };
     }
 
-    async isValidTreeStructure(id, customizationDetails, currentUser) {   
-        const customizations =customizationDetails.customizations;
-    
-        const response = await this.traverseForward(id, [], customizations, [], currentUser);    
+    async isValidTreeStructure(id, customizationDetails, currentUser) {
+        const customizations = customizationDetails.customizations;
+
+        const response = await this.traverseForward(id, [], customizations, [], currentUser);
         return response;
     }
 
-    async traverseForward(groupId, childIds=[], customizations =[],mappedData = [], currentUser) {
+    async traverseForward(groupId, childIds = [], customizations = [], mappedData = [], currentUser) {
         childIds.push(groupId);
         let isDuplicatePresent = false;
-        if(childIds.length > 0){
+        if (childIds.length > 0) {
             isDuplicatePresent = await this.hasDuplicates(childIds);
-            if(isDuplicatePresent){
-                console.log({childIds});
+            if (isDuplicatePresent) {
+                console.log({ childIds });
                 throw new ConflictError(MESSAGES.CIRCULAR_REFERENCE_DETECT);
             }
         }
-        if(customizations.length > 0){
-            for(const customization of customizations){
-                if(customization.nextGroupId && customization.nextGroupId.length>0) {
-                    for(const group of customization.nextGroupId){
-                        const groupData = await CustomizationGroupMapping.find({parent:group.groupId,organization:currentUser.organization});
-                        childIds = await this.traverseForward(group.groupId, childIds, [] ,groupData, currentUser);
+        if (customizations.length > 0) {
+            for (const customization of customizations) {
+                if (customization.nextGroupId && customization.nextGroupId.length > 0) {
+                    for (const group of customization.nextGroupId) {
+                        const groupData = await CustomizationGroupMapping.find({ parent: group.groupId, organization: currentUser.organization });
+                        childIds = await this.traverseForward(group.groupId, childIds, [], groupData, currentUser);
                     }
                 }
             }
         }
-        if(mappedData.length > 0){
-            for(const data of mappedData){
-                if(data.child){
-                    const groupData = await CustomizationGroupMapping.find({parent:data.child,organization:currentUser.organization});
-                    childIds = await this.traverseForward(data.child, childIds, [] ,groupData, currentUser);
+        if (mappedData.length > 0) {
+            for (const data of mappedData) {
+                if (data.child) {
+                    const groupData = await CustomizationGroupMapping.find({ parent: data.child, organization: currentUser.organization });
+                    childIds = await this.traverseForward(data.child, childIds, [], groupData, currentUser);
                 }
             }
         }

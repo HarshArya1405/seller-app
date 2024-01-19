@@ -13,13 +13,13 @@ class OrganizationController {
     async create(req, res, next) {
         try {
             const data = req.body;
-            const organization = await organizationService.create(data,req.user);
+            const organization = await organizationService.create(data, req.user);
             return res.send(organization);
 
         } catch (error) {
             console.log('[OrderController] [create] Error -', error);
             next(error);
-        }     
+        }
     }
 
     async signup(req, res, next) {
@@ -65,7 +65,7 @@ class OrganizationController {
     async get(req, res, next) {
         try {
             const params = req.params;
-            const organizations = await organizationService.get(params.organizationId,req.user);
+            const organizations = await organizationService.get(params.organizationId, req.user);
             return res.send(organizations);
 
         } catch (error) {
@@ -78,7 +78,8 @@ class OrganizationController {
         try {
             const params = req.params;
             const data = req.body;
-            const organizations = await organizationService.update(params.id,data,req.user);
+            console.log({datz : data})
+            const organizations = await organizationService.update(params.id, data, req.user);
             return res.send(organizations);
 
         } catch (error) {
@@ -92,7 +93,7 @@ class OrganizationController {
     async setStoreDetails(req, res, next) {
         try {
             const data = req.body;
-            const store = await organizationService.setStoreDetails(data,req.user);
+            const store = await organizationService.setStoreDetails(data, req.user);
             return res.send(store);
 
         } catch (error) {
@@ -104,7 +105,7 @@ class OrganizationController {
     async getCategories(req, res, next) {
         try {
             const params = req.params;
-            const store = await organizationService.getCategories(params,req.user);
+            const store = await organizationService.getCategories(params, req.user);
             return res.send(store);
 
         } catch (error) {
@@ -117,7 +118,7 @@ class OrganizationController {
         try {
             const params = req.params;
             const data = req.body;
-            const store = await organizationService.updateStoreDetails(params.storeId,data,req.user);
+            const store = await organizationService.updateStoreDetails(params.storeId, data, req.user);
             return res.send(store);
 
         } catch (error) {
@@ -128,7 +129,7 @@ class OrganizationController {
 
     async getStoreList(req, res, next) {
         try {
-            const stores = await organizationService.getStoreList(req.params,req.user);
+            const stores = await organizationService.getStoreList(req.params, req.user);
             return res.send(stores);
 
         } catch (error) {
@@ -148,13 +149,47 @@ class OrganizationController {
             next(error);
         }
     }
-    
+
     async getStoreDetail(req, res, next) {
         try {
             const params = req.params;
-            const store = await organizationService.getStoreDetail(params.storeId,req.user);
+            const store = await organizationService.getStoreDetail(params.storeId, req.user);
             return res.send(store);
 
+        } catch (error) {
+            console.log('[OrderController] [get] Error -', error);
+            next(error);
+        }
+    }
+
+    async kycGSTVerification(req, res, next) {
+        try {
+            const params = req.params;
+            const response = await organizationService.kycGSTVerification(params, req.body);
+            console.log({reeeee : response})
+            return res.send(response);
+        } catch (error) {
+            console.log('[OrderController] [get] Error -', error);
+            next(error);
+        }
+    }
+
+    async kycPANVerification(req, res, next) {
+        try {
+            const params = req.params;
+            const response = await organizationService.kycPANVerification(params, req.body);
+            return res.send(response);
+        } catch (error) {
+            console.log('[OrderController] [get] Error -', error);
+            next(error);
+        }
+    }
+
+    async kycFSSAIVerification(req, res, next) {
+        try {
+            const params = req.params;
+            const response = await organizationService.kycFSSAIVerification(params, req.body);
+            return res.send(response);
         } catch (error) {
             console.log('[OrderController] [get] Error -', error);
             next(error);

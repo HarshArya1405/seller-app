@@ -20,7 +20,6 @@ module.exports = {
                 name: Joi.string(),
                 contactEmail: Joi.string(),
                 contactMobile: Joi.string(),
-                documents: Joi.array(),
                 domains: Joi.array(),
                 fulfilments : Joi.array(),
                 logo: Joi.string(),
@@ -37,8 +36,12 @@ module.exports = {
                     accountType:Joi.string()
                 },
                 PAN: Joi.string().allow(''),
+                isPANVerified : Joi.boolean(),
                 GSTN: Joi.string(),
-                FSSAI: Joi.string()
+                isGSTNVerified : Joi.boolean(),
+                FSSAI: Joi.string().allow(''),
+                isFSSAIVerified : Joi.boolean(),
+
             }
         });
     },
@@ -60,7 +63,6 @@ module.exports = {
                 name: Joi.string(),
                 contactEmail: Joi.string(),
                 contactMobile: Joi.string(),
-                documents: Joi.array(),
                 domains: Joi.array(),
                 logo: Joi.string(),
                 shortDescription:Joi.string(),
@@ -76,8 +78,11 @@ module.exports = {
                     accountType:Joi.string()
                 },
                 PAN: Joi.string().allow(''),
+                isPANVerified : Joi.boolean(),
                 GSTN: Joi.string(),
-                FSSAI: Joi.string()
+                isGSTNVerified : Joi.boolean(),
+                FSSAI: Joi.string().allow(''),
+                isFSSAIVerified : Joi.boolean(),
             }
         });
     },
@@ -94,7 +99,7 @@ module.exports = {
             country: Joi.string(),
             street: Joi.string(),
             locality: Joi.string(),
-            building: Joi.string(),
+            building: Joi.string().allow(''),
             latitude:Joi.number(),
             longitude:Joi.number(),
             openDays:Joi.array(),
