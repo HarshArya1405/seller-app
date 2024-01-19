@@ -483,6 +483,44 @@ function itemSchema(items,customGroup,customMenuData) {
             
         })
     }
+    let priceData ={
+        currency: "INR",
+        value: `${items.MRP}`,
+        maximum_value: `${items.maxMRP}`
+    };
+    if(items.maxMRP && items.maxDefaultMRP){
+        let itemtags = [
+          {
+            code:'range',
+            list:
+            [
+              {
+                code:'lower',
+                value:`${items.MRP}`
+              },
+              {
+                code:'upper',
+                value:`${items.maxMRP}`
+              }
+            ]
+          },
+          {
+            code:'default_selection',
+            list:
+            [
+              {
+                code:'value',
+                value:`${items.MRP}`
+              },
+              {
+                code:'maximum_value',
+                value:`${items.maxDefaultMRP}`
+              }
+            ]
+          }
+        ];
+        priceData.tags = itemtags;
+    }
     let item = {
         "id": items._id,
         "time": {
@@ -512,11 +550,7 @@ function itemSchema(items,customGroup,customMenuData) {
                 "count": (items.quantity<=items.maxAllowedQty)?`${items.quantity}`:`${items.maxAllowedQty}`
             }
         },
-        "price": {
-            "currency": "INR",
-            "value": `${items.MRP}`,
-            "maximum_value": `${items.MRP}`
-        },
+        "price":priceData,
         "category_ids":categoryIds ?? [],
         "category_id": items.productSubcategory1 ?? "NA",
         "location_id": org.storeDetails?._id ?? "0",
