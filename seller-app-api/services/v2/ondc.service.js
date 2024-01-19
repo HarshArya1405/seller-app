@@ -39,53 +39,18 @@ class OndcService {
             const selectMessageId = payload.context.message_id;
             const logisticsMessageId = uuidv4();
             let storeLocationEnd = {}
-            let itemData = {}
             let resultData = {}
-            let itemType = ''
             let totalProductValue = 0
 
             for (let item of items) {
-                let tags = item.tags;
-                if (tags && tags.length > 0) {
-                    let tagData = tags.find((tag) => { return tag.code === 'type' })
-                    if (tagData?.list && tagData?.list.length > 0) {
-                        let tagTypeData = tagData.list.find((tagType) => { return tagType.code === 'type' })
-                        itemType = tagTypeData.value;
-                        if (itemType === 'customization') {
-                            resultData = itemData?.customizationDetails?.customizations.find((row) => {
-                                return row._id === item.id
-                            })
-                            if (resultData) {
-                                totalProductValue += resultData.price * item.quantity.count
-                            }
-                        } else {
-                            resultData = await productService.getForOndc(item.id)
-                            if (Object.keys(resultData).length > 0) {
-                                itemData = resultData;
-                                if (resultData?.commonDetails) {
-                                    let price = resultData?.commonDetails?.MRP * item.quantity.count
-                                    totalProductValue += price
-                                }
-                            }
-                        }
-                    } else {
-                        resultData = await productService.getForOndc(item.id)
-                        if (Object.keys(resultData).length > 0) {
-                            itemData = resultData;
-                            if (resultData?.commonDetails) {
-                                let price = resultData?.commonDetails?.MRP * item.quantity.count
-                                totalProductValue += price
-                            }
-                        }
-                    }
-                } else {
-                    resultData = await productService.getForOndc(item.id)
-                    if (Object.keys(resultData).length > 0) {
-                        itemData = resultData;
-                        if (resultData?.commonDetails) {
-                            let price = resultData?.commonDetails?.MRP * item.quantity.count
-                            totalProductValue += price
-                        }
+                resultData = await productService.getForOndc(item.id)
+                if (Object.keys(resultData).length > 0) {
+                    if (resultData?.commonDetails) {
+                        let price = resultData?.commonDetails?.MRP * item.quantity.count
+                        totalProductValue += price
+                    }else{
+                        let price = resultData?.MRP * item.quantity.count
+                        totalProductValue += price
                     }
                 }
             }

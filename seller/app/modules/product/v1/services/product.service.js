@@ -282,6 +282,7 @@ class ProductService {
                     org.storeDetails.logo = storeImage.url;
                 }
                 query.published = true;
+                // query.type = 'item'; // filter to fetch only items
                 if (category) {
                     query.productCategory = { $regex: '.*' + category + '.*' };
                 }
@@ -313,6 +314,11 @@ class ProductService {
                             attributeData.push(attributeObj);
                         }
                         product.attributes = attributeData;
+                        if(product.productCategory === 'F&B' || product.productCategory === 'Food and Beverages'){
+                            const accumulatedMaxMRP =  await this.getMaxMRP(product.customizationGroupId, {maxMRP:product.MRP,maxDefaultMRP:product.MRP}, {organization:product.organization});
+                            product.maxMRP = accumulatedMaxMRP?.maxMRP ?? product.MRP; 
+                            product.maxDefaultMRP = accumulatedMaxMRP?.maxDefaultMRP ?? product.MRP; 
+                        }
                         product.customizationDetails = await customizationService.mappdedData(product.customizationGroupId,{organization:product.organization}) ?? '';
                         productData.push(product);
                     }
@@ -426,7 +432,6 @@ class ProductService {
             let productData = {
                 commonDetails: product,
                 commonAttributesValues: attributeObj,
-                customizationDetails: await customizationService.mappdedData(product.customizationGroupId,{organization:product.organization}),
             };
             const variantGroup = await VariantGroup.findOne({ _id: product.variantGroup });
             if (variantGroup) {
@@ -732,14 +737,21 @@ class ProductService {
 
     async getMaxMRP(groupId, accumulatedMRP, currentUser) {
         try {
+            let {maxMRP,maxDefaultMRP} = accumulatedMRP;
             // Fetch customization details for the product's customizationGroup
-            const customizationGroup = await CustomizationGroup.findOne({
-                _id: groupId,
-                organization:currentUser.organization
-            });
+            let customizationGroup = {};
+            if(groupId){
 
-            if (!customizationGroup) {
-                throw new NoRecordFoundError(MESSAGES.CUSTOMIZATION_GROUP_NOT_EXISTS);
+                customizationGroup = await CustomizationGroup.findOne({
+                    _id: groupId,
+                    organization:currentUser.organization
+                });
+                if(!customizationGroup){
+                    return {maxMRP,maxDefaultMRP};
+                }
+                
+            }else{
+                return {maxMRP,maxDefaultMRP};
             }
     
             const mappingData = await CustomizationGroupMapping.find({
@@ -748,28 +760,127 @@ class ProductService {
             });
 
             let customizationIds = mappingData.map((data)=> data.customization);
-
-            let customizationData = await Product.findOne({type: 'customization', organization: currentUser.organization, _id: {$in : customizationIds}}).sort({MRP:-1});
-            accumulatedMRP += customizationData.MRP;
             let groupData = this.groupBy(mappingData, 'customization');
-
-            for(const data of groupData){
-                if(data.id === customizationData._id){
-                    if(data.groups && data.groups.length > 0){
-                        for(const group of data.groups){
-                            if(group.child){
-                                accumulatedMRP = await this.getMaxMRP(group.child, accumulatedMRP, currentUser);
+            if(customizationIds && customizationIds.length  > 0){
+                let customizationDataMAX = await Product.findOne({type: 'customization', organization: currentUser.organization, _id: {$in : customizationIds}}).sort({MRP:-1});
+                if(customizationDataMAX){
+                    maxMRP += customizationDataMAX?.MRP ?? 0;
+                    for(const data of groupData){
+                        if(data.id === customizationDataMAX._id){
+                            if(data.groups && data.groups.length > 0){
+                                for(const group of data.groups){
+                                    if(group.child){
+                                        maxMRP = await this.maxMRP(maxMRP,group.child,currentUser);
+                                    }
+                                }
                             }
                         }
                     }
                 }
             }
-
-            return accumulatedMRP;
+            let defaultCustomization = mappingData.find((data)=>{
+                if(data.default){
+                    return data.customization;
+                }
+            });
+            if(defaultCustomization){
+                let customizationDataDefaultMAX = await Product.findOne({type: 'customization', organization: currentUser.organization, _id: defaultCustomization.customization}).sort({MRP:-1});
+                if(customizationDataDefaultMAX){
+                    maxDefaultMRP += customizationDataDefaultMAX?.MRP ?? 0;
+                    for(const data of groupData){
+                        if(data.id === customizationDataDefaultMAX._id){
+                            if(data.groups && data.groups.length > 0){
+                                for(const group of data.groups){
+                                    if(group.child){
+                                        maxDefaultMRP = await this.maxDefaultMRP(maxDefaultMRP,group.child,currentUser);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return {maxMRP,maxDefaultMRP};
         } catch (err) {
             console.error(`[ProductService] [getMaxMRP] Error - ${currentUser.organization}`, err);
             throw err;
         }
+    }
+
+    async maxMRP(MRP=0,groupId, currentUser){
+        const customizationGroup = await CustomizationGroup.findOne({
+            _id: groupId,
+            organization:currentUser.organization
+        });
+
+        if (!customizationGroup) {
+            return MRP;
+        }
+
+        const mappingData = await CustomizationGroupMapping.find({
+            parent: groupId,
+            organization:currentUser.organization
+        });
+        let customizationIds = mappingData.map((data)=> data.customization);
+        const groupData = this.groupBy(mappingData, 'customization');
+        if(customizationIds && customizationIds.length  > 0){
+            let customizationDataMAX = await Product.findOne({type: 'customization', organization: currentUser.organization, _id: {$in : customizationIds}}).sort({MRP:-1});
+            if(customizationDataMAX){
+                MRP += customizationDataMAX?.MRP ?? 0;
+                for(const data of groupData){
+                    if(data.id === customizationDataMAX._id){
+                        if(data.groups && data.groups.length > 0){
+                            for(const group of data.groups){
+                                if(group.child){
+                                    MRP = await this.maxMRP(MRP,group.child,currentUser);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return MRP;
+    }
+
+    async maxDefaultMRP(MRP=0,groupId, currentUser){
+        const customizationGroup = await CustomizationGroup.findOne({
+            _id: groupId,
+            organization:currentUser.organization
+        });
+
+        if (!customizationGroup) {
+            return MRP;
+        }
+
+        const mappingData = await CustomizationGroupMapping.find({
+            parent: groupId,
+            organization:currentUser.organization
+        });
+        const groupData = this.groupBy(mappingData, 'customization');
+        let defaultCustomization = mappingData.find((data)=>{
+            if(data.default){
+                return data.customization;
+            }
+        });
+        if(defaultCustomization){
+            let customizationDataDefaultMAX = await Product.findOne({type: 'customization', organization: currentUser.organization, _id: defaultCustomization.customization}).sort({MRP:-1});
+            if(customizationDataDefaultMAX){
+                MRP += customizationDataDefaultMAX?.MRP ?? 0;
+                for(const data of groupData){
+                    if(data.id === customizationDataDefaultMAX._id){
+                        if(data.groups && data.groups.length > 0){
+                            for(const group of data.groups){
+                                if(group.child){
+                                    MRP = await this.maxDefaultMRP(MRP,group.child,currentUser);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return MRP;
     }
 
     groupBy(array, key) {
