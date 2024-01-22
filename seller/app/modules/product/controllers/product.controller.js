@@ -509,7 +509,7 @@ class ProductController {
                 limit
             };
 
-            const customizations = await productService.getCustomization(params);
+            const customizations = await productService.getCustomization(params,req.user);
             return res.json(customizations);
         } catch (error) {
             console.log('[CustomizationController] [getCustomization] Error:', error);
