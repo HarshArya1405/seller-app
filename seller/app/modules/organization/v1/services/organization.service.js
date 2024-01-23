@@ -206,7 +206,7 @@ class OrganizationService {
                 }
             }
 
-            return { user, providerDetail: doc,store };
+            return { user, providerDetail: doc };
         } catch (err) {
             console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`, err);
             throw err;
