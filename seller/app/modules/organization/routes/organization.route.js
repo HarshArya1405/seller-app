@@ -27,8 +27,16 @@ router.put('/v1/organizations/:id/',
 
 router.get('/v1/organization/:organizationId',
     authentication.middleware(),
+    authorisation.middleware({ roles: [SYSTEM_ROLE.ORG_ADMN] }),
     apiParamsValidator.middleware({ schema: organisationSchema.get() }),
     organizationController.get,
+);
+
+router.get('/v1/admin/organization/:organizationId',
+    authentication.middleware(),
+    authorisation.middleware({ roles: [SYSTEM_ROLE.SUPER_ADMIN] }),
+    apiParamsValidator.middleware({ schema: organisationSchema.get() }),
+    organizationController.getAdmin,
 );
 
 router.get('/v1/organizations',

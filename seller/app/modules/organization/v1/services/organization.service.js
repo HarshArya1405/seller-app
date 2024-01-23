@@ -141,6 +141,43 @@ class OrganizationService {
      * @param {*} currentUser 
      * @returns obj of user and org 
      */
+    async getAdmin(organizationId, currentUser) {
+        try {
+            let doc = await Organization.findOne({ _id: organizationId }).lean();
+
+            console.log('user----->', currentUser);
+            let store = {}
+            let user = await User.findOne({ organization: organizationId, _id: currentUser.id }, { password: 0 });
+            if (doc) {
+                let logo = await s3.getSignedUrlForRead({ path: doc.logo });
+                doc.logo = logo;
+                let banner = await s3.getSignedUrlForRead({ path: doc.banner });
+                doc.banner = banner;
+                let documents = await documentService.list({}, currentUser);
+                if (documents) {
+                    if (documents.data && documents.data.length > 0) {
+                        let documentData = [];
+                        for (const document of documents.data) {
+                            let documentObj = { ...document._doc };
+                            let pathData = await s3.getSignedUrlForRead({ path: documentObj.path });
+                            documentObj.path = pathData;
+                            documentData.push(documentObj);
+                            doc.documents = documentData;
+                        }
+                    }
+                } else {
+                    doc.documents = [];
+                }
+                store = await Store.findOne({ _id: storeId, organization: currentUser.organization });
+            }
+
+            return { user, providerDetail: doc,store };
+        } catch (err) {
+            console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`, err);
+            throw err;
+        }
+    }
+
     async get(organizationId, currentUser) {
         try {
             let doc = await Organization.findOne({ _id: organizationId }).lean();
@@ -148,20 +185,6 @@ class OrganizationService {
             console.log('user----->', currentUser);
             let user = await User.findOne({ organization: organizationId, _id: currentUser.id }, { password: 0 });
             if (doc) {
-                // let idProof = await s3.getSignedUrlForRead({path:doc.idProof});
-                // doc.idProof =idProof;
-
-                // let addressProof = await s3.getSignedUrlForRead({path:doc.addressProof});
-                // doc.addressProof =addressProof;
-
-                // let cancelledCheque = await s3.getSignedUrlForRead({path:doc.bankDetails.cancelledCheque});
-                // doc.bankDetails.cancelledCheque =cancelledCheque;
-
-                // let PAN = await s3.getSignedUrlForRead({path:doc.PAN.proof});
-                // doc.PAN.proof =PAN;
-
-                // let GSTN = await s3.getSignedUrlForRead({path:doc.GSTN.proof});
-                // doc.GSTN.proof =GSTN;
                 let logo = await s3.getSignedUrlForRead({ path: doc.logo });
                 doc.logo = logo;
                 let banner = await s3.getSignedUrlForRead({ path: doc.banner });
@@ -183,12 +206,13 @@ class OrganizationService {
                 }
             }
 
-            return { user, providerDetail: doc };
+            return { user, providerDetail: doc,store };
         } catch (err) {
             console.log(`[OrganizationService] [get] Error in getting organization by id - ${organizationId}`, err);
             throw err;
         }
     }
+
 
     /**
     * update org for system 

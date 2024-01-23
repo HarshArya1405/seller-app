@@ -74,6 +74,18 @@ class OrganizationController {
         }
     }
 
+    async getAdmin(req, res, next) {
+        try {
+            const params = req.params;
+            const organizations = await organizationService.getAdmin(params.organizationId, req.user);
+            return res.send(organizations);
+
+        } catch (error) {
+            console.log('[OrderController] [get] Error -', error);
+            next(error);
+        }
+    }
+
     async update(req, res, next) {
         try {
             const params = req.params;
