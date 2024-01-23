@@ -150,7 +150,7 @@ class AuthenticationService {
                 user.mobile = data.userName;
                 //send otp to mobile
             }
-            let role = await Role.findOne({name: 'Super Admin'});
+            let role = await Role.findOne({name: 'Organization Admin'});
             user.role = role._id;
             user.password = encryptPassword;
             user.isSystemGeneratedPassword = true;
