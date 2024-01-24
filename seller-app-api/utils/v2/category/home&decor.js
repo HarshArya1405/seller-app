@@ -456,6 +456,44 @@ function itemSchema(items,customMenuData) {
     const allowedStatutoryReq = FIELD_ALLOWED_BASED_ON_PROTOCOL_KEY[items.productSubcategory1];
     const categoryIds = getcategoryIds(items,customMenuData);
     const org = items.org;
+    let priceData ={
+        currency: "INR",
+        value: `${items.MRP}`,
+        maximum_value: `${items?.maxMRP ?? items.MRP}`
+    };
+    if(items.maxMRP && items.maxDefaultMRP){
+        let itemtags = [
+          {
+            code:'range',
+            list:
+            [
+              {
+                code:'lower',
+                value:`${items.MRP}`
+              },
+              {
+                code:'upper',
+                value:`${items.maxMRP}`
+              }
+            ]
+          },
+          {
+            code:'default_selection',
+            list:
+            [
+              {
+                code:'value',
+                value:`${items.MRP}`
+              },
+              {
+                code:'maximum_value',
+                value:`${items.maxDefaultMRP}`
+              }
+            ]
+          }
+        ];
+        priceData.tags = itemtags;
+    }
     let item = {
         "id": items._id,
         "time": {
@@ -485,11 +523,7 @@ function itemSchema(items,customMenuData) {
                 "count": (items.quantity<=items.maxAllowedQty)?`${items.quantity}`:`${items.maxAllowedQty}`
             }
         },
-        "price": {
-            "currency": "INR",
-            "value": `${items.MRP}`,
-            "maximum_value": `${items.MRP}`
-        },
+        "price": priceData,
         "category_ids":categoryIds ?? [],
         "category_id": items.productSubcategory1 ?? "NA",
         "location_id": org.storeDetails?._id ?? "0",
@@ -542,6 +576,44 @@ function itemSchemaWithCustomGroup(items,customGroup,customMenuData) {
     const allowedStatutoryReq = FIELD_ALLOWED_BASED_ON_PROTOCOL_KEY[items.productSubcategory1];
     const categoryIds = getcategoryIds(items,customMenuData);
     const org = items.org;
+    let priceData ={
+        currency: "INR",
+        value: `${items.MRP}`,
+        maximum_value: `${items?.maxMRP ?? items.MRP}`
+    };
+    if(items.maxMRP && items.maxDefaultMRP){
+        let itemtags = [
+          {
+            code:'range',
+            list:
+            [
+              {
+                code:'lower',
+                value:`${items.MRP}`
+              },
+              {
+                code:'upper',
+                value:`${items.maxMRP}`
+              }
+            ]
+          },
+          {
+            code:'default_selection',
+            list:
+            [
+              {
+                code:'value',
+                value:`${items.MRP}`
+              },
+              {
+                code:'maximum_value',
+                value:`${items.maxDefaultMRP}`
+              }
+            ]
+          }
+        ];
+        priceData.tags = itemtags;
+    }
     let item = {
         "id": items._id,
         "time": {
@@ -571,11 +643,7 @@ function itemSchemaWithCustomGroup(items,customGroup,customMenuData) {
                 "count": (items.quantity<=items.maxAllowedQty)?`${items.quantity}`:`${items.maxAllowedQty}`
             }
         },
-        "price": {
-            "currency": "INR",
-            "value": items.MRP + "",
-            "maximum_value": items.MRP + ""
-        },
+        "price": priceData,
         "category_ids":categoryIds ?? [],
         "category_id": items.productSubcategory1 ?? "NA",
         "location_id": org.storeDetails?._id ?? "0",
@@ -677,7 +745,7 @@ function customizationSchema(customizations,item) {
         "id":customizations._id,
         "descriptor":
         {
-          "name":customizations.name
+          "name":customizations.productName
         },
         "quantity":
         {
@@ -691,18 +759,18 @@ function customizationSchema(customizations,item) {
           },
           "available":
           {
-            "count":`${customizations.available}` ?? 'NA'
+            "count":`${customizations.quantity}` ?? 'NA'
           },
           "maximum":
           {
-            "count":`${customizations.maximum}` ?? 'NA'
+            "count":`${customizations.maxAllowedQty}` ?? 'NA'
           }
         },
         "price":
         {
           "currency":"INR",
-          "value":`${customizations.price}`,
-          "maximum_value":`${customizations.price}`
+          "value":`${customizations.MRP}`,
+          "maximum_value":`${customizations.MRP}`
         },
         "category_id":item.productSubcategory1 ?? "NA",
         "related":true,
