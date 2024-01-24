@@ -301,7 +301,7 @@ class CustomizationService {
                 customizations: mappedData.customizations
             };
         }
-        return '';
+        return {};
     }
 
     async getMappedCustomizationAndGroup(groupId, customizationGroups = [], customizations = [], currentUser) {
