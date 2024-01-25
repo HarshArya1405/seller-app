@@ -394,9 +394,9 @@ export async function mapFnBDataUpdate(data) {
     for (const org of data?.data?.products) {
         let productAvailable = []
         for (let items of org.items) {
-            let customGroup = [];
             const customizationDetails = items.customizationDetails;
             if(customizationDetails){
+                let customGroup = [];
                 const customizationGroups = customizationDetails.customizationGroups;
                 for(const customizationGroup of customizationGroups){
                     let groupObj = {
@@ -629,7 +629,7 @@ function customizationSchema(customizations,item) {
         "id":customizations._id,
         "descriptor":
         {
-          "name":customizations.name
+          "name":customizations.productName
         },
         "quantity":
         {
@@ -643,11 +643,11 @@ function customizationSchema(customizations,item) {
           },
           "available":
           {
-            "count":`${customizations.available}` ?? 'NA'
+            "count":`${customizations.quantity}` ?? 'NA'
           },
           "maximum":
           {
-            "count":`${customizations.maximum}` ?? 'NA'
+            "count":`${customizations.maxAllowedQty}` ?? 'NA'
           }
         },
         "price":

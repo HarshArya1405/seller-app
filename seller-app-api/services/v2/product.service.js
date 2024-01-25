@@ -889,7 +889,7 @@ class ProductService {
                             "count": item.quantity.count
                         },
                         "title": itemData?.productName,
-                        "@ondc/org/title_type": "item",
+                        "@ondc/org/title_type": itemData?.type ?? "item",
                         "price":
                         {
                             "currency": "INR",
@@ -901,11 +901,11 @@ class ProductService {
                             {
                                 "available":
                                 {
-                                    "count": `${customization ? itemData?.available : itemData?.quantity}`
+                                    "count": `${itemData?.quantity}`
                                 },
                                 "maximum":
                                 {
-                                    "count": `${customization ? itemData?.maximum : itemData?.maxAllowedQty}`
+                                    "count": `${itemData?.maxAllowedQty}`
                                 }
                             },
                             "price":
@@ -1036,7 +1036,7 @@ class ProductService {
                             "count": item.quantity.count
                         },
                         "title": itemData?.name,
-                        "@ondc/org/title_type": itemData?.type,
+                        "@ondc/org/title_type": itemData?.type ?? "item",
                         "price":
                         {
                             "currency": "INR",
@@ -1048,11 +1048,11 @@ class ProductService {
                             {
                                 "available":
                                 {
-                                    "count": `${customization ? itemData?.available : itemData?.quantity}`
+                                    "count": `${itemData?.quantity}`
                                 },
                                 "maximum":
                                 {
-                                    "count": `${customization ? itemData?.maximum : itemData?.maxAllowedQty}`
+                                    "count": `${itemData?.maxAllowedQty}`
                                 }
                             },
                             "price":
