@@ -104,16 +104,16 @@ class CustomizationService {
                                 throw new ConflictError(MESSAGES.SE_NEXTGROUP_ERROR);
                             }
                         }
-                    }
-                } else {
-                    // Check if the existing group is a parent in the group mapping table
-                    const isChild = await CustomizationGroupMapping.findOne({
-                        child: existingGroup._id,
-                    });
-
-                    // Throw a child error only if the existing group is a parent in the group mapping table
-                    if (isChild) {
-                        throw new ConflictError(MESSAGES.SEQ_CHILD_ERROR);
+                    }  else {
+                        // Check if the existing group is a parent in the group mapping table
+                        const isChild = await CustomizationGroupMapping.findOne({
+                            child: existingGroup._id,
+                        });
+    
+                        // Throw a child error only if the existing group is a parent in the group mapping table
+                        if (isChild) {
+                            throw new ConflictError(MESSAGES.SEQ_CHILD_ERROR);
+                        }
                     }
                 }
                 // Delete all mapping data associated with the existing group
