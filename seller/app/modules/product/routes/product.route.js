@@ -13,25 +13,25 @@ const productController = new ProductController();
 
 router.post('/v1/products',
     authentication.middleware(),
-    // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: productSchema.create() }),
     productController.create);
 
 router.post('/v1/productWithVariant',
     authentication.middleware(),
-    // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: productSchema.createWithVariant() }),
     productController.createWithVariants);
 
 router.put('/v1/products/:productId',
     authentication.middleware(),
-    // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: productSchema.update() }),
     productController.update);
 
 router.put('/v1/productWithVariant',
     authentication.middleware(),
-    // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: productSchema.updateWithVariant() }),
     productController.updateWithVariants);
 
@@ -43,7 +43,7 @@ router.put('/v1/products/:productId/publish',
 
 router.get('/v1/products',
     authentication.middleware(),
-    // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: productSchema.list() }),
     productController.list,
 );
@@ -58,12 +58,14 @@ router.get('/v1/products/search/increamentalPull/:category',
 
 router.get('/v1/products/:productId',
     authentication.middleware(),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: productSchema.get() }),
     productController.get,
 );
 
 router.get('/v1/productWithVariant/:productId',
-    authentication.middleware(),
+    authentication.middleware(),    
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: productSchema.get() }),
     productController.getWithVariants,
 );
@@ -80,17 +82,19 @@ router.get('/v1/products/:productId/ondcGetForUpdate',
 
 router.post('/v1/products/upload/bulk',
     authentication.middleware(),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     upload.single('xlsx'),
     productController.uploadCatalog,
 );
 
 router.get('/v1/products/upload/bulk/template',
-    //authentication.middleware(),
+    authentication.middleware(),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     productController.uploadTemplate,
 );
 
 router.get('/v1/product/categorySubcategoryAttributes',
-    //authentication.middleware(),
+    authentication.middleware(),
     productController.categorySubcategoryAttributeList,
 );
 router.get('/v1/product/categorySubcategories',
@@ -104,49 +108,58 @@ router.get('/v1/product/categories',
 
 router.get('/v1/product/:productId/customizations',
     authentication.middleware(),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     productController.getCustomizations,
 );
 
 router.post('/v1/product/:productId/customizations',    
     authentication.middleware(),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: productSchema.createCustomization() }),
     productController.storeCustomizations,
 );
 
 router.get('/v1/product/:productId/customizations/:groupId',
     authentication.middleware(),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     productController.getCustomizationForGroup,
 );
 
 router.delete('/v1/product/:productId/customizations/:groupId',
     authentication.middleware(),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     productController.deleteCustomizationForGroup,
 );
 
 router.post('/v1/product/customization',
     authentication.middleware(),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: productSchema.createCust() }),
     productController.createCustomization
 );
 //TODO:TIRTH
 router.get('/v1/product/customizations',
     authentication.middleware(),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     productController.getCustomization
 );
 
 router.put('/v1/product/customization/:customizationId',//TODO:TIRTH - add id
     authentication.middleware(),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: productSchema.updateCust() }),
     productController.updateCustomization
 );
 
 router.delete('/v1/product/customization/:customizationId',
     authentication.middleware(),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     productController.deleteCustomization
 );
 
 router.get('/v1/product/customization/:customizationId',
     authentication.middleware(),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     productController.getCustomizationById
 );
 

@@ -147,7 +147,7 @@ class OrganizationService {
 
             console.log('user----->', currentUser);
             let store = {}
-            let user = await User.findOne({ organization: organizationId, _id: currentUser.id }, { password: 0 });
+            let user = await User.findOne({ organization: organizationId }, { password: 0 });
             if (doc) {
                 let logo = await s3.getSignedUrlForRead({ path: doc.logo });
                 doc.logo = logo;
@@ -168,7 +168,7 @@ class OrganizationService {
                 } else {
                     doc.documents = [];
                 }
-                store = await Store.findOne({ _id: storeId, organization: currentUser.organization });
+                store = await Store.findOne({organization: doc._id });
             }
 
             return { user, providerDetail: doc,store };

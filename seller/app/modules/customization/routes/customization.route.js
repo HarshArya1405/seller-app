@@ -10,23 +10,28 @@ const customizationController = new CustomizationController();
 
 router.post('/v1/customizationGroup', 
     authentication.middleware(), 
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: customizationSchema.create() }), 
     customizationController.storeCustomizationsGroup);
 
 router.get('/v1/customizationGroup/:groupId',
     authentication.middleware(),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     customizationController.getCustomizationGroupById);
 
 router.delete('/v1/customizationGroup/:groupId', 
     authentication.middleware(), 
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     customizationController.deleteCustomizationGroup);
 
 router.get('/v1/customizationGroups', 
     authentication.middleware(), 
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     customizationController.getCustomizationsGroup);
 
 router.put('/v1/customizationGroup/:groupId', 
-    authentication.middleware(), 
+    authentication.middleware(),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}), 
     apiParamsValidator.middleware({ schema: customizationSchema.update() }), 
     customizationController.updateCustomizationsGroup);
 

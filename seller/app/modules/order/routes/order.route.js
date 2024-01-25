@@ -12,12 +12,12 @@ router.post('/v1/orders',
 
 router.get('/v1/orders',
     authentication.middleware(),
-    //authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     orderController.list,
 );
 router.get('/v1/orders/return/request',
     authentication.middleware(),
-    //authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     orderController.listReturnRequests,
 );
 
@@ -41,13 +41,13 @@ router.put('/v1/orders/:orderId/ondcUpdate',
 
 router.post('/v1/orders/:orderId/cancel',
     authentication.middleware(),
-    // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     orderController.cancel,
 );
 
 router.post('/v1/orders/:orderId/item/cancel',
     authentication.middleware(),
-    // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     orderController.cancelItems,
 );
 

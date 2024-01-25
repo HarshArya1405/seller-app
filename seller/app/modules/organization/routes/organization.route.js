@@ -11,7 +11,7 @@ const organizationController = new OrganizationController();
 
 router.post('/v1/organizations',
     authentication.middleware(),
-    authorisation.middleware({ roles: [SYSTEM_ROLE.SUPER_ADMIN] }),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: organisationSchema.create() }),
     organizationController.create);
 
@@ -21,13 +21,13 @@ router.post('/v1/organizations/signup',
 
 router.put('/v1/organizations/:id/',
     authentication.middleware(),
-    authorisation.middleware({ roles: [SYSTEM_ROLE.SUPER_ADMIN] }),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: organisationSchema.update() }),
     organizationController.update);
 
 router.get('/v1/organization/:organizationId',
     authentication.middleware(),
-    authorisation.middleware({ roles: [SYSTEM_ROLE.ORG_ADMN] }),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: organisationSchema.get() }),
     organizationController.get,
 );
@@ -41,7 +41,7 @@ router.get('/v1/admin/organization/:organizationId',
 
 router.get('/v1/organizations',
     authentication.middleware(),
-    authorisation.middleware({ roles: [SYSTEM_ROLE.SUPER_ADMIN] }),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: organisationSchema.list() }),
     organizationController.list,
 );
@@ -60,13 +60,13 @@ router.post('/v1/organization/stores',
 
 router.put('/v1/organization/stores/:storeId',
     authentication.middleware(),
-    // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: organisationSchema.updateStoreDetails() }),
     organizationController.updateStoreDetails);
 
 router.get('/v1/organization/stores/:storeId',
     authentication.middleware(),
-    // authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     apiParamsValidator.middleware({ schema: organisationSchema.getStoreDetails() }),
     organizationController.getStoreDetail);
 

@@ -366,7 +366,7 @@ class UserService {
 
             for (const user of users) { //attach org details
 
-                let organization = await Organization.findOne({_id: user.organization}, {_id: 1, name: 1});
+                let organization = await Organization.findOne({_id: user.organization}, {_id: 1, name: 1, isPANVerified : 1});
                 user.organization = organization;
 
                 let bannedUser = await BannedUser.findOne({user:user._id});

@@ -12,30 +12,31 @@ const storeController = new StoreController();
 
 router.post('/v1/store/create',
     authentication.middleware(),
-    authorisation.middleware({roles: [SYSTEM_ROLE.SUPER_ADMIN]}),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     storeController.create
 );
 
 router.put('/v1/store/:id',
     authentication.middleware(),
-    authorisation.middleware({roles: [SYSTEM_ROLE.SUPER_ADMIN]}),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     storeController.update
 );
 
 router.get('/v1/store/:id',
     authentication.middleware(),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     storeController.get
 );
 
 router.delete('/v1/store/:id',
     authentication.middleware(),
-    authorisation.middleware({roles: [SYSTEM_ROLE.SUPER_ADMIN]}),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     storeController.delete
 );
 
 router.get('/v1/stores',
     authentication.middleware(),
-    authorisation.middleware({roles: [SYSTEM_ROLE.SUPER_ADMIN]}),
+    authorisation.middleware({roles: [SYSTEM_ROLE.ORG_ADMN]}),
     storeController.list
 );
 
