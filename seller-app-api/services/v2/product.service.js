@@ -88,7 +88,7 @@ class ProductService {
 
             let httpRequest = new HttpRequest(
                 serverUrl,
-                `/api/v1/products/search/increamentalPull/${category.name}`, //TODO: allow $like query
+                `/api/v1/products/search/increamentalPull/${category.name}?city=${requestQuery?.context?.city ?? ''}`, //TODO: allow $like query
                 'get',
                 headers
             );
@@ -870,6 +870,10 @@ class ProductService {
                 resultData = await this.getForOndc(item.id)
                 if (resultData?.commonDetails) {
                     const itemData = resultData.commonDetails;
+                    if (itemData) {
+                        let price = itemData?.MRP * item.quantity.count
+                        totalPrice += price
+                    }
                     let customization = false;
                     if(itemData?.type === 'customization'){
                         customization = true;
@@ -889,7 +893,7 @@ class ProductService {
                             "count": item.quantity.count
                         },
                         "title": itemData?.productName,
-                        "@ondc/org/title_type": itemData?.type ?? "item",
+                        "@ondc/org/title_type": "item",
                         "price":
                         {
                             "currency": "INR",
@@ -928,8 +932,8 @@ class ProductService {
             qouteItems.push(item)
             detailedQoute.push(qouteItemsDetails)
         }
-        let orderPrice = (logistics) ? parseInt(logisticData.message.order.quote.price.value) : 0;
-        totalPrice = orderPrice + parseInt(totalPrice)
+        let orderPrice = (logistics) ? formatToTwoDecimalPlaces(logisticData.message.order.quote.price.value) : 0;
+        totalPrice = orderPrice + formatToTwoDecimalPlaces(totalPrice)
         let totalPriceObj = { value: "" + totalPrice, currency: "INR" }
 
         if (logistics) {
@@ -1016,6 +1020,10 @@ class ProductService {
                 resultData = await this.getForOndc(item.id)
                 if (resultData?.commonDetails) {
                     const itemData = resultData.commonDetails;
+                    if (itemData) {
+                        let price = itemData?.MRP * item.quantity.count
+                        totalPrice += price
+                    }
                     let customization = false;
                     if(itemData?.type === 'customization'){
                         customization = true;
@@ -1035,8 +1043,8 @@ class ProductService {
                         "@ondc/org/item_quantity": {
                             "count": item.quantity.count
                         },
-                        "title": itemData?.name,
-                        "@ondc/org/title_type": itemData?.type ?? "item",
+                        "title": itemData?.productName,
+                        "@ondc/org/title_type": "item",
                         "price":
                         {
                             "currency": "INR",
@@ -1097,7 +1105,7 @@ class ProductService {
                 }//TODO: need to map all items in the catalog to find out delivery charges
 
                 //added delivery charges in total price
-                totalPrice += parseInt(logisticProvider.message.catalog["bpp/providers"][0].items[0].price.value)
+                totalPrice += formatToTwoDecimalPlaces(logisticProvider.message.catalog["bpp/providers"][0].items[0].price.value)
 
                 let categories = logisticProvider.message.catalog["bpp/providers"][0].categories
                 let duration = ''
@@ -1186,6 +1194,24 @@ class ProductService {
         } catch (e) {
             console.log(e)
         }
+    }
+
+    formatToTwoDecimalPlaces(input) {
+        // Convert the input to a floating-point number
+        const number = parseFloat(input);
+
+        if (isNaN(number)) {
+            // Handle invalid input (not a number)
+            return 0; // or any appropriate value
+        }
+
+        // Convert the number to a string with 2 decimal places
+        const formattedNumber = number.toFixed(2);
+
+        // Convert the string back to a float if needed
+        const result = parseFloat(formattedNumber);
+
+        return result;
     }
 }
 

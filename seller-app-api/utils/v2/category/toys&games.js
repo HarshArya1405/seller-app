@@ -179,7 +179,7 @@ export async function mapToysnGamesData(data) {
             }
             variantGroupSequence=variantGroupSequence+1;
             const customizationDetails = items.customizationDetails;
-            if(customizationDetails && customizationDetails.customizationGroups.length === 0){
+            if(Object.keys(customizationDetails).length === 0){
                 let item = itemSchema({...items, org: org},customMenuData)
                 productAvailable.push(item)
             }else{
@@ -397,7 +397,7 @@ export async function mapToysnGamesDataUpdate(data){
         for (let items of org.items) {
             const customizationDetails = items.customizationDetails;
             
-            if(customizationDetails && customizationDetails.customizationGroups.length === 0){
+            if(Object.keys(customizationDetails).length === 0){
                 let item = itemSchema({...items, org: org},[])
                 productAvailable.push(item)
             }else{
@@ -776,7 +776,7 @@ function customizationSchema(customizations,item) {
         "value":`${customizations.MRP}`,
         "maximum_value":`${customizations.MRP}`
     },
-    "category_id":item.productSubcategory1 ?? "NA",
+    "category_id":item.productCategory ?? "NA",
     "related":true,
     "tags":customizationTag      
     };

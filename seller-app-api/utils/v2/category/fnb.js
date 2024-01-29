@@ -179,7 +179,10 @@ export async function mapFnBData(data) {
             }
             variantGroupSequence=variantGroupSequence+1;
             const customizationDetails = items.customizationDetails;
-            if(customizationDetails){
+            if(Object.keys(customizationDetails).length === 0){
+                let item = itemSchema({...items, org: org},customMenuData)
+                productAvailable.push(item)
+            }else{
                 const customizationGroups = customizationDetails.customizationGroups;
                 const customizations = customizationDetails.customizations;
                 let customGroup = [];
@@ -241,9 +244,6 @@ export async function mapFnBData(data) {
                     let customizationData = customizationSchema(customization,items)
                     productAvailable.push(customizationData)
                 }
-            }else{
-                let item = itemSchema({...items, org: org},[],customMenuData)
-                productAvailable.push(item)
             }
         }
         bppDetails = {
@@ -395,7 +395,10 @@ export async function mapFnBDataUpdate(data) {
         let productAvailable = []
         for (let items of org.items) {
             const customizationDetails = items.customizationDetails;
-            if(customizationDetails){
+            if(Object.keys(customizationDetails).length === 0){
+                let item = itemSchema({...items, org: org},[])
+                productAvailable.push(item)
+            }else{
                 let customGroup = [];
                 const customizationGroups = customizationDetails.customizationGroups;
                 for(const customizationGroup of customizationGroups){
@@ -405,6 +408,8 @@ export async function mapFnBDataUpdate(data) {
                     };
                     customGroup.push(groupObj);
                 }
+                let item = itemSchema({...items, org: org},customGroup,[])
+                productAvailable.push(item)
             }
             let item = itemSchema({...items, org: org},customGroup,[])
             productAvailable.push(item)
@@ -486,7 +491,7 @@ function itemSchema(items,customGroup,customMenuData) {
     let priceData ={
         currency: "INR",
         value: `${items.MRP}`,
-        maximum_value: `${items.maxMRP}`
+        maximum_value: `${items?.maxMRP ?? items.MRP}`
     };
     if(items.maxMRP && items.maxDefaultMRP){
         let itemtags = [
@@ -656,7 +661,7 @@ function customizationSchema(customizations,item) {
           "value":`${customizations.MRP}`,
           "maximum_value":`${customizations.MRP}`
         },
-        "category_id":item.productSubcategory1 ?? "NA",
+        "category_id":item.productCategory ?? "NA",
         "related":true,
         "tags":customizationTag
       };

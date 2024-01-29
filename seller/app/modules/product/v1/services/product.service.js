@@ -4,7 +4,8 @@ import CustomizationGroup from '../../../customization/models/customizationGroup
 import CustomizationGroupMapping from '../../../customization/models/customizationGroupMappingModel';
 import ProductAttribute from '../../models/productAttribute.model';
 import VariantGroup from '../../models/variantGroup.model';
-import { Categories, SubCategories, Attributes } from '../../../../lib/utils/categoryVariant';
+import { Categories, SubCategories, Attributes } from '../../../../lib/utils/categoryVariant'
+import MappedCity from '../../../../lib/utils/mappedCityCode';
 import Organization from '../../../organization/models/organization.model';
 import Store from '../../../organization/models/store.model';
 import s3 from '../../../../lib/utils/s3Utils';
@@ -267,9 +268,18 @@ class ProductService {
     async searchIncrementalPull(params, category) {
         try {
             let query = {};
+            let orgs;
+            if(params.city){
+                const cityCode = params.city.split(':')[1];
+                let cityData = MappedCity(cityCode);
+                cityData = cityData.map((data)=> data.Pincode );
+                orgs = await Organization.find({ 'storeDetails.address.area_code': {$in:cityData }}).lean();
+            }else{
+                orgs = await Organization.find({},).lean();
+            }
 
             console.log('params------->', params);
-            const orgs = await Organization.find({},).lean();
+            orgs = await Organization.find({},).lean();
             let products = [];
             for (const org of orgs) {
                 let productData = [];
@@ -650,11 +660,7 @@ class ProductService {
             };
             if (params.name) {
                 query.productName = { $regex: params.name, $options: 'i' };
-            }
-            if (params.organization) {
-                query.organization = params.organization;
-            }
-    
+            }    
             const data = await Product.find(query)
                 .sort({ createdAt: 1 })
                 .skip(params.offset)
