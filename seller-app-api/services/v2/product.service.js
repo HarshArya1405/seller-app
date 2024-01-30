@@ -932,8 +932,8 @@ class ProductService {
             qouteItems.push(item)
             detailedQoute.push(qouteItemsDetails)
         }
-        let orderPrice = (logistics) ? formatToTwoDecimalPlaces(logisticData.message.order.quote.price.value) : 0;
-        totalPrice = orderPrice + formatToTwoDecimalPlaces(totalPrice)
+        let orderPrice = (logistics) ? this.formatToTwoDecimalPlaces(logisticData.message.order.quote.price.value) : 0;
+        totalPrice = orderPrice + this.formatToTwoDecimalPlaces(totalPrice)
         let totalPriceObj = { value: "" + totalPrice, currency: "INR" }
 
         if (logistics) {
@@ -1105,7 +1105,7 @@ class ProductService {
                 }//TODO: need to map all items in the catalog to find out delivery charges
 
                 //added delivery charges in total price
-                totalPrice += formatToTwoDecimalPlaces(logisticProvider.message.catalog["bpp/providers"][0].items[0].price.value)
+                totalPrice += this.formatToTwoDecimalPlaces(logisticProvider.message.catalog["bpp/providers"][0].items[0].price.value)
 
                 let categories = logisticProvider.message.catalog["bpp/providers"][0].categories
                 let duration = ''

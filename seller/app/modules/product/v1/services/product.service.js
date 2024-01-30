@@ -273,7 +273,10 @@ class ProductService {
                 const cityCode = params.city.split(':')[1];
                 let cityData = MappedCity(cityCode);
                 cityData = cityData.map((data)=> data.Pincode );
-                orgs = await Organization.find({ 'storeDetails.address.area_code': {$in:cityData }}).lean();
+                const stores = await Store.find({ pincode: {$in:cityData }});
+                const orgIds = stores.map((data)=> data.organization );
+                orgs = await Organization.find({_id:{$in:orgIds}}).lean();
+
             }else{
                 orgs = await Organization.find({},).lean();
             }
