@@ -84,11 +84,6 @@ class OrderService {
             const data = await Order.find(query).populate([{ path: 'organization', select: ['name', '_id', 'storeDetails'] }]).sort({ createdAt: -1 }).skip(params.offset * params.limit).limit(params.limit).lean();
 
             for (const order of data) {
-
-                console.log('ordre----->', order);
-                console.log('ordre----itemsss->', order.items);
-                console.log('ordre----itemsss->0', order.items[0]);
-
                 let items = [];
                 for (const itemDetails of order.items) {
 

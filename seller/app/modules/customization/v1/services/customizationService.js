@@ -54,7 +54,7 @@ class CustomizationService {
     async getCustomizationGroups(params, currentUser) {
         try {
             let query = {
-                organization:currentUser.organization
+                organization: currentUser.organization
             };
 
             if (params.name) {
@@ -66,7 +66,7 @@ class CustomizationService {
             }
 
             const existingGroups = await CustomizationGroup.find(query).sort({ createdAt: 1 })
-                .skip(params.offset)
+                .skip(params.offset * params.limit)
                 .limit(params.limit);
             const count = await CustomizationGroup.count(query);
             return { count, data: existingGroups };
@@ -98,18 +98,18 @@ class CustomizationService {
                         });
 
                         //console.log("NEXTTTTT", nextGroupIds);
-    
+
                         for (const nextGroup of nextGroups) {
                             if (nextGroup) {
                                 throw new ConflictError(MESSAGES.SE_NEXTGROUP_ERROR);
                             }
                         }
-                    }  else {
+                    } else {
                         // Check if the existing group is a parent in the group mapping table
                         const isChild = await CustomizationGroupMapping.findOne({
                             child: existingGroup._id,
                         });
-    
+
                         // Throw a child error only if the existing group is a parent in the group mapping table
                         if (isChild) {
                             throw new ConflictError(MESSAGES.SEQ_CHILD_ERROR);
@@ -128,11 +128,11 @@ class CustomizationService {
                 );
 
                 await CustomizationGroupMapping.deleteMany({ parent: existingGroup._id });
-    
+
                 for (const customizations of customizationDetails.customizations) {
                     await this.mappingCustomizations(id, customizations);
                 }
-    
+
                 return { success: true };
             } else {
                 throw new NoRecordFoundError(MESSAGES.CUSTOMIZATION_GROUP_NOT_EXISTS);
@@ -315,7 +315,7 @@ class CustomizationService {
         if (mappingData && mappingData.length > 0) {
             for (const data of mappingData) {
                 let customizationObj = {};
-                const customization = await Product.findOne({ _id: data.id, organization: currentUser.organization, type: 'customization' }, { quantity:1,maxAllowedQty:1,productName: 1, UOMValue: 1, UOM: 1, MRP: 1, vegNonVeg: 1 });
+                const customization = await Product.findOne({ _id: data.id, organization: currentUser.organization, type: 'customization' }, { quantity: 1, maxAllowedQty: 1, productName: 1, UOMValue: 1, UOM: 1, MRP: 1, vegNonVeg: 1 });
                 if (customization) {
                     if (data.groups && data.groups.length > 0) {
                         for (const group of data.groups) {
