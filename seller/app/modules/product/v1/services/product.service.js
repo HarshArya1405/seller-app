@@ -199,6 +199,9 @@ class ProductService {
             if (params.organization) {
                 query.organization = params.organization;
             }
+            if (params.category) {
+                query.productCategory = { $regex: '.*' + params.category + '.*' };
+            }
             // Apply the type filter if provided
             if (params.type && (params.type === 'item' || params.type === 'customization')) {
                 query.type = params.type;
