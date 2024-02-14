@@ -46,7 +46,7 @@ const bulkUploadAttributeValidation = {
         refurbrished: Joi.string()
     },
     healthandwellness: {
-        prescriptionRequired: Joi.string().required(),
+        prescriptionRequired: Joi.string(),
         usageInstruction: Joi.string(),
         brand: Joi.string(),
         remarks: Joi.string()

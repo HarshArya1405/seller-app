@@ -44,7 +44,6 @@ const productSchema = new mongoose.Schema({
     weight: {type:String},
     isReturnable: {type:Boolean},
     returnWindow: {type:String},
-    isVegetarian: {type:Boolean},
     manufacturerName: {type:String},
     manufacturedDate: {type:String},
     nutritionalInfo: {type:Array},

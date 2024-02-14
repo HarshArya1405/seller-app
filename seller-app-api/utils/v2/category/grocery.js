@@ -568,8 +568,8 @@ function itemSchema(items,customMenuData) {
                 "code": "veg_nonveg",
                 "list": [
                     {
-                        "code": items.isVegetarian ? 'veg' : 'nonveg',
-                        "value": items.isVegetarian ? 'yes' : 'yes'
+                        "code": (items.vegNonVeg === 'VEG' ?'veg' :(items.vegNonVeg === 'NONVEG' ? 'non_veg' : 'egg')) ?? 'NA',
+                        "value":"yes"
                     }
                 ]
             }

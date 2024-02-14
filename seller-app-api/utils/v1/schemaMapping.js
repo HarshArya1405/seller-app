@@ -71,8 +71,8 @@ exports.getProducts = async (data) => {
                     },
                 "tags":
                     {
-                        "veg":items.isVegetarian?'yes':'no',
-                        "non_veg":items.isVegetarian?'no':'yes'
+                        "veg":items.vegNonVeg === 'VEG'?'yes':'no',
+                        "non_veg":items.vegNonVeg === 'NONVEG'?'yes':'no'
                     }
 
         }

@@ -17,15 +17,15 @@ module.exports = {
             quantity: Joi.number(),
             barcode: Joi.number(),
             maxAllowedQty: Joi.number(),
-            packQty:Joi.number(),
+            packQty: Joi.number(),
             UOM: Joi.string(),//units of measure
             length: Joi.number(),
             breadth: Joi.number(),
             height: Joi.number(),
             weight: Joi.number(),
             isReturnable: Joi.boolean(),
-            returnWindow: Joi.string(),
-            isVegetarian: Joi.boolean(),
+            returnWindow: Joi.number(),
+            vegNonVeg: Joi.string(),
             manufacturerName: Joi.string(),
             manufacturedDate: Joi.string(),
             nutritionalInfo: Joi.string(),
@@ -54,15 +54,15 @@ module.exports = {
             quantity: Joi.number(),
             barcode: Joi.number(),
             maxAllowedQty: Joi.number(),
-            packQty:Joi.number(),
+            packQty: Joi.number(),
             UOM: Joi.string(),//units of measure
             length: Joi.number(),
             breadth: Joi.number(),
             height: Joi.number(),
             weight: Joi.number(),
             isReturnable: Joi.boolean(),
-            returnWindow: Joi.string(),
-            isVegetarian: Joi.boolean(),
+            returnWindow: Joi.number(),
+            vegNonVeg: Joi.string(),
             manufacturerName: Joi.string(),
             manufacturedDate: Joi.string(),
             nutritionalInfo: Joi.string(),
@@ -80,21 +80,21 @@ module.exports = {
             published: Joi.boolean().required(),
         });
     },
-    get:()=>{
+    get: () => {
         return Joi.object({
             productId: Joi.string().guid({
                 version: ['uuidv4']
             }),
         });
     },
-    
 
-    
-    list:()=>{
+
+
+    list: () => {
         return Joi.object({
-            name:Joi.string().empty(''),
-            offset:Joi.number(),
-            limit:Joi.number()
+            name: Joi.string().empty(''),
+            offset: Joi.number(),
+            limit: Joi.number()
         });
     }
 };

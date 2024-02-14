@@ -363,11 +363,15 @@ class CustomizationService {
             }
         }
         if (customizations.length > 0) {
+            let nextGroupforSameParent = [];
             for (const customization of customizations) {
                 if (customization.nextGroupId && customization.nextGroupId.length > 0) {
                     for (const group of customization.nextGroupId) {
-                        const groupData = await CustomizationGroupMapping.find({ parent: group.groupId, organization: currentUser.organization });
-                        childIds = await this.traverseForward(group.groupId, childIds, [], groupData, currentUser);
+                        if (!nextGroupforSameParent.includes(group.groupId)) {
+                            nextGroupforSameParent.push(group.groupId);
+                            const groupData = await CustomizationGroupMapping.find({ parent: group.groupId, organization: currentUser.organization });
+                            childIds = await this.traverseForward(group.groupId, childIds, [], groupData, currentUser);
+                        }
                     }
                 }
             }

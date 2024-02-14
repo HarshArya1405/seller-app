@@ -6,10 +6,13 @@ const categoryValidation = {
         breadth: Joi.any(),
         height: Joi.any(),
         weight: Joi.any(),
-        isVegetarian: Joi.boolean(),
+        vegNonVeg: Joi.string(),
     },
     fashion: {
-
+        length: Joi.any(),
+        breadth: Joi.any(),
+        height: Joi.any(),
+        weight: Joi.any(),
     },
     grocery: {
         length: Joi.any(),
@@ -18,15 +21,34 @@ const categoryValidation = {
         weight: Joi.any(),
     },
     appliances: {
+        length: Joi.any(),
+        breadth: Joi.any(),
+        height: Joi.any(),
+        weight: Joi.any(),
     },
     beautyandpersonalcare: {
-        weight: Joi.any()
+        length: Joi.any(),
+        breadth: Joi.any(),
+        height: Joi.any(),
+        weight: Joi.any(),
     },
     electronics: {
+        length: Joi.any(),
+        breadth: Joi.any(),
+        height: Joi.any(),
+        weight: Joi.any(),
     },
     homeandkitchen: {
+        length: Joi.any(),
+        breadth: Joi.any(),
+        height: Joi.any(),
+        weight: Joi.any(),
     },
     healthandwellness: {
+        length: Joi.any(),
+        breadth: Joi.any(),
+        height: Joi.any(),
+        weight: Joi.any(),
         manufacturedDate: Joi.string(),
     }
 }
@@ -52,8 +74,8 @@ export const mergedValidation = (category) => {
         UOM: Joi.string(),//units of measure
         UOMValue: Joi.string().allow(''),
         isReturnable: Joi.boolean(),
-        isVegetarian: Joi.boolean(),
-        returnWindow: Joi.string(),
+        vegNonVeg: Joi.string(),
+        returnWindow: Joi.number(),
         manufacturerName: Joi.string(),
         manufacturerOrganizationName: Joi.string(),
         manufacturedDate: Joi.string(),

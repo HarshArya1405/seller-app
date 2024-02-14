@@ -81,10 +81,10 @@ exports.commonKeys = [
 
 exports.templateKeys = {
     grocery: [
-        'isVegeterian'
+        'vegNonVeg'
     ],
     fnb: [
-        'nutritionalInfo', 'additiveInfo', 'isVegeterian'
+        'nutritionalInfo', 'additiveInfo', 'vegNonVeg'
     ],
     fashion: [
         'length','breadth',

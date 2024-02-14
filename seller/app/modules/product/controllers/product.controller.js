@@ -312,11 +312,6 @@ class ProductController {
                     } else {
                         row.isReturnable = false;
                     }
-                    if (row.isVegetarian?.toLowerCase() === 'yes') {
-                        row.isVegetarian = true;
-                    } else {
-                        row.isVegetarian = false;
-                    }
                     if (row.availableOnCod?.toLowerCase() === 'yes') {
                         row.availableOnCod = true;
                     } else {
@@ -335,7 +330,7 @@ class ProductController {
                     } else if (category === 'Fashion') {
                         protocolKey = '@ondc/org/statutory_reqs_packaged_commodities';
                     } else if (category === 'Electronics') {
-                        protocolKey = '';
+                        protocolKey = '@ondc/org/statutory_reqs_packaged_commodities';
                     } else if (category === 'Grocery') {
                         protocolKey = '@ondc/org/statutory_reqs_packaged_commodities';
                     } else if (category === 'Home and Kitchen') {
@@ -356,9 +351,11 @@ class ProductController {
                     row.productCategory = category;
 
                     // Validate common attributes separately
+                    console.log(category.toLowerCase().replace(/\s+/g, ''))
                     const commonKeys = Object.keys(row).filter(key => templateAttributeKeys[category.toLowerCase().replace(/\s+/g, '')].includes(key));
                     const commonRow = {};
-                    commonKeys.forEach(key => {
+
+                    commonKeys?.forEach(key => {
                         commonRow[key] = row[key];
                         delete row[key]; // Remove common keys from original row
                     });
@@ -366,7 +363,7 @@ class ProductController {
                     const { error: commonValidationError, value: validatedCommonRow } = commonSchema.validate(commonRow, {
                         allowUnknown: true // Validate common attributes separately
                     });
-
+                    console.log(validatedCommonRow)
                     // Validate merged schema for the row
                     const { error: validationError, value: validatedRow } = mergedSchema.validate(row, {
                         allowUnknown: true // Allows unknown keys in the input
