@@ -582,10 +582,14 @@ class ProductService {
                 data = data.filter((obj) => obj.category === params.category);
             }
             if (params.subCategory) {
-                data = data.find((obj) => obj.subCategory === params.subCategory);
+                const subCategoryData = data.find((obj) => obj.subCategory === params.subCategory);
+                if (subCategoryData && Array.isArray(subCategoryData.attributes)) {
+                    subCategoryData.attributes = subCategoryData.attributes.filter(attr => attr.required === true);
+                }
+                return { data: subCategoryData };
             }
             return { data };
-
+    
         } catch (err) {
             console.log(`[OrganizationService] [get] Error in getting organization by id - ${currentUser.organization}`, err);
             throw err;

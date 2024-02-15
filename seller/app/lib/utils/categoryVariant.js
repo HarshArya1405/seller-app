@@ -1634,850 +1634,5779 @@ const SubCategories = [
 const Attributes = [
     {
         'category': 'Electronics',
-        'subCategory': 'Audio',
+        'subCategory': 'Mobile Phone',
         'attributes': [
-            { 'name': 'Color', 'type': 'input', 'example': 'Red,Blue', 'variationAllowed': true }
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model Year",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "RAM",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "RAM unit",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "ROM",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "ROM unit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Storage",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Storage unit",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Screen Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Primary Camera",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Secondary Camera",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "CPU",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "GPU",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Battery Capacity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "OS Type",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "OS Version",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Connectivity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Form factor",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Refurbished",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
     },
     {
         'category': 'Electronics',
-        'subCategory': 'Camera and Camcorder',
+        'subCategory': 'Smart Watch',
         'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': 'Small', 'variationAllowed': true },
-            { 'name': 'Compact', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': 'Small', 'variationAllowed': true },
-            { 'name': 'Full-Size', 'type': 'input', 'example': 'Small', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': 'Small', 'variationAllowed': true },
-            { 'name': 'stylename', 'type': 'input', 'example': 'Small', 'variationAllowed': true }
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model Year",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Screen Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Refurbished",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
-    }, {
+    },
+    {
         'category': 'Electronics',
-        'subCategory': 'Computer Peripheral',
+        'subCategory': 'Headset',
         'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'stylename', 'type': 'input', 'example': '', 'variationAllowed': true }
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model Year",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Connectivity",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Form factor",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Refurbished",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
-    }, {
+    },
+    {
         'category': 'Electronics',
-        'subCategory': 'Desktop and Laptop',
+        'subCategory': 'Laptop',
         'attributes': [
-            { 'name': 'Item Weight', 'unit': unitWeight, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '', 'variationAllowed': true },
-            { 'name': 'Wattage', 'unit': unitWattage, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Voltage', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Team Name', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Display weight', 'unit': unitWeight, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Memory Storage Capacity', 'unit': unitMemory, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Product Grade', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Hardware Platform', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Hard Drive Size', 'unit': unitMemory, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Screen Size', 'unit': unitLength, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Brand', 'type': 'input', 'example': 'Apple', 'variationAllowed': false },
-            { 'name': 'Color', 'type': 'select', 'example': 'Black', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'MacBook Air', 'variationAllowed': false },
-            { 'name': 'CPU', 'type': 'input', 'example': 'Core M family', 'variationAllowed': false },
-            { 'name': 'cpu_mfr', 'type': 'input', 'example': 'Intel', 'variationAllowed': false },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model Year",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "RAM",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "RAM unit",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "ROM",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "ROM unit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Storage",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Storage unit",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Storage Type",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Screen Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "CPU",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "GPU",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Battery Capacity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "OS Type",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "OS Version",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Includes",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Refurbished",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
-    }, {
+    },
+    {
         'category': 'Electronics',
-        'subCategory': 'Earphone',
+        'subCategory': 'Desktop',
         'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Edition', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'brand', 'type': 'input', 'example': 'Samsung', 'variationAllowed': false },
-            { 'name': 'Color', 'type': 'select', 'example': 'Black', 'variationAllowed': true },
-            { 'name': 'model', 'type': 'input', 'example': 'Galaxy Bean Buds Live', 'variationAllowed': false },
-            { 'name': 'connectivity', 'type': 'input', 'example': 'wireless', 'variationAllowed': true },
-            { 'name': 'form_factor', 'type': 'input', 'example': 'In Ear', 'variationAllowed': false },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model Year",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "RAM",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "RAM unit",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "ROM",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "ROM unit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Storage",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Storage unit",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Storage Type",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Screen Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "CPU",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "GPU",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Battery Capacity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "OS Type",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "OS Version",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Form factor",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Includes",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Refurbished",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
-    }, {
+    },
+    {
         'category': 'Electronics',
-        'subCategory': 'Gaming',
+        'subCategory': 'Tablet',
         'attributes': [
-            { 'name': 'Item Weight', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'numberer', 'example': '', 'variationAllowed': true },
-            { 'name': 'Wattage', 'unit': unitWattage, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Model Number', 'type': 'number', 'example': '', 'variationAllowed': true },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model Year",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "RAM",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "RAM unit",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "ROM",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "ROM unit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Storage",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Storage unit",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Storage Type",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Screen Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "CPU",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "GPU",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Battery Capacity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "OS Type",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "OS Version",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Includes",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Refurbished",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
-    }, {
+    },
+    {
         'category': 'Electronics',
-        'subCategory': 'Headphone',
+        'subCategory': 'Keyboard',
         'attributes': [
-            { 'name': 'Brand', 'type': 'input', 'example': 'Samsung', 'variationAllowed': false },
-            { 'name': 'Color', 'type': 'select', 'example': 'Black', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'Galaxy Bean Buds Live', 'variationAllowed': false },
-            { 'name': 'Connectivity', 'type': 'input', 'example': 'wireless', 'variationAllowed': true },
-            { 'name': 'Form Factor', 'type': 'input', 'example': 'In Ear', 'variationAllowed': false },
-
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Connectivity",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Compatible Devices",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Includes",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Refurbished",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
-    }, {
+    },
+    {
         'category': 'Electronics',
-        'subCategory': 'Mobile Phone',
+        'subCategory': 'Monitor',
         'attributes': [
-            { 'name': 'Memory', 'unit': unitMemory, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'unit': unitWeight, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'numberer', 'example': '', 'variationAllowed': true },
-            { 'name': 'Team Name', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Model Number', 'type': 'number', 'example': '', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Product Grade', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Screen Size Unit Of Measure', 'unit': unitLength, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'brand', 'type': 'input', 'example': 'Apple iPhone', 'variationAllowed': false },
-            { 'name': 'size', 'type': 'input', 'example': '512GB', 'variationAllowed': true }
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Screen Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Special Feature",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Refurbished",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
-    }, {
+    },
+    {
         'category': 'Electronics',
-        'subCategory': 'Mobile Accessories',
+        'subCategory': 'Mouse',
         'attributes': [
-            { 'name': 'Pattern', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'numberer', 'example': '', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'unit': unitWeight, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Thickness', 'unit': unitLength, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Model Number', 'type': 'number', 'example': '', 'variationAllowed': true },
-            { 'name': 'Screen Size Unit Of MeasureScreen', 'unit': unitLength, 'type': 'input', 'example': '', 'variationAllowed': true },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Connectivity",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Special Feature",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Refurbished",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
-    }, {
+    },
+    {
         'category': 'Electronics',
-        'subCategory': 'Safety Security',
+        'subCategory': 'Power Bank',
         'attributes': [
-            { 'name': 'Style Name', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'numberer', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Form', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Pattern', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Display Weight', 'unit': unitWeight, 'type': 'input', 'example': '', 'variationAllowed': true },
-        ]
-    }, {
-        'category': 'Electronics',
-        'subCategory': 'Smart Watches',
-        'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Style', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'numberer', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Form', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'DriveMemory Storage Capacity', 'unit': unitMemory, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Manufacturer Part Number', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Unit Count', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Band Colour', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Shape', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Screen Size', 'unit': unitLength, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Brand', 'type': 'input', 'example': 'Boat', 'variationAllowed': false },
-            { 'name': 'Color', 'type': 'select', 'example': 'Black', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'Ultima Call Max', 'variationAllowed': false },
-        ]
-    }, {
-        'category': 'Electronics',
-        'subCategory': 'Speaker',
-        'attributes': [
-            { 'name': 'Brand', 'type': 'input', 'example': 'Apple iPhone', 'variationAllowed': false },
-            { 'name': 'Color', 'type': 'select', 'example': 'Black', 'variationAllowed': true },
-            { 'name': 'Size', 'type': 'input', 'example': '512GB', 'variationAllowed': true },
-        ]
-    }, {
-        'category': 'Electronics',
-        'subCategory': 'Television',
-        'attributes': [
-            { 'name': 'Style', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'DriveMemory Storage Capacity', 'unit': unitMemory, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'unit': unitWeight, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'numberer', 'example': '', 'variationAllowed': true },
-            { 'name': 'Model Number', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Manufacturer Part Number', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Wattage', 'unit': unitWattage, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Unit Count', 'type': 'input', 'example': '', 'variationAllowed': false },
-            { 'name': 'Voltage', 'type': 'input', 'example': '', 'variationAllowed': false },
-            { 'name': 'Team Name', 'type': 'input', 'example': '', 'variationAllowed': false },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Display Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-        ]
-    }, {
-        'category': 'Electronics',
-        'subCategory': 'Video',
-        'attributes': [
-            { 'name': 'Style Name', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-        ]
-    }, {
-        'category': 'Electronics',
-        'subCategory': 'Health, Home and Personal Care',
-        'attributes': [
-            { 'name': 'Item Display Length', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'numberer', 'example': '', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Package Type', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Display', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Width', 'type': 'input', 'example': '', 'unit': unitLength },
-            { 'name': 'Patter', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Display Height', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Display Diameter', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'model', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Manufacturer Part Number', 'type': 'number', 'example': '', 'variationAllowed': true },
-            { 'name': 'Wattage', 'type': 'input', 'example': '', 'unit': unitWattage },
-            { 'name': 'Unit Count', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Shape', 'type': 'input', 'example': '', 'variationAllowed': true },
-        ]
-    }, {
-        'category': 'Electronics',
-        'subCategory': 'Air Conditioning and Air Cleaners',
-        'attributes': [
-            { 'name': 'Style', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'numberer', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'unit': unitWeight, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Wattage', 'unit': unitWattage, 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Voltage', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Unit Count', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': '', 'variationAllowed': true },
-        ]
-    }, {
-        'category': 'Electronics',
-        'subCategory': 'Heaters',
-        'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Style', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '', 'unit': unitWeight },
-            { 'name': 'Wattage', 'type': 'input', 'example': '', 'unit': unitWattage },
-            { 'name': 'Voltage', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'model', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Unit Count', 'type': 'number', 'example': '', 'variationAllowed': true },
-        ]
-    }, {
-        'category': 'Electronics',
-        'subCategory': 'Kitchen Appliances',
-        'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': 'Large', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': 'Steel', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '2,3', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '3.3', 'unit': unitWeight },
-            { 'name': 'Unit Count', 'type': 'number', 'example': '1', 'variationAllowed': true },
-        ]
-    }, {
-        'category': 'Electronics',
-        'subCategory': 'Lighting and Electric Fans',
-        'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': 'Large', 'variationAllowed': true },
-            { 'name': 'Style', 'type': 'input', 'example': 'Modern', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '', 'unit': unitWeight },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': 'Steel', 'variationAllowed': true },
-            { 'name': 'Manufacturer Part Number', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Wattage', 'type': 'input', 'example': '', 'unit': unitWattage },
-            { 'name': 'Unit Count', 'type': 'number', 'example': '5', 'variationAllowed': true },
-            { 'name': 'Voltage', 'type': 'number', 'example': '5', 'variationAllowed': true },
-        ]
-    }, {
-        'category': 'Electronics',
-        'subCategory': 'Refrigerators and Freezers',
-        'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Style', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '4', 'unit': unitWeight },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Capacity', 'type': 'input', 'example': '', 'unit': unitCapacity },
-            { 'name': 'Manufacturer Part Number', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'LG12', 'variationAllowed': true },
-        ]
-    }, {
-        'category': 'Electronics',
-        'subCategory': 'Vacuum Cleaners',
-        'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Style', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '4', 'unit': unitWeight },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Capacity', 'type': 'input', 'example': '', 'unit': unitCapacity },
-            { 'name': 'Manufacturer Part Number', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'LG12', 'variationAllowed': true },
-        ]
-    }, {
-        'category': 'Electronics',
-        'subCategory': 'Washing Machines and Accessories',
-        'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Style', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '4', 'unit': unitWeight },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Capacity', 'type': 'input', 'example': '', 'unit': unitCapacity },
-            { 'name': 'Manufacturer Part Number', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'LG12', 'variationAllowed': true },
-        ]
-    }, {
-        'category': 'Electronics',
-        'subCategory': 'Water Purifiers and Coolers',
-        'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Graduation Interval', 'type': 'input', 'example': '', 'unit': unitGraduation },
-            { 'name': 'Style', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '4', 'unit': unitWeight },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Capacity', 'type': 'input', 'example': '', 'unit': unitCapacity },
-            { 'name': 'Manufacturer Part Number', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'LG12', 'variationAllowed': true },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model Year",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Refurbished",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
     },
     {
         'category': 'Grocery',
         'subCategory': 'Fruits and Vegetables',
-        'attributes': [
-
-        ]
+        'attributes': []
     },
     {
         'category': 'Grocery',
-        'subCategory': 'Masala and Seasoning',
-        'attributes': [
-
-        ]
+        'subCategory': 'Masala & Seasoning',
+        'attributes': []
     },
     {
         'category': 'Grocery',
-        'subCategory': 'Oil and Ghee',
-        'attributes': [
-
-        ]
+        'subCategory': 'Oil & Ghee',
+        'attributes': []
     },
     {
         'category': 'Grocery',
-        'subCategory': 'Gourmet and World Foods',
-        'attributes': [
-
-        ]
+        'subCategory': 'Eggs, Meat & Fish',
+        'attributes': []
     },
     {
         'category': 'Grocery',
-        'subCategory': 'Foodgrains',
-        'attributes': [
-
-        ]
+        'subCategory': 'Cleaning & Household',
+        'attributes': []
     },
     {
         'category': 'Grocery',
-        'subCategory': 'Eggs, Meat and Fish',
-        'attributes': [
-
-        ]
-    },
-    {
-        'category': 'Grocery',
-        'subCategory': 'Cleaning and Household',
-        'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Style', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': 'plastic', 'variationAllowed': true },
-            { 'name': 'Width Range', 'type': 'input', 'example': '', 'unit': unitLength },
-            { 'name': 'Length Range', 'type': 'input', 'example': '', 'unit': unitLength },
-        ]
-    },
-    {
-        'category': 'Grocery',
-        'subCategory': 'Beverages',
-        'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'stylename', 'type': 'input', 'example': '', 'variationAllowed': true }
-        ]
-    },
-    {
-        'category': 'Grocery',
-        'subCategory': 'Beauty and Hygiene',
-        'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Scent', 'type': 'input', 'example': 'rose', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'PPU Count', 'type': 'input', 'example': '1', 'variationAllowed': true },
-            { 'name': 'Item Form', 'type': 'input', 'example': 'Cream', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'AB12', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-        ]
-    },
-    {
-        'category': 'Grocery',
-        'subCategory': 'Bakery, Cakes and Dairy',
-        'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': 'floor', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'Unit Count', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'AB-12', 'variationAllowed': true },
-            { 'name': 'Shape', 'type': 'input', 'example': 'Round', 'variationAllowed': true },
-            { 'name': 'Capacity', 'type': 'float', 'example': '4', 'unit': unitCapacity },
-            { 'name': 'Manufacturer Part Number', 'type': 'float', 'example': 'A-112', 'variationAllowed': true },
-        ]
-    },
-    {
-        'category': 'Grocery',
-        'subCategory': 'Kitchen Accessories',
-        'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': 'Steel', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'Unit Count', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'AB-12', 'variationAllowed': true },
-            { 'name': 'Pattern', 'type': 'input', 'example': '', 'variationAllowed': true },
-        ]
-    },
-    {
-        'category': 'Grocery',
-        'subCategory': 'Baby Care',
-        'attributes': [
-            { 'name': 'Scent', 'type': 'input', 'example': 'rose', 'variationAllowed': true },
-            { 'name': 'Scent', 'type': 'input', 'example': 'rose', 'variationAllowed': true },
-            { 'name': 'Style', 'type': 'input', 'example': 'modern', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': 'rose', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'PPU Count', 'type': 'input', 'example': '1', 'variationAllowed': true },
-            { 'name': 'Item Form', 'type': 'input', 'example': 'Cream', 'variationAllowed': true },
-            { 'name': 'Pattern', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'Model', 'type': 'input', 'example': 'AB-12', 'variationAllowed': true },
-        ]
-    },
-    {
-        'category': 'Grocery',
-        'subCategory': 'Snacks and Branded Foods',
-        'attributes': [
-
-        ]
+        'subCategory': 'Bakery, Cakes & Dairy',
+        'attributes': []
     },
     {
         'category': 'Grocery',
         'subCategory': 'Pet Care',
-        'attributes': [
-            { 'name': 'Scent Name', 'type': 'input', 'example': 'mild', 'variationAllowed': true },
-            { 'name': 'Flavor', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': 'brown', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-        ]
+        'attributes': []
     },
     {
         'category': 'Grocery',
         'subCategory': 'Stationery',
-        'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': 'A4,6x4', 'variationAllowed': true },
-            { 'name': 'Paper Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Line Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Maximum Size', 'type': 'input', 'example': '', 'variationAllowed': true },
-        ]
-    },
-
-    {
-        'category': 'Home and Kitchen',
-        'subCategory': 'Home and Kitchen',
-        'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Style', 'type': 'input', 'example': 'modern', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': 'wood', 'variationAllowed': true },
-            { 'name': 'Pattern', 'type': 'input', 'example': 'Sripped', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'Model', 'type': 'input', 'example': 'AB-12', 'variationAllowed': true },
-            { 'name': 'Manufacturer Part Number', 'type': 'float', 'example': 'A-112', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Wattage', 'type': 'input', 'example': '', 'unit': unitWattage },
-            { 'name': 'VoltageColor', 'type': 'input', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Unit Count', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Shape', 'type': 'input', 'example': 'Round', 'variationAllowed': true },
-        ]
+        'attributes': []
     },
     {
+        'category': 'Grocery',
+        'subCategory': 'Dairy and Cheese',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Snacks, Dry Fruits, Nuts',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Pasta, Soup and Noodles',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Cereals and Breakfast',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Sauces, Spreads and Dips',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Chocolates and Biscuits',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Cooking and Baking Needs',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Tinned and Processed Food',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Atta, Flours and Sooji',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Rice and Rice Products',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Dals and Pulses',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Salt, Sugar and Jaggery',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Energy and Soft Drinks',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Water',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Tea and Coffee',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Fruit Juices and Fruit Drinks',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Snacks and Namkeen',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Ready to Cook and Eat',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Pickles and Chutney',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Indian Sweets',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Frozen Vegetables',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Frozen Snacks',
+        'attributes': []
+    },
+    {
+        'category': 'Grocery',
+        'subCategory': 'Gift Voucher',
+        'attributes': []
+    },
+    {
         'category': 'Home and Kitchen',
-        'subCategory': 'Home Furnishings',
+        'subCategory': 'Home Decor',
         'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Style', 'type': 'input', 'example': 'modern', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': 'wood', 'variationAllowed': true },
-            { 'name': 'Pattern', 'type': 'input', 'example': 'Sripped', 'variationAllowed': true },
-            { 'name': 'Display Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/colour**"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/material**"
+            },
+            {
+                "name": "Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Assembly Required",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Special Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
     },
     {
         'category': 'Home and Kitchen',
         'subCategory': 'Furniture',
         'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Style', 'type': 'input', 'example': 'modern', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': 'wood', 'variationAllowed': true },
-            { 'name': 'Pattern', 'type': 'input', 'example': 'Sripped', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'Unit Count', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'AB-12', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Team Name', 'type': 'input', 'example': 'chennai super kings', 'variationAllowed': true },
-            { 'name': 'Shape', 'type': 'input', 'example': 'Round', 'variationAllowed': true },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/colour**"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/material**"
+            },
+            {
+                "name": "Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Assembly Required",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Special Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
     },
     {
         'category': 'Home and Kitchen',
-        'subCategory': 'Garden and Outdoor Products',
+        'subCategory': 'Home Furnishing - Bedding and Linen',
         'attributes': [
-            { 'name': 'Material Type', 'type': 'input', 'example': 'wood', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/colour**"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/material**"
+            },
+            {
+                "name": "Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Assembly Required",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Special Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
     },
     {
         'category': 'Home and Kitchen',
-        'subCategory': 'Home Improvement',
+        'subCategory': 'Cleaning Supplies',
         'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Style', 'type': 'input', 'example': 'modern', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/colour**"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/material**"
+            },
+            {
+                "name": "Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Assembly Required",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Special Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
     },
     {
         'category': 'Home and Kitchen',
-        'subCategory': 'Cookware and Dining',
+        'subCategory': 'Electricals',
         'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': 'wood', 'variationAllowed': true },
-            { 'name': 'Pattern', 'type': 'input', 'example': 'Sripped', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'Unit Count', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'AB-12', 'variationAllowed': true },
-            { 'name': 'Shape', 'type': 'input', 'example': 'Round', 'variationAllowed': true },
-            { 'name': 'Capacity', 'type': 'input', 'example': '', 'unit': unitCapacity },
-            { 'name': 'Manufacturer Part Number', 'type': 'float', 'example': 'A-112', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/colour**"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/material**"
+            },
+            {
+                "name": "Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Assembly Required",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Special Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
     },
     {
         'category': 'Home and Kitchen',
-        'subCategory': 'Storage and Organisation',
+        'subCategory': 'Bathroom and Kitchen fixtures',
         'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Style', 'type': 'input', 'example': 'modern', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': 'wood', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'Unit Count', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Team Name', 'type': 'input', 'example': 'Lions', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'AB-12', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Shape', 'type': 'input', 'example': 'Round', 'variationAllowed': true },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/colour**"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/material**"
+            },
+            {
+                "name": "Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Assembly Required",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Special Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
     },
-
-
+    {
+        'category': 'Home and Kitchen',
+        'subCategory': 'Garden & Outdoor',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/colour**"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/material**"
+            },
+            {
+                "name": "Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Assembly Required",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Special Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Home and Kitchen',
+        'subCategory': 'Sports and Fitness Equipment',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/colour**"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/material**"
+            },
+            {
+                "name": "Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Assembly Required",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Special Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Home and Kitchen',
+        'subCategory': 'Cookware',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/colour**"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/material**"
+            },
+            {
+                "name": "Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Assembly Required",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Special Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Home and Kitchen',
+        'subCategory': 'Serveware',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/colour**"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/material**"
+            },
+            {
+                "name": "Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Assembly Required",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Special Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Home and Kitchen',
+        'subCategory': 'Kitchen Storage and Containers',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/colour**"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/material**"
+            },
+            {
+                "name": "Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Assembly Required",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Special Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Home and Kitchen',
+        'subCategory': 'Kitchen Tools',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/colour**"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/material**"
+            },
+            {
+                "name": "Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Assembly Required",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Special Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Home and Kitchen',
+        'subCategory': 'Closet/Laundry/Shoe Organization',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/colour**"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/material**"
+            },
+            {
+                "name": "Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Assembly Required",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Special Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Home and Kitchen',
+        'subCategory': 'Toys and Games',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/colour**"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/material**"
+            },
+            {
+                "name": "Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Assembly Required",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Special Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Home and Kitchen',
+        'subCategory': 'Stationery',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/colour**"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/material**"
+            },
+            {
+                "name": "Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Model",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Assembly Required",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Special Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Home and Kitchen',
+        'subCategory': 'Gift Voucher',
+        'attributes': []
+    },
     {
         'category': 'Health and Wellness',
-        'subCategory': 'Pain Relieving Ointments',
+        'subCategory': 'Pain Relief',
         'attributes': [
-            { 'name': 'Style', 'type': 'input', 'example': 'Art Deco', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': 'Metal', 'variationAllowed': true },
-            { 'name': 'Size', 'type': 'input', 'example': 'Large', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'Model', 'type': 'input', 'example': 'AB-12', 'variationAllowed': true },
-            { 'name': 'Manufacturer Part Number', 'type': 'float', 'example': 'A-112', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': 'Grey', 'variationAllowed': true },
-            { 'name': 'PPU Count', 'type': 'number', 'example': '6', 'variationAllowed': true },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
     },
     {
         'category': 'Health and Wellness',
-        'subCategory': 'Nutrition and Supplements',
+        'subCategory': 'Nutrition and Fitness Supplements',
         'attributes': [
-            { 'name': 'Flavour', 'type': 'input', 'example': 'Strawberry', 'variationAllowed': true },
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Scent', 'type': 'input', 'example': 'musk', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'PPU Count', 'type': 'input', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'EEPL 456', 'variationAllowed': true },
-        ]
-    },
-
-    {
-        'category': 'Health and Wellness',
-        'subCategory': 'Personal and Baby Care',
-        'attributes': [
-            { 'name': 'Scent', 'type': 'input', 'example': 'musk', 'variationAllowed': true },
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Itrm Form', 'type': 'input', 'example': 'Cream', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'PPU Count', 'type': 'input', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'EEPL 456', 'variationAllowed': true },
-        ]
-    },
-    {
-        'category': 'Health and Wellness',
-        'subCategory': 'Sexual Wellness',
-        'attributes': [
-            { 'name': 'Scent', 'type': 'input', 'example': 'musk', 'variationAllowed': true },
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Item Form', 'type': 'input', 'example': 'Cream', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'PPU Count', 'type': 'input', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'EEPL 456', 'variationAllowed': true },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
     },
     {
         'category': 'Health and Wellness',
-        'subCategory': 'Gastric and Other Concerns',
+        'subCategory': 'Speciality Care',
         'attributes': [
-            { 'name': 'Flavour', 'type': 'input', 'example': 'Strawberry', 'variationAllowed': true },
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Scent', 'type': 'input', 'example': 'musk', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'PPU Count', 'type': 'input', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'EEPL 456', 'variationAllowed': true },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
     },
     {
         'category': 'Health and Wellness',
         'subCategory': 'Covid Essentials',
         'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Style', 'type': 'input', 'example': 'Cape Cod', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'number', 'example': 'Cotton', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'Model', 'type': 'input', 'example': 'EEPL 456', 'variationAllowed': true },
-            { 'name': 'Manufacturer Part Number', 'type': 'input', 'example': 'RTC 54', 'variationAllowed': true },
-            { 'name': 'Unit Count', 'type': 'number', 'example': '4', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Team Name', 'type': 'input', 'example': 'Royal', 'variationAllowed': true },
-            { 'name': 'Item Shape', 'type': 'input', 'example': 'Molded cup', 'variationAllowed': true },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
     },
     {
         'category': 'Health and Wellness',
         'subCategory': 'Diabetes Control',
         'attributes': [
-            { 'name': 'Flavour', 'type': 'input', 'example': 'Strawberry', 'variationAllowed': true },
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Scent', 'type': 'input', 'example': 'musk', 'variationAllowed': true },
-            { 'name': 'Item Package Quantity', 'type': 'number', 'example': '6', 'variationAllowed': true },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
     },
     {
         'category': 'Health and Wellness',
-        'subCategory': 'Health Devices',
+        'subCategory': 'Healthcare & Fitness Devices',
         'attributes': [
-            { 'name': 'Thickness', 'type': 'input', 'example': '11', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': 'Steel', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'EEPL 456', 'variationAllowed': true },
-            { 'name': 'Shape', 'type': 'input', 'example': 'Round', 'variationAllowed': true },
-            { 'name': 'Capacity', 'type': 'input', 'example': '5', 'unit': unitCapacity },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Manufacturer Part Number', 'type': 'input', 'example': 'RTC 54', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
     },
-
     {
-        'category': 'Beauty and Personal Care',
-        'subCategory': 'Bath and Body',
+        'category': 'Health and Wellness',
+        'subCategory': 'Ayurvedic',
         'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Scent', 'type': 'input', 'example': 'Musk', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Item Form', 'type': 'input', 'example': 'Cream', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'Model', 'type': 'input', 'example': 'AB-12', 'variationAllowed': true },
-            { 'name': 'PPU Count', 'type': 'input', 'example': '6', 'variationAllowed': true },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
     },
     {
-        'category': 'Beauty and Personal Care',
+        'category': 'Health and Wellness',
+        'subCategory': 'Homeopathy',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Unani and Siddha',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Elder Care',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Baby Care',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Orthopaedic Care',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Mobility Aids',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Medicated Hair Care',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Medicated Skin Care',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Speciality Face Cleansers',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Gastric Care',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'ENT Care',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Eye Care',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Cold and Cough',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Sexual Wellness',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
         'subCategory': 'Feminine Care',
         'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Style', 'type': 'input', 'example': 'modern', 'variationAllowed': true },
-            { 'name': 'Scent', 'type': 'input', 'example': 'musk', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': 'wood', 'variationAllowed': true },
-            { 'name': 'Item Form', 'type': 'input', 'example': 'Cream', 'variationAllowed': true },
-            { 'name': 'Optical Power', 'type': 'input', 'example': '5', 'unit': unitOptical },
-            { 'name': 'Color', 'type': 'input', 'example': 'Blue', 'variationAllowed': true },
-            { 'name': 'Base Curve Radius', 'type': 'input', 'example': '5', 'unit': unitLength },
-            { 'name': 'Item Diameter', 'type': 'input', 'example': '5', 'variationAllowed': true },
-            { 'name': 'PPU Count', 'type': 'input', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'Flavour', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Model Number', 'type': 'input', 'example': 'ER 44', 'variationAllowed': true },
-            { 'name': 'Lens Addition Power', 'type': 'input', 'example': '', 'unit': unitLensPower },
-            { 'name': 'Cylinder Correction', 'type': 'input', 'example': '', 'variationAllowed': true },
-            { 'name': 'Cylinder Axis', 'type': 'input', 'example': 'Sripped', 'variationAllowed': true },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Maternity Care',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Nursing and Feeding',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Hand Wash',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Sanitizers',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Baby Care - Wipes and Buds',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Baby Care - Rash Creams',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Baby Care - Diapers and Accessories',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Health and Safety',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Oral Care',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Contraceptives',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Breathe Easy',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Health Foods and Drinks',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Wound Care and Dressings',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Surgicals',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Mental Wellness',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Health and Wellness',
+        'subCategory': 'Gift Voucher',
+        'attributes': [
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/brand**"
+            },
+            {
+                "name": "Prescription Required",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+                "options": "propertyEnums/prescription_required**"
+            },
+            {
+                "name": "Usage Instruction",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
         ]
     },
     {
         'category': 'Beauty and Personal Care',
         'subCategory': 'Fragrance',
         'attributes': [
-            { 'name': 'Style Name', 'type': 'input', 'example': 'Mision', 'variationAllowed': true },
-            { 'name': 'Scent', 'type': 'input', 'example': 'Rose', 'variationAllowed': true },
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Item Form', 'type': 'input', 'example': 'Gas', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'Model Number', 'type': 'input', 'example': 'TTYU 6', 'variationAllowed': true },
-            { 'name': 'Manufacturer Part Number', 'type': 'input', 'example': 'TTYU 6', 'variationAllowed': true },
-            { 'name': 'Unit Count', 'type': 'number', 'example': '4', 'variationAllowed': true },
-            { 'name': 'Volume', 'type': 'input', 'example': 'AB-12', 'unit': unitGraduation },
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
         ]
     },
     {
         'category': 'Beauty and Personal Care',
-        'subCategory': 'Hair Care',
+        'subCategory': 'Bath Soaps and Gels',
         'attributes': [
-            { 'name': 'Scent Name', 'type': 'input', 'example': 'Spice', 'variationAllowed': true },
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': 'Red', 'variationAllowed': true },
-            { 'name': 'Item Form', 'type': 'input', 'example': 'Cream', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'Model Number', 'type': 'input', 'example': 'TTYU 6', 'variationAllowed': true },
-            { 'name': 'PPU Count', 'type': 'input', 'example': '6', 'variationAllowed': true },
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
         ]
     },
     {
         'category': 'Beauty and Personal Care',
-        'subCategory': 'Make Up',
+        'subCategory': 'Hair Oils, Care, and Styling',
         'attributes': [
-            { 'name': 'Scent', 'type': 'input', 'example': 'Spice', 'variationAllowed': true },
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': 'Red', 'variationAllowed': true },
-            { 'name': 'Item Form', 'type': 'input', 'example': 'Cream', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'Model Number', 'type': 'input', 'example': 'TTYU 6', 'variationAllowed': true },
-            { 'name': 'PPU Count', 'type': 'input', 'example': '6', 'variationAllowed': true },
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
         ]
     },
     {
         'category': 'Beauty and Personal Care',
-        'subCategory': 'Men Grooming',
+        'subCategory': 'Shampoos and Conditioners',
         'attributes': [
-            { 'name': 'Scent', 'type': 'input', 'example': 'Spice', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': 'Red', 'variationAllowed': true },
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Model Number', 'type': 'input', 'example': 'TTYU 6', 'variationAllowed': true },
-            { 'name': 'PPU Count', 'type': 'input', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Team Name', 'type': 'number', 'example': 'Royal', 'variationAllowed': true }
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
         ]
     },
     {
         'category': 'Beauty and Personal Care',
-        'subCategory': 'Oral Care',
+        'subCategory': 'Shaving and Grooming',
         'attributes': [
-            { 'name': 'Flavour', 'type': 'input', 'example': 'Mint', 'variationAllowed': true },
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Scent', 'type': 'input', 'example': 'Musk', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': 'Red', 'variationAllowed': true },
-            { 'name': 'Item Form', 'type': 'input', 'example': 'Cream', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'PPU Count', 'type': 'input', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Unit Count', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'AB-12', 'variationAllowed': true },
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
         ]
     },
     {
         'category': 'Beauty and Personal Care',
-        'subCategory': 'Skin Care',
+        'subCategory': 'Beard Care and Tools',
         'attributes': [
-            { 'name': 'Scent', 'type': 'input', 'example': 'Musk', 'variationAllowed': true },
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Item Form', 'type': 'input', 'example': 'Cream', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'PPU Count', 'type': 'input', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'AB-12', 'variationAllowed': true },
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
         ]
     },
     {
         'category': 'Beauty and Personal Care',
-        'subCategory': 'Maternity Care',
+        'subCategory': 'Grooming Tools and Accessories',
         'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Style', 'type': 'input', 'example': 'modern', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': 'wood', 'variationAllowed': true },
-            { 'name': 'Color', 'type': 'input', 'example': '', 'variationAllowed': true },
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
         ]
     },
     {
         'category': 'Beauty and Personal Care',
-        'subCategory': 'Nursing and Feeding',
+        'subCategory': 'Makeup - Nail Care',
         'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': 'Small', 'variationAllowed': true },
-            { 'name': 'Shape', 'type': 'input', 'example': 'Round', 'variationAllowed': true },
-            { 'name': 'Pattern', 'type': 'input', 'example': 'Striped', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'Unit Count', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'AB-12', 'variationAllowed': true },
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
         ]
     },
     {
         'category': 'Beauty and Personal Care',
-        'subCategory': 'Sexual Wellness and Sensuality',
+        'subCategory': 'Makeup - Eyes',
         'attributes': [
-            { 'name': 'Scent', 'type': 'input', 'example': 'musk', 'variationAllowed': true },
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Item Form', 'type': 'input', 'example': 'Cream', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'PPU Count', 'type': 'input', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Model', 'type': 'input', 'example': 'EEPL 456', 'variationAllowed': true },
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
         ]
     },
     {
         'category': 'Beauty and Personal Care',
-        'subCategory': 'Tools and Accessories',
+        'subCategory': 'Makeup - Face',
         'attributes': [
-            { 'name': 'Size', 'type': 'input', 'example': 'small', 'variationAllowed': true },
-            { 'name': 'Style', 'type': 'input', 'example': 'modern', 'variationAllowed': true },
-            { 'name': 'Number of Items', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Material Type', 'type': 'input', 'example': 'wood', 'variationAllowed': true },
-            { 'name': 'Item Weight', 'type': 'input', 'example': '5', 'unit': unitWeight },
-            { 'name': 'Model', 'type': 'input', 'example': 'AB-12', 'variationAllowed': true },
-            { 'name': 'Unit Count', 'type': 'number', 'example': '6', 'variationAllowed': true },
-            { 'name': 'Item Shape', 'type': 'input', 'example': 'Round', 'variationAllowed': true },
-            { 'name': 'Manufacturer Part Number', 'type': 'input', 'example': 'ABT 243', 'variationAllowed': true },
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
         ]
+    },
+    {
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Makeup - Lips',
+        'attributes': [
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+        ]
+    },
+    {
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Makeup - Body',
+        'attributes': [
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+        ]
+    },
+    {
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Makeup - Remover',
+        'attributes': [
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+        ]
+    },
+    {
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Makeup - Sets and Kits',
+        'attributes': [
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+        ]
+    },
+    {
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Makeup - Tools and Brushes',
+        'attributes': [
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+        ]
+    },
+    {
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Makeup - Kits and Combos',
+        'attributes': [
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+        ]
+    },
+    {
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Skin Care - Face Cleansers',
+        'attributes': [
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+        ]
+    },
+    {
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Skin Care - Hand and Feet',
+        'attributes': [
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+        ]
+    },
+    {
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Body Care - Cleansers',
+        'attributes': [
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+        ]
+    },
+    {
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Body Care - Moisturizers',
+        'attributes': [
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+        ]
+    },
+    {
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Body Care - Loofah and Other Tools',
+        'attributes': [
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+        ]
+    },
+    {
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Body Care - Bath Salt and Additives',
+        'attributes': [
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+        ]
+    },
+    {
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Hair Care - Shampoo, Oils, Conditioners',
+        'attributes': [
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+        ]
+    },
+    {
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Skin Care - Lotions, Moisturisers, and Creams',
+        'attributes': [
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+        ]
+    },
+    {
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Skin Care - Oils and Serums',
+        'attributes': [
+            {
+                name: "Brand",
+                required: true,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Colour",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Colour Name",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "input",
+            },
+            {
+                name: "Gender",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Concern",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Ingredient",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Conscious",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Preference",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Formulation",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+            {
+                name: "Skin Type",
+                required: false,
+                example: "",
+                variationAllowed: false,
+                type: "select",
+            },
+        ]
+    },
+    {
+        'category': 'Beauty and Personal Care',
+        'subCategory': 'Gift Voucher',
+        'attributes': []
     },
 
     {
@@ -2487,7 +7416,23366 @@ const Attributes = [
 
         ]
     },
-
+    {
+        'category': 'Fashion',
+        'subCategory': 'Shirts',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "upload"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Reversible",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'T Shirts',
+        "attributes": [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Sweatshirts',
+        "attributes": [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Reversible",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sweatshirt Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Waist Rise",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Kurtas & Kurta Sets',
+        "attributes": [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Ornamentation",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Jackets & Coats',
+        "attributes": [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Reversible",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Front Styling",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Sweaters',
+        "attributes": [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Reversible",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Suits',
+        "attributes": [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Front Styling",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Ornamentation",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Sherwanis',
+        "attributes": [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Track Shirts',
+        "attributes": [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Track Suits',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Unstitched Fabrics',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Dresses',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Tops',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Reversible",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Top Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Trousers',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Bottom Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Waist Rise",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Capris',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Bottom Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Waist Rise",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Coordinates',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Playsuits',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Jumpsuits',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Shrugs & Blouses',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Blazers & Waistcoats',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Reversible",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Tights, Leggings & Jeggings',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Track Pants',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Jeans',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Waist Rise",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Shorts',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Joggers',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Dhotis & Dhoti Pants',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Churidars',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Salwars',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hemline",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Dungarees & Jumpsuits',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Skirts',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hemline",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Waist Rise",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Clothing Sets',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Belts',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Reversible",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Buckle Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Buckle Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Caps & Hats',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Kurtis, Tunics',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hemline",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Ornamentation",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Sarees',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Ornamentation",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Ethnic Wear',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Ornamentation",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Palazzos',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hemline",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Ornamentation",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Dress Materials',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Ornamentation",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Lehenga Cholis',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hemline",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Ornamentation",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Dupattas & Shawls',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Ornamentation",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Burqas & Hijabs',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Ornamentation",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Blouses',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Ornamentation",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Blouse Pieces',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Ornamentation",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Briefs',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Boxers',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Vests',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Robes',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Night Suits',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Thermal Wear',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Swim Bottoms',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Swimwear',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Bra',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Coverage",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Padding",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Shapewear',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Coverage",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Padding",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Sleepwear & Loungewear',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Camisoles',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Lingerie Sets & Accessories',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Coverage",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Padding",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Bath Robes',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Towels',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Pyjamas',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Party Wear',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Ornamentation",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Innerwear & Sleepwear',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Closure Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Strap Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Coverage",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Padding",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Seam",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Waist Band",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Nightwear & Loungewear',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Wash Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fit",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Collar",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Neck",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleeve Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Watches',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Strap Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Water Resistant",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Display",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Glass Material",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Power Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Battery Life",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Bluetooth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Call Function",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Heart Rate Monitor",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Pedometer",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sleep Monitor",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "SPO2 Monitor",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Warranty",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Buckle Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Buckle Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Dial Shape",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Gloves',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Socks',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Socks Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Stockings',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Laces',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Soles & Charms',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Shoe Racks & Organisers',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Shoe Care - Accessories',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Flip-Flops & Flats',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Footwear Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Insole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sole Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Toe Shape",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Outsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fasten Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Midsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Sandals & Floaters',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Footwear Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Insole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sole Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Toe Shape",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Outsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fasten Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Midsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Backpacks',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Water Resistant",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Backpack Style",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Closure Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Laptop Compartment",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Strap Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Volume",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lock Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Handbags',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Water Resistant",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Closure Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Laptop Compartment",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Strap Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Volume",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lock Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Trolley, Luggage & Suitcases',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Water Resistant",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lining",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Num Pockets",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Closure Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Laptop Compartment",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Strap Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Volume",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lock Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Formal Shoes',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Footwear Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Insole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sole Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Toe Shape",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Outsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fasten Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Midsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Casual Shoes',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Footwear Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Insole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sole Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Toe Shape",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Outsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fasten Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Midsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Sports Shoes',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Sport Type",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Footwear Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Insole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sole Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Toe Shape",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Outsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fasten Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Midsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Outdoor Shoes',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Footwear Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Insole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sole Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Toe Shape",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Outsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fasten Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Midsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Work & Safety Shoes',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Footwear Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Insole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sole Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Toe Shape",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Outsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fasten Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Midsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Ethnic Shoes',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Footwear Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Insole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sole Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Toe Shape",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Outsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fasten Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Midsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Boots',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Footwear Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Insole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sole Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Toe Shape",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Outsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fasten Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Midsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Heels',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Size Chart",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fabric",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fabric Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Footwear Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Insole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sole Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Toe Shape",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Outsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Fasten Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Midsole",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Contact Lenses',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Lens Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Lens Colour",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Eye Glasses',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Frame Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Frame Shape",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Frame Colour",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Frame Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Frame Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Frame Style",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Face Shape",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Lens Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Lens Colour",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Eye Glass Frames',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Frame Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Frame Shape",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Frame Colour",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Frame Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Frame Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Frame Style",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Face Shape",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Lens Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Lens Colour",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Sunglasses',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Frame Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Frame Shape",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Frame Colour",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Frame Size",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Frame Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Frame Style",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Face Shape",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Lens Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Lens Colour",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Contact Lens Cases',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Contact Lens Solutions',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Contact Lens Tweezers',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Eyeglasses Pouches & Cases',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Microfiber Wipes',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Eyewear Slings',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Bracelets',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Base Metal",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Plating",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Closure Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Stone Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Gem Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Chains',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Base Metal",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Plating",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Closure Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Stone Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Gem Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Mangalsutra',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Base Metal",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Plating",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Closure Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Stone Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Gem Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Anklets',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Base Metal",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Plating",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Closure Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Stone Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Gem Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Bangles & Bracelets',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Base Metal",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Plating",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Closure Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Stone Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Gem Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Necklaces',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Base Metal",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Plating",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Closure Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Stone Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Gem Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Earrings',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Base Metal",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Plating",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Closure Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Stone Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Gem Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Jewellery Sets',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Base Metal",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Plating",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Closure Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Stone Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Gem Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Nosepins & Noserings',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Base Metal",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Plating",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Closure Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Stone Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Gem Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Pendants',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Base Metal",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Plating",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Closure Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Stone Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Gem Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Rings',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Base Metal",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Plating",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Closure Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Stone Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Gem Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Toe Rings',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Base Metal",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Plating",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Closure Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Stone Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Gem Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Gold Coins',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Base Metal",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Plating",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Closure Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Stone Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Gem Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Fashion',
+        'subCategory': 'Brooch',
+        'attributes': [
+            {
+                "name": "Gender",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Colour",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Size",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input",
+            },
+            {
+                "name": "Brand",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Colour Name",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Base Metal",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Plating",
+                "required": true,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Care Instructions",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Weight",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Length",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Breadth",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Height",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Features",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Material Finish",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Pattern",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Occasion",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Season",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Trend",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Bundles",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Max Sale Quantity",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Fragile",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Liquid",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Hazardous",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Closure Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Stone Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Gem Type",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "select",
+            },
+            {
+                "name": "Sustainability",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Handcrafted",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            },
+            {
+                "name": "Craftmark",
+                "required": false,
+                "example": "",
+                "variationAllowed": false,
+                "type": "input"
+            }
+        ]
+    },
+    {
+        'category': 'Appliances',
+        'subCategory': 'Audio',
+        'attributes': []
+    },
+    {
+        'category': 'Appliances',
+        'subCategory': 'Camera and Camcorder',
+        'attributes': []
+    },
+    {
+        'category': 'Appliances',
+        'subCategory': 'Safety Security',
+        'attributes': []
+    },
+    {
+        'category': 'Appliances',
+        'subCategory': 'Speaker',
+        'attributes': []
+    },
+    {
+        'category': 'Appliances',
+        'subCategory': 'Television',
+        'attributes': []
+    },
+    {
+        'category': 'Appliances',
+        'subCategory': 'Video',
+        'attributes': []
+    },
+    {
+        'category': 'Appliances',
+        'subCategory': 'Air Conditioning and Air Cleaners',
+        'attributes': []
+    },
+    {
+        'category': 'Appliances',
+        'subCategory': 'Health, Home and Personal Care',
+        'attributes': []
+    },
+    {
+        'category': 'Appliances',
+        'subCategory': 'Heaters',
+        'attributes': []
+    },
+    {
+        'category': 'Appliances',
+        'subCategory': 'Kitchen Appliances',
+        'attributes': []
+    },
+    {
+        'category': 'Appliances',
+        'subCategory': 'Lighting & Electric Fans',
+        'attributes': []
+    },
+    {
+        'category': 'Appliances',
+        'subCategory': 'Refrigerators and Freezers',
+        'attributes': []
+    },
+    {
+        'category': 'Appliances',
+        'subCategory': 'Vacuum Cleaners',
+        'attributes': []
+    },
+    {
+        'category': 'Appliances',
+        'subCategory': 'Washing Machines and Accessories',
+        'attributes': []
+    },
+    {
+        'category': 'Appliances',
+        'subCategory': 'Water Purifiers and Coolers',
+        'attributes': []
+    },
+    {
+        'category': 'Appliances',
+        'subCategory': 'Inverter & Stabilizer',
+        'attributes': []
+    }
 ];
 
 module.exports = {
